@@ -1,3 +1,11 @@
+<!--app-header></app-header>
+
+<app-stepProgressBar></app-stepProgressBar>
+<router-outlet></router-outlet>
+
+
+<app-footer></app-footer-->
+
 <app-header></app-header>
 
 <div class="row stepper">
@@ -6,7 +14,7 @@
             <mat-step [stepControl]="firstFormGroup">
             <ng-template matStepLabel>Login</ng-template>
                 <form [formGroup]="firstFormGroup">
-                    <app-login [formGroup]="firstFormGroup"></app-login>
+                    <app-index [formGroup]="firstFormGroup"></app-index>
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
@@ -61,13 +69,14 @@
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
+                <ng-template matStepLabel>Answer Questions</ng-template>
                 <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Answer Questions</ng-template>
                     <div class="row">
                         <div class="cloumns large-12 small-12">
                             <p>If you are unsure of the answer, you can select 'Not Sure'</p>
                         </div>
                     </div>
+                    <app-answerQuestions [formGroup]="secondFormGroup"></app-answerQuestions>
                     <div>
                         <button mat-button matStepperPrevious class="button">Back</button>
                         <button mat-button class="button">Save & Exit</button>
