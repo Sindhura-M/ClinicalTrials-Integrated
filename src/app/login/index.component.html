@@ -1,35 +1,40 @@
 <div class="grid-container">
 	<div class="match-content">
 		<div class="open-card-BG" *ngIf="registerView == 'regView'">
-			<h1>Match to clinical trials </h1>
+			<div class="title-card">Match to clinical trials </div>
+			<br/>
 			<p>There are 4 steps to matching you to trials. The first step is to create an accountor sign into your existing account.</p>
 			<p>You will need a valid email address that you can access to verify your account</p>
 			<br/>
 			<br/>
 
-			<h3><i class="fa fa-lock"></i>FYI - privacy statement here</h3>
+			<div class="privacy-stmt"> <i class="fa fa-lock"></i> FYI - privacy statement here</div>
 			<br/>
 			<br/>
 			<br/>
 			<br/>
 
 			<input type="checkbox">
-			<span class="">I understand that my details are stored securely on Clinical Test Trials</span>
+			<span class=""> I understand that my details are stored securely on Clinical Test Trials</span>
 
-			<div>
+			
 				<br/>
 				<br/>
-				<button class="button expanded" (click)="loginClick()">LOG IN TO MY ACCOUNT</button>
-				<button class="button expanded" (click)="createAccountClick()">CREATE A NEW ACCOUNT</button>
+			<div class="row">
+				<div class="large-6 columns">
+					<button class="button expanded" (click)="loginClick()">LOG IN TO MY ACCOUNT</button>
+				</div>
+				<div class="large-6 columns">
+					<button class="button expanded active-button" (click)="createAccountClick()">CREATE A NEW ACCOUNT</button>
+				</div>
 			</div>
 
 		</div>
+
 		<div class="open-card-BG" *ngIf="registerView == 'regView1'">
-					Login component
 				 <app-login></app-login>
 		</div>
 		<div class="open-card-BG" *ngIf="registerView == 'regView2'">
-					Create Account component
 				 <app-createAccount></app-createAccount>
 		</div>
 	</div>

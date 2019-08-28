@@ -20,7 +20,7 @@ p {
 	line-height: 22px;
 }
 
-.input-group-field {
+input-group-field {
 	height: 56px;
 	width: 360px;
 	border: 1px solid #767676;
@@ -28,6 +28,7 @@ p {
 	background-color: #FFFFFF;
 	margin: 1rem 0;
 }
+.privacy-stmt {	height: 36px;	width: 365px;	color: #D0021B;	font-family: "Open Sans";	font-size: 26px;	font-weight: bold;	line-height: 36px;}
 
 .button{
 	height: 50px;
@@ -38,4 +39,10 @@ p {
 	font-weight: 600;
 	line-height: 24px;
 	color: rgba(0,0,0,0.87);
+}
+.active-button {
+	background-color: #FCD8E2;
+}
+input[type="checkbox"]{
+	height: 16px;	width: 16px;	background-color: #474679;
 }

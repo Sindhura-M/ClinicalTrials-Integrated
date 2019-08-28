@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
@@ -17,12 +19,15 @@ import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './login/index.component';
 import { CreateAccountComponent } from './login/createAccount.component';
 import { AnswerQuestionsComponent } from './answerQuestions/answerQuestions.component';
-
+import { HomeComponent } from './home.component';
+import { BreastCancerComponent } from './breastCancer/breastCancer.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: LoginComponent },
    { path: 'createProfile', component: LoginComponent },
-   { path: 'answerQuestions', component: AnswerQuestionsComponent }
+   { path: 'answerQuestions', component: AnswerQuestionsComponent },
+   { path: 'home', component: HomeComponent},
+   { path: 'breastCancer', component: BreastCancerComponent}
 ];
 
 @NgModule({
@@ -36,9 +41,12 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule,
+    MatExpansionModule
   ],
   declarations: [ 
+  HomeComponent,
 	AppComponent,
 	QuizComponent, 
 	HeaderComponent, 
@@ -47,7 +55,8 @@ const appRoutes: Routes = [
   IndexComponent, 
 	CreateAccountComponent, 
 	LoginComponent, 
-  AnswerQuestionsComponent
+  AnswerQuestionsComponent,
+  BreastCancerComponent
   ],
   exports: [
      MatStepperModule,
@@ -55,7 +64,9 @@ const appRoutes: Routes = [
      MatFormFieldModule,
      MatInputModule,
      MatRadioModule,
-     MatSelectModule
+     MatSelectModule,
+     MatTabsModule,
+     MatExpansionModule
    ],
   providers: [],
   bootstrap:    [ AppComponent ]

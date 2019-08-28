@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-createAccount',
-  templateUrl: './createAccount.component.html'
+  templateUrl: './createAccount.component.html',
+  styleUrls: ['./createAccount.component.scss']
 })
 
 export class CreateAccountComponent implements OnInit {

@@ -1,16 +1,25 @@
+<div class="title-card">Create Account</div>
+<p>Already have an account? Click <a href="/login.component.html">here </a>to login.</p>
+
 <div class="row">
 	<!-- Shows -->
 	<div class="large-6 columns"> 
 		<form>
 			<div class="row">
 					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="First name">
+						<mat-form-field>
+				            <input matInput placeholder="First name" formControlName="firstname" required>
+				        </mat-form-field>
 					</div>
 					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Email address">
+						<mat-form-field>
+				            <input matInput placeholder="Email" formControlName="email" required>
+				        </mat-form-field>
 					</div>
 					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Password">
+						<mat-form-field>
+				            <input matInput placeholder="Password" formControlName="password" required>
+				        </mat-form-field>
 					</div>
 			</div>
 		</form>
@@ -19,17 +28,25 @@
 		<form>
 			<div class="row">
 					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Last name">
+						<mat-form-field>
+				            <input matInput placeholder="Last name" formControlName="lastname" required>
+				        </mat-form-field>
 					</div>
 					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Re-type email address">
+						<mat-form-field>
+				            <input matInput placeholder="Re-type email address" formControlName="email" required>
+				        </mat-form-field>
 					</div>
 					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Re-type   password">
+						<mat-form-field>
+				            <input matInput placeholder="Re-type password" formControlName="password" required>
+				        </mat-form-field>
 					</div>
 			</div>
 		</form>
 	</div>
 
-	<button class="button expanded">Create Account</button>
+	<div>
+	    <button mat-button matStepperNext class="button">CREATE ACCOUNT</button>
+	</div>
 </div>
