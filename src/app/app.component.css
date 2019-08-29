@@ -8,10 +8,23 @@ html, body {
 	margin-top: 4em;
 }
 
-.mat-horizontal-stepper-header-container{
+/deep/ .stepper .mat-horizontal-stepper-header-container{
 	margin: 0 0 3rem 0;
+
 }
 
+/deep/ .stepper .mat-step-icon {
+	border-color: #a168f2;
+	background-color: #FCD8E2;
+	color: white;
+}
+
+/deep/ .stepper .mat-step-label{
+	position: relative;
+    top: 30px;
+    left: -40px;
+    text-overflow: inherit;
+}
 .mat-horizontal-stepper-header{
 	padding: 0;
 }

@@ -18,9 +18,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './login/index.component';
 import { CreateAccountComponent } from './login/createAccount.component';
+import { AccountSuccessComponent } from './login/accountSuccess.component';
+
 import { AnswerQuestionsComponent } from './answerQuestions/answerQuestions.component';
 import { HomeComponent } from './home.component';
 import { BreastCancerComponent } from './breastCancer/breastCancer.component';
+import { CreateProfileComponent } from './profile/createProfile.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: LoginComponent },
@@ -53,10 +56,12 @@ const appRoutes: Routes = [
 	FooterComponent,
 	Step3,
   IndexComponent, 
-	CreateAccountComponent, 
+	CreateAccountComponent,
+  AccountSuccessComponent,
 	LoginComponent, 
   AnswerQuestionsComponent,
-  BreastCancerComponent
+  BreastCancerComponent,
+  CreateProfileComponent
   ],
   exports: [
      MatStepperModule,

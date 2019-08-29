@@ -25,16 +25,41 @@ export class AnswerQuestionsComponent implements OnInit {
 	  
 	  quizlist: Quizmodel[] = [
 		{
-		  ID: 1, question: "Inventor of c++?", anslistobj: ["Pavan.c", "James Gosling", "Richie Richie", "Amos.Emmanual"], answer: "Richie Richie"
+		  ID: 1, 
+		  question: "What is the patient's menopausal status?", 
+		  anslistobj: [ 
+		  	"Premenopausal", 
+		  	"Postmenopausal", 
+		  	"Not sure", 
+		  	"Not applicable (male)"
+		  ], 
+		  answer: ""
 		},
 		{
-		  ID: 2, question: "Inventor of java?", anslistobj: ["Nayan.c", "Ärmesh", "Denish Richie", "Kiran.DY"], answer: "Denish Richie"
+		  ID: 2, 
+		  question: "What type of breast cancer (tumour type) does the patient have?", 
+		  anslistobj: [
+		  	"Ductal Carcinoma In Situ (DCIS)", 
+		  	"Lobular Carcinoma In Situ (LCIS)", 
+		  	"Infiltrating ductal carcinoma", 
+		  	"Infiltrating lobular carcinoma",
+		  	"Inflammatory breast cancer",
+		  	"Other",
+		  	"Not sure"
+		  ], 
+		  answer: ""
 		},
 		{
-		  ID: 3, question: "how is java?", anslistobj: ["Easy", "Difficult", "moderate", "nonoe"], answer: "Easy"
+		  ID: 3, 
+		  question: "how is java?", 
+		  anslistobj: ["Easy", "Difficult", "moderate", "nonoe"], 
+		  answer: ""
 		},
 		{
-		  ID: 4, question: "Inventor of cprogram?", anslistobj: ["a", "b", "c", "d"], answer: "a"
+		  ID: 4, 
+		  question: "Inventor of cprogram?", 
+		  anslistobj: ["a", "b", "c", "d"], 
+		  answer: ""
 		}
 	  ];
 

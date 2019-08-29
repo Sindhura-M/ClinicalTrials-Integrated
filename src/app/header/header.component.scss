@@ -1,17 +1,18 @@
 .global-nav {
-    background: #eee1f2 !important;
     display: -ms-flexbox;
     display: flex;
     font-size: .8125rem;
     font-weight: 700;
-    height: 2.8125rem;
+    height: 4.8125rem;
     -ms-flex-pack: justify;
     justify-content: space-between;
     position: relative;
+    background: linear-gradient(90deg, #FFF7F9 0%, #FCD8E2 100%);
+    padding: 1rem;
 }
 
 .global-nav-title {
-    line-height: 0;
+    line-height: 24px;
     padding-left: 1rem;
     display: -ms-flexbox;
     display: flex;
@@ -20,11 +21,14 @@
     height: 100%;
     -ms-flex-pack: center;
     justify-content: center;
+    color: #474679;
+    font-family: Karla; font-size: 21px;  font-weight: bold;
 }
+
 .global-nav-title a {
-  color: black !important;
+  color: #474679 !important;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 21px;
 }
 
 
@@ -47,6 +51,9 @@
     display: flex;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
+
+    color: #2A2A46; font-family: "Open Sans"; font-size: 17px;  line-height: 23px;
+
 }
 .global-nav .menu a {
     color: #000000c4;
@@ -60,7 +67,7 @@
     display: flex;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    padding: .7rem 1rem;
+    padding: .7rem 2rem;
     text-decoration: none;
 }
 

@@ -10,6 +10,11 @@ export class CreateAccountComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+	ngOnInit() { 
+	
+	}
 
+	reSendVerification() {
+		this.registerView= "regView3";
+	}
 }

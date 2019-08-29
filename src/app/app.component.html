@@ -7,76 +7,26 @@
 <app-footer></app-footer-->
 
 <app-header></app-header>
-<app-tabOne></app-tabOne>
-<!--app-home></app-home-->
-<!--div class="row stepper">
+<!--app-tabOne></app-tabOne>
+<app-home></app-home-->
+<div class="row stepper">
     <div class="cloumns large-12 small-12">
         <mat-horizontal-stepper [linear]="isLinear" #stepper>
             <mat-step [stepControl]="firstFormGroup">
-            <ng-template matStepLabel>Login</ng-template>
+            <ng-template matStepLabel>LOG IN</ng-template>
                 <form [formGroup]="firstFormGroup">
                     <app-index [formGroup]="firstFormGroup"></app-index>
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
-                <form [formGroup]="secondFormGroup">
-                    <ng-template matStepLabel>Create your account</ng-template>
-                    <h3>Welcome Chloe</h3>
-                    <div class="row">
-                        <div class="cloumns large-12 small-12">
-                        	<mat-radio-group aria-label="Select an option">Who is this profile for?
-							  <mat-radio-button value="myslef">Myself</mat-radio-button>
-							  <mat-radio-button value="someone">Someone else</mat-radio-button>
-							</mat-radio-group>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="cloumns large-12 small-12">
-                            <mat-form-field>
-                                <input matInput placeholder="postcode" formControlName="postcode" required>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="cloumns large-12 small-12">
-                            <mat-form-field>
-                                <mat-label>Date of birth</mat-label>
-                                <mat-select>
-                                    <mat-option value="date">
-                                        date
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="cloumns large-12 small-12">
-                            <mat-form-field>
-                                <mat-label>Gender</mat-label>
-                                <mat-select>
-                                    <mat-option value="male">
-                                        male
-                                    </mat-option>
-                                    <mat-option value="female">
-                                        female
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div>
-                        <button mat-button matStepperNext class="button">Next</button>
-                    </div>
+                <ng-template matStepLabel>CREATE PROFILE</ng-template>
+                <form [formGroup]="secondFormGroup">                    
+                    <app-createProfile [formGroup]="secondFormGroup"></app-createProfile>
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel>Answer Questions</ng-template>
-                <form [formGroup]="secondFormGroup">
-                    <div class="row">
-                        <div class="cloumns large-12 small-12">
-                            <p>If you are unsure of the answer, you can select 'Not Sure'</p>
-                        </div>
-                    </div>
+                <ng-template matStepLabel>ANSWER QUESTIONS</ng-template>
+                <form [formGroup]="secondFormGroup">                    
                     <app-answerQuestions [formGroup]="secondFormGroup"></app-answerQuestions>
                     <div>
                         <button mat-button matStepperPrevious class="button">Back</button>
@@ -86,7 +36,7 @@
                 </form>
             </mat-step>
             <mat-step>
-                <ng-template matStepLabel>Match Results</ng-template>
+                <ng-template matStepLabel>MATCH RESULTS</ng-template>
                 <div class="row">
                 	<div class="columns large-12 small-12">
                 		<p> Your personalized list of preliminary clinical trials is ready to view</p>
@@ -99,4 +49,4 @@
             </mat-step>
         </mat-horizontal-stepper>
     </div>
-</div-->
+</div>

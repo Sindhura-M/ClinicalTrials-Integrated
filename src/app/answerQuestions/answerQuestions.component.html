@@ -1,19 +1,32 @@
 <div class="jumbotron">
 	
+	<p>If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
+
 	<div class="jumbotron">
-		<ul>
+		<!--ul>
 			{{question}}
-		</ul>
+		</ul-->
+		<mat-radio-group aria-label="Select an option">{{question}}
 	  	<ul *ngFor="let opt of option">
-			<div class="checkbox">
+			<!--div class="checkbox">
 				<label>
-		        	<input type="checkbox" (click)="check($event,opt)">
+		        	<input type="radio" (click)="check($event,opt)">
 		           	{{opt}}
 		   			<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
 					Option one
 		   		</label>
-			</div>
+			</div-->
+			
+                <br/>
+            <div class="row">
+                <div class="large-3 column">
+        		  <mat-radio-button value="{{opt}}">{{opt}}</mat-radio-button>
+                </div>
+                <div class="large-9 column"></div>
+            </div>
+    		
 		</ul>
+		</mat-radio-group>
 	    <!--button (click)="previous(e)" *ngIf="i>0" >previous</button>
 	    <button  (click)="next(e)" *ngIf="i<quizlength">next</button-->
 

@@ -6,10 +6,10 @@ button {
 	margin: 10px;
 }
 
-.title-card {
+.title-card-sub {
 	color: #4A4A4A;
 	font-family: "Open Sans";
-	font-size: 42px;
+	font-size: 36px;
 	font-weight: bold;
 	line-height: 57px;
 }
@@ -22,7 +22,7 @@ p {
 
 .input-group-field {
 	height: 56px;
-	width: 360px;
+	width: 310px;
 	border: 1px solid #767676;
 	border-radius: 4px;
 	background-color: #FFFFFF;
