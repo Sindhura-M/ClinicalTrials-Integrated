@@ -15,6 +15,5 @@ export class CreateAccountComponent implements OnInit {
 	}
 
 	reSendVerification() {
-		this.registerView= "regView3";
 	}
 }

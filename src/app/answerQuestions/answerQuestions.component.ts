@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Quizmodel } from './quiz/quizmodel';
-import { Answermodel } from './quiz/quizmodel';
+import { Quizmodel } from '.././quiz/quizmodel';
+import { Answermodel } from '.././quiz/quizmodel';
 import { Router }  from '@angular/router';
 
 @Component({
@@ -63,7 +63,6 @@ export class AnswerQuestionsComponent implements OnInit {
 		}
 	  ];
 
-	  /******************************************************* */
 	quizlength: number;
 	//selectedlanguage: Quizmodel[] = [];
 	question: String;
@@ -74,7 +73,6 @@ export class AnswerQuestionsComponent implements OnInit {
 	//this.selectedlanques =  this.quizlist.filter(d => (d.language == "java"));
 	  }
 
-	  /******************************************************** */
 	  next(e) {  
 	  	e.preventdefault; 
 		++this.i;
@@ -88,7 +86,6 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.option = this.quizlist[this.i].anslistobj;
 	  }
 
-	/********************************************************* */
 	  
 	  answerkey: AnswerKey[] = [];
 
@@ -108,7 +105,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	  //marks: number = 0;
 	  constructor(private _router: Router){} 
 	  onSubmit(): void { 
-			this._router.navigate(['/step3']); 
+			this._router.navigate(['/']); 
 	   }
 
 	  generateResult() {
@@ -156,11 +153,11 @@ export class AnswerQuestionsComponent implements OnInit {
 		console.log("result:" + JSON.stringify(result));
 	  }
 
-	export class AnswerKey {
+	/*export class AnswerKey {
 	  choosen: String;
 	  answer: String;
 	  constructor(choosen: String, answer: String) {
 		this.choosen = choosen;
 		this.answer = answer;
-	  }
+	  }*/
 }

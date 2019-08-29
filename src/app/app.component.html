@@ -15,13 +15,15 @@
             <mat-step [stepControl]="firstFormGroup">
             <ng-template matStepLabel>LOG IN</ng-template>
                 <form [formGroup]="firstFormGroup">
-                    <app-index [formGroup]="firstFormGroup"></app-index>
+                    <app-index [formGroup]="firstFormGroup" #stepper></app-index>
+                    <button type="submit" class="button" (click)="onGoogleLogin(stepper)">Login with Google</button>
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
                 <ng-template matStepLabel>CREATE PROFILE</ng-template>
+                <h3>Welcome {{user}}</h3>
                 <form [formGroup]="secondFormGroup">                    
-                    <app-createProfile [formGroup]="secondFormGroup"></app-createProfile>
+                    <app-welcome [formGroup]="secondFormGroup"></app-welcome>
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
