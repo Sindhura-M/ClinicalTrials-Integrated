@@ -51,14 +51,14 @@ export class AnswerQuestionsComponent implements OnInit {
 		},
 		{
 		  ID: 3, 
-		  question: "how is java?", 
-		  anslistobj: ["Easy", "Difficult", "moderate", "nonoe"], 
+		  question: "Has the cancer spread to other parts of the body?", 
+		  anslistobj: ["Yes", "No", "Not sure"], 
 		  answer: ""
 		},
 		{
 		  ID: 4, 
-		  question: "Inventor of cprogram?", 
-		  anslistobj: ["a", "b", "c", "d"], 
+		  question: "Date of initial diagnosis?", 
+		  anslistobj: ["date"], 
 		  answer: ""
 		}
 	  ];
@@ -73,14 +73,14 @@ export class AnswerQuestionsComponent implements OnInit {
 	//this.selectedlanques =  this.quizlist.filter(d => (d.language == "java"));
 	  }
 
-	  next(e) {  
-	  	e.preventdefault; 
+	  next(e) { 
 		++this.i;
-		this.question = this.quizlist[this.i].question;
-		this.option = this.quizlist[this.i].anslistobj;
+		if (this.i<this.quizlist.length) {
+			this.question = this.quizlist[this.i].question;
+			this.option = this.quizlist[this.i].anslistobj;
+		}
 	  }
 	  previous(e) {
-	  	e.preventdefault;
 		--this.i;
 		this.question = this.quizlist[this.i].question;
 		this.option = this.quizlist[this.i].anslistobj;
@@ -105,7 +105,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	  //marks: number = 0;
 	  constructor(private _router: Router){} 
 	  onSubmit(): void { 
-			this._router.navigate(['/']); 
+			//this._router.navigate(['/']); 
 	   }
 
 	  generateResult() {
@@ -152,12 +152,13 @@ export class AnswerQuestionsComponent implements OnInit {
 		});
 		console.log("result:" + JSON.stringify(result));
 	  }
+}
 
-	/*export class AnswerKey {
+export class AnswerKey {
 	  choosen: String;
 	  answer: String;
 	  constructor(choosen: String, answer: String) {
 		this.choosen = choosen;
 		this.answer = answer;
-	  }*/
-}
+	  }
+	}

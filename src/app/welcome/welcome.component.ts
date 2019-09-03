@@ -14,6 +14,7 @@ export class WelcomeComponent implements OnInit {
 	  form: FormGroup;
 	  public control : FormControl;
 	  //@Input() postcode : any;
+	  postcode;
 
 	  constructor(private controlContainer: ControlContainer, private route: ActivatedRoute) { }
 

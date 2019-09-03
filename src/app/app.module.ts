@@ -24,18 +24,21 @@ import { IndexComponent } from './login/index.component';
 import { CreateAccountComponent } from './login/createAccount.component';
 import { AccountSuccessComponent } from './login/accountSuccess.component';
 import { AnswerQuestionsComponent } from './answerQuestions/answerQuestions.component';
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 import { BreastCancerComponent } from './breastCancer/breastCancer.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AboutCTCComponent } from './about/about.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 const appRoutes: Routes = [
-   { path: 'login', component: LoginComponent },
+   { path: 'login', component: StepperComponent },
    { path: 'welcome', component: WelcomeComponent },
    { path: 'answerQuestions', component: AnswerQuestionsComponent },
    { path: 'home', component: HomeComponent},
    { path: 'breastCancer', component: BreastCancerComponent},
+   { path: 'about', component: AboutCTCComponent},
    { path: '', redirectTo: '/login', pathMatch: 'full'},
-   { path: '**', component: LoginComponent }
+   { path: '**', component: StepperComponent }
 ];
 
 @NgModule({
@@ -69,7 +72,9 @@ const appRoutes: Routes = [
 	LoginComponent, 
   AnswerQuestionsComponent,
   BreastCancerComponent,
-  WelcomeComponent
+  WelcomeComponent,
+  AboutCTCComponent,
+  StepperComponent
   ],
   exports: [
      MatStepperModule,

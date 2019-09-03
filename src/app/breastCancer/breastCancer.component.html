@@ -1,57 +1,67 @@
-<mat-tab-group>
-  <mat-tab label="What is breast cancer">
-	<div id="background" class="row home-page-img">
-		<img src="././assets/images/tabOneImg.png" class="stretch" alt="tabOneImg.png">
+<div class="container">
+	<mat-tab-group>
+	  <mat-tab label="What is breast cancer">
+		<div id="background" class="row home-page-img">
+			<img src="././assets/images/tabOneImg.png" class="stretch" alt="tabOneImg.png">
 
-		<mat-expansion-panel>
-		    <mat-expansion-panel-header>
-				<mat-panel-title>
-				  What is breast cancer ?
-				</mat-panel-title>
-			<!--mat-panel-description>
-			  This is a summary of the content
-			</mat-panel-description-->
-		  	</mat-expansion-panel-header>
+			<mat-expansion-panel>
+			    <mat-expansion-panel-header>
+					<mat-panel-title>
+					  What is breast cancer ?
+					</mat-panel-title>
+				<!--mat-panel-description>
+				  This is a summary of the content
+				</mat-panel-description-->
+			  	</mat-expansion-panel-header>
 
-		  	<p>Cancer occurs when cells grow in an abnormal way and multiple uncontrollably, invading healthy tissue.</p>
+			  	<p>Cancer occurs when cells grow in an abnormal way and multiple uncontrollably, invading healthy tissue.</p>
 
-		  	<p>Normally, cells in our body are replaced through the development of new cells. This process is regulated by our genes. Sometimes, the genes are abnormal (mutated) meaning this process is disrupted and the cells may grow and divide rapidly, forming a cancerous or malignant tumour. The cancer cells may spread to surrounding tissue or other parts of the body.
-		  	</p>
+			  	<p>Normally, cells in our body are replaced through the development of new cells. This process is regulated by our genes. Sometimes, the genes are abnormal (mutated) meaning this process is disrupted and the cells may grow and divide rapidly, forming a cancerous or malignant tumour. The cancer cells may spread to surrounding tissue or other parts of the body.
+			  	</p>
 
-		  	<p>Breast cancer is the abnormal growth of cells lining the breast lobules (milk producing glands) and breast ducts (passages that drain milk from the lobules towards the nipple). The cells grow uncontrollably, forming an invasive breast cancer. The cells have the potential to spread to other parts of the body. There are different types of breast cancer, which may require different treatments. The three main subtypes of breast cancer include hormone receptor positive breast cancer, HER2 receptor positive breast cancer and triple negative breast cancer. Breast cancer can occur in women and men.
-          	</p>
+			  	<p>Breast cancer is the abnormal growth of cells lining the breast lobules (milk producing glands) and breast ducts (passages that drain milk from the lobules towards the nipple). The cells grow uncontrollably, forming an invasive breast cancer. The cells have the potential to spread to other parts of the body. There are different types of breast cancer, which may require different treatments. The three main subtypes of breast cancer include hormone receptor positive breast cancer, HER2 receptor positive breast cancer and triple negative breast cancer. Breast cancer can occur in women and men.
+	          	</p>
 
-		</mat-expansion-panel>
+			</mat-expansion-panel>
 
-		<mat-expansion-panel>
-			<mat-expansion-panel-header>
-				<mat-panel-title>
-				  What are clinical trials?
-				</mat-panel-title>
-			</mat-expansion-panel-header>
-			<p>...</p>
-		</mat-expansion-panel>
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+					  What are clinical trials?
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<p>...</p>
+			</mat-expansion-panel>
 
-		<mat-expansion-panel>
-			<mat-expansion-panel-header>
-				<mat-panel-title>
-				  Why should you participate in clinical trials?
-				</mat-panel-title>
-			</mat-expansion-panel-header>
-			<p>...</p>
-		</mat-expansion-panel>
-		
-	</div>
+			<mat-expansion-panel>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+					  Why should you participate in clinical trials?
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+				<p>...</p>
+			</mat-expansion-panel>
+			
+		</div>
 
-  </mat-tab>
-  <mat-tab label="Breast cancer treatments">
-  	<div id="background" class="row home-page-img">
-		<img src="././assets/images/tabTwoImg.png" class="stretch" alt="tabTwoImg.png">
-	</div>
-	<h1>Breast Cancer Treatments</h1>
-	<!--table mat-table [dataSource]="myDataArray">
-	  <mat-text-column name="Chemotherapy"></mat-text-column>
-	  <mat-text-column name="Targeted Therapy"></mat-text-column>
-	</table-->
-  </mat-tab>
-</mat-tab-group>
+	  </mat-tab>
+	  <mat-tab label="Breast cancer treatments">
+	  	<div id="background" class="row home-page-img">
+			<img src="././assets/images/tabTwoImg.png" class="stretch" alt="tabTwoImg.png">
+		</div>
+		<div class="title-BC">Breast Cancer Treatments</div	>
+		<table mat-table>
+		  	<ng-container matColumnDef="position">
+		      <th mat-header-cell *matHeaderCellDef> Chemotherapy </th>
+		      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+		    </ng-container>
+
+	    <!-- Name Column -->
+	   		 <ng-container matColumnDef="name">
+		      <th mat-header-cell *matHeaderCellDef> Name </th>
+		      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+		    </ng-container>
+		</table>
+	  </mat-tab>
+	</mat-tab-group>
+</div>

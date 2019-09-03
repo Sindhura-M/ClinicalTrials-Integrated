@@ -1,16 +1,16 @@
 import { Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { AuthService } from './auth.service';
+import { AuthService } from '.././auth.service';
 import { Router, Params } from '@angular/router';
 import { MatStepper } from '@angular/material/stepper';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-stepper',
+  templateUrl: './stepper.component.html',
+  styleUrls: ['./stepper.component.css']
 })
-export class AppComponent {
-  /*title = 'clinical-trials-connect-angular';
+export class StepperComponent {
+  title = 'clinical-trials-connect-angular';
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -37,5 +37,5 @@ export class AppComponent {
       this.router.navigate(['/welcome']);
       this.user = res.user.displayName;
     })
- }*/
+ }
 }

@@ -1,0 +1,40 @@
+/deep/ .container {
+	.mat-tab-header {
+		border-bottom: none;
+	}
+	.mat-tab-list {
+		margin: 0 10rem;
+		margin-top: 1rem;
+
+		.mat-tab-label {
+			color: #2A2A46;	
+			font-family: "Open Sans";
+			font-size: 17px;
+			font-weight: 600;
+			line-height: 23px;
+			padding: 0;
+	    	margin: 0 1rem;
+	    	min-width: 85px;
+		}
+		
+		.mat-tab-label-active .mat-tab-label-content{
+			color: #2A2A46;
+		}
+
+		.mat-ink-bar {
+		    height: 0.2rem;
+		    background-color: #2A2A46;
+		}
+	}
+}
+
+@media screen and (max-width: 40em) {
+	/deep/ .container {
+
+		.mat-tab-list {
+			margin: 0 ;
+			margin-top: 1rem;
+
+		}
+	}
+}

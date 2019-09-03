@@ -1,0 +1,58 @@
+html, body {
+  font-family: "Open Sans";
+}
+
+.stepper {
+	width: 700px;
+	margin: auto;
+	margin-top: 4em;
+}
+
+/deep/ .stepper	.mat-horizontal-stepper-header-container {
+		margin: 0 0 3rem 0;
+}
+/deep/ .stepper	.mat-step-icon {
+	border-color: #a168f2;
+	background-color: #FCD8E2;
+	color: white;
+}
+/deep/ .stepper	.mat-step-label{
+	position: relative;
+    top: 30px;
+    left: -40px;
+    text-overflow: inherit;
+}
+/deep/ .stepper	.mat-horizontal-stepper-header{
+	padding: 0;
+}
+
+/deep/ .stepper .mat-stepper-horizontal-line{
+	margin: 0 0px 0 -50px;
+}
+
+button {
+	margin: 10px;
+}
+
+.title-card {
+	color: #4A4A4A;
+	font-family: "Open Sans";
+	font-size: 42px;
+	font-weight: bold;
+	line-height: 57px;
+}
+
+p {
+	color: #4A4A4A;
+	font-size: 17px;
+	line-height: 22px;
+}
+
+input, input-group-field {
+	height: 56px;
+	width: 360px;
+	border: 1px solid #767676;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	margin: 1rem 0;
+}

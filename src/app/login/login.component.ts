@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 	public control : FormControl;
 	@Input() email : any;
 	@Input() password : any;
+	user = '';
 
 	constructor(private controlContainer: ControlContainer, public authService: AuthService, private router: Router) { }
 

@@ -17,7 +17,7 @@
 		   		</label>
 			</div-->
 			
-                <br/>
+            <br/>
             <div class="row">
                 <div class="large-3 column">
         		  <mat-radio-button value="{{opt}}">{{opt}}</mat-radio-button>
@@ -27,11 +27,8 @@
     		
 		</ul>
 		</mat-radio-group>
-	    <!--button (click)="previous(e)" *ngIf="i>0" >previous</button>
-	    <button  (click)="next(e)" *ngIf="i<quizlength">next</button-->
-
+	    <button (click)="previous(e)" *ngIf="i>0" >previous</button>
+	    <button (click)="next(e)" *ngIf="i<quizlength">next</button>
+	    <button mat-button matStepperNext class="btn btn-info" *ngIf="i==quizlength" (click)="generateResult()">submit</button>
 	</div>
-
-	<button class="btn btn-info"  *ngIf="i==quizlength" (click)="onSubmit()">submit</button>
-
 </div>
