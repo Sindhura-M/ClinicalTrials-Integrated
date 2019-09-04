@@ -31,11 +31,11 @@ export class StepperComponent {
   }
 
    onGoogleLogin(stepper: MatStepper){
-  this.authService.doGoogleLogin()
-    .then(res => {
-      stepper.next();
-      this.router.navigate(['/welcome']);
-      this.user = res.user.displayName;
-    })
- }
+    this.authService.doGoogleLogin()
+      .then(res => {
+        stepper.next();
+        this.router.navigate(['/login']);
+        this.user = res.user.displayName;
+      })
+   }
 }

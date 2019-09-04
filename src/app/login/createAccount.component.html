@@ -1,77 +1,85 @@
-<div class="title-card-sub">Create Account</div>
-<p>Already have an account? Click <a href="/login.component.html">here </a>to login.</p>
+<div class="container">
+	<div class="title-card-sub">Create Account</div>
+	<p>Already have an account? Click <a href="/login">here </a>to login.</p>
 
-<div class="row">
-	<!-- Shows -->
-	<div class="large-6 columns"> 
-		<form>
-			<div class="row">
-				<!--div class="large-12 column">
-					<mat-form-field>
-			            <input matInput placeholder="First name" formControlName="firstname" required>
-			        </mat-form-field>
-				</div>
-				<div class="large-12 column">
-					<mat-form-field>
-			            <input matInput placeholder="Email" formControlName="email" required>
-			        </mat-form-field>
-				</div>
-				<div class="large-12 column">
-					<mat-form-field>
-			            <input matInput placeholder="Password" formControlName="password" required>
-			        </mat-form-field>
-				</div>
-				<div class="large-12 column">
-					<input class="input-group-field" type="text" placeholder="First name">
-				</div-->
-				<div class="large-12 column">
-					<input class="input-group-field" type="text" placeholder="First name">
-				</div>
-				<div class="large-12 column">
-					<input class="input-group-field" type="text" placeholder="Email address">
-				</div>
-				<div class="large-12 column">
-					<input class="input-group-field" type="text" placeholder="Password">
-				</div>
-			</div>
-		</form>
-	</div>
-	<div class="large-6 columns"> 
-		<form>
-			<div class="row">
-				<!--div class="large-12 column">
-					<mat-form-field>
-			            <input matInput placeholder="Last name" formControlName="lastname" required>
-			        </mat-form-field>
-				</div>
-				<div class="large-12 column">
-					<mat-form-field>
-			            <input matInput placeholder="Re-type email address" formControlName="email" required>
-			        </mat-form-field>
-				</div>
-				<div class="large-12 column">
-					<mat-form-field>
-			            <input matInput placeholder="Re-type password" formControlName="password" required>
-			        </mat-form-field>
-				</div-->
-				<div class="large-12 column">
-					<input class="input-group-field" type="text" placeholder="Last name">
-				</div>
-				<div class="large-12 column">
-					<input class="input-group-field" type="text" placeholder="Re-type email address">
-				</div>
-				<div class="large-12 column">
-					<input class="input-group-field" type="text" placeholder="Re-type password">
-				</div>
-			</div>
-		</form>
-	</div>
+	<div class="row">
+		<!-- Shows -->
+		<div class="large-6 columns"> 
+			<form>
+				<div class="row">
+					<!--div class="large-12 column">
+						<mat-form-field>
+				            <input matInput placeholder="First name" formControlName="firstname" required>
+				        </mat-form-field>
+					</div>
+					<div class="large-12 column">
+						<mat-form-field>
+				            <input matInput placeholder="Email" formControlName="email" required>
+				        </mat-form-field>
+					</div>
+					<div class="large-12 column">
+						<mat-form-field>
+				            <input matInput placeholder="Password" formControlName="password" required>
+				        </mat-form-field>
+					</div>
+					<div class="large-12 column">
+						<input class="input-group-field" type="text" placeholder="First name">
 
-	<div class="large-6 columns"> 
-	 
-	</div>
-	<div class="large-6 columns"> 
-		<button mat-button matStepperNext class="button expanded" (click)="reSendVerification()">CREATE ACCOUNT</button>
-	    <!--button mat-button matStepperNext class="button">CREATE ACCOUNT</button-->
+						<mat-checkbox>Check me!</mat-checkbox>
+
+					</div-->
+					<div class="large-12 column">
+						<input class="input-group-field" type="text" placeholder="First name">
+					</div>
+					<div class="large-12 column">
+						<input class="input-group-field" type="text" placeholder="Email address">
+					</div>
+					<div class="large-12 column">
+						<input matInput #password class="input-group-field" type="inputType" placeholder="Password">
+						<mat-password-strength #passwordComponent
+						[password]="password.value">
+						</mat-password-strength>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="large-6 columns"> 
+			<form>
+				<div class="row">
+					<!--div class="large-12 column">
+						<mat-form-field>
+				            <input matInput placeholder="Last name" formControlName="lastname" required>
+				        </mat-form-field>
+					</div>
+					<div class="large-12 column">
+						<mat-form-field>
+				            <input matInput placeholder="Re-type email address" formControlName="email" required>
+				        </mat-form-field>
+					</div>
+					<div class="large-12 column">
+						<mat-form-field>
+				            <input matInput placeholder="Re-type password" formControlName="password" required>
+				        </mat-form-field>
+					</div-->
+					<div class="large-12 column">
+						<input class="input-group-field" type="text" placeholder="Last name">
+					</div>
+					<div class="large-12 column">
+						<input class="input-group-field" type="text" placeholder="Re-type email address">
+					</div>
+					<div class="large-12 column">
+						<input class="input-group-field" type="text" placeholder="Re-type password">
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="large-6 columns"> 
+		 
+		</div>
+		<div class="large-6 columns"> 
+			<button mat-button matStepperNext class="button expanded" (click)="reSendVerification()">CREATE ACCOUNT</button>
+		    <!--button mat-button matStepperNext class="button">CREATE ACCOUNT</button-->
+		</div>
 	</div>
 </div>

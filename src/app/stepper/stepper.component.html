@@ -5,8 +5,8 @@
             <mat-step [stepControl]="firstFormGroup">
             <ng-template matStepLabel>LOG IN</ng-template>
                 <form [formGroup]="firstFormGroup">
-                    <app-index [formGroup]="firstFormGroup" #stepper></app-index>
-                    <button type="submit" class="button" (click)="onGoogleLogin(stepper)">Login with Google</button>
+                    <app-index [formGroup]="firstFormGroup"></app-index>
+                    <button type="submit" class="button" (click)="onGoogleLogin(stepper)">LOG IN WITH GOOGLE</button>
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">

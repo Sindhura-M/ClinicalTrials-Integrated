@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, ControlContainer, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, ControlContainer, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../user.model';
+import { Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -11,7 +12,7 @@ import { User } from '../user.model';
 
 export class WelcomeComponent implements OnInit {
 	  user: User = new User();
-	  form: FormGroup;
+	  public form: FormGroup;
 	  public control : FormControl;
 	  //@Input() postcode : any;
 	  postcode;

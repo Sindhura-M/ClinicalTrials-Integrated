@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import {MatStepperModule} from '@angular/material/stepper';
-import {MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatProgressBarModule} from '@angular/material';
+import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -26,9 +27,10 @@ import { AccountSuccessComponent } from './login/accountSuccess.component';
 import { AnswerQuestionsComponent } from './answerQuestions/answerQuestions.component';
 import { HomeComponent } from './home/home.component';
 import { BreastCancerComponent } from './breastCancer/breastCancer.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+
 import { AboutCTCComponent } from './about/about.component';
 import { StepperComponent } from './stepper/stepper.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: StepperComponent },
@@ -44,7 +46,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ 
   	BrowserModule, 
-  	FormsModule, 
+  	FormsModule,
   	RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MatStepperModule,
@@ -58,7 +60,9 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatPasswordStrengthModule.forRoot(),
+    MatProgressBarModule
   ],
   declarations: [ 
   HomeComponent,
@@ -84,7 +88,8 @@ const appRoutes: Routes = [
      MatRadioModule,
      MatSelectModule,
      MatTabsModule,
-     MatExpansionModule
+     MatExpansionModule,
+     MatProgressBarModule
    ],
   providers: [],
   bootstrap:    [ AppComponent ]

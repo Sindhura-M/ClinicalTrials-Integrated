@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 	@Input() password : any;
 	user = '';
 
-	constructor(private controlContainer: ControlContainer, public authService: AuthService, private router: Router) { }
+	constructor(private controlContainer: ControlContainer, public authService: AuthService, private router: Router ) { }
 
 	ngOnInit() {
 		this.form = <FormGroup>this.controlContainer.control;
@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
 	}
 
 	
-	onGoogleLogin(stepper: MatStepper){
+	/*onGoogleLogin(stepper: MatStepper){
 		this.authService.doGoogleLogin()
 			.then(res => {
 				stepper.next();
-				this.router.navigate(['/welcome']);
+				//this.router.navigate(['/welcome']);
 				this.user = res.user.displayName;
 			})
 	 }
- 
+ 	*/
 
 }
