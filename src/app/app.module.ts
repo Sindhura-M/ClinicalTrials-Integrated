@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatProgressBarModule} from '@angular/material';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire';
@@ -50,7 +52,6 @@ const appRoutes: Routes = [
   	RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MatStepperModule,
-    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -62,7 +63,10 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AppRoutingModule,
     MatPasswordStrengthModule.forRoot(),
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCheckboxModule,
+    MatListModule,
+    ReactiveFormsModule
   ],
   declarations: [ 
   HomeComponent,
@@ -82,14 +86,16 @@ const appRoutes: Routes = [
   ],
   exports: [
      MatStepperModule,
-     ReactiveFormsModule,
      MatFormFieldModule,
      MatInputModule,
      MatRadioModule,
      MatSelectModule,
      MatTabsModule,
      MatExpansionModule,
-     MatProgressBarModule
+     MatProgressBarModule,
+     MatCheckboxModule,
+     MatListModule,
+     ReactiveFormsModule
    ],
   providers: [],
   bootstrap:    [ AppComponent ]

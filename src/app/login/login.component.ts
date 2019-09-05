@@ -24,15 +24,4 @@ export class LoginComponent implements OnInit {
 		this.password = <FormControl>this.form.get(this.password);
 	}
 
-	
-	/*onGoogleLogin(stepper: MatStepper){
-		this.authService.doGoogleLogin()
-			.then(res => {
-				stepper.next();
-				//this.router.navigate(['/welcome']);
-				this.user = res.user.displayName;
-			})
-	 }
- 	*/
-
 }

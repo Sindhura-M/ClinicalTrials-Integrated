@@ -1,33 +1,29 @@
-<div [formGroup]="form">
-    <div>
+<div [formGroup]="myGroup"> 
+    <div *ngIf="true">
         <div class="large-12 small-12 cloumn">
         	<mat-radio-group aria-label="Select an option">Who is this profile for?
                 <br/>
-            <div class="row">
-                <div class="large-3 column">
-        		  <mat-radio-button value="myslef">Myself</mat-radio-button>
+                <div class="row">
+                    <div class="large-3 column">
+            		  <mat-radio-button value="myslef">Myself</mat-radio-button>
+                    </div>
+                    <div class="large-3 column">
+            		  <mat-radio-button value="someone">Someone else</mat-radio-button>
+                    </div>
+                    <div class="large-6 column"></div>
                 </div>
-                <div class="large-3 column">
-        		  <mat-radio-button value="someone">Someone else</mat-radio-button>
-                </div>
-                <div class="large-6 column"></div>
-            </div>
     		</mat-radio-group>
         </div>
-    </div>
-    <br/>
+        <br/>
 
-    <div>
         <div class="large-12 small-12 cloumn">
             <div class="labelClass">Postcode</div>
             <div class="large-12 column">
                 <input class="input-group-field" type="text" placeholder="Postcode" required>
             </div>
         </div>
-    </div>
-    <br/>
-    <br/>
-    <div>
+        <br/>
+        <br/>
         <div class="labelClass">Date of birth</div>
         <div class="large-12 small-12 cloumn">
             <select name="Day">
@@ -40,9 +36,7 @@
                 <option>Year</option>
             </select>
         </div>
-    </div>
-    <br/>
-    <div>
+        <br/>
         <div class="large-12 small-12 cloumn">
             <div class="sub-title">Gender</div>
             <select name="Gender">
@@ -51,15 +45,13 @@
                 <option value="option-2">Female</option>
             </select>
         </div>
-    </div>
-    <br/>
-    <hr>
+        <hr>
 
-    <div class="row">
-        <span> All fields are mandatory</span>
-        <button mat-button matStepperNext class="nextButton">Next</button>
-    <div>
-        
+        <div class="row">
+            <span> All fields are mandatory</span>
+            <button mat-button matStepperNext class="nextButton">Next</button>
+        </div>
+    </div>
 </div>
 
 <!-----Paru code----->

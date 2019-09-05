@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Quizmodel } from '.././quiz/quizmodel';
 import { Answermodel } from '.././quiz/quizmodel';
 import { Router }  from '@angular/router';
+import { AnswerKey } from '.././quiz/quizmodel';
+import questionnaire from '../.././assets/questions.json';
 
 @Component({
   selector: 'app-answerQuestions',
@@ -16,17 +18,21 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.option = this.quizlist[0].anslistobj;
 		this.i = 0;
 		this.quizlength = this.quizlist.length;
+		this.optionType = this.quizlist[0].optionType;
+
+		this.show = true;
 	}
 
 	myarray: String[] = [];
 	i: number = 0;
 	//languages: String[] = ["java", "cprogram", "C++", "Spring", "Html", "Asp.net"];
-	 newstr: String
+	 newstr: String;
 	  
 	  quizlist: Quizmodel[] = [
 		{
 		  ID: 1, 
-		  question: "What is the patient's menopausal status?", 
+		  question: "What is the patient's menopausal status?",
+		  optionType: "radio",
 		  anslistobj: [ 
 		  	"Premenopausal", 
 		  	"Postmenopausal", 
@@ -38,6 +44,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		{
 		  ID: 2, 
 		  question: "What type of breast cancer (tumour type) does the patient have?", 
+		  optionType: "radio",
 		  anslistobj: [
 		  	"Ductal Carcinoma In Situ (DCIS)", 
 		  	"Lobular Carcinoma In Situ (LCIS)", 
@@ -52,14 +59,30 @@ export class AnswerQuestionsComponent implements OnInit {
 		{
 		  ID: 3, 
 		  question: "Has the cancer spread to other parts of the body?", 
+		  optionType: "radio",
 		  anslistobj: ["Yes", "No", "Not sure"], 
 		  answer: ""
 		},
 		{
 		  ID: 4, 
-		  question: "Date of initial diagnosis?", 
-		  anslistobj: ["date"], 
-		  answer: ""
+		  question: "Has the breast cancer metastasised (spread) from the breast to any of the following areas? Please select all that apply.", 
+		  optionType: "checkbox",
+		  anslistobj: ["Breast cancer has not spread ", 
+		  "Lymph nodes near the tumour", 
+		  "Tissue adjacent to primary tumor (locally advanced)", 
+		  "Distant lymph nodes",
+		   "Other breast", 
+		   "Abdomen", 
+		   "Bone (including vertebrae)", 
+		   "Brain", 
+		   "Fluid around the lungs (malignant pleural effusion)", 
+		   "Liver", 
+		   "Lung", 
+		   "Skin", 
+		   "Other", 
+		   "Not sure"
+		   ],
+		   answer: ""
 		}
 	  ];
 
@@ -68,6 +91,8 @@ export class AnswerQuestionsComponent implements OnInit {
 	question: String;
 	//selectedvalue: String;
 	option: any[];
+	optionType: String;
+	show: any;
 	//selectedlanques: any[];
 	gettinglanguage() {
 	//this.selectedlanques =  this.quizlist.filter(d => (d.language == "java"));
@@ -78,12 +103,20 @@ export class AnswerQuestionsComponent implements OnInit {
 		if (this.i<this.quizlist.length) {
 			this.question = this.quizlist[this.i].question;
 			this.option = this.quizlist[this.i].anslistobj;
+			this.optionType = this.quizlist[this.i].optionType;
+		}
+		if ( this.i > 0 ) {
+			this.show = false;
 		}
 	  }
 	  previous(e) {
 		--this.i;
 		this.question = this.quizlist[this.i].question;
 		this.option = this.quizlist[this.i].anslistobj;
+		this.optionType = this.quizlist[this.i].optionType;
+		if ( this.i = 0 ) {
+			this.show = true;
+		}
 	  }
 
 	  
@@ -105,7 +138,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	  //marks: number = 0;
 	  constructor(private _router: Router){} 
 	  onSubmit(): void { 
-			//this._router.navigate(['/']); 
+			this._router.navigate(['/']); 
 	   }
 
 	  generateResult() {
@@ -153,12 +186,3 @@ export class AnswerQuestionsComponent implements OnInit {
 		console.log("result:" + JSON.stringify(result));
 	  }
 }
-
-export class AnswerKey {
-	  choosen: String;
-	  answer: String;
-	  constructor(choosen: String, answer: String) {
-		this.choosen = choosen;
-		this.answer = answer;
-	  }
-	}

@@ -12,7 +12,7 @@ import { Router, Params } from '@angular/router';
 
 export class WelcomeComponent implements OnInit {
 	  user: User = new User();
-	  public form: FormGroup;
+	  public myGroup: FormGroup;
 	  public control : FormControl;
 	  //@Input() postcode : any;
 	  postcode;
@@ -29,7 +29,7 @@ export class WelcomeComponent implements OnInit {
 	      }
 	    })
 
-	    this.form = <FormGroup>this.controlContainer.control;
-	    this.postcode = <FormControl>this.form.get(this.postcode);
+	    this.myGroup = <FormGroup>this.controlContainer.control;
+	    this.postcode = <FormControl>this.myGroup.get(this.postcode);
 	  }
 }

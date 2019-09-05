@@ -1,34 +1,46 @@
 <div class="jumbotron">
-	
-	<p>If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
+
+	<p *ngIf="show">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
 
 	<div class="jumbotron">
 		<!--ul>
 			{{question}}
 		</ul-->
-		<mat-radio-group aria-label="Select an option">{{question}}
+		{{question}}
+
+		<mat-radio-group aria-label="Select an option">
 	  	<ul *ngFor="let opt of option">
-			<!--div class="checkbox">
-				<label>
-		        	<input type="radio" (click)="check($event,opt)">
-		           	{{opt}}
-		   			<span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-					Option one
-		   		</label>
-			</div-->
-			
-            <br/>
-            <div class="row">
+            <div class="row" *ngIf="optionType == 'radio'">
                 <div class="large-3 column">
-        		  <mat-radio-button value="{{opt}}">{{opt}}</mat-radio-button>
+        		  <mat-radio-button (click)="check($event,opt)" value="{{opt}}">{{opt}}</mat-radio-button>
                 </div>
                 <div class="large-9 column"></div>
             </div>
-    		
 		</ul>
 		</mat-radio-group>
-	    <button (click)="previous(e)" *ngIf="i>0" >previous</button>
-	    <button (click)="next(e)" *ngIf="i<quizlength">next</button>
-	    <button mat-button matStepperNext class="btn btn-info" *ngIf="i==quizlength" (click)="generateResult()">submit</button>
+
+
+		<!--ul *ngFor="let opt of option">
+            <div class="row" *ngIf="optionType == 'checkbox'">
+                <div class="large-3 column">
+        		  <mat-checkbox (click)="check($event,opt)" value="{{opt}}">{{opt}}</mat-checkbox>
+                </div>
+                <div class="large-9 column"></div>
+            </div>
+		</ul-->
+
+		<ul *ngFor="let opt of option"> 
+			<div class="row" *ngIf="optionType == 'checkbox'">
+				<mat-selection-list #options>
+				  <mat-list-option >
+				    {{opt}}
+				  </mat-list-option>
+				</mat-selection-list>
+			</div>
+		</ul>
+
+	    <button (click)="previous()" *ngIf="i>0" >previous</button>
+	    <button (click)="next()" *ngIf="i<quizlength">next</button>
+	    <button mat-button matStepperNext class="btn btn-info" *ngIf="i==quizlength" (click)="onSubmit()">submit</button>
 	</div>
 </div>

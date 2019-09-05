@@ -30,7 +30,9 @@
         {"subquestion" :"Has the cancer spread to other parts of the body?", 
           "optionType": "radio",
         "anslistobj": ["Yes", "No", "Not sure"]}
-      ]
+      ],
+    "optionType": "",
+    "anslistobj":[]
   },
   {
     "ID": 5, 
