@@ -1,3 +1,9 @@
+.container{
+    max-width: 700px;
+}
+.full-width {
+	width: 100%;
+}
 button {
 	height: 50px;
 	width: 310px;
@@ -11,4 +17,46 @@ button {
 
 button {
 	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 1px 2px 0 #9B9B9B;
+}
+
+.display-flex{
+	display : flex;
+	list-style-type: none;
+}
+.flexItem-width {
+	width : 50%;
+}
+
+.optionList {
+	color: rgba(0,0,0,0.87);
+    font-family: "Open Sans";
+    font-size: 16px;
+    letter-spacing: 0.51px;
+    line-height: 2.5rem;
+}
+.option-subTitle {
+	min-height: 7rem;
+	margin: 1rem 0;
+}
+.optionList-width {
+	width: 140%;
+}
+.button-small-active {
+	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; float:right; margin: 0.5rem;
+}
+.button-small{
+	height: 50px;	width: 165px;	border-radius: 25px; background-color: #FFFFFF; float:right; border: 3px solid #FCD8E2; box-shadow: none; margin: 0.5rem;
+}
+
+[type=checkbox] {
+    margin: 1rem 1rem 0 0;
+    padding-top: 1rem;
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    vertical-align: sub;
+}
+
+.left-float {
+	float: left;
 }

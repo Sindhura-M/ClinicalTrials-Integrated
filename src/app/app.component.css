@@ -54,3 +54,7 @@ input, input-group-field {
 	background-color: #FFFFFF;
 	margin: 1rem 0;
 }
+
+hr {
+	margin: 2.25rem auto;
+}

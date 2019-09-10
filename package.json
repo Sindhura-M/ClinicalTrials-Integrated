@@ -28,6 +28,7 @@
     "core-js": "^2.5.4",
     "firebase": "^6.4.2",
     "foundation-sites": "^6.5.3",
+    "ng-pick-datetime": "^7.0.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

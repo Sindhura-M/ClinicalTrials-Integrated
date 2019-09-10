@@ -10,28 +10,31 @@
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel>CREATE PROFILE</ng-template>
+                <ng-template matStepLabel>CREATE 
+                PROFILE</ng-template>
                 <h3>Welcome {{user}}</h3>
                 <form [formGroup]="secondFormGroup">                    
                     <app-welcome [formGroup]="secondFormGroup"></app-welcome>
                 </form>
             </mat-step>
             <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel>ANSWER QUESTIONS</ng-template>
+                <ng-template matStepLabel>ANSWER 
+                QUESTIONS</ng-template>
                 <form [formGroup]="secondFormGroup">                    
                     <app-answerQuestions [formGroup]="secondFormGroup"></app-answerQuestions>
                 </form>
             </mat-step>
             <mat-step>
-                <ng-template matStepLabel>MATCH RESULTS</ng-template>
+                <ng-template matStepLabel>MATCH 
+                RESULTS</ng-template>
                 <div class="row">
                 	<div class="columns large-12 small-12">
                 		<p> Your personalized list of preliminary clinical trials is ready to view</p>
                 	</div>
                 </div>
                 <div>
-                    <button mat-button matStepperPrevious class="button">Back</button>
-                    <button mat-button class="button" (click)="stepper.reset()">Reset</button>
+                    <button mat-button matStepperPrevious class="button">BACK</button>
+                    <button mat-button class="button" (click)="stepper.reset()">RESET</button>
                 </div>
             </mat-step>
         </mat-horizontal-stepper>

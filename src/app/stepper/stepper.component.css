@@ -15,15 +15,26 @@ html, body {
 	border-color: #a168f2;
 	background-color: #FCD8E2;
 	color: white;
+	margin-right: 0 !important;
+}
+
+/deep/ .stepper	.mat-step-icon-not-touched {
+	margin-right: 0 !important;
 }
 /deep/ .stepper	.mat-step-label{
 	position: relative;
-    top: 30px;
-    left: -40px;
+    top: 40px;
+    left: -35px;
+    text-align: center;
     text-overflow: inherit;
+    min-width: 50px;
+    max-width: 35px;
+    overflow: inherit;
+    white-space: pre-line;
 }
 /deep/ .stepper	.mat-horizontal-stepper-header{
 	padding: 0;
+	overflow: unset;
 }
 
 /deep/ .stepper .mat-stepper-horizontal-line{

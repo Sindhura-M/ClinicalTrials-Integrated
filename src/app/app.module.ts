@@ -11,7 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -66,6 +68,8 @@ const appRoutes: Routes = [
     MatProgressBarModule,
     MatCheckboxModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule
   ],
   declarations: [ 
@@ -95,6 +99,7 @@ const appRoutes: Routes = [
      MatProgressBarModule,
      MatCheckboxModule,
      MatListModule,
+     MatNativeDateModule,
      ReactiveFormsModule
    ],
   providers: [],
