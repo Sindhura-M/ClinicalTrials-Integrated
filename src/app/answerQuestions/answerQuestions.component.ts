@@ -22,10 +22,8 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.optionType = this.quizlist[0].optionType;
 		this.ID = this.quizlist[0].ID;
 
-		this.show = true;
 		this.display = false;
-		this.display2 = false;
-		console.log("questions ==== "+ JSON.stringify(questions));		
+		this.display2 = false;	
 	}
 
 	myarray: String[] = [];
@@ -44,9 +42,9 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	optionType: String;
 
-	show: any;
-
 	ID: number;
+	str: String;
+	value: String[];
 
 	display: boolean;
 	display2: boolean;
@@ -62,9 +60,6 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.optionType = this.quizlist[this.i].optionType;
 			this.ID = this.quizlist[this.i].ID;
 		}
-		if ( this.i > 0 ) {
-			this.show = false;
-		}
 	  }
 	  previous(e, i) {
 		this.i =  i-1 < 0 ? 0 : i-1;
@@ -72,32 +67,39 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.option = this.quizlist[this.i].anslistobj;
 		this.optionType = this.quizlist[this.i].optionType;
 		this.ID = this.quizlist[this.i].ID;
-		if ( this.i = 0 ) {
-			this.show = true;
-		}
 	  }
 
 	  
 	  answerkey: AnswerKey[] = [];
 
-	  check(e, value, ID) {
+	  check(e, val, question) {
 
-	  	console.log(" Value is : ", value );
+	  	console.log(" Value is : ", val );
 
-	  	/*str = this.question;
-	  	this.answerkey.push(new AnswerKey(str, value));
+	  	/*if (e.target.checked) {
+		    this.value.push(val);
+	  	} else {
+	  		this.value = val;
+	  	}*/
 
-		if (e.target.checked) {
-		  console.log("..................."+str + " " + value);
-		  this.answerkey.push(new AnswerKey(str, value));
+		
+	  	this.str = this.question;
+	  	this.answerkey.push(new AnswerKey(question, val));
+
+		  
+		/*if (e.target.checked) {
+		  console.log("..................."+this.str + " " + value);
+		  this.answerkey.push(new AnswerKey(this.str, value));
 		}
 		else {
 		  this.answerkey.splice(0, 1);
 		}*/
 		console.log(this.answerkey);
 		//this.recursivecheck();
-		
-		if ( ID == 11 ) {
+	  }
+
+	  toggleTreatmentOPtions(e, value, ID) {
+	  	if ( ID == 11 ) {
 			if (value == 'Yes') {
 				this.display = true;
 			} else if (value != 'Yes') {
@@ -113,6 +115,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			}
 		}
 	  }
+
 	  ///////////////////////////////////
 
 	  //marks: number = 0;
@@ -129,7 +132,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		for (var i = 0; i < this.answerkey.length; i++) {
 		  message += "<tr>";
 		  message += "<td>"+ this.quizlist[i].question +"</td>";
-		  message += "<td>"+ this.answerkey[i].choosen +"</td>";
+		  message += "<td>"+ this.answerkey[i].question +"</td>";
 		  message += "</tr>";
 
 		  //document.writeln("your survey is " + this.quizlist[i].question + "-" + this.answerkey[i].choosen);

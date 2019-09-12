@@ -23,10 +23,10 @@ export class Answermodel {
 }
 
 export class AnswerKey {
-  	choosen: String;
- 	 answer: String;
- 	 constructor(choosen: String, answer: String) {
-		this.choosen = choosen;
+  	question: String;
+ 	 answer: String[];
+ 	 constructor(question: String, answer: String[]) {
+		this.question = question;
 		this.answer = answer;
  	 }
 }

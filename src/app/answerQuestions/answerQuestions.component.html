@@ -1,6 +1,6 @@
 <div class="jumbotron container">
 
-	<p *ngIf="show">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
+	<p *ngIf="ID == 1">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
 
 	<div class="jumbotron">
 		<!--ul>
@@ -13,7 +13,7 @@
 			<mat-radio-group aria-label="Select an option">
 			  	<ul *ngFor="let opt of option">
 	                <div class="large-12 column optionList">
-	        		  <mat-radio-button (click)="check($event,opt)" value="{{opt}}">{{opt}}</mat-radio-button>
+	        		  <mat-radio-button (click)="check($event,opt,question )" value="{{opt}}">{{opt}}</mat-radio-button>
 	                </div>
 				</ul>
 			</mat-radio-group>
@@ -29,35 +29,58 @@
 					</div>
 				  </mat-list-option>
 				</mat-selection-list-->
-				<input type="checkbox" checklist-model="user.roles" checklist-value="role"> 
+				<input type="checkbox" (click)="check($event,opt, question)" checklist-model="user.roles" checklist-value="role" value="{{opt}}"> 
 					<span class="">{{opt}}</span>
 			</ul>
 		</div>
 
 		<ul *ngIf="optionType == 'date'"> 
-			<mat-form-field>
+			<mat-form-field >
 			  <input matInput [matDatepicker]="dp" placeholder="Month and Year" [formControl]="date" class="optionList">
 			  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
 			  <mat-datepicker #dp
 			                  startView="multi-year"
 			                  (yearSelected)="chosenYearHandler($event)"
 			                  (monthSelected)="chosenMonthHandler($event, dp)"
-			                  panelClass="example-month-picker">
+			                  panelClass="example-month-picker"
+			                  (click)="check($event,opt,question)">
 			  </mat-datepicker>
 			</mat-form-field>
 		</ul>
 
-		<ul *ngIf="optionType == 'text'"> 
-			<div>
-	                <!--input class="input-group-field" type="text" placeholder="mm" required-->
-	                <mat-form-field class="example-full-width optionList">
-					    <input matInput> 
-					</mat-form-field>
-					<span>mm</span>
-	        </div>
-	        <br/>
-	    	<br/>
-	    </ul>
+		<div *ngIf="optionType == 'text'"> 
+			<div *ngFor="let opt of option" >
+					<div class="large-12 column">{{opt.question}}</div>
+					<div class="large-12 column" *ngIf="opt.optionType == 'text'">
+			                <!--input class="input-group-field" type="text" placeholder="mm" required-->
+			            <div class="large-6 column">
+			                <mat-form-field class="example-full-width optionList">
+							    <input #todo matInput (change)="check($event,todo.value)" type="text" name="todo"> 
+							</mat-form-field>
+							<span>mm</span>
+						</div>
+						<div class="large-6 column">
+							<span *ngFor="let opt of opt.anslistobj" >
+								<mat-radio-button (click)="check($event,opt,opt.question)" value="{{opt}}">{{opt}}</mat-radio-button>
+							</span>
+						</div>
+			        </div>
+
+			        <div class="large-12 column">
+				        
+					        <mat-radio-group aria-label="Select an option">
+					        	<ul *ngIf ="opt.optionType == 'radio'" class="display-flex">
+					                <li *ngFor="let opt of opt.anslistobj" class="large-12 column optionList">
+					        		  <mat-radio-button (click)="check($event,opt, opt.question)" value="{{opt}}">{{opt}}</mat-radio-button>
+					        		 </li>
+					            </ul>
+							</mat-radio-group>
+						
+					</div>
+			        <br/>
+			    	<br/>
+		    </div>
+	    </div>
 
 	    <div class="row" *ngIf="optionType == 'multipleRadio'">
 		    <mat-radio-group aria-label="Select an option">
@@ -65,7 +88,7 @@
 	            		<div class="large-6 column ">{{opt.question}}</div>
 		                <div class="large-6 column optionList">
 			                <ul *ngFor="let opt of opt.anslistobj" class="optionList">
-			        		  <mat-radio-button (click)="check($event,opt)" value="{{opt}}">{{opt}}</mat-radio-button>
+			        		  <mat-radio-button (click)="check($event,opt, question)" value="{{opt}}">{{opt}}</mat-radio-button>
 			        		 </ul>
 		                </div>
 		            </ul>
@@ -79,7 +102,7 @@
             	<ul *ngFor="let opt of option" class="display-flex">
             		<li *ngFor="let opt of opt.radio">
 		                <div class="large-12 column optionList">
-		        		  <mat-radio-button (click)="check($event,opt,ID) " value="{{opt}}">{{opt}}</mat-radio-button>
+		        		  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,ID) " value="ES-{{opt}}">{{opt}}</mat-radio-button>
 		                </div>
 	            	</li>
 	            </ul>
@@ -91,7 +114,7 @@
             	<ul *ngFor="let opt of option" class="display-flex">
             		<li *ngFor="let opt of opt.radio">
 		                <div class="large-12 column optionList">
-		        		  <mat-radio-button (click)="check($event,opt,ID) " value="{{opt}}">{{opt}}</mat-radio-button>
+		        		  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,ID) " value="AS-{{opt}}">{{opt}}</mat-radio-button>
 		                </div>
 	            	</li>
 	            </ul>
@@ -128,7 +151,7 @@
 			            		<span>{{opt.duration}}</span>
 			            	</div>
 			            	<div class="large-4 column">
-				            	<select name="Number">
+				            	<select name="Number" (change)="check($event,opt)">
 					                <option>No.</option>
 					            </select>
 					        </div>
@@ -144,7 +167,7 @@
 		    	<ul  class="i" id=opt[i]>
 					<div class="row" *ngFor="let opt of opt.selectbox" id="opt.selectbox[i]">
 						<div class="large-8 column">
-			            <select name="opt.therapyName">
+			            <select name="opt.therapyName" (change)="check($event,opt)">
 			            	<option>{{opt.therapyName}}</option>
 			            </select>
 			        	</div>
@@ -157,7 +180,7 @@
 	    <hr>
 
         <div class="row">
-        <span class="left-float">{{ID}}/15</span>
+        <span class="left-float">{{ID}}/{{quizlength}}</span>
 	    <button (click)="next(e, ID-1)" class="button-small-active"> NEXT </button>
 	    <button mat-button matStepperNext class="btn btn-info button-small" (click)="onSubmit()"> SAVE & EXIT </button>
 	    <button (click)="previous(e, ID-1)" class="button-small"> BACK </button>

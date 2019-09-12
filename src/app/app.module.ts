@@ -12,7 +12,6 @@ import { MatTabsModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AngularFireModule } from '@angular/fire';
@@ -35,6 +34,7 @@ import { BreastCancerComponent } from './breastCancer/breastCancer.component';
 import { AboutCTCComponent } from './about/about.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
    { path: 'login', component: StepperComponent },
@@ -52,7 +52,7 @@ const appRoutes: Routes = [
   	BrowserModule, 
   	FormsModule,
   	RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule,
+    NoopAnimationsModule,
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
