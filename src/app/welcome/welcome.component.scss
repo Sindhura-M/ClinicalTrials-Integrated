@@ -64,6 +64,36 @@ p {
 	line-height: 32px;
 }
 
+.select {
+	    margin: 1rem 0.5rem;
+}
 select {
 	height: 6%;	width: 24%;	border: 1px solid #767676;	border-radius: 4px;	background-color: #FFFFFF; margin: 1rem 0;
 }
+/deep/ .container {
+
+	/deep/ .mat-form-field-underline {
+		display: none;
+	}
+
+	/deep/ .mat-form-field-subscript-wrapper {
+		display: none;
+	}
+
+	/deep/ .mat-form-field-type-mat-select {
+
+		border: 1px solid grey;
+	    border-radius: 5px;
+
+			/deep/ .mat-form-field-wrapper {
+				padding : 0.5rem 0;
+			}
+
+			/deep/ .mat-form-field-infix {
+				padding: 0.55rem;
+    			margin: 0 0 0 0.50rem;
+			}
+	}
+
+}
+

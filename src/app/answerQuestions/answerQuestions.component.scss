@@ -40,6 +40,7 @@ button {
 }
 .optionList-width {
 	width: 140%;
+	margin: 1rem 0;
 }
 .button-small-active {
 	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; float:right; margin: 0.5rem;
@@ -64,11 +65,11 @@ button {
 	float: left;
 }
 
-/deep/ .container .mat-form-field-underline .mat-form-field-ripple{
+/deep/ .questionnaire .mat-form-field-underline .mat-form-field-ripple{
 	display : none;
 }
 
-/deep/ .container{
+/deep/ .questionnaire{
 	
  .mat-form-field-infix {
 	border-top: 0;
@@ -76,9 +77,17 @@ button {
 
   input.mat-input-element {
     margin-top: 0;
+    border-bottom: 1px solid;
   }
 }
 
 mat-radio-button {
 	padding: 0.5rem 0;
+}
+
+.select {
+	    margin: 1rem 0.5rem;
+}
+select {
+	height: 6%;	width: 24%;	border: 1px solid #767676;	border-radius: 4px;	background-color: #FFFFFF; margin: 1rem 0;
 }

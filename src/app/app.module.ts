@@ -12,6 +12,7 @@ import { MatTabsModule } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 
 
 import { AngularFireModule } from '@angular/fire';
@@ -35,6 +36,8 @@ import { AboutCTCComponent } from './about/about.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { Observable } from 'rxjs/Rx';
+import { MatchResultsComponent } from './match-results/match-results.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: StepperComponent },
@@ -70,7 +73,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [ 
   HomeComponent,
@@ -86,7 +90,8 @@ const appRoutes: Routes = [
   BreastCancerComponent,
   WelcomeComponent,
   AboutCTCComponent,
-  StepperComponent
+  StepperComponent,
+  MatchResultsComponent
   ],
   exports: [
      MatStepperModule,

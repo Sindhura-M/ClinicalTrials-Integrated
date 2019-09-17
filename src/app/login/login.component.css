@@ -40,3 +40,34 @@ p {
 	color: rgba(0,0,0,0.87);
 	margin-left: 0;
 }
+
+/deep/ .container .mat-form-field-underline .mat-form-field-ripple{
+	display : none;
+}
+
+/deep/ .container {
+	
+ .mat-form-field-infix {
+	border-top: 0;
+  }
+
+  .ng-star-inserted {
+  	display: none;
+  }
+
+}
+
+/deep/ .container .mat-form-field._mat-animation-noopable .mat-form-field-label, .mat-form-field._mat-animation-noopable .mat-form-field-ripple {
+	transform: none !important;
+	transition: none !important;
+}
+
+/deep .container label .mat-empty .mat-form-field-empty {
+	display: block;
+}
+
+/deep .container label .mat-form-field-label {
+	display: none;
+}
+
+

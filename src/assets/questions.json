@@ -2,59 +2,78 @@
     "ID": 1, 
     "question": "What is the patient's menopausal status?", 
     "optionType": "radio",
-    "anslistobj": ["premenopausal", "postmenopausal", "Not sure", "Not applicable (male)"]
+    "anslistobj": ["premenopausal", "postmenopausal", "Not sure", "Not applicable (male)"],
+    "characteristic": "PMP"
   },
   {
     "ID": 2, 
     "question": "Date of initial diagnosis?", 
     "optionType": "date",
-    "anslistobj": []
+    "anslistobj": [],
+    "characteristic": "Initial diagnosis"
   },
   {
     "ID": 3, 
     "question": "What type of breast cancer(tumor type) does the patient have?", 
     "optionType": "radio",
-    "anslistobj": ["Ductal Carcinoma In Situ(DCIS)", "Lobular Carcinoma In Situ(LCIS)", "Other", "Not sure"]
+    "anslistobj": ["Ductal Carcinoma In Situ(DCIS)", "Lobular Carcinoma In Situ(LCIS)", "Other", "Not sure"],
+    "characteristic": "Tumor type"
   },
   {
     "ID": 4, 
-    "question": "", 
+    "question": "What is the size of the primary tumour?", 
     "optionType": "text",
-    "anslistobj": [ {"question": "What is the size of the primary tumour?", "optionType": "text", "anslistobj": [ "Not sure" ] },
-                    {"question": "How many axillary (armpit) lymph nodes were involved with cancer?", "optionType": "radio", "anslistobj": ["0", "1-3", "4-9", ">10"] },
-                    {"question": "Has the cancer spread to other parts of the body?", "optionType": "radio", "anslistobj": ["Yes", "No", "Not sure"] }
-                  ]
+    "anslistobj": ["Not sure"],
+    "characteristic": "Tumour size"
   },
   {
     "ID": 5, 
-    "question": "Has the breast cancer metastasised (spread) from the breast to any of the following areas? Please select all that apply.", 
-    "optionType": "checkbox",
-    "anslistobj": ["Breast cancer has not spread ", "Lymph nodes near the tumour", "Tissue adjacent to primary tumor (locally advanced)", "Distant lymph nodes", "Other breast", "Abdomen", "Bone (including vertebrae)", "Brain", "Fluid around the lungs (malignant pleural effusion)", "Liver", "Lung", "Skin", "Other", "Not sure"]
+    "question": "How many axillary (armpit) lymph nodes were involved with cancer?", 
+    "optionType": "radio",
+    "anslistobj": ["0", "1-3", "4-9", ">10"],
+    "characteristic": "Nodal number"
   },
   {
     "ID": 6, 
-    "question": "What is the hormone receptor status of this tumour (ER and/or PR and/or HER2 test results)? Please select all that apply.", 
-    "optionType": "multipleRadio",
-    "anslistobj": [
-      {"question": "Estrogen Receptor (ER)",  "anslistobj": ["Positive", "Negative", "Not sure"]},
-      {"question": "Progesterone Receptor (ER)", "anslistobj": ["Positive", "Negative", "Not sure"]},
-      {"question": "HER2 Receptor (ER)", "anslistobj": ["Positive", "Negative", "Not sure", "Has not yet been tested"]}
-    ]
+    "question": "Has the cancer spread to other parts of the body?", 
+    "optionType": "radio",
+    "anslistobj": ["Yes", "No", "Not sure"],
+    "characteristic": "Cancer spread"
   },
   {
     "ID": 7, 
-    "question": "What grade is the cancer?", 
-    "optionType": "radio",
-    "anslistobj": ["Grade 1 ", "Grade 2", "Grade 3", "Not sure"]
+    "question": "Has the breast cancer metastasised (spread) from the breast to any of the following areas? Please select all that apply.", 
+    "optionType": "checkbox",
+    "anslistobj": ["Breast cancer has not spread ", "Lymph nodes near the tumour", "Tissue adjacent to primary tumor (locally advanced)", "Distant lymph nodes", "Other breast", "Abdomen", "Bone (including vertebrae)", "Brain", "Fluid around the lungs (malignant pleural effusion)", "Liver", "Lung", "Skin", "Other", "Not sure"],
+    "characteristic": "Breast cancer spread"
   },
   {
     "ID": 8, 
-    "question": "Select the best description of the patient's daily activity level.", 
-    "optionType": "radio",
-    "anslistobj": ["Fully active", "Restricted in physically strenuous activity but able to walk around", "Confined to a bed or chair for less than half the day", "Confined to a bed or chair for more than half the day ", "Completely disabled; totally confined to a bed or chair ", "Not sure"]
+    "question": "What is the hormone receptor status of this tumour (ER and/or PR and/or HER2 test results)? Please select all that apply.", 
+    "optionType": "multipleRadio",
+    "anslistobj": [
+      {"question": "Estrogen Receptor (ER)",  "anslistobj": ["Positive", "Negative", "Not sure"], "subcharacteristic": "ER"},
+      {"question": "Progesterone Receptor (PR)", "anslistobj": ["Positive", "Negative", "Not sure"], "subcharacteristic": "PR"},
+      {"question": "HER2 Receptor (HER2)", "anslistobj": ["Positive", "Negative", "Not sure", "Has not yet been tested"], "subcharacteristic": "HER2"}
+    ],
+    "characteristic": ""
   },
   {
     "ID": 9, 
+    "question": "What grade is the cancer?", 
+    "optionType": "radio",
+    "anslistobj": ["Grade 1 ", "Grade 2", "Grade 3", "Not sure"],
+    "characteristic": "Cancer stage"
+  },
+  {
+    "ID": 10, 
+    "question": "Select the best description of the patient's daily activity level.", 
+    "optionType": "radio",
+    "anslistobj": ["Fully active", "Restricted in physically strenuous activity but able to walk around", "Confined to a bed or chair for less than half the day", "Confined to a bed or chair for more than half the day ", "Completely disabled; totally confined to a bed or chair ", "Not sure"],
+    "characteristic": "ECOG 0-1/Fitness"
+  },
+  {
+    "ID": 11, 
     "question": "Please select all forms of treatment the patient has received for early stage breast cancer.", 
     "link": "Find out more about types of treatments here",
     "optionType": ["selectbox-earlyStage"],
@@ -66,10 +85,11 @@
                       {"therapyName": "Type of treatment", "options": []},
                       {"therapyName": "Type of treatment", "options": []}
                     ]},
-                    {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }]
+                    {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
+    "characteristic": "Early stage treatment"
   },
   {
-    "ID": 10, 
+    "ID": 12, 
     "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer.", 
     "link": "Find out more about types of treatments here",
     "optionType": ["selectbox-advanced"],
@@ -81,23 +101,27 @@
                       {"therapyName": "Type of treatment", "options": []},
                       {"therapyName": "Type of treatment", "options": []}
                     ]},
-                    {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }]
-  },
-  {
-    "ID": 11, 
-    "question": "Would the patient be interested in a study that may help with the following breast cancer symptoms or treatment-related side effects. Please select all that apply.", 
-    "optionType": "checkbox",
-    "anslistobj": ["Not experiencing any side effects", "Bone loss / fractures", "Cognitive (memory) dysfunction", "End of life care", "Fatigue", "Hand-foot syndrome (Palmar-Plantar erythrodysesthesia)", "Hot flashes", "Insomnia", "Loss of appetite", "Lymphoedema", "Nausea or vomiting", "Peripheral neuropathy (numbness / pain / tingling)", "Pain", "Physical activity / rehabilitation", "Quality of life", "Weight loss (Cachexia)", "Other side effects not listed", "All of the above"]
-  },
-  {
-    "ID": 12, 
-    "question": "What biomarkers or genetic mutations were discovered through diagnostic tests (molecular profiling) for this tumour? Please select all that apply.", 
-    "optionType": "checkbox",
-    "anslistobj": ["Not yet tested", "No known mutations", "ATM", "BARDI", "BRCA1", "BRIPI", "CHEK2", "CHH1", "dMMR", "EPCAM", "FANCN", "MLH1", "MSH1", "MSH6", "MUTYH", "NBN", "NF1", "PALB2", "PMS2", "PD-L1", "PIK3CA", "PIK3CB", "PTEN", "RADS1", "STK11", "TP53 (17P Deletion)", "Tumour Mutation Burden", "Other (mutation not listed)", "Not sure"]
+                    {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
+    "characteristic": "Advanced stage treatment"
   },
   {
     "ID": 13, 
+    "question": "Would the patient be interested in a study that may help with the following breast cancer symptoms or treatment-related side effects. Please select all that apply.", 
+    "optionType": "checkbox",
+    "anslistobj": ["Not experiencing any side effects", "Bone loss / fractures", "Cognitive (memory) dysfunction", "End of life care", "Fatigue", "Hand-foot syndrome (Palmar-Plantar erythrodysesthesia)", "Hot flashes", "Insomnia", "Loss of appetite", "Lymphoedema", "Nausea or vomiting", "Peripheral neuropathy (numbness / pain / tingling)", "Pain", "Physical activity / rehabilitation", "Quality of life", "Weight loss (Cachexia)", "Other side effects not listed", "All of the above"],
+    "characteristic": "Symptoms"
+  },
+  {
+    "ID": 14, 
+    "question": "What biomarkers or genetic mutations were discovered through diagnostic tests (molecular profiling) for this tumour? Please select all that apply.", 
+    "optionType": "checkbox",
+    "anslistobj": ["Not yet tested", "No known mutations", "ATM", "BARDI", "BRCA1", "BRIPI", "CHEK2", "CHH1", "dMMR", "EPCAM", "FANCN", "MLH1", "MSH1", "MSH6", "MUTYH", "NBN", "NF1", "PALB2", "PMS2", "PD-L1", "PIK3CA", "PIK3CB", "PTEN", "RADS1", "STK11", "TP53 (17P Deletion)", "Tumour Mutation Burden", "Other (mutation not listed)", "Not sure"],
+    "characteristic": "Biomarkers"
+  },
+  {
+    "ID": 15, 
     "question": "Would the patient be willing to partner with us in breast cancer research, by:", 
     "optionType": "checkbox",
-    "anslistobj": ["complete questionnaires", "provide a blood sample", "provide a sample of your cancer from a biopsy", "I am not willing to answer questions or provide any samples.", "Not sure"]
+    "anslistobj": ["complete questionnaires", "provide a blood sample", "provide a sample of your cancer from a biopsy", "I am not willing to answer questions or provide any samples.", "Not sure"],
+    "characteristic": "Research interest"
   }]

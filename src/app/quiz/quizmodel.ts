@@ -3,12 +3,14 @@ export class Quizmodel {
 	 question:String;
 	 anslistobj:String[];
 	 optionType:String;
+	 characteristic:String;
 
 	 constructor(  ID :number, question:String,
-		 anslistobj:String[], optionType:String) {
+		 anslistobj:String[], optionType:String, characteristic:String) {
 		 this.ID=ID;
 		 this.anslistobj=anslistobj;
 		 this.optionType=optionType;
+		 this.characteristic=characteristic;
 	}
 }
 
@@ -23,10 +25,10 @@ export class Answermodel {
 }
 
 export class AnswerKey {
-  	question: String;
- 	 answer: String[];
- 	 constructor(question: String, answer: String[]) {
-		this.question = question;
-		this.answer = answer;
+  	code: String;
+ 	 status: String[];
+ 	 constructor(code: String, status: String[]) {
+		this.code = code;
+		this.status = status;
  	 }
 }

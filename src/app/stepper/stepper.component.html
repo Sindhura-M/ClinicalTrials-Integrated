@@ -21,21 +21,15 @@
                 <ng-template matStepLabel>ANSWER 
                 QUESTIONS</ng-template>
                 <form [formGroup]="secondFormGroup">                    
-                    <app-answerQuestions [formGroup]="secondFormGroup"></app-answerQuestions>
+                    <app-answer-questions [formGroup]="secondFormGroup"></app-answer-questions>
                 </form>
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>MATCH 
                 RESULTS</ng-template>
-                <div class="row">
-                	<div class="columns large-12 small-12">
-                		<p> Your personalized list of preliminary clinical trials is ready to view</p>
-                	</div>
-                </div>
-                <div>
-                    <button mat-button matStepperPrevious class="button">BACK</button>
-                    <button mat-button class="button" (click)="stepper.reset()">RESET</button>
-                </div>
+                <form [formGroup]="secondFormGroup">                    
+                    <app-match-results [formGroup]="secondFormGroup"></app-match-results>
+                </form>
             </mat-step>
         </mat-horizontal-stepper>
     </div>

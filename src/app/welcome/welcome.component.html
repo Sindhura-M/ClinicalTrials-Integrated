@@ -1,4 +1,4 @@
-<div [formGroup]="myGroup"> 
+<div [formGroup]="myGroup" class="container"> 
     <div *ngIf="true">
         <div class="large-12 small-12 cloumn">
         	<mat-radio-group aria-label="Select an option">Who is this profile for?
@@ -26,20 +26,31 @@
         <br/>
         <div class="labelClass">Date of birth</div>
         <div class="large-12 small-12 cloumn">
-            <select name="Day">
+            <!--mat-form-field>
+              <mat-label>Day</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let day of day" [value]="day.value">
+                  {{day}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field-->
+            <select name="Day" class="select">
                 <option>Day</option>
+                <option *ngFor="let day of day" [value]="day.value">{{day}}</option>
             </select>
-            <select name="Month">
+            <select name="Month" class="select">
                 <option>Month</option>
+                <option *ngFor="let month of month" [value]="month.value">{{month}}</option>
             </select>
-            <select name="Year">
+            <select name="Year" class="select">
                 <option>Year</option>
+                <option *ngFor="let year of year" [value]="year.value">{{year}}</option>
             </select>
         </div>
         <br/>
         <div class="large-12 small-12 cloumn">
             <div class="sub-title">Gender</div>
-            <select name="Gender">
+            <select name="Gender" class="select">
                 <option>Select</option>
                 <option value="option-1">Male</option>
                 <option value="option-2">Female</option>

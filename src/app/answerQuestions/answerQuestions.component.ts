@@ -4,10 +4,12 @@ import { Answermodel } from '.././quiz/quizmodel';
 import { Router }  from '@angular/router';
 import { AnswerKey } from '.././quiz/quizmodel';
 import questions from '../.././assets/questions.json';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule, MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { dayKey, monthKey, yearKey } from '.././datemodel';
+import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-answerQuestions',
+  selector: 'app-answer-questions',
   templateUrl: './answerQuestions.component.html',
   styleUrls: ['./answerQuestions.component.scss']
 })
@@ -21,6 +23,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.quizlength = this.quizlist.length;
 		this.optionType = this.quizlist[0].optionType;
 		this.ID = this.quizlist[0].ID;
+		this.characteristic = this.quizlist[0].characteristic;
 
 		this.display = false;
 		this.display2 = false;	
@@ -42,14 +45,25 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	optionType: String;
 
+	characteristic: String;
 	ID: number;
 	str: String;
 	value: String[];
+
+	selectedMonth: String;
+	selectedYear: number;
+	diagnosisDate: String;
 
 	display: boolean;
 	display2: boolean;
 	gettinglanguage() {
 
+	}
+
+	events: string[] = [];
+	addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+	    this.events.push(`${type}: ${event.value}`);
+	    console.log("this.events" + this.events);
 	  }
 
 	  next(e, i) { 
@@ -59,6 +73,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.option = this.quizlist[this.i].anslistobj;
 			this.optionType = this.quizlist[this.i].optionType;
 			this.ID = this.quizlist[this.i].ID;
+			this.characteristic = this.quizlist[this.i].characteristic;
 		}
 	  }
 	  previous(e, i) {
@@ -67,12 +82,23 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.option = this.quizlist[this.i].anslistobj;
 		this.optionType = this.quizlist[this.i].optionType;
 		this.ID = this.quizlist[this.i].ID;
+		this.characteristic = this.quizlist[this.i].characteristic;
 	  }
 
+	 	onMonthSelect(event, MM) {
+		    console.log(event.value);
+		    this.selectedMonth = MM;
+		}
+
+		onYearSelect(event, YY, code) {
+		    console.log(event.value);
+		    this.selectedYear = YY;
+		    this.check(event,this.selectedYear, code);
+		}
 	  
 	  answerkey: AnswerKey[] = [];
-
-	  check(e, val, question) {
+	  //value: string[] = [];
+	  check(e, val, character) {
 
 	  	console.log(" Value is : ", val );
 
@@ -81,25 +107,36 @@ export class AnswerQuestionsComponent implements OnInit {
 	  	} else {
 	  		this.value = val;
 	  	}*/
+	  	/*let j = 0;
+	  	for (j=0; j<=AnswerKey.length; j++) {
+	  		if ( character == AnswerKey[j]) {
+	  			this.value = AnswerKey[j].status;
+	  		}
+	  	}
+	  	
+		this.value.push(val);
+		this.value = val;
+	  	this.str = character;*/
 
-		
-	  	this.str = this.question;
-	  	this.answerkey.push(new AnswerKey(question, val));
+	  	this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
+	  	if (character == 'Initial diagnosis'){
+	  		val = this.diagnosisDate;
+	  	}
 
-		  
-		/*if (e.target.checked) {
-		  console.log("..................."+this.str + " " + value);
-		  this.answerkey.push(new AnswerKey(this.str, value));
-		}
-		else {
-		  this.answerkey.splice(0, 1);
-		}*/
-		console.log(this.answerkey);
-		//this.recursivecheck();
+	  	this.answerkey.push(new AnswerKey(character, val));
+	  	
+	  	console.log("this.answerkey" + this.answerkey);
+	  	let result = Object.assign( this.answerkey.map(a => {[a.code]: a.status}) );
+
+	  	console.log("result" + JSON.stringify(result));
 	  }
 
-	  toggleTreatmentOPtions(e, value, ID) {
-	  	if ( ID == 11 ) {
+	  onSave() {
+
+	  }
+
+	  toggleTreatmentOPtions(e, value, code) {
+	  	if ( code == "Early stage treatment" ) {
 			if (value == 'Yes') {
 				this.display = true;
 			} else if (value != 'Yes') {
@@ -107,7 +144,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			}
 		}
 
-		if ( ID == 12 ) {
+		if ( code == "Advanced stage treatment" ) { 
 			if (value == 'Yes') {
 				this.display2 = true;
 			} else if (value != 'Yes') {
@@ -124,24 +161,10 @@ export class AnswerQuestionsComponent implements OnInit {
 			this._router.navigate(['/']); 
 	   }
 
-	  generateResult() {
-
-		var message = '';
-		var html = "";
-
-		for (var i = 0; i < this.answerkey.length; i++) {
-		  message += "<tr>";
-		  message += "<td>"+ this.quizlist[i].question +"</td>";
-		  message += "<td>"+ this.answerkey[i].question +"</td>";
-		  message += "</tr>";
-
-		  //document.writeln("your survey is " + this.quizlist[i].question + "-" + this.answerkey[i].choosen);
-		}
-		html =  "<table>" + message + "</table>";
-		document.writeln("your survey is " + html);
-
-	  }
-
+	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    year: String[] = [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", 
+    					"2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009",
+    					"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019" ];
 	  /*recursivecheck() {
 		var result1 = this.quizlist;
 		var result2 = this.answerkey;
@@ -166,4 +189,5 @@ export class AnswerQuestionsComponent implements OnInit {
 		});
 		console.log("result:" + JSON.stringify(result));
 	  }*/
+
 }
