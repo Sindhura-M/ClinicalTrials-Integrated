@@ -1,0 +1,57 @@
+<div class="trials" #trials>
+
+<h3>Breast cancer trials</h3>
+
+<div class="trials-table">
+	<mat-tab-group>
+	  <mat-tab label="List view">
+	  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+				  <ng-container matColumnDef="Study title">
+				    <th mat-header-cell *matHeaderCellDef> Study title </th>
+				    <td mat-cell *matCellDef="let element"> {{element.studyTitle}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Interventions">
+				    <th mat-header-cell *matHeaderCellDef> Interventions </th>
+				    <td mat-cell *matCellDef="let element"> {{element.interventions}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Phase">
+				    <th mat-header-cell *matHeaderCellDef> Phase </th>
+				    <td mat-cell *matCellDef="let element" class="phase-bgColor"> {{element.phase}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Sponsor">
+				    <th mat-header-cell *matHeaderCellDef> Sponsor </th>
+				    <td mat-cell *matCellDef="let element"> {{element.sponsor}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Sex">
+				    <th mat-header-cell *matHeaderCellDef> Sex </th>
+				    <td mat-cell *matCellDef="let element"> {{element.sex}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Location">
+				    <th mat-header-cell *matHeaderCellDef> Location </th>
+				    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Save">
+				    <th mat-header-cell *matHeaderCellDef> Save </th>
+				    <td mat-cell *matCellDef="let element"> {{element.save}} </td>
+				  </ng-container>
+
+				  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+
+	  </mat-tab>
+	  <mat-tab label="Map view">
+
+	  </mat-tab>
+
+	</mat-tab-group>
+
+</div>
+</div>

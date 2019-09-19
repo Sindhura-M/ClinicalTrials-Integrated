@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-match-results',
@@ -7,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchResultsComponent implements OnInit {
 
-  constructor() { }
+	constructor( private router: Router ) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
-  showTrials() {
-  	
-  }
+	showTrials() {
+	  	//this.router.navigateByUrl('/trials');
+	  	this.router.navigate(['/trials']);
+	}
+
 }

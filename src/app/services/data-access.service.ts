@@ -5,6 +5,8 @@ import 'rxjs/add/observable/of';
 import {AccountProfile} from '../welcome/AccountProfile';
 import {catchError} from 'rxjs/operators/catchError';
 import { AnswerKey } from '.././quiz/quizmodel';
+import { TrialsTable } from '../trials/Trials-Table';
+
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +48,21 @@ export class DataAccessService {
  
       //return this.client.jsonp<AccountProfile[]>(this._url,'callback');
       this.client.post<AnswerKey[]>(this._url,httpOptions);
+
+  }*/
+
+ /* getCancerTrials(): Observable<TrialsTable[]> {
+
+      const httpOptions = {
+        headers: new HttpHeaders({ 
+          'Access-Control-Allow-Origin':'*',  
+          'Authorization':'Basic cm9vdDpyb290',
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json'
+        })
+      };
+ 
+      return this.client.get<TrialsTable[]>(this._url,httpOptions);
 
   }*/
   

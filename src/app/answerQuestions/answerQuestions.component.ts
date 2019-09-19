@@ -9,6 +9,7 @@ import { dayKey, monthKey, yearKey } from '.././datemodel';
 import { map } from 'rxjs/operators';
 import { DataAccessService } from '../services/data-access.service';
 
+
 @Component({
   selector: 'app-answer-questions',
   templateUrl: './answerQuestions.component.html',
@@ -126,15 +127,11 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	  	this.answerkey.push(new AnswerKey(character, val));
 	  	
-	  	console.log("this.answerkey" + this.answerkey);
-
-	  	//let result = Object.assign( ...this.answerkey.map( a => { [a.code]: a.status }) );
-	  	let result = Object.assign(...this.answerkey.map(a => ({[a.code]: a.status})));
+	  	//result: any;
+	  	let result = Object.assign({},...this.answerkey.map(a => ({ [a.code]: a.status })));
+	  	//let dummy,result = Object.fromEntries(Object.entries(([key, val]) => [k, v * v]));
+	  	//var result:{string:string} = new Map((this.answerkey).map(obj => [obj.code,obj.status]));
 	  	console.log("result" + JSON.stringify(result));
-	  }
-
-	  onSave() {
-
 	  }
 
 	  toggleTreatmentOPtions(e, value, code) {

@@ -6,6 +6,7 @@ import { Router, Params } from '@angular/router';
 import { dayKey, monthKey, yearKey } from '.././datemodel';
 import { DataAccessService } from '../services/data-access.service';
 
+
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -18,7 +19,7 @@ export class WelcomeComponent implements OnInit {
 	  public control : FormControl;
 	  //@Input() postcode : any;
 	  postcode;
-	  public accountProfile = [];
+	  public accountProfile: any = [];
 
 	  constructor(private controlContainer: ControlContainer, private route: ActivatedRoute, private dataAccess: DataAccessService) { }
 

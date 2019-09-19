@@ -17,3 +17,11 @@ h4 {
     /*font-family: "Open Sans";*/
    	font-weight: 600;
 }
+
+[type=checkbox] {
+	margin-left: 1rem;
+}
+
+.text-center {
+	text-align: center;
+}

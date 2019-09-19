@@ -13,7 +13,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-
+import { MatTableModule } from '@angular/material/table';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -38,6 +38,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Observable } from 'rxjs/Rx';
 import { MatchResultsComponent } from './match-results/match-results.component';
+import { TrialsComponent } from './trials/trials.component';
+
 
 const appRoutes: Routes = [
    { path: 'login', component: StepperComponent },
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
    { path: 'home', component: HomeComponent},
    { path: 'breastCancer', component: BreastCancerComponent},
    { path: 'about', component: AboutCTCComponent},
+   { path: 'trials', component: TrialsComponent },
    { path: '', redirectTo: '/login', pathMatch: 'full'},
    { path: '**', component: StepperComponent }
 ];
@@ -73,6 +76,7 @@ const appRoutes: Routes = [
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTableModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
@@ -91,7 +95,8 @@ const appRoutes: Routes = [
   WelcomeComponent,
   AboutCTCComponent,
   StepperComponent,
-  MatchResultsComponent
+  MatchResultsComponent,
+  TrialsComponent
   ],
   exports: [
      MatStepperModule,
@@ -105,6 +110,7 @@ const appRoutes: Routes = [
      MatCheckboxModule,
      MatListModule,
      MatNativeDateModule,
+     MatTableModule,
      ReactiveFormsModule
    ],
   providers: [],

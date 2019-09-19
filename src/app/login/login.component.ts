@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
 	//@Input() password : any;
 	user = '';
 
+	/*this.myGroup = new FormGroup({
+       firstName: new FormControl()
+    });*/
 	constructor(private controlContainer: ControlContainer, public authService: AuthService, private router: Router ) { }
 
 	ngOnInit() {

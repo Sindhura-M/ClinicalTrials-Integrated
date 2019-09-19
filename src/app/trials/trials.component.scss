@@ -1,0 +1,80 @@
+.trials {
+	max-width: 1140px;
+	margin: auto;
+}
+.trials h3 {
+	margin: 4rem 0 0;
+}
+
+/deep/ .trials {
+
+	.mat-tab-header, .mat-tab-nav-bar {
+		border-bottom: 1px solid black;
+	}
+	.mat-tab-list {
+		margin: 0;
+		margin-top: 1rem;
+
+		.mat-tab-label {
+			color: #2A2A46;	
+			font-family: "Open Sans";
+			font-size: 17px;
+			font-weight: 600;
+			line-height: 23px;
+			padding: 0;
+	    	margin: 0 2rem 0 0;
+	    	min-width: 85px;
+		}
+		
+		.mat-tab-label-active .mat-tab-label-content{
+			color: #2A2A46;
+		}
+
+		.mat-ink-bar {
+		    height: 0.2rem;
+		    background-color: #2A2A46;
+		}
+	}
+
+	.mat-tab-body-wrapper {
+		padding: 1rem 0;
+	}
+
+	tr.mat-header-row {
+		height: 45px;
+    	background: #47476d;
+	}
+
+	th.mat-header-cell {
+	    text-align: center;
+	    color: white;
+	    font-size: 16px;
+    	font-weight: 400;
+	}
+
+	td.mat-cell {
+		font-size: 15px;
+		padding: 0.5rem;
+	}
+
+	.phase-bgColor {
+		background: pink;
+	    border-radius: 50%;
+	    text-align: center;
+	}
+
+	tr.mat-footer-row, tr.mat-row {
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 40em) {
+	/deep/ .trials {
+
+		.mat-tab-list {
+			margin: 0 ;
+			margin-top: 1rem;
+
+		}
+	}
+}
