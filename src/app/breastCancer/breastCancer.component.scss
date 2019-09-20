@@ -1,10 +1,41 @@
 .stretch {
 	margin-bottom: 2rem;
+	width: 100%;
 }
-/deep/ .container {
+/deep/ .BC-container {
+
 	.mat-tab-header {
 		border-bottom: none;
 	}
+	.mat-tab-label-container {
+		max-width: 1140px;
+		margin: auto;
+	}
+	
+	.mat-tab-list {
+		margin: 0 6rem;
+		margin-top: 1rem;
+
+		.mat-tab-label {
+			color: #2A2A46;	
+			font-family: "Open Sans";
+			font-size: 17px;
+			font-weight: 600;
+			line-height: 23px;
+			padding: 0;
+			margin: 0 1rem;
+			min-width: 85px;
+		}
+		
+		.mat-tab-label-active .mat-tab-label-content{
+			color: #2A2A46;
+		}
+		.mat-ink-bar {
+			height: 0.2rem;
+			background-color: #2A2A46;
+		}
+	}
+
 	.mat-expansion-panel {
 		max-width: 47rem;
 		margin: 2rem 3rem;
@@ -46,32 +77,54 @@
 				color: #3FE0C4;
 			}
 		}
+
 	}
 
-	.mat-tab-list {
-		margin: 0 10rem;
-		margin-top: 1rem;
+}
 
-		.mat-tab-label {
-			color: #2A2A46;	
-			font-family: "Open Sans";
-			font-size: 17px;
-			font-weight: 600;
-			line-height: 23px;
-			padding: 0;
-	    	margin: 0 1rem;
-	    	min-width: 85px;
-		}
-		
-		.mat-tab-label-active .mat-tab-label-content{
-			color: #2A2A46;
-		}
-		.mat-ink-bar {
-		    height: 0.2rem;
-		    background-color: #2A2A46;
-		}
+/deep/ .BC-container {
+
+	table.mat-table {
+	    border-spacing: 0;
+	    max-width: 1140px;
+	    margin: 2rem auto;
+	}
+	th.mat-header-cell {
+	    text-align: center;
+	    color: white;
+	    font-size: 16px;
+	    font-weight: 400;
+	}
+
+	tr.mat-header-row {
+		height: 45px;
+		background: #47476d;
+		border: 1px solid #47476d;
+	}
+
+	th.mat-header-cell {
+		text-align: center;
+		color: white;
+		font-size: 16px;
+		font-weight: 400;
+	}
+
+	td.mat-cell {
+		font-size: 15px;
+		padding: 0.5rem;
+		border: 1px solid #47476d;
+	}
+
+	tr.mat-footer-row, tr.mat-row {
+		height: auto;
+		vertical-align: initial;
+	}
+
+	td ul {
+		list-style: none;
 	}
 }
+
 
 @media screen and (max-width: 40em) {
 	/deep/ .container {

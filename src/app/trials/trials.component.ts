@@ -17,10 +17,3 @@ export class TrialsComponent implements OnInit {
 	  {studyTitle: 'Use of Hair to Diagnose Breast Cancer', interventions: 'Procedure: cutting scalp hair', phase: 2, sponsor: 'Femiscan Ltd', sex: 'Female', location: 'St George Private Hospital, Sydney, NSW, 2217', save: ''},
 	  {studyTitle: 'Stereotactic Radiation and Immunotherapy in Patients with Advanced Triple Negative Breast Cancer', interventions: 'Radiation: SABR, Drug: Atezolizumab', phase: 2, sponsor: 'Peter MacCallum Cancer Centre, Australia', sex: 'All', location: 'Peter MacCallum Cancer Centre, Melborune, VIC, 3000', save: ''}];
 }
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}

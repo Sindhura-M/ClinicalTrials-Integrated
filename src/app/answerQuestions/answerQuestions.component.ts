@@ -127,7 +127,6 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	  	this.answerkey.push(new AnswerKey(character, val));
 	  	
-	  	//result: any;
 	  	let result = Object.assign({},...this.answerkey.map(a => ({ [a.code]: a.status })));
 	  	//let dummy,result = Object.fromEntries(Object.entries(([key, val]) => [k, v * v]));
 	  	//var result:{string:string} = new Map((this.answerkey).map(obj => [obj.code,obj.status]));

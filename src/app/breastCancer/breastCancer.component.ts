@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import treatments from '../.././assets/BC-treatments.json';
 
 @Component({
   selector: 'app-tabOne',
@@ -11,64 +12,17 @@ export class BreastCancerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	/*var require: any;
-  	var data = require('../../assets/treatmentTable.json');
-	console.log("Json data : ", JSON.stringify(data));*/
-  }
-  /*displayedColumns: string[] = ['Chemotherapy', 'Targeted therapy'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+	console.log("Json data : ", JSON.stringify(treatments));
+	console.log("Json data : ", treatments[0].Chemotherapy);
+	
   }
 
-  export interface PeriodicElement {
-	  name: string;
-	}
+  displayedColumns: string[] = ["Chemotherapy", "Targeted therapy"];
+  dataSource: PeriodicElement[] = treatments;
 
-	const ELEMENT_DATA: PeriodicElement[] = [{
-		"Chemotherapy" : 
-			[ 	Capecitabine (Xeloda),
-				Carboplatin (Paraplatin), 
-				Cisplatin (Platinol), 
-				Cyclophosphamide (Clafen / Cytoxan / Neosar), 
-				Docetaxel (Taxotere),
-				Doxorubicin (Adriamycin), 
-				Doxorubicin Liposomal (Doxil / Evacet / LipoDox), 
-				Epirubicin (Ellence),   
-				Eribulin Mesylate (Halaven),
-				Fluorouracil (Adrucil / 5-FU / Efudex / Fluoroplex), 
-				Gemcitabine (Gemzar), 
-				Irinotecan (Camptosar / CPT-11), 
-				Ixabepilone (Ixempra), 
-				Methotrexate (Rheumatrex / Trexall), 
-				Mitomycin (Mutamycin), 
-				Mitoxantrone (Novatrone / Onkotrone), 
-				Oxaliplatin (Eloxatin), 
-				Paclitaxel (Paxene / Taxol),
-				Paclitaxel Albumin Bound (Abraxane),
-				Vinorelbine (Navelbine)
-			],
-		"Targeted therapy" : 
-			[	Abemaciclib (Verzenio),
-				Alpelisib (Piqray),
-				Bevacizumab (Avastin),
-				Denosumab (Xgeva),
-				Everolimus (Afinitor),
-				Lapatinib (Tykerb),
-				Niraparib (Zejula),
-				Olaparib (Lynparza),
-				Palbociclib (Ibrance),
-				Pertuzumab (Perjeta),
-				Ribociclib (Kisqali),
-				Rucaparib (Rubraca),
-				Trastuzumab (Herceptin),
-				Trastuzumab emtansine (Kadcyla),
-				Veliparib (ABT-888),
-				Zoledronic acid (Zometa)
-			]
-		}
-	];*/
+}
+
+export interface PeriodicElement {
+	Chemotherapy: string[];
+	Targetedtherapy: string[];
 }

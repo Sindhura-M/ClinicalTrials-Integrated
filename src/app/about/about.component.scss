@@ -1,9 +1,14 @@
 /deep/ .container {
+
+	.mat-tab-label-container, .mat-tab-body-wrapper {
+		max-width: 1140px;
+    	margin: auto;
+	}
 	.mat-tab-header {
 		border-bottom: none;
 	}
 	.mat-tab-list {
-		margin: 0 10rem;
+		margin: 0 6rem;
 		margin-top: 1rem;
 
 		.mat-tab-label {
@@ -25,6 +30,10 @@
 		    height: 0.2rem;
 		    background-color: #2A2A46;
 		}
+	}
+
+	.mat-tab-body-content {
+		padding: 2rem;
 	}
 }
 
