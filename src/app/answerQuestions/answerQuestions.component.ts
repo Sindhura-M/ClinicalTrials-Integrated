@@ -31,9 +31,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.characteristic = this.quizlist[0].characteristic;
 
 		this.display = false;
-		this.display2 = false;	
-
-		
+		this.display2 = false;		
 	}
 
 	public trialsData: any = [];

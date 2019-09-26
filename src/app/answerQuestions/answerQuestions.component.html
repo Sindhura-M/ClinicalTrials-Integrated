@@ -18,14 +18,7 @@
 
 
 			<div class="row" *ngIf="optionType == 'checkbox'">
-				<ul *ngFor="let option of option" > 
-					<!--mat-selection-list #options>
-					  <mat-list-option (click)="check($event)" value="{{opt}}" [(ngModel)]="opt.value">
-						<div class="optionList">
-						{{opt}}
-						</div>
-					  </mat-list-option>
-					</mat-selection-list-->
+				<ul *ngFor="let option of option" >			
 					<input type="checkbox" (click)="check($event,option, characteristic)" checklist-model="user.roles" checklist-value="role" value="{{option}}"> 
 						<span class="">{{option}}</span>
 				</ul>
@@ -67,8 +60,8 @@
 					<span>mm</span>
 
 				</div>
-				<div class="large-6 column">
-						<mat-radio-button (click)="check($event,option, characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+				<div class="large-6 column" *ngFor="let option of option">
+						<mat-radio-button (click)="check($event,option.status, characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
 				</div>
 
 			<br/>

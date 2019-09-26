@@ -2,8 +2,8 @@
     "ID": 1, 
     "question": "What is the patient's menopausal status?", 
     "optionType": "radio",
-    "anslistobj": [{"code":"premenopausal", "status":"Y"},
-      {"code":"postmenopausal","status":"N"},
+    "anslistobj": [{"code":"Postmenopausal", "status":"Y"},
+      {"code":"Premenopausal","status":"N"},
       {"code":"Not sure","status":"Y/N"},
       {"code":"Not applicable (male)","status":"N"}
     ],
