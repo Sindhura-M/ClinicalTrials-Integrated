@@ -2,6 +2,7 @@
 
 <h3>Breast cancer trials</h3>
 
+
 <div class="trials-table">
 	<mat-tab-group>
 	  <mat-tab label="List view">
@@ -9,7 +10,7 @@
 
 				  <ng-container matColumnDef="Study title">
 				    <th mat-header-cell *matHeaderCellDef> Study title </th>
-				    <td mat-cell *matCellDef="let element"> {{element.studyTitle}} </td>
+				    <td mat-cell *matCellDef="let element"> {{element.summary}} </td>
 				  </ng-container>
 
 				  <ng-container matColumnDef="Interventions">
@@ -29,7 +30,7 @@
 
 				  <ng-container matColumnDef="Sex">
 				    <th mat-header-cell *matHeaderCellDef> Sex </th>
-				    <td mat-cell *matCellDef="let element"> {{element.sex}} </td>
+				    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
 				  </ng-container>
 
 				  <ng-container matColumnDef="Location">
@@ -39,7 +40,7 @@
 
 				  <ng-container matColumnDef="Save">
 				    <th mat-header-cell *matHeaderCellDef> Save </th>
-				    <td mat-cell *matCellDef="let element"> {{element.save}} </td>
+				    <td mat-cell *matCellDef="let element"> <i class="material-icons"> star </i> </td>
 				  </ng-container>
 
 				  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,38 +1,38 @@
 
 <div class="row stepper">
-    <div class="cloumns large-12 small-12">
-        <mat-horizontal-stepper [linear]="isLinear" #stepper>
-            <mat-step [stepControl]="firstFormGroup">
-            <ng-template matStepLabel>LOG IN</ng-template>
-                <form [formGroup]="firstFormGroup">
-                    <app-index [formGroup]="firstFormGroup"></app-index>
-                    <div class="large-12 text-center">
-                        <button type="submit" class="button" (click)="onGoogleLogin(stepper)">LOG IN WITH GOOGLE</button>
-                    </div>
-                </form>
-            </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel>CREATE 
-                PROFILE</ng-template>
-                <h3>Welcome {{user}}</h3>
-                <form [formGroup]="secondFormGroup">                    
-                    <app-welcome [formGroup]="secondFormGroup"></app-welcome>
-                </form>
-            </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-                <ng-template matStepLabel>ANSWER 
-                QUESTIONS</ng-template>
-                <form [formGroup]="secondFormGroup">                    
-                    <app-answer-questions [formGroup]="secondFormGroup"></app-answer-questions>
-                </form>
-            </mat-step>
-            <mat-step>
-                <ng-template matStepLabel>MATCH 
-                RESULTS</ng-template>
-                <form [formGroup]="secondFormGroup">                    
-                    <app-match-results [formGroup]="secondFormGroup"></app-match-results>
-                </form>
-            </mat-step>
-        </mat-horizontal-stepper>
-    </div>
+	<div class="cloumns large-12 small-12">
+		<mat-horizontal-stepper [linear]="isLinear" #stepper>
+			<mat-step [stepControl]="firstFormGroup">
+			<ng-template matStepLabel>LOG IN</ng-template>
+				<form [formGroup]="firstFormGroup">
+					<app-index [formGroup]="firstFormGroup"></app-index>
+					<div class="large-12 text-center">
+						<button type="submit" class="button" (click)="onGoogleLogin(stepper)">LOG IN WITH GOOGLE</button>
+					</div>
+				</form>
+			</mat-step>
+			<mat-step [stepControl]="secondFormGroup">
+				<ng-template matStepLabel>CREATE 
+				PROFILE</ng-template>
+				<h3>Welcome {{user}}</h3>
+				<form [formGroup]="secondFormGroup">                    
+					<app-welcome [formGroup]="secondFormGroup"></app-welcome>
+				</form>
+			</mat-step>
+			<mat-step [stepControl]="secondFormGroup">
+				<ng-template matStepLabel>ANSWER 
+				QUESTIONS</ng-template>
+				<form [formGroup]="secondFormGroup">                    
+					<app-answer-questions [formGroup]="secondFormGroup"></app-answer-questions>
+				</form>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>MATCH 
+				RESULTS</ng-template>
+				<form [formGroup]="secondFormGroup">                    
+					<app-match-results [formGroup]="secondFormGroup"></app-match-results>
+				</form>
+			</mat-step>
+		</mat-horizontal-stepper>
+	</div>
 </div>

@@ -1,33 +1,28 @@
-<div [formGroup]="form" class="container">
+<div class="container">
 	<div class="title-card-sub">Log in</div>
-	<div class="row">
-	    <div class="cloumns large-12 small-12">
-	        <!--mat-form-field [ngClass]="input-group-field">
-	            <input matInput placeholder="Email Address" formControlName="email" required>
-	        </mat-form-field-->
-	        <!--mat-form-field class="example-full-width" [@.disabled]="true">
-             <input matInput placeholder="Email Address" [(ngModel)]="email" name="email" required
-             (click)="toggleClass($event,'mat-form-field-empty')">
-             </mat-form-field-->
-	        <div class="large-12 column">
-				<input class="input-group-field" type="text" placeholder="Email Address" required>
+	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+		<div class="cloumns large-12 small-12">
+			<!-- EMAIL FIELD -->
+			<div class="form-group">
+			  <input type="email" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address" />
+			  <div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
+				<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
+				<small *ngIf="f.emailAddress.errors.email">Email is invalid</small>
+			  </div>
 			</div>
-	    </div>
-	</div>
-	<div class="row">
-	    <div class="cloumns large-12 small-12">
-	        <!--mat-form-field [ngClass]="input-group-field">
-	            <input matInput placeholder="Password" formControlName="password" required>
-	        </mat-form-field-->
-	        <!--mat-form-field class="example-full-width" [@.disabled]="true">
-	           <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-	        </mat-form-field-->
-	        <div class="large-12 column">
-				<input class="input-group-field" type="text" placeholder="Password" required>
+		</div>
+		<div class="cloumns large-12 small-12">
+			<!-- PASSWORD FIELD -->
+			<div class="form-group">
+				<input type="password" formControlName="pwd" class="form-control input-group-field" placeholder="Enter password" />
+				<div *ngIf="f.pwd.invalid && f.pwd.touched" class="text-danger">
+					<small *ngIf="f.pwd.errors.required">Password is required.</small>
+					<small *ngIf="f.pwd.errors.minlength">Password is invalid.</small>
+				</div>
 			</div>
-	    </div>
-	</div>
-	<div>
-	    <button mat-button matStepperNext class="button" (click)="login()">LOG IN</button>
-	</div>
+		</div>
+		<div>
+			<button mat-button matStepperNext class="button" (click)="login()" [disabled]="loginForm.invalid">LOG IN</button>
+		</div>
+	</form>
 </div>

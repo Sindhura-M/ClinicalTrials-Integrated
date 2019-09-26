@@ -39,6 +39,11 @@ p {
 	line-height: 24px;
 	color: rgba(0,0,0,0.87);
 	margin: 1rem 0;
+	background-color: #FCD8E2;
+}
+
+.button.disabled, .button.disabled:focus, .button.disabled:hover, .button[disabled], .button[disabled]:focus, .button[disabled]:hover {
+	border: 3px solid #d44d72 !important;
 }
 
 /deep/ .container .mat-progress-bar.mat-warn .mat-progress-bar-buffer {
@@ -46,18 +51,30 @@ p {
 	background-color: #E3E3E3;
  }
  /deep/ .container .mat-progress-bar.mat-accent .mat-progress-bar-buffer {
- 	background-color: #E3E3E3;
+	background-color: #E3E3E3;
  }
 
  /deep/ .container .mat-progress-bar.mat-warn .mat-progress-bar-fill::after {
- 	background-color: #f44336;
+	background-color: #f44336;
  }
 
  /deep/ .container .mat-progress-bar.mat-accent .mat-progress-bar-fill::after {
- 	fill: #E3E3E3 ;
+	fill: #E3E3E3 ;
 	background-color: #FECF31;
  }
 
  /deep/ .container .mat-progress-bar-fill::after {
- 	    background-color: #48cc70;
+		background-color: #48cc70;
+ }
+
+ .text-danger {
+ color:red;
+ }
+
+ .form-group {
+	 height: 6rem;
+
+	 .input-group-field {
+		margin: 0;
+	 }
  }

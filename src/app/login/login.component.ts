@@ -11,41 +11,32 @@ import {MatDialog} from '@angular/material'
 	styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	public form: FormGroup;
-	public control : FormControl;
-	@Input() email : any;
-	//@Input() password : any;
-	user = '';
+	
+	constructor(private fb: FormBuilder, private controlContainer: ControlContainer, public authService: AuthService, private router: Router ) { }
 
-	/*this.myGroup = new FormGroup({
-       firstName: new FormControl()
-    });*/
-	constructor(private controlContainer: ControlContainer, public authService: AuthService, private router: Router ) { }
+	loginForm: FormGroup;
 
 	ngOnInit() {
-		//this.form = <FormGroup>this.controlContainer.control;
-		//this.email = <FormControl>this.form.get(this.email);
-		//this.password = <FormControl>this.form.get(this.password);
+		this._formValidate();
 	}
 
-	username: string;
-	password: string;
+	get f() { return this.loginForm.controls; }
+
+	_formValidate() {
+		// Here we have used a form builder and an array to allow for multiple validation rules on a form.
+		this.loginForm = this.fb.group(
+		  {
+			emailAddress: ['', Validators.compose([Validators.required, Validators.email])],
+			pwd: ['', Validators.required]
+		  },
+		  {
+			//validator: MustMatch('pwd', 'cnfPwd')
+		  }
+		);
+	}
 
 	login() : void {
-	    if (this.username == 'admin' && this.password == 'admin') {
-	     	this.router.navigate(["user"]);
-	    } else {
-	      	alert("Invalid credentials");
-	    }
+		
 	}
 
-	/*toggleClass(e, egClass) {
-	  const hasClass = event.target.classList.contains(egClass);
-	  const child = this.parent.children;
-	  if(hasClass) {
-	    this.renderer.removeClass(event.target, 'display');
-	  } else {
-	    this.renderer.addClass(event.target, 'display');
-	  }
-	}*/
 }

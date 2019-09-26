@@ -10,7 +10,7 @@
 				<mat-radio-group aria-label="Select an option">
 					<ul *ngFor="let option of option">
 						<div class="large-12 column optionList">
-						  <mat-radio-button (click)="check($event,option,characteristic)" value="{{option}}">{{option}}</mat-radio-button>
+						  <mat-radio-button (click)="check($event,option.status,characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
 						</div>
 					</ul>
 				</mat-radio-group>
@@ -68,7 +68,7 @@
 
 				</div>
 				<div class="large-6 column">
-						<mat-radio-button (click)="check($event,option, characteristic)" value="{{option}}">{{option}}</mat-radio-button>
+						<mat-radio-button (click)="check($event,option, characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
 				</div>
 
 			<br/>

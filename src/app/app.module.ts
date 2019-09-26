@@ -40,6 +40,9 @@ import { Observable } from 'rxjs/Rx';
 import { MatchResultsComponent } from './match-results/match-results.component';
 import { TrialsComponent } from './trials/trials.component';
 
+import { dataQAservice } from './services/data-QA.service';
+import { dataAccountProfile } from './services/dataAccountProfile.service';
+
 
 const appRoutes: Routes = [
    { path: 'login', component: StepperComponent },
@@ -113,7 +116,7 @@ const appRoutes: Routes = [
      MatTableModule,
      ReactiveFormsModule
    ],
-  providers: [],
+  providers: [ dataQAservice, dataAccountProfile ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

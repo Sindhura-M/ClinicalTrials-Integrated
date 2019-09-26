@@ -8,8 +8,9 @@ import { MatDatepickerModule, MatDatepickerInputEvent } from '@angular/material/
 import { dayKey, monthKey, yearKey } from '.././datemodel';
 import { map } from 'rxjs/operators';
 import { DataAccessService } from '../services/data-access.service';
+import { dataQAservice } from '../services/data-QA.service';
 
-
+// form '../services/data-QA.service'
 @Component({
   selector: 'app-answer-questions',
   templateUrl: './answerQuestions.component.html',
@@ -17,6 +18,8 @@ import { DataAccessService } from '../services/data-access.service';
 })
 
 export class AnswerQuestionsComponent implements OnInit {
+
+	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService){} 
 
 	ngOnInit() {
 		this.question = this.quizlist[0].question;
@@ -29,7 +32,12 @@ export class AnswerQuestionsComponent implements OnInit {
 
 		this.display = false;
 		this.display2 = false;	
+
+		
 	}
+
+	public trialsData: any = [];
+	public array3 = [];
 
 	myarray: String[] = [];
 
@@ -64,8 +72,8 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	events: string[] = [];
 	addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-	    this.events.push(`${type}: ${event.value}`);
-	    console.log("this.events" + this.events);
+		this.events.push(`${type}: ${event.value}`);
+		console.log("this.events" + this.events);
 	  }
 
 	  next(e, i) { 
@@ -87,54 +95,71 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.characteristic = this.quizlist[this.i].characteristic;
 	  }
 
-	 	onMonthSelect(event, MM) {
-		    console.log(event.value);
-		    this.selectedMonth = MM;
+		onMonthSelect(event, MM) {
+			console.log(event.value);
+			this.selectedMonth = MM;
 		}
 
 		onYearSelect(event, YY, code) {
-		    console.log(event.value);
-		    this.selectedYear = YY;
-		    this.check(event,this.selectedYear, code);
+			console.log(event.value);
+			this.selectedYear = YY;
+			this.check(event,this.selectedYear, code);
 		}
 	  
 	  answerkey: AnswerKey[] = [];
+
+
+	  //let data1 = this.dataQAservice.getData();
 	  //value: string[] = [];
 	  check(e, val, character) {
 
-	  	console.log(" Value is : ", val );
+		console.log(" Value is : ", val );
 
-	  	/*if (e.target.checked) {
-		    this.value.push(val);
-	  	} else {
-	  		this.value = val;
-	  	}*/
-	  	/*let j = 0;
-	  	for (j=0; j<=AnswerKey.length; j++) {
-	  		if ( character == AnswerKey[j]) {
-	  			this.value = AnswerKey[j].status;
-	  		}
-	  	}
-	  	
+		/*if (e.target.checked) {
+			this.value.push(val);
+		} else {
+			this.value = val;
+		}*/
+		/*let j = 0;
+		for (j=0; j<=AnswerKey.length; j++) {
+			if ( character == AnswerKey[j]) {
+				this.value = AnswerKey[j].status;
+			}
+		}
+		
 		this.value.push(val);
 		this.value = val;
-	  	this.str = character;*/
+		this.str = character;*/
 
-	  	this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
-	  	if (character == 'Initial diagnosis'){
-	  		val = this.diagnosisDate;
-	  	}
+		this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
+		if (character == 'diagnosis'){
+			val = this.diagnosisDate;
+		}
 
-	  	this.answerkey.push(new AnswerKey(character, val));
-	  	
-	  	let result = Object.assign({},...this.answerkey.map(a => ({ [a.code]: a.status })));
-	  	//let dummy,result = Object.fromEntries(Object.entries(([key, val]) => [k, v * v]));
-	  	//var result:{string:string} = new Map((this.answerkey).map(obj => [obj.code,obj.status]));
-	  	console.log("result" + JSON.stringify(result));
+		this.answerkey.push(new AnswerKey(character, val));
+		
+		let result = Object.assign({},...this.answerkey.map(a => ({ [a.code]: a.status })));
+
+		//data1.push(result);
+
+		console.log("result" + JSON.stringify(result));
+		let resultQA = this.dataQAservice.getData();
+		//resultQA = resultQA + result;
+
+		this.array3 = [];
+		this.array3.push(Object.assign({}, resultQA, result));
+
+		/*for(let i=0; i < resultQA.length; i++){
+			array3 = Object.assign(result, resultQA[i]);
+			array3.push(Object.assign(resultQA[i], result[i]));
+		}*/
+		console.log(this.array3);
 	  }
 
+		 
+
 	  toggleTreatmentOPtions(e, value, code) {
-	  	if ( code == "Early stage treatment" ) {
+		if ( code == "Early stage treatment" ) {
 			if (value == 'Yes') {
 				this.display = true;
 			} else if (value != 'Yes') {
@@ -154,15 +179,21 @@ export class AnswerQuestionsComponent implements OnInit {
 	  ///////////////////////////////////
 
 	  //marks: number = 0;
-	  constructor(private _router: Router){} 
-	  onSubmit(): void { 
-			this._router.navigate(['/']); 
+
+	  onSubmit() { 
+	  		this.dataQAservice.setData(this.array3[0]);
+
+	  		//this.dataAccess.getCancerTrials().subscribe( (data) =>
+			//this.trialsData=data[0]);
+
+	  		//console.log('this.trialsData' + this.trialsData);
+			//this._router.navigate(['/']); 
 	   }
 
 	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    year: String[] = [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", 
-    					"2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009",
-    					"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019" ];
+	year: String[] = [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", 
+						"2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009",
+						"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019" ];
 	  /*recursivecheck() {
 		var result1 = this.quizlist;
 		var result2 = this.answerkey;

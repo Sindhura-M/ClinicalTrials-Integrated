@@ -1,14 +1,15 @@
-<div [formGroup]="myGroup" class="container welcome-container"> 
+<!--h4 *ngIf="!user">Welcome {{user}}</h4-->
+<div class="container welcome-container"> 
     <div *ngIf="true">
         <div class="large-12 small-12 cloumn">
         	<mat-radio-group aria-label="Select an option">Who is this profile for?
                 <br/>
                 <div class="row">
                     <div class="large-3 column">
-            		  <mat-radio-button value="myslef">Myself</mat-radio-button>
+            		  <mat-radio-button (click)="check($event,option)" value="myslef">Myself</mat-radio-button>
                     </div>
                     <div class="large-3 column">
-            		  <mat-radio-button value="someone">Someone else</mat-radio-button>
+            		  <mat-radio-button (click)="check($event,option)" value="someone">Someone else</mat-radio-button>
                     </div>
                     <div class="large-6 column"></div>
                 </div>
@@ -19,7 +20,9 @@
         <div class="large-12 small-12 cloumn">
             <div class="labelClass">Postcode</div>
             <div class="large-12">
-                <input class="input-group-field" type="text" placeholder="Postcode" required>
+                <mat-form-field class="example-full-width optionList">
+                    <input #todo matInput (change)="check($event,todo.value, 'postCode')" type="text" name="todo" class="input-group-field" placeholder="Postcode" required>
+                </mat-form-field>
             </div>
         </div>
         <br/>
@@ -34,33 +37,33 @@
                 </mat-option>
               </mat-select>
             </mat-form-field-->
-            <select name="Day" class="select">
+            <select name="Day" class="select" #DD (change)="onDaySelect($event, DD.value)">
                 <option>Day</option>
-                <option *ngFor="let day of day" [value]="day.value">{{day}}</option>
+                <option *ngFor="let day of day" [value]="day">{{day}}</option>
             </select>
-            <select name="Month" class="select">
+            <select name="Month" class="select" #MM (change)="onMonthSelect($event, MM.value)">
                 <option>Month</option>
-                <option *ngFor="let month of month" [value]="month.value">{{month}}</option>
+                <option *ngFor="let month of month" [value]="month">{{month}}</option>
             </select>
-            <select name="Year" class="select">
+            <select name="Year" class="select" #YY (change)="onYearSelect($event, YY.value, 'dob')">
                 <option>Year</option>
-                <option *ngFor="let year of year" [value]="year.value">{{year}}</option>
+                <option *ngFor="let year of year" [value]="year">{{year}}</option>
             </select>
         </div>
         <br/>
         <div class="large-12 small-12 cloumn">
             <div class="sub-title">Gender</div>
-            <select name="Gender" class="select">
+            <select name="gender" class="select" #gender (change)="check($event,gender.value, 'gender')">
                 <option>Select</option>
-                <option value="option-1">Male</option>
-                <option value="option-2">Female</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
             </select>
         </div>
         <hr>
 
         <div class="row">
             <span> All fields are mandatory</span>
-            <button mat-button matStepperNext class="button-small">NEXT</button>
+            <button mat-button matStepperNext class="button-small" (click)="onNext($event)">NEXT</button>
         </div>
     </div>
 </div>
