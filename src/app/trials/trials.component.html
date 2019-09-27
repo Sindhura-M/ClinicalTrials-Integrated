@@ -20,7 +20,7 @@
 
 				  <ng-container matColumnDef="Phase">
 				    <th mat-header-cell *matHeaderCellDef> Phase </th>
-				    <td mat-cell *matCellDef="let element" class="phase-bgColor"> {{element.phase}} </td>
+				    <td mat-cell *matCellDef="let element"> <span class="phase-bgColor">{{element.phase}}</span> </td>
 				  </ng-container>
 
 				  <ng-container matColumnDef="Sponsor">

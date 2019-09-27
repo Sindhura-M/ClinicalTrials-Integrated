@@ -50,6 +50,8 @@
 	    color: white;
 	    font-size: 16px;
     	font-weight: 400;
+    	padding: 0px 8px;
+	    border-right: 1px solid white;
 	}
 
 	td.mat-cell {
@@ -58,13 +60,18 @@
 	}
 
 	.phase-bgColor {
-		background: pink;
+	    background: pink;
+	    padding: 0.8rem 1rem;
 	    border-radius: 50%;
 	    text-align: center;
 	}
 
 	tr.mat-footer-row, tr.mat-row {
 		height: auto;
+	}
+
+	.mat-column-Save, mat-column-Sex {
+		text-align: center;
 	}
 }
 
