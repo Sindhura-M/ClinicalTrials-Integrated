@@ -30,7 +30,7 @@
     "ID": 4, 
     "question": "What is the size of the primary tumour?", 
     "optionType": "text",
-    "anslistobj": [{"code":"Not sure", "status":"Any"}],
+    "anslistobj": [{"code":"Not sure", "status":"0"}],
     "characteristic": "tumourSize"
   },
   {
