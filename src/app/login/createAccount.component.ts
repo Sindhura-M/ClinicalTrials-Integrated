@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { dataAccountProfile } from '../services/dataAccountProfile.service';
 import { DataAccessService } from '../services/data-access.service';
-import { PasswordValidator } from '../helpers/PasswordValidator';
+//import { PasswordValidator } from '../helpers/PasswordValidator';
 //import { EmailValidator } from '../helpers/EmailValidator';
 
 @Component({
@@ -16,17 +16,17 @@ import { PasswordValidator } from '../helpers/PasswordValidator';
 export class CreateAccountComponent implements OnInit {
 
 title = 'Angular6 Reactive forms custom validation';
- 
+
   createAccForm: FormGroup;
    submitted = false;
- 
+
   constructor(private fb: FormBuilder, private router: Router, private dataAccountProfile: dataAccountProfile, private dataAccess: DataAccessService) { }
- 
+
 
   ngOnInit() {
 	this._formValidate();
   }
- 
+
    get f() { return this.createAccForm.controls; }
 
   _formValidate() {
@@ -46,7 +46,7 @@ title = 'Angular6 Reactive forms custom validation';
 
 	//matchEmail(this.createAccForm.get('emailAddress').value, this.createAccForm.get('cnfemail').value);
   }
- 
+
   	onSubmit() {
 		this.submitted = true;
 
@@ -58,11 +58,11 @@ title = 'Angular6 Reactive forms custom validation';
 		let temp = [];
 		temp.push(Object.assign({role: "user"},this.createAccForm.value));
 		this.dataAccountProfile.setData(temp);
-		
+
 	}
 
 	matchEmail(controlName: string, matchingControlName: string) {
-		
+
 		if( controlName !== matchingControlName) {
 			this.f.cnfemail.errors.mustMatch = true;
 		}

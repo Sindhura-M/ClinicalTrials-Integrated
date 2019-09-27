@@ -19,7 +19,7 @@ import { dataQAservice } from '../services/data-QA.service';
 
 export class AnswerQuestionsComponent implements OnInit {
 
-	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService){} 
+	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService){}
 
 	ngOnInit() {
 		this.question = this.quizlist[0].question;
@@ -31,7 +31,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.characteristic = this.quizlist[0].characteristic;
 
 		this.display = false;
-		this.display2 = false;		
+		this.display2 = false;
 	}
 
 	public trialsData: any = [];
@@ -42,7 +42,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	i: number;
 
 	newstr: String;
-	  
+
 	quizlist: Quizmodel[] = questions;
 
 	quizlength: number;
@@ -74,7 +74,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		console.log("this.events" + this.events);
 	  }
 
-	  next(e, i) { 
+	  next(e, i) {
 		this.i = i + 1;
 		if (this.i<this.quizlist.length) {
 			this.question = this.quizlist[this.i].question;
@@ -103,7 +103,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.selectedYear = YY;
 			this.check(event,this.selectedYear, code);
 		}
-	  
+
 	  answerkey: AnswerKey[] = [];
 
 
@@ -124,7 +124,7 @@ export class AnswerQuestionsComponent implements OnInit {
 				this.value = AnswerKey[j].status;
 			}
 		}
-		
+
 		this.value.push(val);
 		this.value = val;
 		this.str = character;*/
@@ -135,8 +135,8 @@ export class AnswerQuestionsComponent implements OnInit {
 		}
 
 		this.answerkey.push(new AnswerKey(character, val));
-		
-		let result = Object.assign({},...this.answerkey.map(a => ({ [a.code]: a.status })));
+
+		let result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 
 		//data1.push(result);
 
@@ -154,7 +154,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		console.log(this.array3);
 	  }
 
-		 
+
 
 	  toggleTreatmentOPtions(e, value, code) {
 		if ( code == "Early stage treatment" ) {
@@ -165,7 +165,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			}
 		}
 
-		if ( code == "Advanced stage treatment" ) { 
+		if ( code == "Advanced stage treatment" ) {
 			if (value == 'Yes') {
 				this.display2 = true;
 			} else if (value != 'Yes') {
@@ -178,18 +178,18 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	  //marks: number = 0;
 
-	  onSubmit() { 
+	  onSubmit() {
 	  		this.dataQAservice.setData(this.array3[0]);
 
 	  		//this.dataAccess.getCancerTrials().subscribe( (data) =>
 			//this.trialsData=data[0]);
 
 	  		//console.log('this.trialsData' + this.trialsData);
-			//this._router.navigate(['/']); 
+			//this._router.navigate(['/']);
 	   }
 
 	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-	year: String[] = [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", 
+	year: String[] = [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999",
 						"2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009",
 						"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019" ];
 	  /*recursivecheck() {
