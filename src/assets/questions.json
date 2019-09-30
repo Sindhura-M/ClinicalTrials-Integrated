@@ -28,7 +28,7 @@
   },
   {
     "ID": 4, 
-    "question": "What is the size of the primary tumour?", 
+    "question": "What is the size of the primary tumour? <br/><small>Refer to the size of the invasive carcinoma only, this does not include ductal carcinoma in situ (DCIS) or lobular carcinoma in situ (LCIS).<br/></small>", 
     "optionType": "text",
     "anslistobj": [{"code":"Not sure", "status":"0"}],
     "characteristic": "tumourSize"
@@ -64,9 +64,9 @@
     "question": "What is the hormone receptor status of this tumour (ER and/or PR and/or HER2 test results)? Please select all that apply.", 
     "optionType": "multipleRadio",
     "anslistobj": [
-      {"question": "Estrogen Receptor (ER)",  "anslistobj": ["Positive", "Negative", "Not sure"], "subcharacteristic": "ER"},
-      {"question": "Progesterone Receptor (PR)", "anslistobj": ["Positive", "Negative", "Not sure"], "subcharacteristic": "PR"},
-      {"question": "HER2 Receptor (HER2)", "anslistobj": ["Positive", "Negative", "Not sure", "Has not yet been tested"], "subcharacteristic": "HER2"}
+      {"question": "Estrogen Receptor (ER)",  "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}], "subcharacteristic": "ER"},
+      {"question": "Progesterone Receptor (PR)", "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}], "subcharacteristic": "PR"},
+      {"question": "HER2 Receptor (HER2)", "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}, {"code":" Has not yet been tested","status":"Y/N"}], "subcharacteristic": "HER2"}
     ],
     "characteristic": ""
   },
@@ -98,12 +98,14 @@
     "link": "Find out more about types of treatments here",
     "optionType": ["selectbox-earlyStage"],
     "anslistobj": [{"selectbox" : [
-                      {"therapyName": "Surgery", "options": [], "duration": "date"},
-                      {"therapyName": "Radiotherapy", "options": [], "duration": "date"},
-                      {"therapyName": "Chemotherapy", "options": [], "duration": "No. of months"},
-                      {"therapyName": "Hormonal therapy", "options": [], "duration": "No. of months"},
-                      {"therapyName": "Type of treatment", "options": []},
-                      {"therapyName": "Type of treatment", "options": []}
+                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "date"},
+                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "date"},
+                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "No. of months"},
+                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "No. of months"},
+                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
     "characteristic": "Early stage treatment"
@@ -114,12 +116,14 @@
     "link": "Find out more about types of treatments here",
     "optionType": ["selectbox-advanced"],
     "anslistobj": [{"selectbox" : [
-                      {"therapyName": "Type of treatment", "options": []},
-                      {"therapyName": "Type of treatment", "options": []},
-                      {"therapyName": "Type of treatment", "options": []},
-                      {"therapyName": "Type of treatment", "options": []},
-                      {"therapyName": "Type of treatment", "options": []},
-                      {"therapyName": "Type of treatment", "options": []}
+                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
+                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
     "characteristic": "Advanced stage treatment"

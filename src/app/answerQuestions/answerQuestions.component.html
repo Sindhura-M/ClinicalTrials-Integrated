@@ -3,7 +3,7 @@
 	<p *ngIf="ID == 1">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
 
 	<div class="jumbotron question">
-		{{question}}
+		<span [innerHTML]="question">{{question}}</span>
 
 		<div class="opList">
 			<div class="row" *ngIf="optionType == 'radio'">
@@ -24,19 +24,7 @@
 				</ul>
 			</div>
 
-			<div *ngIf="optionType == 'date'"> 
-				<!--mat-form-field >
-				  <input matInput [matDatepicker]="dp" placeholder="Month and Year" class="optionList">
-				  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-				  <mat-datepicker #dp
-								  startView="multi-year"
-								  (monthSelected)="check($event, dp._validSelected, dp )"
-								  panelClass="example-month-picker"
-								  (dateChange)="check($event, dp.value)"
-								  (click)="check($event,option,characteristic)">
-				  </mat-datepicker>
-				  <mat-datepicker #dp (monthSelected)="getdate($event, dp._validSelected, dp )"></mat-datepicker>
-				</mat-form-field-->
+			<div *ngIf="optionType == 'date'">
 				<div >
 
 					<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)">
@@ -75,7 +63,7 @@
 								<div class="large-6 column ">{{option.question}}</div>
 								<div class="large-6 column optionList">
 									<ul *ngFor="let opt of option.anslistobj" class="optionList">
-									  <mat-radio-button (click)="check($event, opt, option.subcharacteristic)" value="{{opt}}">{{opt}}</mat-radio-button>
+									  <mat-radio-button (click)="check($event, opt.status, option.subcharacteristic)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
 									 </ul>
 								</div>
 							</mat-radio-group>
@@ -114,9 +102,11 @@
 					<ul  class="full-width" id={{option[i]}}>
 						<div class="row optionList-width" *ngFor="let opt of option.selectbox">
 							<div class="large-5 column">
-							<select name="opt.therapyName">
-								<option>{{opt.therapyName}}</option>
-							</select>
+								<select #therapy name="{{opt.therapyName}}" (change)="check($event,therapy.value,therapy.name)">
+									<option>{{opt.therapyName}}</option>
+									<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
+									{{subOpt.code}}</option>
+								</select>
 							</div>
 							<div class="large-7 column" *ngIf="opt.duration == 'date'">
 								<div class="large-2 column">
@@ -138,8 +128,8 @@
 									<span>{{opt.duration}}</span>
 								</div>
 								<div class="large-4 column">
-									<select name="Number" (change)="check($event,opt)">
-										<option>No.</option>
+									<select name="Number" (change)="check($event,months,opt.therapyName)">
+										<option value="months">No.</option>
 									</select>
 								</div>
 							</div>
@@ -151,14 +141,15 @@
 			<div class="row display-flex optionType" *ngIf="optionType == 'selectbox-advanced' && display2">
 				<a>{{link}}</a>
 				<div *ngFor="let option of option" class="optionList-width">
-					<ul  class="i" id=option[i]>
-						<div class="row" *ngFor="let opt of option.selectbox" id="option.selectbox[i]">
+					<ul  class="i" id={{option[i]}}>
+						<div class="row" *ngFor="let opt of option.selectbox">
 							<div class="large-8 column">
-							<select name="opt.therapyName" (change)="check($event,opt)">
+							<select #advtherapy name="adv-{{opt.therapyName}}" (change)="check($event,advtherapy.value,advtherapy.name)">
 								<option>{{opt.therapyName}}</option>
+								<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
+								{{subOpt.code}}</option>
 							</select>
 							</div>
-							
 						</div>
 					</ul>
 				</div>

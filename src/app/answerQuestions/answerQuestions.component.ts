@@ -49,7 +49,7 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	question: String;
 
-	option: any[];
+	option: any;
 
 	optionType: String;
 
