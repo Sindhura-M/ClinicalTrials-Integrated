@@ -39,6 +39,9 @@ html, body {
 	border-top-width: 3px;
 }
 
+/deep/ .stepper .mat-step-header {
+    pointer-events: none !important;
+}
 .button{
 	height: 50px;
 	min-width: 310px;
