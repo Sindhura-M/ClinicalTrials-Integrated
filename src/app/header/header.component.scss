@@ -35,8 +35,27 @@
   .hide-for-small {
     display: none !important;
   }
+  .global-nav-title {
+    padding-left: 0;
+  }
+  .show-for-small {
+    display: block !important;
+  }
+  #search {
+    line-height: 65px;
+  }
 }
+.show-for-small {
+    display: none;
+    padding: 1rem 0;
+    margin: 0.5rem 0;
+    list-style: none;
 
+    /deep/ .mat-menu-item a{
+      font-family: "Open Sans";
+      color : #000000c4;
+    }
+}
 .menu {
     margin: 0;
     list-style-type: none;

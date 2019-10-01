@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -71,6 +72,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatTabsModule,
     MatExpansionModule,
+    MatMenuModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -117,7 +119,8 @@ const appRoutes: Routes = [
      MatListModule,
      MatNativeDateModule,
      MatTableModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
+     MatMenuModule
    ],
   providers: [ dataQAservice, dataAccountProfile ],
   bootstrap:    [ AppComponent ]

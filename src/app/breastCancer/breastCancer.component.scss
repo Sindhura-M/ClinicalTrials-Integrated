@@ -12,9 +12,13 @@
 		margin: auto;
 	}
 	
+	@media screen and (min-width: 40em){
+		.mat-tab-list {
+			margin: 0 6rem;
+			margin-top: 1rem;
+		}
+	}
 	.mat-tab-list {
-		margin: 0 6rem;
-		margin-top: 1rem;
 
 		.mat-tab-label {
 			color: #2A2A46;	

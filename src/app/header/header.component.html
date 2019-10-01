@@ -12,16 +12,31 @@
 		 	<span class="CCT-Title">Clinical Trials Conduct</span>
 		</a>
 	</div>
-		<ul class="menu right-side hide-for-small">
-			<li class="menu-item"><a href="/breastCancer">Breast Cancer</a></li>
-			<li class="menu-item"><a href="/about">About</a></li>
-			<li class="menu-item"><a href="/myaccount">My Account</a></li>
-			<li class="menu-item">
-				<form id="demo-2">
-					<!--input type="search" placeholder="Search"-->
-					<i class="material-icons">search</i>
-				</form>
-			</li>
-		</ul>
+	<ul class="menu right-side hide-for-small">
+		<li class="menu-item"><a href="/breastCancer">Breast Cancer</a></li>
+		<li class="menu-item"><a href="/about">About</a></li>
+		<li class="menu-item"><a href="/myaccount">My Account</a></li>
+		<li class="menu-item">
+			<form id="demo-2">
+				<!--input type="search" placeholder="Search"-->
+				<i class="material-icons">search</i>
+			</form>
+		</li>
+	</ul>
+
+	<ul class="right-side burger-menu show-for-small">
+		<li class="menu-item">
+		<button mat-button [matMenuTriggerFor]="menu"><i class="material-menu"> menu </i></button>
+		<mat-menu #menu="matMenu">
+			<form mat-menu-item id="search">
+				<!--input type="search" placeholder="Search"-->
+				<i class="material-icons">search</i>
+			</form>
+		  <button mat-menu-item><a href="/breastCancer">Breast Cancer</a></button>
+		  <button mat-menu-item><a href="/about">About</a></button>
+		  <button mat-menu-item><a href="/myaccount">My Account</a></button>
+		</mat-menu>
+		</li>
+	</ul>
 </nav>
 
