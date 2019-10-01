@@ -8,11 +8,7 @@
 	color: rgba(0,0,0,0.87);
 	margin-left: 0;
 }
-@media screen and (min-width: 40em) {
-	.button { 
-		width: 310px;
-	}
-}
+
 h4 {
 	font-size: 24px;
     line-height: 32px;
@@ -30,4 +26,11 @@ input[type=checkbox] {
 
 .text-center {
 	text-align: center;
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 310px;
+	}
 }

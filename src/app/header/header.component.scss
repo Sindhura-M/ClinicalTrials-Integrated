@@ -13,7 +13,6 @@
 
 .global-nav-title {
     line-height: 24px;
-    padding-left: 1rem;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -31,20 +30,6 @@
   font-size: 21px;
 }
 
-@media screen and (max-width: 40em){
-  .hide-for-small {
-    display: none !important;
-  }
-  .global-nav-title {
-    padding-left: 0;
-  }
-  .show-for-small {
-    display: block !important;
-  }
-  #search {
-    line-height: 65px;
-  }
-}
 .show-for-small {
     display: none;
     padding: 1rem 0;
@@ -118,4 +103,25 @@
 }
 #demo-2 input::-webkit-input-placeholder {
   color: transparent;
+}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+   padding-left: 1rem;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em){
+  .hide-for-small {
+    display: none !important;
+  }
+  .global-nav-title {
+    padding-left: 0;
+  }
+  .show-for-small {
+    display: block !important;
+  }
+  #search {
+    line-height: 65px;
+  }
 }

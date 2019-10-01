@@ -35,15 +35,17 @@ input-group-field {
 	line-height: 24px;
 	color: rgba(0,0,0,0.87);
 }
-@media screen and (min-width: 40em) {
-	.button { 
-		width: 310px;
-	}
-}
 
 .active-button {
 	background-color: #FCD8E2;
 }
 input[type="checkbox"]{
 	height: 16px;	width: 16px;	background-color: #474679;
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 310px;
+	}
 }

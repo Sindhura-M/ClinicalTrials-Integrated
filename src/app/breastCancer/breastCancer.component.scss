@@ -12,6 +12,7 @@
 		margin: auto;
 	}
 	
+	/* Medium and up */
 	@media screen and (min-width: 40em){
 		.mat-tab-list {
 			margin: 0 6rem;
@@ -129,8 +130,17 @@
 	}
 }
 
+.title-BC {
+	color: #474679;
+	font-family: "Open Sans";
+	font-size: 45px;
+	font-weight: 600;
+	line-height: 61px;
+	text-align: center;
+}
 
-@media screen and (max-width: 40em) {
+/* Small only */
+@media screen and (max-width: 39.9375em) {
 	/deep/ .container {
 
 		.mat-tab-list {
@@ -139,12 +149,4 @@
 
 		}
 	}
-}
-.title-BC {
-	color: #474679;
-	font-family: "Open Sans";
-	font-size: 45px;
-	font-weight: 600;
-	line-height: 61px;
-	text-align: center;
 }

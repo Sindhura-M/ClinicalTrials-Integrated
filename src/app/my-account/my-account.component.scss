@@ -43,16 +43,6 @@
 	}
 }
 
-@media screen and (max-width: 40em) {
-	/deep/ .container {
-
-		.mat-tab-list {
-			margin: 0 ;
-			margin-top: 1rem;
-
-		}
-	}
-}
 
 .input-group-field {
 	height: 56px;
@@ -62,11 +52,7 @@
 	margin: 1rem 0 0;
 	font-family: "Open Sans";
 }
-@media screen and (min-width: 40em) {
-	.input-group-field {
-		width: 310px;
-	}
-}
+
 label {
 	color: rgba(0,0,0,0.6);
 	font-family: "Open Sans";
@@ -83,4 +69,22 @@ input[type="checkbox"] {
     height: 16px;
     width: 16px;
     background-color: #474679;
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.input-group-field {
+		width: 310px;
+	}
+}
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	/deep/ .container {
+
+		.mat-tab-list {
+			margin: 0 ;
+			margin-top: 1rem;
+
+		}
+	}
 }

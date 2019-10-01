@@ -75,7 +75,8 @@
 	}
 }
 
-@media screen and (max-width: 40em) {
+/* Small only */
+@media screen and (max-width: 39.9375em) {
 	/deep/ .trials {
 
 		.mat-tab-list {

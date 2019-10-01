@@ -2,12 +2,6 @@ html, body {
   font-family: "Open Sans";
 }
 
-@media screen and (max-width:40em) {
-	.text-center {
-		text-align: center;
-	}
-}
-
 .title-card-sub {
 	color: #4A4A4A;
 	font-family: "Open Sans";
@@ -30,14 +24,7 @@ p {
 	background-color: #FFFFFF;
 	margin: 1rem 0;
 }
-@media screen and (min-width: 40em) {
-	.button { 
-		width: 310px;
-	}
-	.input-group-field {
-		width: 310px;
-	}
-}
+
 .button{
 	height: 50px;
 	min-width: 310px;
@@ -80,4 +67,19 @@ p {
 	display: none;
 }
 
+/* Small only */
+@media screen and (max-width:39.9375em) {
+	.text-center {
+		text-align: center;
+	}
+}
 
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 310px;
+	}
+	.input-group-field {
+		width: 310px;
+	}
+}
