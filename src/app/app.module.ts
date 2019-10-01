@@ -42,6 +42,7 @@ import { TrialsComponent } from './trials/trials.component';
 
 import { dataQAservice } from './services/data-QA.service';
 import { dataAccountProfile } from './services/dataAccountProfile.service';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 
 const appRoutes: Routes = [
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
    { path: 'answerQuestions', component: AnswerQuestionsComponent },
    { path: 'home', component: HomeComponent},
    { path: 'breastCancer', component: BreastCancerComponent},
+   { path: 'myaccount', component: MyAccountComponent},
    { path: 'about', component: AboutCTCComponent},
    { path: 'trials', component: TrialsComponent },
    { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -99,7 +101,8 @@ const appRoutes: Routes = [
   AboutCTCComponent,
   StepperComponent,
   MatchResultsComponent,
-  TrialsComponent
+  TrialsComponent,
+  MyAccountComponent
   ],
   exports: [
      MatStepperModule,

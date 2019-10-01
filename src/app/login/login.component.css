@@ -2,8 +2,10 @@ html, body {
   font-family: "Open Sans";
 }
 
-button {
-	margin: 10px;
+@media screen and (max-width:40em) {
+	.text-center {
+		text-align: center;
+	}
 }
 
 .title-card-sub {
@@ -22,16 +24,23 @@ p {
 
 .input-group-field {
 	height: 56px;
-	width: 310px;
+	min-width: 310px;
 	border: 1px solid #767676;
 	border-radius: 4px;
 	background-color: #FFFFFF;
 	margin: 1rem 0;
 }
-
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 310px;
+	}
+	.input-group-field {
+		width: 310px;
+	}
+}
 .button{
 	height: 50px;
-	width: 310px;
+	min-width: 310px;
 	border: 3px solid #FCD8E2;	
 	border-radius: 25px;
 	background-color: #FFFFFF;

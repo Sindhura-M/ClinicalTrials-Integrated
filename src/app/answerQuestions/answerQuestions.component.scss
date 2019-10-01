@@ -6,9 +6,13 @@
 	width: 100%;
 }
 
+a {
+	text-decoration: underline;
+	color: #000;
+}
+
 button {
 	height: 50px;
-	width: 310px;
 	border: 3px solid #FCD8E2;	
 	border-radius: 25px;
 	background-color: #FFFFFF;
@@ -16,9 +20,10 @@ button {
 	line-height: 24px;
 	color: rgba(0,0,0,0.87);
 }
-
-button {
-	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 1px 2px 0 #9B9B9B;
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 310px;
+	}
 }
 
 .display-flex{
@@ -110,8 +115,23 @@ select {
     margin-top: 0;
     //border-bottom: 1px solid;
   }
+
+  .mat-radio-label {
+  	white-space: inherit;
+  }
 }
 
 mat-radio-button {
 	padding: 0.5rem 0;
+}
+
+
+@media screen and (max-width: 40em) {
+	.display-flex {
+	    display: contents;
+	}
+
+	.column:last-child:not(:first-child), .columns:last-child:not(:first-child) {
+	    float: left;
+	}
 }

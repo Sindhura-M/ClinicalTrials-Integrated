@@ -8,7 +8,7 @@ export interface TrialsTable{
    anzctrRegId: string,
    bct: string,
    location: string,
-   postcode: string,
+   postCode: string,
    gender: string,
    pmp: string
    age: number

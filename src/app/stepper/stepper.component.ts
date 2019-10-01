@@ -7,7 +7,7 @@ import { MatStepper } from '@angular/material/stepper';
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.css']
+  styleUrls: ['./stepper.component.scss']
 })
 export class StepperComponent {
   title = 'clinical-trials-connect-angular';

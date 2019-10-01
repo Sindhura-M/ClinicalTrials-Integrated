@@ -1,0 +1,86 @@
+.title {
+	color: rgba(0,0,0,0.87);
+	font-size: 36px;
+	line-height: 49px;
+}
+
+/deep/ .container {
+
+	.mat-tab-label-container, .mat-tab-body-wrapper {
+		max-width: 1140px;
+    	margin: auto;
+	}
+	.mat-tab-header {
+		border-bottom: none;
+	}
+	.mat-tab-list {
+		margin: 0 6rem;
+		margin-top: 1rem;
+
+		.mat-tab-label {
+			color: #2A2A46;	
+			font-family: "Open Sans";
+			font-size: 17px;
+			font-weight: 600;
+			line-height: 23px;
+			padding: 0;
+	    	margin: 0 1rem;
+	    	min-width: 85px;
+		}
+		
+		.mat-tab-label-active{
+			color: #2A2A46;
+		}
+
+		.mat-ink-bar {
+		    height: 0.2rem;
+		    background-color: #2A2A46;
+		}
+	}
+
+	.mat-tab-body-content {
+		padding: 2rem;
+	}
+}
+
+@media screen and (max-width: 40em) {
+	/deep/ .container {
+
+		.mat-tab-list {
+			margin: 0 ;
+			margin-top: 1rem;
+
+		}
+	}
+}
+
+.input-group-field {
+	height: 56px;
+	border: 1px solid #767676;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	margin: 1rem 0 0;
+	font-family: "Open Sans";
+}
+@media screen and (min-width: 40em) {
+	.input-group-field {
+		width: 310px;
+	}
+}
+label {
+	color: rgba(0,0,0,0.6);
+	font-family: "Open Sans";
+	font-size: 11px;
+	letter-spacing: 0.1px;	line-height: 15px;
+}
+
+p {
+	margin-bottom: 0;
+	font-size: 16px;
+}
+
+input[type="checkbox"] {
+    height: 16px;
+    width: 16px;
+    background-color: #474679;
+}

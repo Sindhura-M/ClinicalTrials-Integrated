@@ -1,0 +1,51 @@
+<div class="container">
+	<mat-tab-group>
+		<mat-tab label="My account">
+		  	<div class="title">My account</div>
+		  	<hr>
+	  		<form (ngSubmit)="onSubmit()">
+
+				<div class="row">
+					<div class="large-6 columns"> 
+						<!-- FIRSTNAME FIELD -->
+						<div class="form-group">
+							<input type="text" name="firstName" class="form-control input-group-field" placeholder="First name"/>
+							<label for="firstName">First name</label>
+						</div>
+						<div class="form-group">
+							<input type="text" name="email" class="form-control input-group-field" placeholder="Email"/>
+							<label for="firstName">Email address</label>
+						</div>
+						<div class="form-group">
+							<input type="text" name="dob" class="form-control input-group-field" placeholder="Date of birth"/>
+							<label for="firstName">Date of birth</label>
+						</div>
+						<div class="form-group">
+							<input type="text" name="postcode" class="form-control input-group-field" placeholder="Postcode"/>
+							<label for="firstName">Postcode</label>
+						</div>
+					</div>
+
+					<div class="large-6 columns"> 
+						<!-- FIRSTNAME FIELD -->
+						<div class="form-group">
+							<input type="text" name="lastName" class="form-control input-group-field" placeholder="Last name"/>
+							<label for="firstName">Last name</label>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<br/>
+				<p class=""><input type="checkbox">
+				Sign me up to be notified when new trials are added that match my profile.</p>
+
+				<p class=""><input type="checkbox">
+				Sign me up to be contacted by trial coordinators for trials that match my profile.</p>
+			</form>
+		</mat-tab>
+		<mat-tab label="My condition">
+		</mat-tab>
+		<mat-tab label="My trials">
+		</mat-tab>
+	</mat-tab-group>
+</div>

@@ -2,10 +2,6 @@ html, body {
   font-family: "Open Sans";
 }
 
-button {
-	margin: 10px;
-}
-
 .title-card-main {
 	color: #4A4A4A;
 	font-family: "Open Sans";
@@ -32,7 +28,6 @@ input-group-field {
 
 .button{
 	height: 50px;
-	width: 310px;
 	border: 3px solid #FCD8E2;	
 	border-radius: 25px;
 	background-color: #FFFFFF;
@@ -40,6 +35,12 @@ input-group-field {
 	line-height: 24px;
 	color: rgba(0,0,0,0.87);
 }
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 310px;
+	}
+}
+
 .active-button {
 	background-color: #FCD8E2;
 }

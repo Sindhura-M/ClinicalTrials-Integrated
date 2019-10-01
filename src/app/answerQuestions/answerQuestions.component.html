@@ -3,8 +3,7 @@
 	<p *ngIf="ID == 1">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
 
 	<div class="jumbotron question">
-		<span [innerHTML]="question">{{question}}</span>
-
+		<div class="question" [innerHTML]="question">{{question}}</div>
 		<div class="opList">
 			<div class="row" *ngIf="optionType == 'radio'">
 				<mat-radio-group aria-label="Select an option">
@@ -97,37 +96,36 @@
 			</div>
 
 			<div class="row display-flex" *ngIf="optionType == 'selectbox-earlyStage' && display">
-				<a>{{link}}</a>
 				<div *ngFor="let option of option">
 					<ul  class="full-width" id={{option[i]}}>
 						<div class="row optionList-width" *ngFor="let opt of option.selectbox">
-							<div class="large-5 column">
+							<div class="large-5 small-8 column">
 								<select #therapy name="{{opt.therapyName}}" (change)="check($event,therapy.value,therapy.name)">
 									<option>{{opt.therapyName}}</option>
 									<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
 									{{subOpt.code}}</option>
 								</select>
 							</div>
-							<div class="large-7 column" *ngIf="opt.duration == 'date'">
+							<div class="large-7 small-8 column" *ngIf="opt.duration == 'date'">
 								<div class="large-2 column">
 									<span>Date </span>
 								</div>
-								<div class="large-6 column">
+								<div class="large-6 small-8 column">
 									<select name="Month">
 										<option>Month</option>
 									</select>
 								</div>
-								<div class="large-4 column">
+								<div class="large-4 small-8 column">
 									<select name="Year">
 										<option>Year</option>
 									</select>
 								</div>
 							</div>
-							<div class="large-7 column" *ngIf="opt.duration == 'No. of months'">
-								<div class="large-6 column">
+							<div class="large-7 small-8 column" *ngIf="opt.duration == 'No. of months'">
+								<div class="large-6 small-8 column">
 									<span>{{opt.duration}}</span>
 								</div>
-								<div class="large-4 column">
+								<div class="large-4 small-8 column">
 									<select name="Number" (change)="check($event,months,opt.therapyName)">
 										<option value="months">No.</option>
 									</select>
@@ -143,7 +141,7 @@
 				<div *ngFor="let option of option" class="optionList-width">
 					<ul  class="i" id={{option[i]}}>
 						<div class="row" *ngFor="let opt of option.selectbox">
-							<div class="large-8 column">
+							<div class="large-8 small-8 column">
 							<select #advtherapy name="adv-{{opt.therapyName}}" (change)="check($event,advtherapy.value,advtherapy.name)">
 								<option>{{opt.therapyName}}</option>
 								<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">

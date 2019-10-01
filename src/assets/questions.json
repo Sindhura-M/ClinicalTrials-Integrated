@@ -94,8 +94,7 @@
   },
   {
     "ID": 11, 
-    "question": "Please select all forms of treatment the patient has received for early stage breast cancer.", 
-    "link": "Find out more about types of treatments here",
+    "question": "Please select all forms of treatment the patient has received for early stage breast cancer. <br/> <a>Find out more about types of treatments here</a>", 
     "optionType": ["selectbox-earlyStage"],
     "anslistobj": [{"selectbox" : [
                       {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "date"},
@@ -112,8 +111,7 @@
   },
   {
     "ID": 12, 
-    "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer.", 
-    "link": "Find out more about types of treatments here",
+    "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer. <br/> <a>Find out more about types of treatments here</a>", 
     "optionType": ["selectbox-advanced"],
     "anslistobj": [{"selectbox" : [
                       {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},

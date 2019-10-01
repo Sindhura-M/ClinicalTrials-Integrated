@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container large-12 small-12">
 	<div class="title-card-sub">Log in</div>
 	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 		<div class="cloumns large-12 small-12">
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 		</div>
-		<div>
+		<div class="large-12 small-12 text-center">
 			<button mat-button matStepperNext class="button" (click)="login()" [disabled]="loginForm.invalid">LOG IN</button>
 		</div>
 	</form>
