@@ -4,35 +4,16 @@
 
 	<form [formGroup]="createAccForm" (ngSubmit)="onSubmit()">
 
+
 		<div class="row">
 			<div class="large-6 columns"> 
-				<!-- FIRSTNAME FIELD -->
 				<div class="form-group">
 					<input type="text" formControlName="firstName" class="form-control input-group-field" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
 					<div *ngIf="f.firstName.touched" class="text-danger">
 						<small *ngIf="f.firstName.value === '' ">First name is required.</small>
 					</div>
 				</div>
-
-				<!-- EMAIL FIELD -->
-				<div class="form-group">
-					<input type="email" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address" />
-					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
-						<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
-						<small *ngIf="f.emailAddress.errors.email">Email must be a valid email address.</small>
-					</div>
-				</div>
-
-				<!-- PASSWORD FIELD -->
-				<div class="form-group">
-				  	<input type="password" formControlName="pwd" class="form-control input-group-field" placeholder="Enter password" />
-				  	<div *ngIf="f.pwd.invalid && f.pwd.touched" class="text-danger">
-						<small *ngIf="f.pwd.errors.required">Password is required.</small>
-						<small *ngIf="f.pwd.errors.minlength">Password must be at least 6 characters.</small>
-					</div>
-				</div>
 			</div>
-
 			<div class="large-6 columns">
 				<!-- LASTNAME FIELD -->
 				<div class="form-group">
@@ -41,8 +22,21 @@
 						<small *ngIf="f.lastName.value === '' ">Last name is required.</small>
 					</div>
 				</div>
+			</div>
+		</div>
 
-				<!--CONFIRM EMAIL FIELD -->
+		<div class="row">
+			<div class="large-6 columns"> 
+				<!-- EMAIL FIELD -->
+				<div class="form-group">
+					<input type="email" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address" />
+					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
+						<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
+						<small *ngIf="f.emailAddress.errors.email">Email must be a valid email address.</small>
+					</div>
+				</div>
+			</div>
+			<div class="large-6 columns">
 				<div class="form-group">
 				  	<input type="email" formControlName="cnfemail" class="form-control input-group-field" placeholder="Retype email address" (change)="matchEmail(f.emailAddress.value, f.cnfemail.value)"/>
 					<div *ngIf="f.cnfemail.invalid && f.cnfemail.touched" class="text-danger">
@@ -50,8 +44,20 @@
 						<small *ngIf="!f.cnfemail.errors.required && f.cnfemail.errors.mustMatch">Email adresses must match</small>
 					</div>
 				</div>
-				
-				<!-- CONFIRM PASSWORD FIELD -->
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="large-6 columns">
+				<div class="form-group">
+				  	<input type="password" formControlName="pwd" class="form-control input-group-field" placeholder="Enter password" />
+				  	<div *ngIf="f.pwd.invalid && f.pwd.touched" class="text-danger">
+						<small *ngIf="f.pwd.errors.required">Password is required.</small>
+						<small *ngIf="f.pwd.errors.minlength">Password must be at least 6 characters.</small>
+					</div>
+				</div>
+			</div>
+			<div class="large-6 columns">
 				<div class="form-group">
 					<input type="password" formControlName="cnfPwd" class="form-control input-group-field" placeholder="Retype password" />
 					<div *ngIf="f.cnfPwd.invalid && f.cnfPwd.touched" class="text-danger">
@@ -61,6 +67,9 @@
 				</div>  
 			</div>
 		</div>
+
+
+		
 		<div class="large-9 columns form-group" style="padding-left: 9px;">
 			<button mat-button matStepperNext class="button expanded btn btn-primary" [disabled]="createAccForm.invalid">CREATE ACCOUNT</button>
 		</div>
