@@ -8,12 +8,6 @@ html, body {
 	margin-top: 4em;
 }
 
-@media screen and (max-width: 40em) {
-	/deep/ .stepper	.mat-horizontal-stepper-header-container {
-			margin: 0 0 3rem 3rem;
-	}
-}
-
 /deep/ .stepper .mat-horizontal-stepper-header-container{
 	margin: 0 0 3rem 0;
 
@@ -60,4 +54,11 @@ input, input-group-field {
 
 hr {
 	margin: 2.25rem auto;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	/deep/ .stepper	.mat-horizontal-stepper-header-container {
+			margin: 0 0 3rem 3rem;
+	}
 }

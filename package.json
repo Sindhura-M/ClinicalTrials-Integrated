@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
     "@nicky-lenaers/ngx-scroll-to": "^1.1.1",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
     "firebase": "^6.6.1",
     "foundation-sites": "^6.5.3",
