@@ -11,7 +11,8 @@ export const environment = {
     projectId: "clinical-trials-connect",
     storageBucket: "",
     messagingSenderId: "292032674391"
-  }
+  },
+  apiUrl: 'http://13.238.38.207:9090/api'
 };
 
 /*

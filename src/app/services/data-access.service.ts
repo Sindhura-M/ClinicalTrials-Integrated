@@ -9,6 +9,7 @@ import { AnswerKey } from '.././quiz/quizmodel';
 import { TrialsTable } from '../trials/trialsTable';
 import { dataQAservice } from './data-QA.service';
 import { dataAccountProfile } from './dataAccountProfile.service';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class DataAccessService {
 
   constructor(private client: HttpClient, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile) {}
 
-  private _url: string = 'http://localhost:9090/api/ctc/myaccount/accountProfile';
-  private _trialsurl: string = 'http://localhost:9090/api/ctc/trials/matchingTrials';
+  private _url: string = environment.apiUrl + '/ctc/myaccount/accountProfile';
+  private _trialsurl: string = environment.apiUrl + '/ctc/trials/matchingTrials';
   //private _authURL:  string = '';
   
   	getAccountProfile(): Observable<AccountProfile[]> {
