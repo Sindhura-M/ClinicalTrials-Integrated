@@ -6,11 +6,11 @@ html, body {
 	max-width: 700px;
 	margin: auto;
 	margin-top: 4em;
+	padding-left: 1%;
 }
 
 /deep/ .stepper .mat-horizontal-stepper-header-container{
 	margin: 0 0 3rem 0;
-
 }
 
 /deep/ .stepper .mat-step-icon {
@@ -60,5 +60,12 @@ hr {
 @media screen and (max-width: 39.9375em) {
 	/deep/ .stepper	.mat-horizontal-stepper-header-container {
 			margin: 0 0 3rem 3rem;
+	}
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	/deep/ .stepper .mat-horizontal-stepper-header-container {
+		height: 125px;
 	}
 }
