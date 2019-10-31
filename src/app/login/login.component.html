@@ -21,8 +21,13 @@
 				</div>
 			</div>
 		</div>
+		<div class="sign-in-error" *ngIf="hasFailed">
+	      Invalid username and password.
+	    </div>
 		<div class="large-12 small-12 text-center">
-			<button mat-button matStepperNext class="button" (click)="login()" [disabled]="loginForm.invalid">LOG IN</button>
+			<button mat-button matStepperNext class="button" (click)="doSignIn()" [disabled]="loginForm.invalid || isBusy">LOG IN
+			<ng-template *ngIf="!isBusy">LOG IN</ng-template>
+      		<ng-template *ngIf="isBusy">Signing in, please wait...</ng-template></button>
 		</div>
 	</form>
 </div>

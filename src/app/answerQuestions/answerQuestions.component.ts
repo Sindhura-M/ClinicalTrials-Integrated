@@ -32,6 +32,10 @@ export class AnswerQuestionsComponent implements OnInit {
 
 		this.display = false;
 		this.display2 = false;
+
+        //Selecting Default Radio item here
+        this.optionSelected = [];
+
 	}
 
 	public trialsData: any = [];
@@ -52,6 +56,8 @@ export class AnswerQuestionsComponent implements OnInit {
 	option: any;
 
 	optionType: String;
+    optionSelected:any[];
+    selectedOpt: String[];
 
 	characteristic: String;
 	ID: number;
@@ -64,17 +70,15 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	display: boolean;
 	display2: boolean;
-	gettinglanguage() {
 
-	}
 
 	events: string[] = [];
 	addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
 		this.events.push(`${type}: ${event.value}`);
 		console.log("this.events" + this.events);
-	  }
+	}
 
-	  next(e, i) {
+	next(e, i) {
 		this.i = i + 1;
 		if (this.i<this.quizlist.length) {
 			this.question = this.quizlist[this.i].question;
@@ -82,81 +86,61 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.optionType = this.quizlist[this.i].optionType;
 			this.ID = this.quizlist[this.i].ID;
 			this.characteristic = this.quizlist[this.i].characteristic;
+			this.selectedOpt = this.optionSelected[this.i];
 		}
-	  }
-	  previous(e, i) {
+	}
+	previous(e, i) {
 		this.i =  i-1 < 0 ? 0 : i-1;
 		this.question = this.quizlist[this.i].question;
 		this.option = this.quizlist[this.i].anslistobj;
 		this.optionType = this.quizlist[this.i].optionType;
 		this.ID = this.quizlist[this.i].ID;
 		this.characteristic = this.quizlist[this.i].characteristic;
-	  }
+		this.selectedOpt = this.optionSelected[this.i];
+	}
 
-		onMonthSelect(event, MM) {
-			console.log(event.value);
-			this.selectedMonth = MM;
-		}
+	onMonthSelect(event, MM) {
+		console.log(event.value);
+		this.selectedMonth = MM;
+	}
 
-		onYearSelect(event, YY, code) {
-			console.log(event.value);
-			this.selectedYear = YY;
-			this.check(event,this.selectedYear, code);
-		}
+	onYearSelect(event, YY, code) {
+		console.log(event.value);
+		this.selectedYear = YY;
+		this.check(event, code);
+	}
 
-	  answerkey: AnswerKey[] = [];
+	answerkey: AnswerKey[] = [];
 
+	check(e,selectedOpt) {
 
-	  //let data1 = this.dataQAservice.getData();
-	  //value: string[] = [];
-	  check(e, val, character) {
+		let val = e.value;
+		console.log("Value is : ", val );
 
-		console.log(" Value is : ", val );
-
-		/*if (e.target.checked) {
-			this.value.push(val);
-		} else {
-			this.value = val;
-		}*/
-		/*let j = 0;
-		for (j=0; j<=AnswerKey.length; j++) {
-			if ( character == AnswerKey[j]) {
-				this.value = AnswerKey[j].status;
-			}
-		}
-
-		this.value.push(val);
-		this.value = val;
-		this.str = character;*/
+		this.optionSelected[this.i] = selectedOpt;
 
 		this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
-		if (character == 'diagnosis'){
+		if (this.characteristic == 'diagnosis'){
 			val = this.diagnosisDate;
 		}
+		if (this.characteristic == 'tumourSize') {
+			val = selectedOpt;
+		}
 
-		this.answerkey.push(new AnswerKey(character, val));
+		this.answerkey.push(new AnswerKey(this.characteristic, val));
 
 		let result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 
-		//data1.push(result);
-
 		console.log("result" + JSON.stringify(result));
 		let resultQA = this.dataQAservice.getData();
-		//resultQA = resultQA + result;
 
 		this.array3 = [];
 		this.array3.push(Object.assign({}, resultQA, result));
 
-		/*for(let i=0; i < resultQA.length; i++){
-			array3 = Object.assign(result, resultQA[i]);
-			array3.push(Object.assign(resultQA[i], result[i]));
-		}*/
 		console.log(this.array3);
-	  }
+	}
 
-
-
-	  toggleTreatmentOPtions(e, value, code) {
+	toggleTreatmentOPtions(e, value, code) {
 		if ( code == "Early stage treatment" ) {
 			if (value == 'Yes') {
 				this.display = true;
@@ -172,49 +156,15 @@ export class AnswerQuestionsComponent implements OnInit {
 				this.display2 = false;
 			}
 		}
-	  }
+	}
 
-	  ///////////////////////////////////
-
-	  //marks: number = 0;
-
-	  onSubmit() {
-	  		this.dataQAservice.setData(this.array3[0]);
-
-	  		//this.dataAccess.getCancerTrials().subscribe( (data) =>
-			//this.trialsData=data[0]);
-
-	  		//console.log('this.trialsData' + this.trialsData);
-			//this._router.navigate(['/']);
-	   }
+	onSubmit() {
+	  	this.dataQAservice.setData(this.array3[0]);
+	}
 
 	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	year: String[] = [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999",
 						"2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009",
 						"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019" ];
-	  /*recursivecheck() {
-		var result1 = this.quizlist;
-		var result2 = this.answerkey;
-
-		var props = ['id', 'answer'];
-
-		var result = result1.filter(function (o1) {
-		  // filter out (!) items in result2
-		  return result2.some(function (o2) {
-			return o1.answer === o2.answer;
-			// assumes unique id
-		  });
-
-		}).map(function (o) {
-
-		  // use reduce to make objects with only the required properties
-		  // and map to apply this to the filtered array as a whole
-		  return props.reduce(function (newo, ans) {
-			newo[ans] = o[ans];
-			return newo;
-		  }, {});
-		});
-		console.log("result:" + JSON.stringify(result));
-	  }*/
 
 }

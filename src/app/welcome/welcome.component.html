@@ -6,10 +6,14 @@
                 <br/>
                 <div class="row">
                     <div class="large-3 column">
-                      <mat-radio-button (click)="check($event,option)" value="myslef">Myself</mat-radio-button>
+                      <mat-radio-button (click)="check($event,option)" value="myslef"
+                      >Myself</mat-radio-button>
+                      <!--[ngModel]="{checked: model.person == 'self'}" (ngModelChange)="model.person == 'self'"-->
                     </div>
                     <div class="large-3 column">
-                      <mat-radio-button (click)="check($event,option)" value="someone">Someone else</mat-radio-button>
+                      <mat-radio-button (click)="check($event,option)" value="someone"
+                      >Someone else</mat-radio-button>
+                      <!--[ngModel]="{checked: model.person == 'other'}" (ngModelChange)="model.person == 'other'"-->
                     </div>
                     <div class="large-6 column"></div>
                 </div>
@@ -21,7 +25,7 @@
             <div class="labelClass">Postcode</div>
             <div class="large-12">
                 <mat-form-field class="example-full-width optionList">
-                    <input #todo matInput (change)="check($event,todo.value, 'postCode')" type="text" name="todo" class="input-group-field" placeholder="Postcode" required>
+                    <input #todo matInput (change)="check($event,todo.value, 'postCode')" type="number" name="todo" class="input-group-field" placeholder="Postcode" required minlength="4" maxlength="4">
                 </mat-form-field>
             </div>
         </div>
@@ -29,14 +33,6 @@
         <br/>
         <div class="labelClass">Date of birth</div>
         <div class="large-12 small-12 cloumn">
-            <!--mat-form-field>
-              <mat-label>Day</mat-label>
-              <mat-select>
-                <mat-option *ngFor="let day of day" [value]="day.value">
-                  {{day}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field-->
             <select name="Day" class="select" #DD (change)="onDaySelect($event, DD.value)">
                 <option>Day</option>
                 <option *ngFor="let day of day" [value]="day">{{day}}</option>

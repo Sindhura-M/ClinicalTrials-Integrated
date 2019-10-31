@@ -1,0 +1,36 @@
+.trials {
+	max-width: 1140px;
+	margin: auto;
+	margin-top: 4rem;
+}
+
+.title {
+	color: rgba(0,0,0,0.87);
+	font-size: 36px;
+	line-height: 49px;
+}
+.floatRight {
+	float: right;
+}
+
+h5 {
+	color: #4A4A4A;
+	/*font-family: "Open Sans";	*/
+	font-size: 24px;	
+	font-weight: 600;	
+	line-height: 33px;
+}
+/deep/ .individual-trials-table {
+	.mat-elevation-z8 {
+		box-shadow: none;
+	}	
+}
+/deep/ .purple {
+	vertical-align: text-bottom;
+	color: #7E68DD;
+}
+
+/deep/ .material-icons{
+    margin: 5px;
+    padding-top: 13px;
+}

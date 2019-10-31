@@ -18,6 +18,7 @@ import { dataAccountProfile } from '../services/dataAccountProfile.service';
 export class WelcomeComponent implements OnInit {
 
 	  public accountProfile: any = [];
+	  error: String[];
 
 	  constructor(private controlContainer: ControlContainer, private route: ActivatedRoute, private dataAccess: DataAccessService, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile) { }
 
@@ -84,7 +85,11 @@ export class WelcomeComponent implements OnInit {
 		accData.push(Object.assign({}, tempData[0], this.result));
 		this.dataAccountProfile.setData(accData);
 
-		this.dataAccess.getAccountProfile().subscribe( data =>
-        this.accountProfile=data[0]);
+		this.dataAccess.getAccountProfile().subscribe( data => {
+			this.accountProfile=data[0];
+		},
+		error => {
+	        this.error = error;
+	    });
 	}
 }

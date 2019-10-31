@@ -13,7 +13,7 @@ import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class DataAccessService {
 
   constructor(private client: HttpClient, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile) {}

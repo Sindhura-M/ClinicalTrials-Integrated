@@ -1,51 +1,344 @@
-<div class="container">
+<div class="myAcc-container">
 	<mat-tab-group>
 		<mat-tab label="My account">
-		  	<div class="title">My account</div>
-		  	<hr>
-	  		<form (ngSubmit)="onSubmit()">
+			<div class="myAccount">
+			  	<div class="title">My account</div>
+			  	<hr>
+		  		<form (ngSubmit)="onSubmit()">
 
-				<div class="row">
-					<div class="large-6 columns"> 
-						<!-- FIRSTNAME FIELD -->
-						<div class="form-group">
-							<input type="text" name="firstName" class="form-control input-group-field" placeholder="First name"/>
-							<label for="firstName">First name</label>
+					<div class="row">
+						<div class="large-6 columns"> 
+							<!-- FIRSTNAME FIELD -->
+							<div class="form-group">
+								<input type="text" name="firstName" class="form-control input-group-field" placeholder="First name"/>
+								<label for="firstName">First name</label>
+							</div>
+							<div class="form-group">
+								<input type="text" name="email" class="form-control input-group-field" placeholder="Email"/>
+								<label for="firstName">Email address</label>
+							</div>
+							<div class="form-group">
+								<input type="text" name="dob" class="form-control input-group-field" placeholder="Date of birth"/>
+								<label for="firstName">Date of birth</label>
+							</div>
+							<div class="form-group">
+								<input type="text" name="postcode" class="form-control input-group-field" placeholder="Postcode"/>
+								<label for="firstName">Postcode</label>
+							</div>
 						</div>
-						<div class="form-group">
-							<input type="text" name="email" class="form-control input-group-field" placeholder="Email"/>
-							<label for="firstName">Email address</label>
+
+						<div class="large-6 columns"> 
+							<!-- FIRSTNAME FIELD -->
+							<div class="form-group">
+								<input type="text" name="lastName" class="form-control input-group-field" placeholder="Last name"/>
+								<label for="firstName">Last name</label>
+							</div>
 						</div>
-						<div class="form-group">
-							<input type="text" name="dob" class="form-control input-group-field" placeholder="Date of birth"/>
-							<label for="firstName">Date of birth</label>
-						</div>
-						<div class="form-group">
-							<input type="text" name="postcode" class="form-control input-group-field" placeholder="Postcode"/>
-							<label for="firstName">Postcode</label>
+					</div>
+					<br/>
+					<br/>
+					<p class=""><input type="checkbox">
+					Sign me up to be notified when new trials are added that match my profile.</p>
+
+					<p class=""><input type="checkbox">
+					Sign me up to be contacted by trial coordinators for trials that match my profile.</p>
+				</form>
+			</div>
+		</mat-tab>
+		<mat-tab label="My condition" #mycondition>
+			<div class="myAccount">
+				<div class="title">My condition 
+					<span class="floatRight"><i class="material-icons"> email </i>
+					<i class="material-icons"> print </i></span>
+				</div>
+				<hr>
+
+				<div *ngFor="let question of quizlist;let i = index;" class="question">
+				  	<div class="accordion" (click)="toggleAccordian($event, i)">
+				  		<span class="phase-bgColor"> {{question.ID}} </span>
+						<span class="large-11" [innerHTML]="question.question"></span> 
+					</div>
+				 	<div class="panel" *ngIf="question.optionType == 'radio'" hide="!item.isActive">
+					  	<div class="row" >
+							<mat-radio-group aria-label="Select an option">
+								<ul *ngFor="let option of question.anslistobj">
+									<div class="large-12 column optionList">
+									  <mat-radio-button (click)="check($event,option.status,characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+									</div>
+								</ul>
+							</mat-radio-group>
 						</div>
 					</div>
 
-					<div class="large-6 columns"> 
-						<!-- FIRSTNAME FIELD -->
-						<div class="form-group">
-							<input type="text" name="lastName" class="form-control input-group-field" placeholder="Last name"/>
-							<label for="firstName">Last name</label>
+					<div class="panel row" *ngIf="question.optionType == 'checkbox'" hide="!item.isActive">
+						<ul *ngFor="let option of question.anslistobj" >			
+							<input type="checkbox" (click)="check($event,option, characteristic)" checklist-model="user.roles" checklist-value="role" value="{{option}}"> 
+								<span class="">{{option}}</span>
+						</ul>
+					</div>
+
+					<div class="panel" *ngIf="question.optionType == 'date'" hide="!item.isActive">
+						<div>
+							<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)">
+				                <option>Month</option>
+				                <option *ngFor="let month of month" [value]="month">{{month}}</option>
+				            </select>
+				            <select name="Year" class="select date-select" #YY (change)="onYearSelect($event, YY.value, characteristic)">
+				                <option>Year</option>
+				                <option *ngFor="let year of year" [value]="year">{{year}}</option>
+				            </select>
+				        </div>
+					</div>
+
+					<div class="panel" *ngIf="question.optionType == 'text'" hide="!item.isActive"> 
+						<div *ngFor="let option of question.anslistobj">
+							<mat-form-field class="optionList">
+								<input #todo matInput (change)="check($event,todo.value, characteristic)" type="text" name="todo" class="border-line"> 
+							</mat-form-field>
+							<span class="example-full-width">mm</span>
+
+							<mat-radio-button (click)="check($event,option.status, characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+						</div>
+					</div>
+
+					<div class="row panel" *ngIf="question.optionType == 'multipleRadio'" hide="!item.isActive">
+						<ul *ngFor="let option of question.anslistobj" class="option-subTitle">
+							<mat-radio-group aria-label="Select an option">
+								<div class="large-6 column ">{{option.question}}</div>
+								<div class="large-6 column optionList">
+									<ul *ngFor="let opt of option.anslistobj" class="optionList">
+									  <mat-radio-button (click)="check($event, opt.status, option.subcharacteristic)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
+									 </ul>
+								</div>
+							</mat-radio-group>
+						</ul>
+					</div>
+
+					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
+						<mat-radio-group aria-label="Select an option">
+							<ul *ngFor="let option of question.anslistobj" class="display-flex">
+								<li *ngFor="let opt of option.radio">
+									<div class="large-12 column optionList">
+									  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="ES-{{opt}}">{{opt}}</mat-radio-button>
+									</div>
+								</li>
+							</ul>
+						</mat-radio-group>
+					</div>
+
+					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-advanced'" hide="!item.isActive">
+						<mat-radio-group aria-label="Select an option">
+							<ul *ngFor="let option of question.anslistobj" class="display-flex">
+								<li *ngFor="let opt of option.radio">
+									<div class="large-12 column optionList">
+									  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="AS-{{opt}}">{{opt}}</mat-radio-button>
+									</div>
+								</li>
+							</ul>
+						</mat-radio-group>
+					</div>
+
+					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage' && display" hide="!item.isActive">
+						<div *ngFor="let option of question.anslistobj">
+							<ul  class="full-width" id={{option[i]}}>
+								<div class="row optionList-width" *ngFor="let opt of option.selectbox">
+									<div class="large-5 small-8 column">
+										<select #therapy name="{{opt.therapyName}}" (change)="check($event,therapy.value,therapy.name)">
+											<option>{{opt.therapyName}}</option>
+											<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
+											{{subOpt.code}}</option>
+										</select>
+									</div>
+									<div class="large-7 small-8 column" *ngIf="opt.duration == 'date'">
+										<div class="large-2 column">
+											<span>Date </span>
+										</div>
+										<div class="large-6 small-8 column">
+											<select name="Month">
+												<option>Month</option>
+											</select>
+										</div>
+										<div class="large-4 small-8 column">
+											<select name="Year">
+												<option>Year</option>
+											</select>
+										</div>
+									</div>
+									<div class="large-7 small-8 column" *ngIf="opt.duration == 'No. of months'">
+										<div class="large-6 small-8 column">
+											<span>{{opt.duration}}</span>
+										</div>
+										<div class="large-4 small-8 column">
+											<select name="Number" (change)="check($event,months,opt.therapyName)">
+												<option value="months">No.</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row display-flex optionType panel" *ngIf="question.optionType == 'selectbox-advanced' && display2" hide="!item.isActive">
+						<a>{{link}}</a>
+						<div *ngFor="let option of question.anslistobj" class="optionList-width">
+							<ul  class="i" id={{option[i]}}>
+								<div class="row" *ngFor="let opt of option.selectbox">
+									<div class="large-8 small-8 column">
+									<select #advtherapy name="adv-{{opt.therapyName}}" (change)="check($event,advtherapy.value,advtherapy.name)">
+										<option>{{opt.therapyName}}</option>
+										<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
+										{{subOpt.code}}</option>
+									</select>
+									</div>
+								</div>
+							</ul>
 						</div>
 					</div>
 				</div>
-				<br/>
-				<br/>
-				<p class=""><input type="checkbox">
-				Sign me up to be notified when new trials are added that match my profile.</p>
-
-				<p class=""><input type="checkbox">
-				Sign me up to be contacted by trial coordinators for trials that match my profile.</p>
-			</form>
-		</mat-tab>
-		<mat-tab label="My condition">
+			</div>
 		</mat-tab>
 		<mat-tab label="My trials">
+			<div class="mytrials" #mytrials>
+				<div class="title">My trials</div>
+				<hr>
+
+				<h6>New trials</h6>
+				<p>These are new trials that have recently been uploaded that match your condition</p>
+				<div class="mytrials-table">
+			  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+						  <ng-container matColumnDef="Study title">
+						    <th mat-header-cell *matHeaderCellDef> Study title </th>
+						    <td mat-cell *matCellDef="let element"> {{element.summary}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Interventions">
+						    <th mat-header-cell *matHeaderCellDef> Interventions </th>
+						    <td mat-cell *matCellDef="let element"> {{element.interventions}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Phase">
+						    <th mat-header-cell *matHeaderCellDef> Phase </th>
+						    <td mat-cell *matCellDef="let element"> <span class="phase-bgColor">{{element.phase}}</span> </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sponsor">
+						    <th mat-header-cell *matHeaderCellDef> Sponsor </th>
+						    <td mat-cell *matCellDef="let element"> {{element.sponsor}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sex">
+						    <th mat-header-cell *matHeaderCellDef> Sex </th>
+						    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Location">
+						    <th mat-header-cell *matHeaderCellDef> Location </th>
+						    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Save">
+						    <th mat-header-cell *matHeaderCellDef> Save </th>
+						    <td mat-cell *matCellDef="let element"> <i class="material-icons"> star_border </i> </td>
+						  </ng-container>
+
+						  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+					</table>
+				</div>
+
+				<hr>
+				<h6>Saved trials</h6>
+				<div class="mytrials-table">
+			  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+						  <ng-container matColumnDef="Study title">
+						    <th mat-header-cell *matHeaderCellDef> Study title </th>
+						    <td mat-cell *matCellDef="let element"> {{element.summary}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Interventions">
+						    <th mat-header-cell *matHeaderCellDef> Interventions </th>
+						    <td mat-cell *matCellDef="let element"> {{element.interventions}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Phase">
+						    <th mat-header-cell *matHeaderCellDef> Phase </th>
+						    <td mat-cell *matCellDef="let element"> <span class="phase-bgColor">{{element.phase}}</span> </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sponsor">
+						    <th mat-header-cell *matHeaderCellDef> Sponsor </th>
+						    <td mat-cell *matCellDef="let element"> {{element.sponsor}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sex">
+						    <th mat-header-cell *matHeaderCellDef> Sex </th>
+						    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Location">
+						    <th mat-header-cell *matHeaderCellDef> Location </th>
+						    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Save">
+						    <th mat-header-cell *matHeaderCellDef> Save </th>
+						    <td mat-cell *matCellDef="let element"> <i class="material-icons"> star_border </i> </td>
+						  </ng-container>
+
+						  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+					</table>
+				</div>
+
+				<hr>
+				<h6>Trials that no longer match my condition</h6>
+				<p>We recommend that you remove these from your saved list</p>
+				<div class="mytrials-table invalid-trials">
+			  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+						  <ng-container matColumnDef="Study title">
+						    <th mat-header-cell *matHeaderCellDef> Study title </th>
+						    <td mat-cell *matCellDef="let element"> {{element.summary}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Interventions">
+						    <th mat-header-cell *matHeaderCellDef> Interventions </th>
+						    <td mat-cell *matCellDef="let element"> {{element.interventions}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Phase">
+						    <th mat-header-cell *matHeaderCellDef> Phase </th>
+						    <td mat-cell *matCellDef="let element"> <span class="phase-bgColor">{{element.phase}}</span> </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sponsor">
+						    <th mat-header-cell *matHeaderCellDef> Sponsor </th>
+						    <td mat-cell *matCellDef="let element"> {{element.sponsor}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sex">
+						    <th mat-header-cell *matHeaderCellDef> Sex </th>
+						    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Location">
+						    <th mat-header-cell *matHeaderCellDef> Location </th>
+						    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Save">
+						    <th mat-header-cell *matHeaderCellDef> Save </th>
+						    <td mat-cell *matCellDef="let element"> <i class="material-icons"> star_border </i> </td>
+						  </ng-container>
+
+						  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+					</table>
+				</div>
+			</div>
 		</mat-tab>
 	</mat-tab-group>
 </div>

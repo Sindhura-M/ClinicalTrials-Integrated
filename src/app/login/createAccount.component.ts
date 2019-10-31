@@ -4,8 +4,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { dataAccountProfile } from '../services/dataAccountProfile.service';
 import { DataAccessService } from '../services/data-access.service';
-//import { PasswordValidator } from '../helpers/PasswordValidator';
-//import { EmailValidator } from '../helpers/EmailValidator';
 
 @Component({
   selector: 'app-createAccount',
@@ -25,6 +23,7 @@ title = 'Angular6 Reactive forms custom validation';
 
   ngOnInit() {
 	this._formValidate();
+	//let pp = this.dataAccountProfile.getData();
   }
 
    get f() { return this.createAccForm.controls; }

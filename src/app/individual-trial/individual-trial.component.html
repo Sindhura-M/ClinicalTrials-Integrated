@@ -1,0 +1,95 @@
+<div class="trials" #trials>
+	<div class="row">
+		<div class="large-9 column title">Stereotactic Radiation and Immunotherapy in Patients with Advanced Triple Negative Breast Cancer
+			
+		</div>
+		<div class="large-3 column floatRight">
+			<i class="material-icons"> star </i>
+			<i class="material-icons"> arrow_left </i>Back
+			<i class="material-icons"> email </i>
+			<i class="material-icons"> print </i>
+		</div>
+	</div>
+	<div class="individual-trials-table">
+  		<!--table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+		 	<ng-container matColumnDef="Phase">
+				<th mat-header-cell *matHeaderCellDef> Phase </th>
+			    <td mat-cell *matCellDef="let element"> {{element.phase}} </td>
+			</ng-container>
+
+		  	<ng-container matColumnDef="Interventions">
+				<th mat-header-cell *matHeaderCellDef> Interventions </th>
+			    <td mat-cell *matCellDef="let element"> {{element.interventions}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="Modalities">
+				<th mat-header-cell *matHeaderCellDef> Modalities </th>
+			    <td mat-cell *matCellDef="let element"> {{element.modalities}} </td>
+			</ng-container>
+
+		  	<ng-container matColumnDef="Sponser">
+				<th mat-header-cell *matHeaderCellDef> Sponser </th>
+			    <td mat-cell *matCellDef="let element"> {{element.sponser}} </td>
+			</ng-container>
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		  	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+		</table-->
+	</div>
+
+	<h5><i class="material-icons purple">description</i>Study Information</h5>
+	<mat-tab-group>
+		<mat-tab label="Brief summary">
+			<br/>
+		  	<p>This study is designed to Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+		</mat-tab>
+		<mat-tab label="Detailed description">
+		</mat-tab>
+		<mat-tab label="Eligibility criteria">
+		</mat-tab>
+		<mat-tab label="Outcomes history">
+		</mat-tab>
+	</mat-tab-group>
+
+	<h5><i class="material-icons purple">local_hospital</i>Interventions</h5>
+	<!--table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+	 	<ng-container matColumnDef="Chemotherapy">
+		   	<th mat-header-cell *matHeaderCellDef> Radiation: SABR </th>
+		   	<td mat-cell *matCellDef="let element"> 
+		   	 	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		   	</td>
+	  	</ng-container>
+
+	  	<ng-container matColumnDef="Drug: Atezolizumab ">
+		   	<th mat-header-cell *matHeaderCellDef> Drug: Atezolizumab  </th>
+		   	<td mat-cell *matCellDef="let element">
+		   		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		   	</td>
+	  	</ng-container>
+
+	  	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+	</table-->
+
+	<h5><i class="material-icons purple">room</i>Locations</h5>
+	<mat-tab-group>
+		<mat-tab label="NSW">
+		</mat-tab>
+		<mat-tab label="VIC">
+			<div class="row">
+				<div class="large-4 column text-center">
+					<h6>Peter MacCallum Cancer Centre, Melbourne, 3000</h6>
+				</div>
+				<div class="large-2 column text-center">
+					<h6>908 km away</h6>
+				</div>
+				<div class="large-6 column text-center">
+					<div #gmap style="width:100%;height:400px"></div>
+				</div>
+			</div>
+		</mat-tab>
+		<mat-tab label="QLD">
+		</mat-tab>
+	</mat-tab-group>
+
+</div>

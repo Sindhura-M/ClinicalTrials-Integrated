@@ -44,7 +44,8 @@ import { TrialsComponent } from './trials/trials.component';
 import { dataQAservice } from './services/data-QA.service';
 import { dataAccountProfile } from './services/dataAccountProfile.service';
 import { MyAccountComponent } from './my-account/my-account.component';
-
+import { IndividualTrialComponent } from './individual-trial/individual-trial.component';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 const appRoutes: Routes = [
    { path: 'login', component: StepperComponent },
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
    { path: 'myaccount', component: MyAccountComponent},
    { path: 'about', component: AboutCTCComponent},
    { path: 'trials', component: TrialsComponent },
+   { path: 'individualtrial', component: IndividualTrialComponent },
    { path: '', redirectTo: '/login', pathMatch: 'full'},
    { path: '**', component: StepperComponent }
 ];
@@ -63,7 +65,7 @@ const appRoutes: Routes = [
   imports:      [ 
   	BrowserModule, 
   	FormsModule,
-  	RouterModule.forRoot(appRoutes),
+  	RouterModule.forRoot(appRoutes, {useHash: true}),
     NoopAnimationsModule,
     MatStepperModule,
     MatFormFieldModule,
@@ -104,7 +106,8 @@ const appRoutes: Routes = [
   StepperComponent,
   MatchResultsComponent,
   TrialsComponent,
-  MyAccountComponent
+  MyAccountComponent,
+  IndividualTrialComponent
   ],
   exports: [
      MatStepperModule,
@@ -122,7 +125,7 @@ const appRoutes: Routes = [
      ReactiveFormsModule,
      MatMenuModule
    ],
-  providers: [ dataQAservice, dataAccountProfile ],
+  providers: [ dataQAservice, dataAccountProfile, {provide: LocationStrategy, useClass: HashLocationStrategy} ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

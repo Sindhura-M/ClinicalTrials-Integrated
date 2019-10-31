@@ -1,7 +1,7 @@
 <div class="jumbotron container questionnaire">
 
 	<p *ngIf="ID == 1">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
-
+	
 	<div class="jumbotron question">
 		<div class="question" [innerHTML]="question">{{question}}</div>
 		<div class="opList">
@@ -9,7 +9,13 @@
 				<mat-radio-group aria-label="Select an option">
 					<ul *ngFor="let option of option">
 						<div class="large-12 column optionList">
-						  <mat-radio-button (click)="check($event,option.status,characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+
+						  <mat-radio-button
+							value="{{option.status}}" name="{{option.code}}" [checked]="selectedOpt==option.code"
+					        [ngModel]="optionSelected" ngDefaultControl value="{{option.status}}"
+					        (change)="check($event,option.code)">
+					        {{option.code}}
+						</mat-radio-button>
 						</div>
 					</ul>
 				</mat-radio-group>
@@ -18,22 +24,23 @@
 
 			<div class="row" *ngIf="optionType == 'checkbox'">
 				<ul *ngFor="let option of option" >			
-					<input type="checkbox" (click)="check($event,option, characteristic)" checklist-model="user.roles" checklist-value="role" value="{{option}}"> 
+					<input type="checkbox" (click)="check($event,option.code)" checklist-model="user.roles" checklist-value="role" value="{{option}}" [checked]="selectedOpt==option.code"
+					        [ngModel]="optionChecked"> 
 						<span class="">{{option}}</span>
 				</ul>
 			</div>
 
 			<div *ngIf="optionType == 'date'">
-				<div >
-
-					<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)">
+				<div>
+					<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)"
+					>
 		                <option>Month</option>
-		                <option *ngFor="let month of month" [value]="month"
+		                <option *ngFor="let month of month" [value]="month" [selected]="selectedMonth"
 		                >{{month}}</option>
 		            </select>
 		            <select name="Year" class="select date-select" #YY (change)="onYearSelect($event, YY.value, characteristic)">
 		                <option>Year</option>
-		                <option *ngFor="let year of year" [value]="year">{{year}}</option>
+		                <option *ngFor="let year of year" [value]="year" [selected]="selectedYear">{{year}}</option>
 		            </select>
 		        </div>
 
@@ -42,13 +49,13 @@
 			<div *ngIf="optionType == 'text'"> 
 				<div class="large-6 column">
 					<mat-form-field class="example-full-width optionList">
-						<input #todo matInput (change)="check($event,todo.value, characteristic)" type="text" name="todo" class="border-line"> 
+						<input #todo matInput (change)="check($event,todo.value)" type="number" name="todo" class="border-line"> 
 					</mat-form-field>
 					<span>mm</span>
 
 				</div>
 				<div class="large-6 column" *ngFor="let option of option">
-						<mat-radio-button (click)="check($event,option.status, characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+						<mat-radio-button (click)="check($event,option.status)" value="{{option.status}}">{{option.code}}</mat-radio-button>
 				</div>
 
 			<br/>
