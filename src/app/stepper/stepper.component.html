@@ -2,7 +2,8 @@
 <div class="row stepper">
 	<div class="cloumns large-12 small-12">
 		<mat-horizontal-stepper [linear]="isLinear" #stepper>
-			<mat-step [stepControl]="firstFormGroup">
+
+			<mat-step [stepControl]="firstFormGroup" class="aaaaaaaa" [ngClass]="{'pointerEvent': loggedIn == false}">
 			<ng-template matStepLabel>LOG IN</ng-template>
 				<form [formGroup]="firstFormGroup">
 					<app-index [formGroup]="firstFormGroup"></app-index>
@@ -11,7 +12,7 @@
 					</div>
 				</form>
 			</mat-step>
-			<mat-step [stepControl]="secondFormGroup">
+			<mat-step [stepControl]="secondFormGroup" [ngClass]="{'pointerEvent': loggedIn === true }">
 				<ng-template matStepLabel>CREATE 
 				PROFILE</ng-template>
 				<h3>Welcome {{user}}</h3>
@@ -19,14 +20,14 @@
 					<app-welcome [formGroup]="secondFormGroup"></app-welcome>
 				</form>
 			</mat-step>
-			<mat-step [stepControl]="secondFormGroup">
+			<mat-step [stepControl]="secondFormGroup" [ngClass]="{'pointerEvent': loggedIn === true }">
 				<ng-template matStepLabel>ANSWER 
 				QUESTIONS</ng-template>
 				<form [formGroup]="secondFormGroup">                    
 					<app-answer-questions [formGroup]="secondFormGroup"></app-answer-questions>
 				</form>
 			</mat-step>
-			<mat-step>
+			<mat-step [ngClass]="{'pointerEvent': loggedIn === true }">
 				<ng-template matStepLabel>MATCH 
 				RESULTS</ng-template>
 				<form [formGroup]="secondFormGroup">                    

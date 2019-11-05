@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 	            response.token,
 	            response.name
 	          );
-	          this.router.navigate(['/']);
+	          this.router.navigate(['/myaccount']);
 	        },
 	        (error) => {
 	          this.isBusy = false;

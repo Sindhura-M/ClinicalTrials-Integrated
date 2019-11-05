@@ -14,15 +14,20 @@ export class TrialsComponent implements OnInit {
 
   public dataSource: any = [];
   error: String[];
+  showTrials:boolean = false;
 
   ngOnInit() {
       //const tempData = this.dataQAservice.getData();
       this.dataAccess.getCancerTrials().subscribe( data => {
       this.dataSource=data;
+      this.showTrials=true;
       },
       error => {
         this.error = error;
+        this.showTrials=false;
       });
+
+      //this.showTrials= ( (this.dataSource.length > 1) ? true : false);
   }
 
   public TrialsTable: any = [];

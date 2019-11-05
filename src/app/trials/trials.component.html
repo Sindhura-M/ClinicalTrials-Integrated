@@ -1,9 +1,17 @@
 <div class="trials" #trials>
 
 <h3>Breast cancer trials</h3>
+<br/>
 
+<div *ngIf="!showTrials">
+<p>Unfortunately, there are no clinical trials that match the information you have entered. This might be because of the trial’s eligibility criteria, or more information is required. </p>
 
-<div class="trials-table">
+<p>Our tool is designed to provide a comprehensive list of trials for which you might be eligible for. Please discuss clinical trial eligibility with your clinician. They will be able to provide you with more detailed feedback and recommendations for clinical trials available to you and the right trial to apply for. Please note, you might be required to do further testing to meet eligibility criteria.</p>
+
+<p>We also recommend you update your profile page as your condition changes, or if you have received new treatments. You can sign up to notifications to be informed when new trials are uploaded to the site. </p>
+</div>
+
+<div class="trials-table" *ngIf="showTrials">
 	<mat-tab-group>
 	  <mat-tab label="List view">
 	  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

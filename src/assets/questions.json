@@ -40,7 +40,7 @@
     "anslistobj": [{"code":"0","status":"0"},
       {"code":"1-3","status":"1-3"},
       {"code":"4-9","status":"4-9"},
-      {"code":">10","status":">10"}],
+      {"code":"≥10","status":"≥10"}],
     "characteristic": "nodeNumber"
   },
   {
@@ -61,18 +61,18 @@
   },
   {
     "ID": 8, 
-    "question": "What is the hormone receptor status of this tumour (ER and/or PR and/or HER2 test results)? Please select all that apply.", 
+    "question": "What is the hormone receptor status of the cancer (ER and/or PR and/or HER2 test results)? Please select all that apply.", 
     "optionType": "multipleRadio",
     "anslistobj": [
       {"question": "Estrogen Receptor (ER)",  "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}], "subcharacteristic": "ER"},
       {"question": "Progesterone Receptor (PR)", "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}], "subcharacteristic": "PR"},
-      {"question": "HER2 Receptor (HER2)", "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}, {"code":" Has not yet been tested","status":"Y/N"}], "subcharacteristic": "HER2"}
+      {"question": "HER Receptor (HER2)", "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}, {"code":" Has not yet been tested","status":"Y/N"}], "subcharacteristic": "HER2"}
     ],
     "characteristic": ""
   },
   {
     "ID": 9, 
-    "question": "What grade is the cancer?", 
+    "question": "What is the grade of the cancer?", 
     "optionType": "radio",
     "anslistobj": [{"code":"Grade 1","status":"1"},
       {"code":"Grade 2","status":"2"},
@@ -130,7 +130,7 @@
     "ID": 13, 
     "question": "Would the patient be interested in a study that may help with the following breast cancer symptoms or treatment-related side effects. Please select all that apply.", 
     "optionType": "checkbox",
-    "anslistobj": ["Not experiencing any side effects", "Bone loss / fractures", "Cognitive (memory) dysfunction", "End of life care", "Fatigue", "Hand-foot syndrome (Palmar-Plantar erythrodysesthesia)", "Hot flashes", "Insomnia", "Loss of appetite", "Lymphoedema", "Nausea or vomiting", "Peripheral neuropathy (numbness / pain / tingling)", "Pain", "Physical activity / rehabilitation", "Quality of life", "Weight loss (Cachexia)", "Other side effects not listed", "All of the above"],
+    "anslistobj": ["Not experiencing any side effects", "Bone loss / fractures", "Cognitive dysfunction (memory problems)", "End of life care", "Fatigue", "Hand-foot syndrome (Palmar-Plantar erythrodysesthesia)", "Hot flashes", "Insomnia", "Loss of appetite", "Lymphoedema", "Nausea or vomiting", "Peripheral neuropathy (numbness / pain / tingling)", "Pain", "Physical activity / rehabilitation", "Quality of life", "Weight loss (Cachexia)", "Other side effects not listed", "All of the above"],
     "characteristic": "Symptoms"
   },
   {
@@ -142,8 +142,8 @@
   },
   {
     "ID": 15, 
-    "question": "Would the patient be willing to partner with us in breast cancer research, by:", 
+    "question": "Would the patient be willing to partner with us in breast cancer research, by: <br/><small>(There are no additional costs associated with these tests, nor will you be paid. Tests preformed for research will be provided to you free of charge)</small>", 
     "optionType": "checkbox",
-    "anslistobj": ["complete questionnaires", "provide a blood sample", "provide a sample of your cancer from a biopsy", "I am not willing to answer questions or provide any samples.", "Not sure"],
+    "anslistobj": ["completing questionnaires", "providing a blood sample", "providing a sample of the cancer from a biopsy", "I am not willing to answer questionnaires or provide any samples", "Not sure"],
     "characteristic": "Research interest"
   }]
