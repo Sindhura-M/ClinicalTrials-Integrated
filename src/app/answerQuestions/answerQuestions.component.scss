@@ -137,3 +137,37 @@ mat-radio-button {
 	    float: left;
 	}
 }
+
+/*incomplete questions CSS*/
+.incompleteQuestions {
+	.title {
+		color: rgba(0,0,0,0.87);
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 32px;
+	}
+	.question {
+		margin: 2rem 0;
+	    padding: 20px;
+	    box-sizing: border-box;	
+	    border: 1px solid #979797;	
+	    background-color: #FFFFFF;
+	}
+	.panel {
+		padding-left: 6%;
+	}
+	.phase-bgColor {
+	    background: pink;
+	    padding: 0.6rem 0.9rem;
+	    border-radius: 50%;
+	    text-align: center;
+	    margin-right: 15px;
+	}
+	.floatRight {
+		float: right;
+	}
+	.material-icons {
+		margin: 5px;
+		padding-top: 13px;
+	}
+}

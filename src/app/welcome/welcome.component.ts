@@ -66,7 +66,7 @@ export class WelcomeComponent implements OnInit {
 	  	console.log(" Value is : ", val );
 
 	  	this.birthDate = this.selectedYear + '-' + this.selectedMonth + '-' + this.selectedDay;
-	  	if (character == 'dob'){
+	  	if (character === 'dob'){
 	  		val = this.birthDate;
 	  	}
 

@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatProgressBarModule} from '@angular/material';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatProgressBarModule } from '@angular/material';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPasswordStrengthModule } from '@angular-material-extensions/password-strength';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -45,22 +47,22 @@ import { dataQAservice } from './services/data-QA.service';
 import { dataAccountProfile } from './services/dataAccountProfile.service';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { IndividualTrialComponent } from './individual-trial/individual-trial.component';
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 const appRoutes: Routes = [
-   { path: 'login', component: StepperComponent },
+   { path: 'login', component: StepperComponent},
    { path: 'welcome', component: WelcomeComponent },
-   { path: 'answerQuestions', component: AnswerQuestionsComponent },
+   { path: 'answerQuestions', component: AnswerQuestionsComponent},
    { path: 'home', component: HomeComponent},
    { path: 'breastCancer', component: BreastCancerComponent},
    { path: 'myaccount', component: MyAccountComponent},
    { path: 'about', component: AboutCTCComponent},
-   { path: 'trials', component: TrialsComponent },
-   { path: 'individualtrial', component: IndividualTrialComponent },
+   { path: 'trials', component: TrialsComponent},
+   { path: 'individualtrial/:id', component: IndividualTrialComponent},
    { path: '', redirectTo: '/login', pathMatch: 'full'},
    { path: '**', component: StepperComponent }
 ];
-
+//, canActivate: [AuthGuard]
 @NgModule({
   imports:      [ 
   	BrowserModule, 
@@ -125,7 +127,7 @@ const appRoutes: Routes = [
      ReactiveFormsModule,
      MatMenuModule
    ],
-  providers: [ dataQAservice, dataAccountProfile, {provide: LocationStrategy, useClass: HashLocationStrategy} ],
+  providers: [ dataQAservice, dataAccountProfile, {provide: LocationStrategy, useClass: HashLocationStrategy}, AuthGuard, AuthService ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -13,7 +13,7 @@ import {MatDialog} from '@angular/material'
 })
 export class LoginComponent implements OnInit {
 	
-	constructor(private fb: FormBuilder, private controlContainer: ControlContainer, public authService: AuthService, private router: Router, private dataAccess: DataAccessService ) { }
+	constructor(private fb: FormBuilder, private controlContainer: ControlContainer, public auth: AuthService, private router: Router, private dataAccess: DataAccessService ) { }
 
 	loginForm: FormGroup;
 	public isBusy = false;
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 		);
 	}
 
-	doSignIn() : void {
+	/*doSignIn() : void {
 		if (this.loginForm.invalid) {
 	      this.showInputErrors = true;
 	      return;
@@ -54,11 +54,11 @@ export class LoginComponent implements OnInit {
 	    const password = this.loginForm.get('pwd').value;
 
 	    // Submit request to API
-	    /*this.dataAccess
-	      .signIn(username, password)
-	      .subscribe(
+	    this.dataAccess
+	    .signIn(username, password)
+	    .subscribe(
 	        (response) => {
-	          this.authService.doSignIn(
+	          this.auth.doSignIn(
 	            response.token,
 	            response.name
 	          );
@@ -68,8 +68,8 @@ export class LoginComponent implements OnInit {
 	          this.isBusy = false;
 	          this.hasFailed = true;
 	        }
-	      );*/
-	  }
+	    );
+	  }*/
 
 
 }

@@ -56,6 +56,10 @@ export class StepperComponent implements CanActivate{
 				stepper.next();
 				this.router.navigate(['/login']);
 				this.user = res.user.displayName;
+				this.authService.doSignIn(
+		            res.token,
+		            res.user.displayName
+	            );
 			})
 	}
 }

@@ -1,19 +1,19 @@
 <div class="jumbotron container questionnaire">
 
-	<p *ngIf="ID == 1">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
+	<p *ngIf="ID === 1">If you are unsure of the answer to a question, you can select ‘Not sure’. These questions will come up as a list at the end. We encourage you to answer the questions as best you can because the results will be personalised specifically to you.</p>
 	
-	<div class="jumbotron question">
+	<div class="jumbotron question" *ngIf="!showIncompleteQuestions">
 		<div class="question" [innerHTML]="question">{{question}}</div>
 		<div class="opList">
-			<div class="row" *ngIf="optionType == 'radio'">
+			<div class="row" *ngIf="optionType === 'radio'">
 				<mat-radio-group aria-label="Select an option">
 					<ul *ngFor="let option of option">
 						<div class="large-12 column optionList">
 
 						  <mat-radio-button
-							value="{{option.status}}" name="{{option.code}}" [checked]="selectedOpt==option.code"
+							value="{{option.status}}" name="{{option.code}}" [checked]="selectedOpt===option.code"
 					        [ngModel]="optionSelected" ngDefaultControl value="{{option.status}}"
-					        (change)="check($event,option.code)">
+					        (change)="onCheck($event,option.code)">
 					        {{option.code}}
 						</mat-radio-button>
 						</div>
@@ -22,54 +22,54 @@
 			</div>
 
 
-			<div class="row" *ngIf="optionType == 'checkbox'">
+			<div class="row" *ngIf="optionType === 'checkbox'">
 				<ul *ngFor="let option of option" >			
-					<input type="checkbox" (click)="check($event,option.code)" checklist-model="user.roles" checklist-value="role" value="{{option}}" [checked]="selectedOpt==option.code"
+					<input type="checkbox" (click)="onCheck($event,option)" checklist-model="user.roles" checklist-value="role" value="{{option}}"
 					        [ngModel]="optionChecked"> 
 						<span class="">{{option}}</span>
 				</ul>
 			</div>
 
-			<div *ngIf="optionType == 'date'">
+			<div *ngIf="optionType === 'date'">
 				<div>
 					<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)"
 					>
 		                <option>Month</option>
-		                <option *ngFor="let month of month" [value]="month" [selected]="selectedMonth"
+		                <option *ngFor="let month of month" [value]="month" [selected]="month==selectedMonth"
 		                >{{month}}</option>
 		            </select>
 		            <select name="Year" class="select date-select" #YY (change)="onYearSelect($event, YY.value, characteristic)">
 		                <option>Year</option>
-		                <option *ngFor="let year of year" [value]="year" [selected]="selectedYear">{{year}}</option>
+		                <option *ngFor="let year of year" [value]="year" [selected]="year==selectedYear">{{year}}</option>
 		            </select>
 		        </div>
 
 			</div>
 
-			<div *ngIf="optionType == 'text'"> 
+			<div *ngIf="optionType === 'text'">
 				<div class="large-6 column">
 					<mat-form-field class="example-full-width optionList">
-						<input #todo matInput (change)="check($event,todo.value)" type="number" name="todo" class="border-line"> 
+						<input #tumorSize matInput (change)="onCheck($event,tumorSize.value)" type="number" name="tumorSize" class="border-line" value={{selectedOpt}}> 
 					</mat-form-field>
 					<span>mm</span>
 
 				</div>
 				<div class="large-6 column" *ngFor="let option of option">
-						<mat-radio-button (click)="check($event,option.status)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+						<mat-radio-button (click)="onCheck($event,option.status)" value="{{option.status}}">{{option.code}}</mat-radio-button>
 				</div>
 
 			<br/>
 			<br/>
 			</div>
 
-			<div class="row" *ngIf="optionType == 'multipleRadio'">
+			<div class="row" *ngIf="optionType === 'multipleRadio'">
 				
 						<ul *ngFor="let option of option" class="option-subTitle">
 							<mat-radio-group aria-label="Select an option">
 								<div class="large-6 column ">{{option.question}}</div>
 								<div class="large-6 column optionList">
 									<ul *ngFor="let opt of option.anslistobj" class="optionList">
-									  <mat-radio-button (click)="check($event, opt.status, option.subcharacteristic)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
+									  <mat-radio-button (click)="onCheck(option.subcharacteristic, opt.status)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
 									 </ul>
 								</div>
 							</mat-radio-group>
@@ -83,7 +83,7 @@
 					<ul *ngFor="let option of option" class="display-flex">
 						<li *ngFor="let opt of option.radio">
 							<div class="large-12 column optionList">
-							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="ES-{{opt}}">{{opt}}</mat-radio-button>
+							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt)" value="ES-{{opt}}">{{opt}}</mat-radio-button>
 							</div>
 						</li>
 					</ul>
@@ -95,7 +95,7 @@
 					<ul *ngFor="let option of option" class="display-flex">
 						<li *ngFor="let opt of option.radio">
 							<div class="large-12 column optionList">
-							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="AS-{{opt}}">{{opt}}</mat-radio-button>
+							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt)" value="AS-{{opt}}">{{opt}}</mat-radio-button>
 							</div>
 						</li>
 					</ul>
@@ -107,13 +107,13 @@
 					<ul  class="full-width" id={{option[i]}}>
 						<div class="row optionList-width" *ngFor="let opt of option.selectbox">
 							<div class="large-5 small-8 column">
-								<select #therapy name="{{opt.therapyName}}" (change)="check($event,therapy.value,therapy.name)">
+								<select #therapy name="{{opt.therapyName}}" (change)="onCheck($event,therapy.value)">
 									<option>{{opt.therapyName}}</option>
 									<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
 									{{subOpt.code}}</option>
 								</select>
 							</div>
-							<div class="large-7 small-8 column" *ngIf="opt.duration == 'date'">
+							<div class="large-7 small-8 column" *ngIf="opt.duration === 'date'">
 								<div class="large-2 column">
 									<span>Date </span>
 								</div>
@@ -128,12 +128,12 @@
 									</select>
 								</div>
 							</div>
-							<div class="large-7 small-8 column" *ngIf="opt.duration == 'No. of months'">
+							<div class="large-7 small-8 column" *ngIf="opt.duration === 'No. of months'">
 								<div class="large-6 small-8 column">
 									<span>{{opt.duration}}</span>
 								</div>
 								<div class="large-4 small-8 column">
-									<select name="Number" (change)="check($event,months,opt.therapyName)">
+									<select name="Number" (change)="onCheck($event,months,opt.therapyName)">
 										<option value="months">No.</option>
 									</select>
 								</div>
@@ -149,7 +149,7 @@
 					<ul  class="i" id={{option[i]}}>
 						<div class="row" *ngFor="let opt of option.selectbox">
 							<div class="large-8 small-8 column">
-							<select #advtherapy name="adv-{{opt.therapyName}}" (change)="check($event,advtherapy.value,advtherapy.name)">
+							<select #advtherapy name="adv-{{opt.therapyName}}" (change)="onCheck($event,advtherapy.value)">
 								<option>{{opt.therapyName}}</option>
 								<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
 								{{subOpt.code}}</option>
@@ -170,5 +170,165 @@
 		
 		</div>
 
+	</div>
+
+	<div class="incompleteQuestions" *ngIf="showIncompleteQuestions">
+		<div class="myAccount">
+			<div>
+				<div class="title">Incomplete Questions</div>
+				<br/>
+				<p> We recommend you share the following questions that you couldn’t answer with your clinician to complete the questionnaire. Once the questions are complete, we will match you to eligible trials based on your condition details.</p> 
+				<span class="floatRight"><i class="material-icons"> email </i>
+				<i class="material-icons"> print </i></span>
+			</div>
+			<hr>
+
+			<div *ngFor="let question of quizlist;let i = index;">
+				<div *ngIf="!optionSelected[i]" class="question">
+				  	<div class="accordion" (click)="toggleAccordian($event, i)">
+				  		<span class="phase-bgColor"> {{question.ID}} </span>
+						<span class="large-11" [innerHTML]="question.question"></span> 
+					</div>
+				 	<div class="panel" *ngIf="question.optionType === 'radio'" hide="!item.isActive">
+					  	<div class="row" >
+							<mat-radio-group aria-label="Select an option">
+								<ul *ngFor="let option of question.anslistobj">
+									<div class="large-12 column optionList">
+									  <mat-radio-button (click)="check($event,option.status,characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+									</div>
+								</ul>
+							</mat-radio-group>
+						</div>
+					</div>
+
+					<div class="panel row" *ngIf="question.optionType === 'checkbox'" hide="!item.isActive">
+						<ul *ngFor="let option of question.anslistobj" >			
+							<input type="checkbox" (click)="check($event,option, characteristic)" checklist-model="user.roles" checklist-value="role" value="{{option}}"> 
+								<span class="">{{option}}</span>
+						</ul>
+					</div>
+
+					<div class="panel" *ngIf="question.optionType === 'date'" hide="!item.isActive">
+						<div>
+							<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)">
+				                <option>Month</option>
+				                <option *ngFor="let month of month" [value]="month">{{month}}</option>
+				            </select>
+				            <select name="Year" class="select date-select" #YY (change)="onYearSelect($event, YY.value, characteristic)">
+				                <option>Year</option>
+				                <option *ngFor="let year of year" [value]="year">{{year}}</option>
+				            </select>
+				        </div>
+					</div>
+
+					<div class="panel" *ngIf="question.optionType === 'text'" hide="!item.isActive"> 
+						<div *ngFor="let option of question.anslistobj">
+							<mat-form-field class="optionList">
+								<input #todo matInput (change)="check($event,todo.value, characteristic)" type="text" name="todo" class="border-line"> 
+							</mat-form-field>
+							<span class="example-full-width">mm</span>
+
+							<mat-radio-button (click)="check($event,option.status, characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+						</div>
+					</div>
+
+					<div class="row panel" *ngIf="question.optionType === 'multipleRadio'" hide="!item.isActive">
+						<ul *ngFor="let option of question.anslistobj" class="option-subTitle">
+							<mat-radio-group aria-label="Select an option">
+								<div class="large-6 column ">{{option.question}}</div>
+								<div class="large-6 column optionList">
+									<ul *ngFor="let opt of option.anslistobj" class="optionList">
+									  <mat-radio-button (click)="check($event, opt.status, option.subcharacteristic)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
+									 </ul>
+								</div>
+							</mat-radio-group>
+						</ul>
+					</div>
+
+					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-earlyStage'" hide="!item.isActive">
+						<mat-radio-group aria-label="Select an option">
+							<ul *ngFor="let option of question.anslistobj" class="display-flex">
+								<li *ngFor="let opt of option.radio">
+									<div class="large-12 column optionList">
+									  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="ES-{{opt}}">{{opt}}</mat-radio-button>
+									</div>
+								</li>
+							</ul>
+						</mat-radio-group>
+					</div>
+
+					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-advanced'" hide="!item.isActive">
+						<mat-radio-group aria-label="Select an option">
+							<ul *ngFor="let option of question.anslistobj" class="display-flex">
+								<li *ngFor="let opt of option.radio">
+									<div class="large-12 column optionList">
+									  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="AS-{{opt}}">{{opt}}</mat-radio-button>
+									</div>
+								</li>
+							</ul>
+						</mat-radio-group>
+					</div>
+
+					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-earlyStage' && display" hide="!item.isActive">
+						<div *ngFor="let option of question.anslistobj">
+							<ul  class="full-width" id={{option[i]}}>
+								<div class="row optionList-width" *ngFor="let opt of option.selectbox">
+									<div class="large-5 small-8 column">
+										<select #therapy name="{{opt.therapyName}}" (change)="check($event,therapy.value,therapy.name)">
+											<option>{{opt.therapyName}}</option>
+											<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
+											{{subOpt.code}}</option>
+										</select>
+									</div>
+									<div class="large-7 small-8 column" *ngIf="opt.duration === 'date'">
+										<div class="large-2 column">
+											<span>Date </span>
+										</div>
+										<div class="large-6 small-8 column">
+											<select name="Month">
+												<option>Month</option>
+											</select>
+										</div>
+										<div class="large-4 small-8 column">
+											<select name="Year">
+												<option>Year</option>
+											</select>
+										</div>
+									</div>
+									<div class="large-7 small-8 column" *ngIf="opt.duration === 'No. of months'">
+										<div class="large-6 small-8 column">
+											<span>{{opt.duration}}</span>
+										</div>
+										<div class="large-4 small-8 column">
+											<select name="Number" (change)="check($event,months,opt.therapyName)">
+												<option value="months">No.</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</ul>
+						</div>
+					</div>
+
+					<div class="row display-flex optionType panel" *ngIf="question.optionType === 'selectbox-advanced' && display2" hide="!item.isActive">
+						<a>{{link}}</a>
+						<div *ngFor="let option of question.anslistobj" class="optionList-width">
+							<ul  class="i" id={{option[i]}}>
+								<div class="row" *ngFor="let opt of option.selectbox">
+									<div class="large-8 small-8 column">
+									<select #advtherapy name="adv-{{opt.therapyName}}" (change)="check($event,advtherapy.value,advtherapy.name)">
+										<option>{{opt.therapyName}}</option>
+										<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
+										{{subOpt.code}}</option>
+									</select>
+									</div>
+								</div>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

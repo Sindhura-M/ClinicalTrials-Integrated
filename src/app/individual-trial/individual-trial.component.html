@@ -1,24 +1,25 @@
-<div class="trials" #trials>
+<div class="trials" #trials *ngIf="dataSource">
 	<div class="row">
 		<div class="large-9 column title">Stereotactic Radiation and Immunotherapy in Patients with Advanced Triple Negative Breast Cancer
 			
 		</div>
 		<div class="large-3 column floatRight">
 			<i class="material-icons"> star </i>
-			<i class="material-icons"> arrow_left </i>Back
+			<i class="material-icons" > arrow_left </i>
+			<a [routerLink]="['/trials']" class="goBack">Back</a>
 			<i class="material-icons"> email </i>
 			<i class="material-icons"> print </i>
 		</div>
 	</div>
 	<div class="individual-trials-table">
-  		<!--table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 		 	<ng-container matColumnDef="Phase">
 				<th mat-header-cell *matHeaderCellDef> Phase </th>
 			    <td mat-cell *matCellDef="let element"> {{element.phase}} </td>
 			</ng-container>
 
-		  	<ng-container matColumnDef="Interventions">
+		  	<!--ng-container matColumnDef="Interventions">
 				<th mat-header-cell *matHeaderCellDef> Interventions </th>
 			    <td mat-cell *matCellDef="let element"> {{element.interventions}} </td>
 			</ng-container>
@@ -31,17 +32,17 @@
 		  	<ng-container matColumnDef="Sponser">
 				<th mat-header-cell *matHeaderCellDef> Sponser </th>
 			    <td mat-cell *matCellDef="let element"> {{element.sponser}} </td>
-			</ng-container>
+			</ng-container-->
 			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 		  	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-		</table-->
+		</table>
 	</div>
 
 	<h5><i class="material-icons purple">description</i>Study Information</h5>
 	<mat-tab-group>
 		<mat-tab label="Brief summary">
 			<br/>
-		  	<p>This study is designed to Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+		  	<p>{{dataSource[0].summary}}</p>
 		</mat-tab>
 		<mat-tab label="Detailed description">
 		</mat-tab>

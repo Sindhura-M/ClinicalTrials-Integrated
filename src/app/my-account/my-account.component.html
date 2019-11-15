@@ -58,7 +58,7 @@
 				  		<span class="phase-bgColor"> {{question.ID}} </span>
 						<span class="large-11" [innerHTML]="question.question"></span> 
 					</div>
-				 	<div class="panel" *ngIf="question.optionType == 'radio'" hide="!item.isActive">
+				 	<div class="panel" *ngIf="question.optionType === 'radio'" hide="!item.isActive">
 					  	<div class="row" >
 							<mat-radio-group aria-label="Select an option">
 								<ul *ngFor="let option of question.anslistobj">
@@ -70,14 +70,14 @@
 						</div>
 					</div>
 
-					<div class="panel row" *ngIf="question.optionType == 'checkbox'" hide="!item.isActive">
+					<div class="panel row" *ngIf="question.optionType === 'checkbox'" hide="!item.isActive">
 						<ul *ngFor="let option of question.anslistobj" >			
 							<input type="checkbox" (click)="check($event,option, characteristic)" checklist-model="user.roles" checklist-value="role" value="{{option}}"> 
 								<span class="">{{option}}</span>
 						</ul>
 					</div>
 
-					<div class="panel" *ngIf="question.optionType == 'date'" hide="!item.isActive">
+					<div class="panel" *ngIf="question.optionType === 'date'" hide="!item.isActive">
 						<div>
 							<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)">
 				                <option>Month</option>
@@ -90,7 +90,7 @@
 				        </div>
 					</div>
 
-					<div class="panel" *ngIf="question.optionType == 'text'" hide="!item.isActive"> 
+					<div class="panel" *ngIf="question.optionType === 'text'" hide="!item.isActive"> 
 						<div *ngFor="let option of question.anslistobj">
 							<mat-form-field class="optionList">
 								<input #todo matInput (change)="check($event,todo.value, characteristic)" type="text" name="todo" class="border-line"> 
@@ -101,7 +101,7 @@
 						</div>
 					</div>
 
-					<div class="row panel" *ngIf="question.optionType == 'multipleRadio'" hide="!item.isActive">
+					<div class="row panel" *ngIf="question.optionType === 'multipleRadio'" hide="!item.isActive">
 						<ul *ngFor="let option of question.anslistobj" class="option-subTitle">
 							<mat-radio-group aria-label="Select an option">
 								<div class="large-6 column ">{{option.question}}</div>
@@ -114,7 +114,7 @@
 						</ul>
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
+					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-earlyStage'" hide="!item.isActive">
 						<mat-radio-group aria-label="Select an option">
 							<ul *ngFor="let option of question.anslistobj" class="display-flex">
 								<li *ngFor="let opt of option.radio">
@@ -126,7 +126,7 @@
 						</mat-radio-group>
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-advanced'" hide="!item.isActive">
+					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-advanced'" hide="!item.isActive">
 						<mat-radio-group aria-label="Select an option">
 							<ul *ngFor="let option of question.anslistobj" class="display-flex">
 								<li *ngFor="let opt of option.radio">
@@ -138,7 +138,7 @@
 						</mat-radio-group>
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage' && display" hide="!item.isActive">
+					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-earlyStage' && display" hide="!item.isActive">
 						<div *ngFor="let option of question.anslistobj">
 							<ul  class="full-width" id={{option[i]}}>
 								<div class="row optionList-width" *ngFor="let opt of option.selectbox">
@@ -149,7 +149,7 @@
 											{{subOpt.code}}</option>
 										</select>
 									</div>
-									<div class="large-7 small-8 column" *ngIf="opt.duration == 'date'">
+									<div class="large-7 small-8 column" *ngIf="opt.duration === 'date'">
 										<div class="large-2 column">
 											<span>Date </span>
 										</div>
@@ -164,7 +164,7 @@
 											</select>
 										</div>
 									</div>
-									<div class="large-7 small-8 column" *ngIf="opt.duration == 'No. of months'">
+									<div class="large-7 small-8 column" *ngIf="opt.duration === 'No. of months'">
 										<div class="large-6 small-8 column">
 											<span>{{opt.duration}}</span>
 										</div>
@@ -179,7 +179,7 @@
 						</div>
 					</div>
 
-					<div class="row display-flex optionType panel" *ngIf="question.optionType == 'selectbox-advanced' && display2" hide="!item.isActive">
+					<div class="row display-flex optionType panel" *ngIf="question.optionType === 'selectbox-advanced' && display2" hide="!item.isActive">
 						<a>{{link}}</a>
 						<div *ngFor="let option of question.anslistobj" class="optionList-width">
 							<ul  class="i" id={{option[i]}}>

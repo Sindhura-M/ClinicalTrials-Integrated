@@ -3,7 +3,7 @@
 	<div class="cloumns large-12 small-12">
 		<mat-horizontal-stepper [linear]="isLinear" #stepper>
 
-			<mat-step [stepControl]="firstFormGroup" class="aaaaaaaa" [ngClass]="{'pointerEvent': loggedIn == false}">
+			<mat-step [stepControl]="firstFormGroup" class="aaaaaaaa" [ngClass]="{'pointerEvent': loggedIn === false}">
 			<ng-template matStepLabel>LOG IN</ng-template>
 				<form [formGroup]="firstFormGroup">
 					<app-index [formGroup]="firstFormGroup"></app-index>

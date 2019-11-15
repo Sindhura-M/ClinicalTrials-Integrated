@@ -14,7 +14,7 @@ export class TrialsComponent implements OnInit {
 
   public dataSource: any = [];
   error: String[];
-  showTrials:boolean = false;
+  showTrials:boolean = true;
 
   ngOnInit() {
       //const tempData = this.dataQAservice.getData();
@@ -26,7 +26,6 @@ export class TrialsComponent implements OnInit {
         this.error = error;
         this.showTrials=false;
       });
-
       //this.showTrials= ( (this.dataSource.length > 1) ? true : false);
   }
 
@@ -34,4 +33,20 @@ export class TrialsComponent implements OnInit {
 
   displayedColumns: String[] = ['Study title', 'Interventions', 'Phase', 'Sponsor', 'Sex', 'Location', 'Save'];
   
+  saveTrial(event, trialID: number) {
+    console.log('trialID'+ trialID);
+
+    if (event.currentTarget.innerText === "star_border") {
+      event.currentTarget.innerText = 'star';
+      this.dataAccess.saveTrial(trialID).subscribe();
+    }else {
+      event.currentTarget.innerText = 'star_border';
+      //this.dataAccess.unSaveTrial(trialID).subscribe();
+    }
+
+    //this.router.navigate([])
+    
+    //this.iconSave = 'star'? 'star_border': 'star';
+    //this.dataSource.id + '_icon' = this.iconSave;
+  }
 }

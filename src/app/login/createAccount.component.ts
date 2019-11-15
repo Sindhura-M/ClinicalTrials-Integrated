@@ -17,6 +17,7 @@ title = 'Angular6 Reactive forms custom validation';
 
   createAccForm: FormGroup;
    submitted = false;
+   mustMatch;
 
   constructor(private fb: FormBuilder, private router: Router, private dataAccountProfile: dataAccountProfile, private dataAccess: DataAccessService) { }
 
@@ -39,7 +40,7 @@ title = 'Angular6 Reactive forms custom validation';
 		cnfPwd: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
 	  },
 	  {
-		validator: MustMatch('pwd', 'cnfPwd')
+		validator: MustMatch('emailAddress','cnfemail', 'pwd', 'cnfPwd')
 	  }
 	);
 
@@ -60,30 +61,31 @@ title = 'Angular6 Reactive forms custom validation';
 
 	}
 
-	matchEmail(controlName: string, matchingControlName: string) {
-
-		if( controlName !== matchingControlName) {
-			this.f.cnfemail.errors.mustMatch = true;
-		}
-	}
-
 }
 
-export function MustMatch(controlName: string, matchingControlName: string) {
+export function MustMatch(email: string, cnfEmail: string, controlName: string, matchingControlName: string) {
 	return (formGroup: FormGroup) => {
 		const control = formGroup.controls[controlName];
 		const matchingControl = formGroup.controls[matchingControlName];
+		const emailControl = formGroup.controls[email];
+		const cnfEmailControl = formGroup.controls[cnfEmail];
 
-		if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-			// return if another validator has already found an error on the matchingControl
-			return;
+		
+		// set error on matchingControl if validation fails
+		if (emailControl.value !== cnfEmailControl.value) {
+			cnfEmailControl.setErrors({ mustMatch: true });
+		} else {
+			cnfEmailControl.setErrors(null);
 		}
 
+		
 		// set error on matchingControl if validation fails
 		if (control.value !== matchingControl.value) {
 			matchingControl.setErrors({ mustMatch: true });
 		} else {
 			matchingControl.setErrors(null);
 		}
+
+		
 	}
 }

@@ -1,7 +1,9 @@
 import { ViewChildren, Component, OnInit } from '@angular/core';
 import { DataAccessService } from '../services/data-access.service';
 import { dataQAservice } from '../services/data-QA.service';
+import { TrialsTable } from '../trials/trialsTable';
 //import { } from '@types/googlemaps';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-individual-trial',
@@ -10,17 +12,19 @@ import { dataQAservice } from '../services/data-QA.service';
 })
 export class IndividualTrialComponent implements OnInit {
 
-  constructor( private dataAccess: DataAccessService, private dataQAservice: dataQAservice ) { }
-  public dataSource: any = [];
-  error: String[];
+	constructor(private dataAccess: DataAccessService, private dataQAservice: dataQAservice, private route:ActivatedRoute,private router:Router) { }
+	public dataSource: TrialsTable[] = [];
+	error: String[];
+	phase: String[];
 
  /* @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;*/
 
- ngOnInit() {
+	ngOnInit() {
 	    //const tempData = this.dataQAservice.getData();
-	    this.dataAccess.getCancerTrials().subscribe( data => {
-	    this.dataSource=data;
+	    let trialId = this.route.snapshot.paramMap.get('id');
+	    this.dataAccess.fetchTrialsSummary(trialId).subscribe( data => {
+	    this.dataSource = data;
 	    },
 	    error => {
 	    	this.error = error;
@@ -32,13 +36,13 @@ export class IndividualTrialComponent implements OnInit {
 	      mapTypeId: google.maps.MapTypeId.ROADMAP
 	    };
 	    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);*/
-  }
+	}
 
-  //public TrialsTable: any = [];
+	//public TrialsTable: any = [];
 
-  displayedColumns: String[] = ['Phase', 'Interventions', 'Modalities'];
+	displayedColumns: String[] = ['Phase'/*, 'Interventions', 'Modalities', 'Sponser' */];
 
-  displayedInterventionColumns: string[] = ["Radiation: SABR", "Drug: Atezolizumab"];
-  //dataSource: PeriodicElement[] = treatments;
+	displayedInterventionColumns: string[] = ["Radiation: SABR", "Drug: Atezolizumab"];
+	//dataSource: PeriodicElement[] = treatments;
 
 }

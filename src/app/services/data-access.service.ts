@@ -20,6 +20,8 @@ export class DataAccessService {
 
   private _url: string = environment.apiUrl + '/ctc/myaccount/accountProfile';
   private _trialsurl: string = environment.apiUrl + '/ctc/trials/matchingTrials';
+  private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/fetchRecord';
+
   //private _authURL:  string = '';
   
   	getAccountProfile(): Observable<AccountProfile[]> {
@@ -60,6 +62,40 @@ export class DataAccessService {
         catchError(this.handleError)
       );
 
+  }
+
+  saveTrial(trialID: number): Observable<any> {
+    const data = trialID;
+    const httpOptions = {
+        headers: new HttpHeaders({ 
+          'Access-Control-Allow-Origin':'*',  
+          'Authorization':'Basic cm9vdDpyb290',
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json'
+        })
+      };
+
+    return this.client.post<any>(this._saveTrial,data,httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  fetchTrialsSummary(trialID: string): Observable<any> {
+    const httpOptions = {
+        headers: new HttpHeaders({ 
+          'Access-Control-Allow-Origin':'*',  
+          'Authorization':'Basic cm9vdDpyb290',
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json'
+        })
+      };
+
+    let url = this._saveTrial + '/' + trialID;
+    return this.client.get<any>(url, httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
   }
 
   /*signIn(username: string, password: string) {

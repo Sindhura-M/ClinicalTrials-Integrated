@@ -1,6 +1,6 @@
 <div class="grid-container">
 	<div class="match-content">
-		<div class="open-card-BG" *ngIf="registerView == 'regView'">
+		<div class="open-card-BG" *ngIf="registerView === 'regView'">
 			<div class="title-card-main">Match to clinical trials </div>
 			<br/>
 			<br/>
@@ -32,13 +32,13 @@
 
 		</div>
 
-		<div class="open-card-BG" *ngIf="registerView == 'regView1'">
+		<div class="open-card-BG" *ngIf="registerView === 'regView1'">
 				 <app-login></app-login>
 		</div>
-		<div class="open-card-BG" *ngIf="registerView == 'regView2'">
+		<div class="open-card-BG" *ngIf="registerView === 'regView2'">
 				 <app-createAccount></app-createAccount>
 		</div>
-		<div class="open-card-BG" *ngIf="registerView == 'regView3'">
+		<div class="open-card-BG" *ngIf="registerView === 'regView3'">
 				<app-accountSuccess></app-accountSuccess>
 		</div>
 	</div>

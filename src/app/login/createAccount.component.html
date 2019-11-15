@@ -6,7 +6,8 @@
 
 
 		<div class="row">
-			<div class="large-6 columns"> 
+			<div class="large-6 columns">
+				<!-- NAME FIELDs -->
 				<div class="form-group">
 					<input type="text" formControlName="firstName" class="form-control input-group-field" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
 					<div *ngIf="f.firstName.touched" class="text-danger">
@@ -15,7 +16,6 @@
 				</div>
 			</div>
 			<div class="large-6 columns">
-				<!-- LASTNAME FIELD -->
 				<div class="form-group">
 				  	<input type="text" formControlName="lastName" class="form-control input-group-field" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
 					<div *ngIf="f.lastName.touched" class="text-danger">
@@ -27,7 +27,7 @@
 
 		<div class="row">
 			<div class="large-6 columns"> 
-				<!-- EMAIL FIELD -->
+				<!-- EMAIL FIELDs -->
 				<div class="form-group">
 					<input type="email" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address"/>
 					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
@@ -38,10 +38,10 @@
 			</div>
 			<div class="large-6 columns">
 				<div class="form-group">
-				  	<input type="email" formControlName="cnfemail" class="form-control input-group-field" placeholder="Retype email address" (change)="matchEmail(f.emailAddress.value, f.cnfemail.value)"/>
+				  	<input type="email" formControlName="cnfemail" class="form-control input-group-field" placeholder="Retype email address"/>
 					<div *ngIf="f.cnfemail.invalid && f.cnfemail.touched" class="text-danger">
 						<small *ngIf="f.cnfemail.errors.required">Retype email address is required.</small>
-						<small *ngIf="!f.cnfemail.errors.required && f.cnfemail.errors.mustMatch">Email adresses must match</small>
+						<small *ngIf="f.cnfemail.errors.mustMatch">Email adresses must match</small>
 					</div>
 				</div>
 			</div>
@@ -49,6 +49,7 @@
 
 		<div class="row">
 			<div class="large-6 columns">
+				<!-- PASSWORD FIELDs -->
 				<div class="form-group">
 				  	<input type="password" formControlName="pwd" class="form-control input-group-field" placeholder="Enter password" />
 				  	<div *ngIf="f.pwd.invalid && f.pwd.touched" class="text-danger">
@@ -74,48 +75,4 @@
 			<button mat-button matStepperNext class="button expanded btn btn-primary" [disabled]="createAccForm.invalid">CREATE ACCOUNT</button>
 		</div>
 	</form>
-
-
-
-	<!--div class="row">
-		<div class="large-6 columns"> 
-			<form>
-				<div class="row">
-					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="First name">
-					</div>
-					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Email address">
-					</div>
-					<div class="large-12 column">
-						<input matInput #password class="input-group-field" type="inputType" placeholder="Password">
-						<mat-password-strength #passwordComponent
-						[password]="password.value">
-						</mat-password-strength>
-					</div>
-				</div>
-			</form>
-		</div>
-		<div class="large-6 columns"> 
-			<form>
-				<div class="row">
-					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Last name">
-					</div>
-					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Re-type email address">
-					</div>
-					<div class="large-12 column">
-						<input class="input-group-field" type="text" placeholder="Re-type password">
-					</div>
-				</div>
-			</form>
-		</div>
-
-<br/>
-<br/>
-		<div class="large-9 columns"> 
-			<button mat-button matStepperNext class="button expanded" (click)="reSendVerification()">CREATE ACCOUNT</button>
-		</div>
-	</div-->
 </div>

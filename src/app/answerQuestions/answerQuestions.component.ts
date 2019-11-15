@@ -58,7 +58,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	optionType: String;
     optionSelected:any[];
     selectedOpt: String[];
-
+	checkboxValues: String[] = [];
 	characteristic: String;
 	ID: number;
 	str: String;
@@ -71,6 +71,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	display: boolean;
 	display2: boolean;
 
+	showIncompleteQuestions:boolean = false;
 
 	events: string[] = [];
 	addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
@@ -87,7 +88,12 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.ID = this.quizlist[this.i].ID;
 			this.characteristic = this.quizlist[this.i].characteristic;
 			this.selectedOpt = this.optionSelected[this.i];
+		} else { 
+			if (this.optionSelected.length < this.quizlist.length) {
+				this.showIncompleteQuestions = true;				
+			}
 		}
+		this.checkboxValues = [];
 	}
 	previous(e, i) {
 		this.i =  i-1 < 0 ? 0 : i-1;
@@ -107,26 +113,63 @@ export class AnswerQuestionsComponent implements OnInit {
 	onYearSelect(event, YY, code) {
 		console.log(event.value);
 		this.selectedYear = YY;
-		this.check(event, code);
+		this.onCheck(event, code);
 	}
 
 	answerkey: AnswerKey[] = [];
 
-	check(e,selectedOpt) {
+	onCheck(e,selectedOpt) {
 
 		let val = e.value;
-		console.log("Value is : ", val );
+		console.log("Value is : ", val );		
 
-		this.optionSelected[this.i] = selectedOpt;
-
+		/*switch(	this.characteristic) {
+			case 'diagnosis' : {
+				val = this.diagnosisDate;
+				selectedOpt = val;
+			}
+			case 'tumourSize' : {
+				val = selectedOpt;
+			}
+			case 'checkbox' : {
+				this.checkboxValues.push(selectedOpt);
+				val = this.checkboxValues;
+			}
+			case 'multipleRadio' : {
+				this.characteristic = e;
+				val = selectedOpt;
+			}
+			case 'selectbox-earlyStage' : {
+				this.characteristic = this.characteristic + '-' + e.currentTarget.name;
+				val = selectedOpt;
+			}
+			case 'selectbox-advanced' : {
+				this.characteristic = this.characteristic + '-' + e.currentTarget.name;
+				val = selectedOpt;
+			}
+		}*/
 		this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
-		if (this.characteristic == 'diagnosis'){
+
+
+		if (this.characteristic === 'diagnosis'){
 			val = this.diagnosisDate;
-		}
-		if (this.characteristic == 'tumourSize') {
+			selectedOpt = val;
+		}else if (this.characteristic === 'tumourSize') {
+			val = selectedOpt;
+		}else if (this.optionType === 'checkbox') {
+			this.checkboxValues.push(selectedOpt);
+			val = selectedOpt = this.checkboxValues;
+
+		}else if (this.optionType === 'multipleRadio') {
+			this.characteristic = e;
+			val = selectedOpt;
+			selectedOpt = e + '-' + selectedOpt;
+		} else if (this.optionType == 'selectbox-earlyStage' || this.optionType == 'selectbox-advanced') {
+			this.characteristic = this.characteristic + '-' + e.currentTarget.name;
 			val = selectedOpt;
 		}
 
+		this.optionSelected[this.i] = selectedOpt;
 		this.answerkey.push(new AnswerKey(this.characteristic, val));
 
 		let result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
@@ -140,19 +183,19 @@ export class AnswerQuestionsComponent implements OnInit {
 		console.log(this.array3);
 	}
 
-	toggleTreatmentOPtions(e, value, code) {
-		if ( code == "Early stage treatment" ) {
-			if (value == 'Yes') {
+	toggleTreatmentOPtions(e, value) {
+		if ( this.characteristic === "Early stage treatment" ) {
+			if (value === 'Yes') {
 				this.display = true;
-			} else if (value != 'Yes') {
+			} else if (value !== 'Yes') {
 				this.display = false;
 			}
 		}
 
-		if ( code == "Advanced stage treatment" ) {
-			if (value == 'Yes') {
+		if ( this.characteristic === "Advanced stage treatment" ) {
+			if (value === 'Yes') {
 				this.display2 = true;
-			} else if (value != 'Yes') {
+			} else if (value !== 'Yes') {
 				this.display2 = false;
 			}
 		}

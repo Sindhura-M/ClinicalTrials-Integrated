@@ -74,10 +74,10 @@
     "ID": 9, 
     "question": "What is the grade of the cancer?", 
     "optionType": "radio",
-    "anslistobj": [{"code":"Grade 1","status":"1"},
-      {"code":"Grade 2","status":"2"},
-      {"code":"Grade 3","status":"3"},
-      {"code":"Not sure","status":"Y/N"}],
+    "anslistobj": [{"code":"Stage 1","status":"1"},
+      {"code":"Stage 2","status":"2"},
+      {"code":"Stage 3","status":"3"},
+      {"code":"Stage 4","status":"4"}],
     "characteristic": "stage"
   },
   {
