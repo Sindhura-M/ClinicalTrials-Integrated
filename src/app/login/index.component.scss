@@ -24,7 +24,6 @@ input-group-field {
 	background-color: #FFFFFF;
 	margin: 1rem 0;
 }
-.privacy-stmt {	height: 36px;	width: 365px;	color: #D0021B;	font-family: "Open Sans";	font-size: 26px;	font-weight: bold;	line-height: 36px;}
 
 .button{
 	height: 50px;
@@ -48,4 +47,10 @@ input[type="checkbox"]{
 	.button { 
 		width: 310px;
 	}
+}
+.material-icons {
+	vertical-align: text-bottom;
+}
+input[type="checkbox"] {
+	vertical-align: text-top;
 }

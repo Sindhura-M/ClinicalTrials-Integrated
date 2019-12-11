@@ -20,7 +20,10 @@ export class DataAccessService {
 
   private _url: string = environment.apiUrl + '/ctc/myaccount/accountProfile';
   private _trialsurl: string = environment.apiUrl + '/ctc/trials/matchingTrials';
-  private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/fetchRecord';
+  private _fetchTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/fetchRecord';
+  private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
+  private _register: string = environment.apiUrl + '/register';
+  private _login: string = environment.apiUrl + '/authenticate';
 
   //private _authURL:  string = '';
   
@@ -91,7 +94,7 @@ export class DataAccessService {
         })
       };
 
-    let url = this._saveTrial + '/' + trialID;
+    let url = this._fetchTrial + '/' + trialID;
     return this.client.get<any>(url, httpOptions)
     .pipe(
       catchError(this.handleError)
@@ -108,8 +111,8 @@ export class DataAccessService {
       .catch(this.handleError(Error));
   }*/
 
-  /*signIn(username: string, password: string): Observable<any> {
-      let data = { username, password};
+  signIn(credentials: any[]): Observable<any> {
+      let data = credentials;
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
@@ -119,11 +122,32 @@ export class DataAccessService {
         })
       };
 
-      return this.client.post(this._authURL + '/sign-in', data, httpOptions)
-      .map((response: Response) => response.json())
+      return this.client.post(this._login, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+      //.map((response: Response) => response.json())
       //.catch(this.handleError(Error));
-  }*/
+  }
 
+
+  register(credentials: any[]): Observable<any> {
+      let data = credentials;
+      const httpOptions = {
+        headers: new HttpHeaders({ 
+          'Access-Control-Allow-Origin':'*',
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json'
+        })
+      };
+
+      return this.client.post(this._register, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+      //.map((response: Response) => response.json())
+      //.catch(this.handleError(Error));
+  }
   handleError(error) {
       return throwError(error);
   }

@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { dataAccountProfile } from '../services/dataAccountProfile.service';
 import { DataAccessService } from '../services/data-access.service';
+import { AuthService } from '.././auth.service';
 
 @Component({
   selector: 'app-createAccount',
@@ -15,11 +16,12 @@ export class CreateAccountComponent implements OnInit {
 
 title = 'Angular6 Reactive forms custom validation';
 
-  createAccForm: FormGroup;
-   submitted = false;
-   mustMatch;
+	createAccForm: FormGroup;
+	submitted = false;
+	mustMatch;
 
-  constructor(private fb: FormBuilder, private router: Router, private dataAccountProfile: dataAccountProfile, private dataAccess: DataAccessService) { }
+
+  constructor(private fb: FormBuilder, private router: Router, private dataAccountProfile: dataAccountProfile, private dataAccess: DataAccessService, private auth: AuthService) { }
 
 
   ngOnInit() {
@@ -59,6 +61,26 @@ title = 'Angular6 Reactive forms custom validation';
 		temp.push(Object.assign({role: "user"},this.createAccForm.value));
 		this.dataAccountProfile.setData(temp);
 
+
+		/*const username = this.createAccForm.get('firstName').value;
+	    const password = this.createAccForm.get('pwd').value;
+	    let objecttt = {"username" : "abc", "password":"123456"};
+
+		this.dataAccess
+	    .register(objecttt)
+	    .subscribe(
+	        (response) => {
+	          this.auth.doSignIn(
+	            response.jwttoken
+	            //response.name
+	          );
+	          this.router.navigate(['/myaccount']);
+	        },
+	        (error) => {
+	          console.log('error');
+	        }
+	    );*/
+
 	}
 
 }
@@ -69,7 +91,6 @@ export function MustMatch(email: string, cnfEmail: string, controlName: string, 
 		const matchingControl = formGroup.controls[matchingControlName];
 		const emailControl = formGroup.controls[email];
 		const cnfEmailControl = formGroup.controls[cnfEmail];
-
 		
 		// set error on matchingControl if validation fails
 		if (emailControl.value !== cnfEmailControl.value) {

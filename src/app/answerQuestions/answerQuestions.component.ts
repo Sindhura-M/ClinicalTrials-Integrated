@@ -90,7 +90,8 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.selectedOpt = this.optionSelected[this.i];
 		} else { 
 			if (this.optionSelected.length < this.quizlist.length) {
-				this.showIncompleteQuestions = true;				
+				this.showIncompleteQuestions = true;
+				this.i = this.quizlist.length;		
 			}
 		}
 		this.checkboxValues = [];
@@ -103,6 +104,7 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.ID = this.quizlist[this.i].ID;
 		this.characteristic = this.quizlist[this.i].characteristic;
 		this.selectedOpt = this.optionSelected[this.i];
+		this.showIncompleteQuestions = false;
 	}
 
 	onMonthSelect(event, MM) {

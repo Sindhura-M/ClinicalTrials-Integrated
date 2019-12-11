@@ -13,7 +13,7 @@ export const environment = {
     messagingSenderId: "292032674391"
   },
   apiUrl: 'http://localhost:9090/api'
-  //apiUrl: 'http://13.238.38.207:9090/api'
+  //apiUrl: 'http://13.238.38.207:9090/api' 
 };
 
 /*

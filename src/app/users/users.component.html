@@ -1,0 +1,180 @@
+<div class="users">
+
+	<mat-tab-group>
+		<mat-tab label="List of users">
+			<span class="float-left"><button (click)="next(e)" class="button-small-active">Create new user</button></span>
+			<br/>
+
+			<div class="users-table">
+				<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+				  <ng-container matColumnDef="Id">
+				    <th mat-header-cell *matHeaderCellDef> Id</th>
+				    <td mat-cell *matCellDef="let element"> 
+				    <a [routerLink]="['/individualtrial',element.id] ">{{element.id}}</a> </td>
+				  </ng-container>
+				  <!-- href="#/individualtrial/{{element.id}} -->
+
+				  <ng-container matColumnDef="Name">
+				    <th mat-header-cell *matHeaderCellDef> Name </th>
+				    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Email">
+				    <th mat-header-cell *matHeaderCellDef> Email </th>
+				    <td mat-cell *matCellDef="let element"> <span class="phase-bgColor">{{element.email}}</span> </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Role">
+				    <th mat-header-cell *matHeaderCellDef> Role </th>
+				    <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Action">
+				    <th mat-header-cell *matHeaderCellDef> Action </th>
+				    <td mat-cell *matCellDef="let element" class="text-center"> 
+				    	<button [routerLink]="['/userdetails',element.id]" class="button-small">Edit</button>
+				    	<button (click)="deleteUser(e)" class="button-small">Delete</button>
+				    </td>
+				  </ng-container>
+
+				  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+				</table>
+			</div>
+		</mat-tab>
+		<mat-tab label="Questionnaire">
+			<div class="row users-data">
+				<div class="col-md-6">
+					<form [formGroup]="userDataForm">
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" class="form-control input-group-field" placeholder="Name"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Stage</label>
+							<input type="text" class="form-control input-group-field" placeholder="Stage"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Subtype</label>
+							<input type="text" class="form-control input-group-field" placeholder="Subtype"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Summary</label>
+							<input type="text" class="form-control input-group-field" placeholder="Summary"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Phase</label>
+							<input type="text" class="form-control input-group-field" placeholder="Phase"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Location</label>
+							<input type="text" class="form-control input-group-field" placeholder="Location"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Postcode</label>
+							<input type="text" class="form-control input-group-field" placeholder="Postcode"/>
+						</div>
+						<div class="form-group">
+							<label for="name">ClinicalTrials.gov</label>
+							<input type="text" class="form-control input-group-field" placeholder="ClinicalTrials.gov"/>
+						</div>
+						<div class="form-group">
+							<label for="name">ANZCTR</label>
+							<input type="text" class="form-control input-group-field" placeholder="ANZCTR"/>
+						</div>
+						<div class="form-group">
+							<label for="name">BCT</label>
+							<input type="text" class="form-control input-group-field" placeholder="BCT"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Age</label>
+							<input type="text" class="form-control input-group-field" placeholder="Age"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Sex</label>
+							<input type="text" class="form-control input-group-field" placeholder="Sex"/>
+						</div>
+						<div class="form-group">
+							<label for="name">PMP</label>
+							<input type="text" class="form-control input-group-field" placeholder="PMP"/>
+						</div>
+						<div class="form-group">
+							<label for="name">ECOG</label>
+							<input type="text" class="form-control input-group-field" placeholder="ECOG"/>
+						</div>
+						<div class="form-group">
+							<label for="name">ER</label>
+							<input type="text" class="form-control input-group-field" placeholder="ER"/>
+						</div>
+						<div class="form-group">
+							<label for="name">PR</label>
+							<input type="text" class="form-control input-group-field" placeholder="PR"/>
+						</div>
+						<div class="form-group">
+							<label for="name">HER2</label>
+							<input type="text" class="form-control input-group-field" placeholder="HER2"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Tumour Size</label>
+							<input type="text" class="form-control input-group-field" placeholder="Tumour Size"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Nodal Status</label>
+							<input type="text" class="form-control input-group-field" placeholder="Nodal Status"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Node Number</label>
+							<input type="text" class="form-control input-group-field" placeholder="Node Number"/>
+						</div>
+						<div class="form-group">
+							<label for="name">stage</label>
+							<input type="text" class="form-control input-group-field" placeholder="stage"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Has cancer spread to other parts?</label>
+							<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?"/>
+						</div>
+						<div class="form-group">
+							<label for="name">BRCA 1/2 Mutation</label>
+							<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Surgery</label>
+							<input type="text" class="form-control input-group-field" placeholder="Surgery"/>
+						</div>
+
+						<div class="form-group">
+							<label for="name">Chemotherapy</label>
+							<input type="text" class="form-control input-group-field" placeholder="Chemotherapy"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Hormones</label>
+							<input type="text" class="form-control input-group-field" placeholder="Hormones"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Targeted Tx HER2 Therapy</label>
+							<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Targeted Tx CDK 4/6 Inhibitor</label>
+							<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Targeted Tx PARP 4/6 Inhibitor</label>
+							<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Immunotherapy</label>
+							<input type="text" class="form-control input-group-field" placeholder="Immunotherapy"/>
+						</div>
+						<div class="form-group">
+							<label for="name">Radiotherapy</label>
+							<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</mat-tab>
+	</mat-tab-group>
+</div>

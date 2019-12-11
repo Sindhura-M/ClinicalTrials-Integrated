@@ -15,7 +15,7 @@
 					        [ngModel]="optionSelected" ngDefaultControl value="{{option.status}}"
 					        (change)="onCheck($event,option.code)">
 					        {{option.code}}
-						</mat-radio-button>
+						  </mat-radio-button>
 						</div>
 					</ul>
 				</mat-radio-group>
@@ -70,7 +70,7 @@
 								<div class="large-6 column optionList">
 									<ul *ngFor="let opt of option.anslistobj" class="optionList">
 									  <mat-radio-button (click)="onCheck(option.subcharacteristic, opt.status)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
-									 </ul>
+									</ul>
 								</div>
 							</mat-radio-group>
 						</ul>
@@ -161,14 +161,6 @@
 			</div>
 		</div>
 		<hr>
-
-		<div class="row">
-		<span class="left-float">{{ID}}/{{quizlength}}</span>
-		<button (click)="next(e, ID-1)" class="button-small-active"> NEXT </button>
-		<button mat-button matStepperNext class="btn btn-info button-small" (click)="onSubmit()"> SAVE & EXIT </button>
-		<button (click)="previous(e, ID-1)" class="button-small"> BACK </button>
-		
-		</div>
 
 	</div>
 
@@ -330,5 +322,12 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="row">
+		<span *ngIf="!showIncompleteQuestions" class="left-float">{{ID}}/{{quizlength}}</span>
+		<button (click)="next(e, ID-1)" class="button-small-active"> NEXT </button>
+		<button mat-button matStepperNext class="btn btn-info button-small" (click)="onSubmit()"> SAVE & EXIT </button>
+		<button (click)="previous(e, ID-1)" class="button-small"> BACK </button>	
 	</div>
 </div>

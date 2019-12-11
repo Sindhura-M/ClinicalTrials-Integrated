@@ -1,0 +1,102 @@
+.users {
+	max-width: 1140px;
+	margin: auto;
+}
+.users h3 {
+	margin: 4rem 0 0;
+}
+
+/deep/ .users {
+
+	tr.mat-header-row {
+		height: 45px;
+    	background: #47476d;
+	}
+
+	th.mat-header-cell {
+	    text-align: center;
+	    color: white;
+	    font-size: 16px;
+    	font-weight: 400;
+    	padding: 0px 8px;
+	    border-right: 1px solid white;
+	}
+
+	td.mat-cell {
+		font-size: 15px;
+		padding: 0.5rem;
+	}
+
+	.phase-bgColor {
+	    background: pink;
+	    padding: 0.8rem 1rem;
+	    border-radius: 50%;
+	    text-align: center;
+	}
+
+	tr.mat-footer-row, tr.mat-row {
+		height: auto;
+	}
+
+	.mat-column-Save, .mat-column-Sex {
+		text-align: center;
+	}
+
+	.mat-tab-body-content {
+		margin-top: 2%;
+	}
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+	/deep/ .users {
+
+		.mat-tab-list {
+			margin: 0 ;
+			margin-top: 1rem;
+
+		}
+	}
+}
+
+.button-small-active {
+	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; margin: 0.5rem;
+}
+
+.button-small{
+	height: 35px;	width: 60px;	border-radius: 25px; background-color: #FFFFFF; border: 3px solid #FCD8E2; box-shadow: none; margin: 0.5rem;
+}
+.button-small: hover {
+	background-color: #FCD8E2;
+}
+
+th.mat-header-cell {
+    text-align: center;
+    color: white;
+	    font-size: 16px;
+    	font-weight: 400;
+    	padding: 0px 8px;
+	    border-right: 1px solid white;
+	    background: #47476d;
+}
+
+td.mat-cell {
+	padding-left: 24px;
+}
+
+.form-group {
+	max-width: 45%;
+    margin-left: 3%;
+    margin-top: 3%
+}
+.input-group-field {
+	height: 56px;
+    border: 1px solid #767676;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    margin: 1rem 0;
+}
+.users-data {
+	margin-bottom: 3%;
+}
+

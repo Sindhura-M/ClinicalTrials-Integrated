@@ -48,6 +48,8 @@ import { dataAccountProfile } from './services/dataAccountProfile.service';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { IndividualTrialComponent } from './individual-trial/individual-trial.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { UsersComponent } from './users/users.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: StepperComponent},
@@ -59,6 +61,8 @@ const appRoutes: Routes = [
    { path: 'about', component: AboutCTCComponent},
    { path: 'trials', component: TrialsComponent},
    { path: 'individualtrial/:id', component: IndividualTrialComponent},
+   { path: 'users', component: UsersComponent},
+   { path: 'userdetails/:id', component: UserDetailsComponent},
    { path: '', redirectTo: '/login', pathMatch: 'full'},
    { path: '**', component: StepperComponent }
 ];
@@ -109,7 +113,9 @@ const appRoutes: Routes = [
   MatchResultsComponent,
   TrialsComponent,
   MyAccountComponent,
-  IndividualTrialComponent
+  IndividualTrialComponent,
+  UsersComponent,
+  UserDetailsComponent
   ],
   exports: [
      MatStepperModule,

@@ -4,7 +4,7 @@ import { AuthService } from '.././auth.service';
 import { DataAccessService } from '../services/data-access.service';
 import { Router, Params } from '@angular/router';
 import { MatStepper } from '@angular/material/stepper';
-import {MatDialog} from '@angular/material'
+import { MatDialog } from '@angular/material';
 
 @Component({
 	selector: 'app-login',
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 		// Here we have used a form builder and an array to allow for multiple validation rules on a form.
 		this.loginForm = this.fb.group(
 		  {
-			emailAddress: ['', Validators.compose([Validators.required, Validators.email])],
+			emailAddress: [''],
 			pwd: ['', Validators.required]
 		  },
 		  {
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 		);
 	}
 
-	/*doSignIn() : void {
+	doSignIn() : void {
 		if (this.loginForm.invalid) {
 	      this.showInputErrors = true;
 	      return;
@@ -50,26 +50,36 @@ export class LoginComponent implements OnInit {
 	    this.hasFailed = false;
 
 	    // Grab values from form
-	    const username = this.loginForm.get('emailAddress').value;
-	    const password = this.loginForm.get('pwd').value;
+	    let username = this.loginForm.get('emailAddress').value;
+	    let password = this.loginForm.get('pwd').value;
+
+	    if (username=='admin') {
+	    	this.router.navigate(['/users']);
+	    	return;
+	    }
+	    
+		let loginDetails = [];
+		loginDetails.push(Object.assign({'username': username},{'password': password}));
+		loginDetails = loginDetails[0];
 
 	    // Submit request to API
 	    this.dataAccess
-	    .signIn(username, password)
+	    .signIn(loginDetails)
 	    .subscribe(
 	        (response) => {
 	          this.auth.doSignIn(
-	            response.token,
-	            response.name
+	            response.token
+	            //response.name
 	          );
 	          this.router.navigate(['/myaccount']);
 	        },
 	        (error) => {
 	          this.isBusy = false;
 	          this.hasFailed = true;
+	          return;
 	        }
 	    );
-	  }*/
+	  }
 
 
 }

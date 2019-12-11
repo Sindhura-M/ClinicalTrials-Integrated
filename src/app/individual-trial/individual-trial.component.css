@@ -20,6 +20,10 @@ h5 {
 	font-weight: 600;	
 	line-height: 33px;
 }
+.trialsBody {
+	padding-right: .9375rem;
+    padding-left: .9375rem;
+}
 /deep/ .individual-trials-table {
 	.mat-elevation-z8 {
 		box-shadow: none;
@@ -37,4 +41,7 @@ h5 {
 }
 .goBack {
 	margin-right: 5%;
+}
+.text-right {
+	text-align: right;
 }

@@ -50,12 +50,19 @@ export class AuthService {
     this.route.navigate(["login"]);
   }
 
-  public doSignIn(accessToken: string, name: string) {
+  public doSignIn(accessToken: string) {
+    if (!accessToken) {
+      return;
+    }
+    this.session.accessToken = accessToken;
+  }
+
+  /*public doSignIn(accessToken: string, name: string) {
     if ((!accessToken) || (!name)) {
       return;
     }
     this.session.accessToken = accessToken;
     this.session.name = name;
-  }
+  }*/
 
 }

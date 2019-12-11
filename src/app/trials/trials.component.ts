@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TrialsTable } from './trialsTable';
 import { DataAccessService } from '../services/data-access.service';
 import { dataQAservice } from '../services/data-QA.service';
 
@@ -28,8 +27,6 @@ export class TrialsComponent implements OnInit {
       });
       //this.showTrials= ( (this.dataSource.length > 1) ? true : false);
   }
-
-  public TrialsTable: any = [];
 
   displayedColumns: String[] = ['Study title', 'Interventions', 'Phase', 'Sponsor', 'Sex', 'Location', 'Save'];
   

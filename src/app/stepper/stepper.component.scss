@@ -22,11 +22,11 @@ html, body {
 /deep/ .stepper	.mat-step-label{
 	position: relative;
     top: 40px;
-    left: -35px;
+    left: -45px;
     text-align: center;
     text-overflow: inherit;
     min-width: 50px;
-    max-width: 35px;
+    max-width: 70px;
     overflow: inherit;
     white-space: pre-line;
 }
@@ -40,8 +40,8 @@ html, body {
 	border-top-width: 3px;
 }
 
-/deep/ .stepper .mat-step-header {
-    /*pointer-events: none !important;*/
+/deep/ .stepper .mat-step-header .noEvent {
+    pointer-events: none !important;
 }
 .button{
 	height: 50px;
@@ -102,7 +102,7 @@ input, input-group-field {
 /* Large and up */
 @media screen and (min-width: 64em) {
 	/deep/ .stepper .mat-stepper-horizontal-line{
-		margin: 0 0px 0 -50px;
+		margin: 0 0px 0 -72px;
 		border-top-width: 2px;
 	}
 }

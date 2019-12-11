@@ -1,6 +1,6 @@
 <div class="container large-12 small-12">
 	<div class="title-card-sub">Log in</div>
-	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+	<form [formGroup]="loginForm" (ngSubmit)="doSignIn()">
 		<div class="cloumns large-12 small-12">
 			<!-- EMAIL FIELD -->
 			<div class="form-group">
@@ -25,7 +25,7 @@
 	      Invalid username and password.
 	    </div>
 		<div class="large-12 small-12 text-center">
-			<button mat-button matStepperNext class="button" (click)="doSignIn()" [disabled]="loginForm.invalid || isBusy">LOG IN
+			<button mat-button class="button">LOG IN
 			<ng-template *ngIf="!isBusy">LOG IN</ng-template>
       		<ng-template *ngIf="isBusy">Signing in, please wait...</ng-template></button>
 		</div>

@@ -1,0 +1,74 @@
+<div class="container">
+	<div class="title-card-sub">User Details</div>
+
+	<form [formGroup]="userDetailsForm" [routerLink]="['/users']">
+
+
+		<div class="row">
+			<div class="large-6">
+				<!-- NAME FIELDs -->
+				<div class="form-group">
+					<input type="text" formControlName="name" class="form-control input-group-field" 
+					placeholder="User Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+					value="{{name}}"/>
+					<div *ngIf="f.name.touched" class="text-danger">
+						<small *ngIf="f.name.value === '' ">Name is required.</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--div class="row">
+			<div class="large-6">
+				<div class="form-group">
+				  	<input type="text" formControlName="lastName" class="form-control input-group-field" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+					<div *ngIf="f.lastName.touched" class="text-danger">
+						<small *ngIf="f.lastName.value === '' ">Last name is required.</small>
+					</div>
+				</div>
+			</div>
+		</div-->
+		<div class="row">
+			<div class="large-6"> 
+				<!-- EMAIL FIELDs -->
+				<div class="form-group">
+					<input type="email" formControlName="email" class="form-control input-group-field" placeholder="Email address" value={{email}}/>
+					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
+						<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
+						<small *ngIf="f.emailAddress.errors.email">Email must be a valid email address.</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6">
+				<!-- PASSWORD FIELDs -->
+				<div class="form-group">
+				  	<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Enter password" value="{{password}}"/>
+				  	<div *ngIf="f.password.invalid && f.password.touched" class="text-danger">
+						<small *ngIf="f.password.errors.required">Password is required.</small>
+						<small *ngIf="f.password.errors.minlength">Password must be at least 6 characters.</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-6">
+				<div class="form-group">
+	            	<select name="role" class="select form-control input-group-field" formControlName="role" 
+	            	[ngModel]="roleSelect">
+		                <option>Role</option>
+		                <option value="user">User</option>
+		                <option value="admin">Admin</option>
+		            </select>
+		        </div>
+	        </div>
+		</div>
+
+
+		<div class="row">
+			<div class="large-6 form-group text-center" style="padding-left: 9px;">
+				<button class="button expanded btn btn-primary button-small-active"[disabled]="userDetailsForm.invalid">SAVE</button>
+			</div>
+		</div>
+	</form>
+</div>
