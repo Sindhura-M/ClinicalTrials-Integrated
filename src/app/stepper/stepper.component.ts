@@ -20,6 +20,7 @@ export class StepperComponent implements CanActivate{
 	secondFormGroup: FormGroup;
 	user: any;
 	loggedIn:boolean = false;
+	showGoogleLogin:boolean = true;
 
 	constructor(private _formBuilder: FormBuilder, public authService: AuthService, private router: Router) {}
 
@@ -50,7 +51,7 @@ export class StepperComponent implements CanActivate{
 		});
 	}
 
-	 onGoogleLogin(stepper: MatStepper){
+	onGoogleLogin(stepper: MatStepper){
 		this.authService.doGoogleLogin()
 			.then(res => {
 				stepper.next();

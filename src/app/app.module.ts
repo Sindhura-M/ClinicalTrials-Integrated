@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { Observable } from 'rxjs/Rx';
 
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatProgressBarModule } from '@angular/material';
@@ -34,12 +36,9 @@ import { AccountSuccessComponent } from './login/accountSuccess.component';
 import { AnswerQuestionsComponent } from './answerQuestions/answerQuestions.component';
 import { HomeComponent } from './home/home.component';
 import { BreastCancerComponent } from './breastCancer/breastCancer.component';
-
 import { AboutCTCComponent } from './about/about.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { Observable } from 'rxjs/Rx';
 import { MatchResultsComponent } from './match-results/match-results.component';
 import { TrialsComponent } from './trials/trials.component';
 
@@ -52,7 +51,8 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 
 const appRoutes: Routes = [
-   { path: 'login', component: StepperComponent},
+   { path: 'login', component: LoginComponent},
+   { path: 'createaccount', component: CreateAccountComponent},
    { path: 'welcome', component: WelcomeComponent },
    { path: 'answerQuestions', component: AnswerQuestionsComponent},
    { path: 'home', component: HomeComponent},
@@ -63,8 +63,9 @@ const appRoutes: Routes = [
    { path: 'individualtrial/:id', component: IndividualTrialComponent},
    { path: 'users', component: UsersComponent},
    { path: 'userdetails/:id', component: UserDetailsComponent},
-   { path: '', redirectTo: '/login', pathMatch: 'full'},
-   { path: '**', component: StepperComponent }
+   { path: '', redirectTo: '/index', pathMatch: 'full'},
+   { path: 'index', component: StepperComponent},
+   { path: '**', component: StepperComponent}
 ];
 //, canActivate: [AuthGuard]
 @NgModule({

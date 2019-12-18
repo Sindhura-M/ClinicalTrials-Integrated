@@ -16,14 +16,16 @@
 			<div class="form-group">
 				<input type="password" formControlName="pwd" class="form-control input-group-field" placeholder="Enter password" />
 				<div *ngIf="f.pwd.invalid && f.pwd.touched" class="text-danger">
-					<small *ngIf="f.pwd.errors.required">Password is required.</small>
-					<small *ngIf="f.pwd.errors.minlength">Password is invalid.</small>
+					<small *ngIf="f.pwd.errors.required">Please enter valid email and password.</small>
+					<!--small *ngIf="f.pwd.errors.minlength">Password is invalid.</small-->
 				</div>
 			</div>
 		</div>
 		<div class="sign-in-error" *ngIf="hasFailed">
 	      Invalid username and password.
 	    </div>
+	    <br/>
+	    <br/>
 		<div class="large-12 small-12 text-center">
 			<button mat-button class="button">LOG IN
 			<ng-template *ngIf="!isBusy">LOG IN</ng-template>

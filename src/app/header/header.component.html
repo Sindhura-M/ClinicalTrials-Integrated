@@ -13,9 +13,9 @@
 		</a>
 	</div>
 	<ul class="menu right-side hide-for-small">
-		<li class="menu-item"><a href="#/breastCancer">Breast Cancer</a></li>
-		<li class="menu-item"><a href="#/about">About</a></li>
-		<li class="menu-item"><a href="#/myaccount">My Account</a></li>
+		<li class="menu-item"><a [routerLink]="['/breastCancer']">Breast Cancer</a></li>
+		<li class="menu-item"><a [routerLink]="['/about']">About</a></li>
+		<li class="menu-item"><a [routerLink]="['/myaccount']">My Account</a></li>
 		<!--li class="menu-item"><a href="#/myaccount" *ngIf="auth.isLoggedIn()">My Account</a></li-->
 		<li class="menu-item">
 			<form id="demo-2">
@@ -33,9 +33,9 @@
 				<!--input type="search" placeholder="Search"-->
 				<i class="material-icons">search</i>
 			</form>
-		  <button mat-menu-item><a href="#/breastCancer">Breast Cancer</a></button>
-		  <button mat-menu-item><a href="#/about">About</a></button>
-		  <button mat-menu-item><a href="#/myaccount">My Account</a></button>
+		  <button mat-menu-item><a [routerLink]="['/breastCancer']">Breast Cancer</a></button>
+		  <button mat-menu-item><a [routerLink]="['/about']">About</a></button>
+		  <button mat-menu-item><a [routerLink]="['/myaccount']">My Account</a></button>
 		</mat-menu>
 		</li>
 	</ul>

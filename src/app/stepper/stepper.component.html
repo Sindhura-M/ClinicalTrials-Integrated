@@ -7,7 +7,7 @@
 			<ng-template matStepLabel>LOG IN</ng-template>
 				<form [formGroup]="firstFormGroup">
 					<app-index [formGroup]="firstFormGroup"></app-index>
-					<div class="large-12 text-center">
+					<div class="large-12 text-center" *ngIf="showGoogleLogin">
 						<button type="submit" class="button fireBaseBtn" (click)="onGoogleLogin(stepper)">LOG IN WITH GOOGLE</button>
 					</div>
 				</form>

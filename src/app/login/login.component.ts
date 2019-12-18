@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators, ControlContainer, FormControl } fro
 import { AuthService } from '.././auth.service';
 import { DataAccessService } from '../services/data-access.service';
 import { Router, Params } from '@angular/router';
-import { MatStepper } from '@angular/material/stepper';
-import { MatDialog } from '@angular/material';
 
 @Component({
 	selector: 'app-login',
@@ -79,7 +77,5 @@ export class LoginComponent implements OnInit {
 	          return;
 	        }
 	    );
-	  }
-
-
+	}
 }

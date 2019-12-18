@@ -11,11 +11,7 @@ export class BreastCancerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-	console.log("Json data : ", JSON.stringify(treatments));
-	console.log("Json data : ", treatments[0].Chemotherapy);
-	
-  }
+  ngOnInit() { }
 
   displayedColumns: string[] = ["Chemotherapy", "Targeted therapy"];
   dataSource: PeriodicElement[] = treatments;
