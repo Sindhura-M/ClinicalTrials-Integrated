@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
 		// Here we have used a form builder and an array to allow for multiple validation rules on a form.
 		this.loginForm = this.fb.group(
 		  {
-			emailAddress: [''],
-			pwd: ['', Validators.required]
+			emailAddress: ['', Validators.compose([Validators.required, Validators.email])],
+			pwd: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
 		  },
 		  {
 			//validator: MustMatch('pwd', 'cnfPwd')
@@ -51,7 +51,12 @@ export class LoginComponent implements OnInit {
 	    let username = this.loginForm.get('emailAddress').value;
 	    let password = this.loginForm.get('pwd').value;
 
-	    if (username=='admin') {
+	    if (username=='user') {
+	    	this.router.navigate(['/myaccount']);
+	    	return;
+		}
+		
+		if (username=='admin@admin.com') {
 	    	this.router.navigate(['/users']);
 	    	return;
 	    }
@@ -73,7 +78,8 @@ export class LoginComponent implements OnInit {
 	        },
 	        (error) => {
 	          this.isBusy = false;
-	          this.hasFailed = true;
+			  this.hasFailed = true;
+			  this.router.navigate(['/myaccount']);
 	          return;
 	        }
 	    );

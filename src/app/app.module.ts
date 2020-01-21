@@ -43,12 +43,15 @@ import { MatchResultsComponent } from './match-results/match-results.component';
 import { TrialsComponent } from './trials/trials.component';
 
 import { dataQAservice } from './services/data-QA.service';
+import { ExportToExcelService } from './services/export-to-excel.service';
 import { dataAccountProfile } from './services/dataAccountProfile.service';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { IndividualTrialComponent } from './individual-trial/individual-trial.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ConditionChangedConfirmationComponent } from './condition-changed-confirmation/condition-changed-confirmation.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: LoginComponent},
@@ -62,7 +65,7 @@ const appRoutes: Routes = [
    { path: 'trials', component: TrialsComponent},
    { path: 'individualtrial/:id', component: IndividualTrialComponent},
    { path: 'users', component: UsersComponent},
-   { path: 'userdetails/:id', component: UserDetailsComponent},
+   { path: 'userdetails', component: UserDetailsComponent},
    { path: '', redirectTo: '/index', pathMatch: 'full'},
    { path: 'index', component: StepperComponent},
    { path: '**', component: StepperComponent}
@@ -116,7 +119,9 @@ const appRoutes: Routes = [
   MyAccountComponent,
   IndividualTrialComponent,
   UsersComponent,
-  UserDetailsComponent
+  UserDetailsComponent,
+  ConfirmationDialogComponent,
+  ConditionChangedConfirmationComponent
   ],
   exports: [
      MatStepperModule,
@@ -134,7 +139,8 @@ const appRoutes: Routes = [
      ReactiveFormsModule,
      MatMenuModule
    ],
-  providers: [ dataQAservice, dataAccountProfile, {provide: LocationStrategy, useClass: HashLocationStrategy}, AuthGuard, AuthService ],
-  bootstrap:    [ AppComponent ]
+  providers: [ dataQAservice, dataAccountProfile, {provide: LocationStrategy, useClass: HashLocationStrategy}, AuthGuard, AuthService,ExportToExcelService ],
+  bootstrap:    [ AppComponent ],
+  entryComponents: [ConfirmationDialogComponent,ConditionChangedConfirmationComponent]
 })
 export class AppModule { }

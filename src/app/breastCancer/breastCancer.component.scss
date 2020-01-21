@@ -23,7 +23,7 @@
 
 		.mat-tab-label {
 			color: #2A2A46;	
-			font-family: "Open Sans";
+			font-family: 'Open Sans', sans-serif;
 			font-size: 17px;
 			font-weight: 600;
 			line-height: 23px;
@@ -59,7 +59,7 @@
 		}
 		.mat-content {
 			color: #474679;
-			font-family: "Open Sans";
+			font-family: 'Open Sans', sans-serif;
 			font-size: 38px;
 			font-weight: 600;
 			line-height: 52px;
@@ -72,7 +72,7 @@
 
 			.mat-expansion-panel-header-title {
 				color: #474679;
-				font-family: "Open Sans";
+				font-family: 'Open Sans', sans-serif;
 				font-size: 38px;
 			}
 
@@ -98,7 +98,8 @@
 	    text-align: center;
 	    color: white;
 	    font-size: 16px;
-	    font-weight: 400;
+		font-weight: 400;
+		width: 1000px;
 	}
 
 	tr.mat-header-row {
@@ -132,7 +133,7 @@
 
 .title-BC {
 	color: #474679;
-	font-family: "Open Sans";
+	font-family: 'Open Sans', sans-serif;
 	font-size: 45px;
 	font-weight: 600;
 	line-height: 61px;

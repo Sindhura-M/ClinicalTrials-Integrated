@@ -29,11 +29,13 @@
     "@types/googlemaps": "^3.38.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
+    "file-saver": "^2.0.2",
     "firebase": "^6.6.1",
     "foundation-sites": "^6.5.3",
     "ng-pick-datetime": "^7.0.0",
     "rxjs": "6.2.0",
     "rxjs-compat": "^6.3.3",
+    "xlsx": "^0.15.4",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

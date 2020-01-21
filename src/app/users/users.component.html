@@ -1,10 +1,9 @@
 <div class="users">
-
 	<mat-tab-group>
-		<mat-tab label="List of users">
-			<span class="float-left"><button (click)="next(e)" class="button-small-active">Create new user</button></span>
-			<br/>
-
+		<mat-tab label="Users">
+			<!-- <span class="float-left"><button (click)="next(e)" class="button-small-active">Create new user</button></span>
+			<br/>  -->
+			<!--div class="title-card-sub">List of Users</div-->
 			<div class="users-table">
 				<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -33,8 +32,9 @@
 				  <ng-container matColumnDef="Action">
 				    <th mat-header-cell *matHeaderCellDef> Action </th>
 				    <td mat-cell *matCellDef="let element" class="text-center"> 
-				    	<button [routerLink]="['/userdetails',element.id]" class="button-small">Edit</button>
-				    	<button (click)="deleteUser(e)" class="button-small">Delete</button>
+				    	<button [routerLink]="['/userdetails']" class="button-small">Edit</button>
+						<button (click)="openConfirmationDialog()" class="button-small">Delete</button>
+						<button (click)="downloadThisUser()" class="button-small">Download</button>
 				    </td>
 				  </ng-container>
 
@@ -42,8 +42,9 @@
 				  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 				</table>
 			</div>
+			<span style="float: right;"><button (click)="exportAsXLSX()" class="button-small-active">Download All Users</button></span>
 		</mat-tab>
-		<mat-tab label="Questionnaire">
+		<!-- <mat-tab label="Questionnaire">
 			<div class="row users-data">
 				<div class="col-md-6">
 					<form [formGroup]="userDataForm">
@@ -178,6 +179,37 @@
 					</form>
 				</div>
 			</div>
+		</mat-tab> -->
+		<mat-tab label="Hospitals">
+			<!--div class="title-card-sub">List of Hospitals</div-->
+			<div class="hospital-table">
+				<table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+
+				  <ng-container matColumnDef="Key">
+				    <th mat-header-cell *matHeaderCellDef> Key</th>
+				    <td mat-cell *matCellDef="let element">{{element.key}}</td>
+				  </ng-container>
+				  <!-- href="#/individualtrial/{{element.id}} -->
+
+				  <ng-container matColumnDef="Hospital">
+				    <th mat-header-cell *matHeaderCellDef> Hospital </th>
+				    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+				  </ng-container>
+
+				  <ng-container matColumnDef="Post Code">
+				    <th mat-header-cell *matHeaderCellDef> Post Code </th>
+				    <td mat-cell *matCellDef="let element"> <span class="phase-bgColor">{{element.postcode}}</span> </td>
+				  </ng-container>
+
+				  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+				  <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+				</table>
+			</div>
+		</mat-tab>
+		
+		<mat-tab label="Trials">
+
 		</mat-tab>
 	</mat-tab-group>
+
 </div>

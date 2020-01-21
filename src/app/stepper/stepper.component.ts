@@ -55,7 +55,7 @@ export class StepperComponent implements CanActivate{
 		this.authService.doGoogleLogin()
 			.then(res => {
 				stepper.next();
-				this.router.navigate(['/login']);
+				//this.router.navigate(['/login']);
 				this.user = res.user.displayName;
 				this.authService.doSignIn(
 		            res.token

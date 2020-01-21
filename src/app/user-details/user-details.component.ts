@@ -11,7 +11,7 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router, private route:ActivatedRoute) { }
 
-  userDetailsForm: FormGroup;
+ userDetailsForm: FormGroup;
   submitted = false;
   public dataSource: any = [];
   user: any;

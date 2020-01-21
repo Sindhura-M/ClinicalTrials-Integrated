@@ -5,11 +5,14 @@ import { dataQAservice } from '../services/data-QA.service';
 import { Quizmodel } from '.././quiz/quizmodel';
 import { Answermodel } from '.././quiz/quizmodel';
 import { AnswerKey } from '.././quiz/quizmodel';
-import questions from '../.././assets/questions.json';
+// import questions from '../.././assets/questions.json';
 import { MatDatepickerModule, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { dayKey, monthKey, yearKey } from '.././datemodel';
 import { map } from 'rxjs/operators';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { dataAccountProfile } from '../services/dataAccountProfile.service';
+import { HttpClient } from "@angular/common/http";
+import { ConditionChangedConfirmationComponent } from '../condition-changed-confirmation/condition-changed-confirmation.component';
 
 @Component({
   selector: 'app-my-account',
@@ -18,8 +21,9 @@ import { dataAccountProfile } from '../services/dataAccountProfile.service';
 })
 export class MyAccountComponent implements OnInit {
 
-  	constructor(private dataAccess: DataAccessService, private formBuilder: FormBuilder, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile ) { }
-
+  	constructor(private dataAccess: DataAccessService, private formBuilder: FormBuilder, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile, private httpClient: HttpClient, public dialog: MatDialog) { }
+	dialogRef: MatDialogRef<ConditionChangedConfirmationComponent>;
+	public tabIndex =2;
   	myAccForm: FormGroup;
 	public accountProfile: any = [];
 	error: String[];
@@ -32,6 +36,10 @@ export class MyAccountComponent implements OnInit {
 			this.myAccForm.patchValue({firstName: this.accountProfile.firstName});
 		});*/
 		//const tempData = this.dataQAservice.getData();
+		this.httpClient.get("assets/questions.json").subscribe(data =>{
+			console.log(data);
+			this.quizlist = data;
+			})
 		this.dataAccess.getCancerTrials().subscribe( data => {
 	    	this.dataSource=data;
 	    },
@@ -41,6 +49,20 @@ export class MyAccountComponent implements OnInit {
 
 	    let profile = this.dataAccountProfile.getData();
 		console.log('dataAccountProfile' + profile);
+
+		
+		this.dialogRef = this.dialog.open(ConditionChangedConfirmationComponent,  
+			{
+			  disableClose: false
+			});
+			this.dialogRef.componentInstance.confirmMessage = "Has your condition changed since you last logged in?"
+			this.dialogRef.afterClosed().subscribe(result => {
+			  if(result) {
+				this.tabIndex=1;
+			  }
+			  this.dialogRef = null;
+			});
+		  
   	}
 
 	//My trials code//
@@ -50,7 +72,7 @@ export class MyAccountComponent implements OnInit {
 
     displayedColumns: String[] = ['Study title', 'Interventions', 'Phase', 'Sponsor', 'Sex', 'Location', 'Save'];
 
-  	quizlist: any[] = questions;
+  	quizlist: any = [];
 
   	toggleAccordian(event, index) {
 	    var element = event.target;
@@ -68,5 +90,8 @@ export class MyAccountComponent implements OnInit {
 	    	panel.style.maxHeight = panel.scrollHeight + "px";
 	    }
 	}
-
+	printPage(){
+		
+		window.print();
+	}
 }

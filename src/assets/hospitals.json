@@ -1,0 +1,156 @@
+[{
+	"id" : "0", 
+	"key" : "AH",
+	"name" : "Albury Hospital",
+	"postcode" : "2640"	
+},
+{
+	"id" : "1", 
+	"key" : "BH",
+	"name" : "Blacktown Hospital",
+	"postcode" : "2148"	
+},
+{
+	"id" : "2", 
+	"key" : "BLH",
+	"name" : "Bankstown-Lidcombe Hospital",
+	"postcode" : "2200"	
+},
+{
+	"id" : "3", 
+	"key" : "CH",
+	"name" : "Campbelltown Hospital",
+	"postcode" : "2560"	
+},
+{
+	"id" : "4", 
+	"key" : "CHH",
+	"name" : "Coff's Harbour Hospital ",
+	"postcode" : "2450"	
+},
+{
+	"id" : "5", 
+	"key" : "CMH",
+	"name" : "Calvery Mater Newcastle",
+	"postcode" : "2298"	
+},
+{
+	"id" : "6", 
+	"key" : "CRGH",
+	"name" : "Concord Repatriation General Hostpial",
+	"postcode" : "2139"	
+},
+{
+	"id" : "7", 
+	"key" : "GCCN",
+	"name" : "Genesis Cancer Care Newcastle",
+	"postcode" : "2290"	
+},
+{
+	"id" : "8", 
+	"key" : "GH",
+	"name" : "Gosford Hospital ",
+	"postcode" : "2250"	
+},
+{
+	"id" : "9", 
+	"key" : "LH",
+	"name" : "Liverpool Hospital",
+	"postcode" : "2170"	
+},
+{
+	"id" : "10", 
+	"key" : "LIFEH",
+	"name" : "Lifehouse",
+	"postcode" : "2050"	
+},
+{
+	"id" : "11", 
+	"key" : "LMPH",
+	"name" : "Lake Macquaire Private Hospital",
+	"postcode" : "2290"	
+},
+{
+	"id" : "12", 
+	"key" : "MH",
+	"name" : "Mater Hospital",
+	"postcode" : "2060"	
+},
+{
+	"id" : "13", 
+	"key" : "MUH",
+	"name" : "Macquarie University Hospital ",
+	"postcode" : "2109"	
+},
+{
+	"id" : "14", 
+	"key" : "NCI",
+	"name" : "Northen Cancer Institute",
+	"postcode" : "2065"	
+},
+{
+	"id" : "15", 
+	"key" : "NH",
+	"name" : "Nepan Hospital",
+	"postcode" : "2747"	
+},
+{
+	"id" : "16", 
+	"key" : "PMH",
+	"name" : "Port Maquaire Base Hospital",
+	"postcode" : "2444"	
+},
+{
+	"id" : "17", 
+	"key" : "POW",
+	"name" : "Prince of Wales Hospital ",
+	"postcode" : "2031"	
+},
+{
+	"id" : "18", 
+	"key" : "RCCC",
+	"name" : "Riverina Cancer Care Centre",
+	"postcode" : "2650"	
+},
+{
+	"id" : "19", 
+	"key" : "RNSH",
+	"name" : "Royal North Shore Hospital",
+	"postcode" : "2065"	
+},
+{
+	"id" : "20", 
+	"key" : "SAN",
+	"name" : "Sydney Adventist Hospital",
+	"postcode" : "2076"	
+},
+{
+	"id" : "21", 
+	"key" : "STG",
+	"name" : "St George Hospital",
+	"postcode" : "2217"	
+},
+{
+	"id" : "22", 
+	"key" : "STV",
+	"name" : "St Vincent's Hospital",
+	"postcode" : "2010"	
+},
+{
+	"id" : "23", 
+	"key" : "TH",
+	"name" : "Tamworth Hospital",
+	"postcode" : "2340"	
+},
+{
+	"id" : "24", 
+	"key" : "WMH",
+	"name" : "Westmead Hospital",
+	"postcode" : "2145"	
+},
+{
+	"id" : "25", 
+	"key" : "WOH",
+	"name" : "Wollongong Hospital ",
+	"postcode" : "2500"	
+}]

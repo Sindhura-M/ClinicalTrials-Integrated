@@ -1,0 +1,38 @@
+[{
+	"id" : "0", 
+	"name" :"Mary Alice", 
+	"email" : "mary.alice@xmail.com", 
+	"role" :"user", 
+	"action" :"[Edit, Delete]"
+},
+  						
+{
+	"id" : "1",
+	"name" :"Brenda Cooper",
+	"email" : "brendacooper@hmail.com",
+	"role" :"admin", 
+	"action" :"[Edit, Delete]"
+},
+  						
+{
+	"id" : "2", 
+	"name" :"June Scavo", 
+	"email" : "junescavo@abc.com", 
+	"role" :"user", 
+	"action" :"[Edit, Delete]"
+},
+{
+	"id" : "3", 
+	"name" :"Tom Bradich", 
+	"email" : "tombradich@abc.com", 
+	"role" :"user", 
+	"action" :"[Edit, Delete]"
+},
+{
+	"id" : "4", 
+	"name" :"John William", 
+	"email" : "williamjohn@gmail.com", 
+	"role" :"user", 
+	"action" :"[Edit, Delete]"
+}
+]

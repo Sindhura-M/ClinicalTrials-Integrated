@@ -6,8 +6,8 @@
 			<div class="form-group">
 			  <input type="email" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address" />
 			  <div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
-				<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
-				<small *ngIf="f.emailAddress.errors.email">Email is invalid</small>
+				<small *ngIf="f.emailAddress.errors.required">Username is required.</small>
+				<small *ngIf="f.emailAddress.errors.email">Username is invalid</small>
 			  </div>
 			</div>
 		</div>
@@ -16,7 +16,7 @@
 			<div class="form-group">
 				<input type="password" formControlName="pwd" class="form-control input-group-field" placeholder="Enter password" />
 				<div *ngIf="f.pwd.invalid && f.pwd.touched" class="text-danger">
-					<small *ngIf="f.pwd.errors.required">Please enter valid email and password.</small>
+					<small *ngIf="f.pwd.errors.required">Please enter a valid password.</small>
 					<!--small *ngIf="f.pwd.errors.minlength">Password is invalid.</small-->
 				</div>
 			</div>

@@ -3,9 +3,9 @@
 
 	<form [formGroup]="userDetailsForm" [routerLink]="['/users']">
 
-
+		
 		<div class="row">
-			<div class="large-6">
+			<div class="large-6"> 
 				<!-- NAME FIELDs -->
 				<div class="form-group">
 					<input type="text" formControlName="name" class="form-control input-group-field" 
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 		</div>
-		<!--div class="row">
+		<!-- <div class="row">
 			<div class="large-6">
 				<div class="form-group">
 				  	<input type="text" formControlName="lastName" class="form-control input-group-field" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
@@ -26,11 +26,11 @@
 					</div>
 				</div>
 			</div>
-		</div-->
+		</div> -->
 		<div class="row">
 			<div class="large-6"> 
-				<!-- EMAIL FIELDs -->
-				<div class="form-group">
+				 <!-- EMAIL FIELDs -->
+				 <div class="form-group">
 					<input type="email" formControlName="email" class="form-control input-group-field" placeholder="Email address" value={{email}}/>
 					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
 						<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
@@ -38,11 +38,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="large-6">
-				<!-- PASSWORD FIELDs -->
-				<div class="form-group">
+		</div> 
+		 <div class="row">
+			<div class="large-6"> 
+				 <!-- PASSWORD FIELDs  -->
+				 <div class="form-group">
 				  	<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Enter password" value="{{password}}"/>
 				  	<div *ngIf="f.password.invalid && f.password.touched" class="text-danger">
 						<small *ngIf="f.password.errors.required">Password is required.</small>
@@ -50,8 +50,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+		</div> 
+		 <!-- <div class="row">
 			<div class="large-6">
 				<div class="form-group">
 	            	<select name="role" class="select form-control input-group-field" formControlName="role" 
@@ -62,13 +62,143 @@
 		            </select>
 		        </div>
 	        </div>
-		</div>
+		</div>  -->
+		<!-- <div class="row users-data">
+			<div class="col-md-6">
+				<form [formGroup]="userDetailsForm">
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" class="form-control input-group-field" placeholder="Name"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Stage</label>
+						<input type="text" class="form-control input-group-field" placeholder="Stage"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Subtype</label>
+						<input type="text" class="form-control input-group-field" placeholder="Subtype"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Summary</label>
+						<input type="text" class="form-control input-group-field" placeholder="Summary"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Phase</label>
+						<input type="text" class="form-control input-group-field" placeholder="Phase"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Location</label>
+						<input type="text" class="form-control input-group-field" placeholder="Location"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Postcode</label>
+						<input type="text" class="form-control input-group-field" placeholder="Postcode"/>
+					</div>
+					<div class="form-group">
+						<label for="name">ClinicalTrials.gov</label>
+						<input type="text" class="form-control input-group-field" placeholder="ClinicalTrials.gov"/>
+					</div>
+					<div class="form-group">
+						<label for="name">ANZCTR</label>
+						<input type="text" class="form-control input-group-field" placeholder="ANZCTR"/>
+					</div>
+					<div class="form-group">
+						<label for="name">BCT</label>
+						<input type="text" class="form-control input-group-field" placeholder="BCT"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Age</label>
+						<input type="text" class="form-control input-group-field" placeholder="Age"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Sex</label>
+						<input type="text" class="form-control input-group-field" placeholder="Sex"/>
+					</div>
+					<div class="form-group">
+						<label for="name">PMP</label>
+						<input type="text" class="form-control input-group-field" placeholder="PMP"/>
+					</div>
+					<div class="form-group">
+						<label for="name">ECOG</label>
+						<input type="text" class="form-control input-group-field" placeholder="ECOG"/>
+					</div>
+					<div class="form-group">
+						<label for="name">ER</label>
+						<input type="text" class="form-control input-group-field" placeholder="ER"/>
+					</div>
+					<div class="form-group">
+						<label for="name">PR</label>
+						<input type="text" class="form-control input-group-field" placeholder="PR"/>
+					</div>
+					<div class="form-group">
+						<label for="name">HER2</label>
+						<input type="text" class="form-control input-group-field" placeholder="HER2"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Tumour Size</label>
+						<input type="text" class="form-control input-group-field" placeholder="Tumour Size"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Nodal Status</label>
+						<input type="text" class="form-control input-group-field" placeholder="Nodal Status"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Node Number</label>
+						<input type="text" class="form-control input-group-field" placeholder="Node Number"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Stage</label>
+						<input type="text" class="form-control input-group-field" placeholder="Stage"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Has cancer spread to other parts?</label>
+						<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?"/>
+					</div>
+					<div class="form-group">
+						<label for="name">BRCA 1/2 Mutation</label>
+						<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Surgery</label>
+						<input type="text" class="form-control input-group-field" placeholder="Surgery"/>
+					</div>
 
-
+					<div class="form-group">
+						<label for="name">Chemotherapy</label>
+						<input type="text" class="form-control input-group-field" placeholder="Chemotherapy"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Hormones</label>
+						<input type="text" class="form-control input-group-field" placeholder="Hormones"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Targeted Tx HER2 Therapy</label>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Targeted Tx CDK 4/6 Inhibitor</label>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Targeted Tx PARP 4/6 Inhibitor</label>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Immunotherapy</label>
+						<input type="text" class="form-control input-group-field" placeholder="Immunotherapy"/>
+					</div>
+					<div class="form-group">
+						<label for="name">Radiotherapy</label>
+						<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"/>
+					</div>
+					<div class="form-group"> 
+						<button (click)="saveItem(e)" class="button-small" style="width:auto; padding:0 1rem;">Save</button>
+					</div> -->
 		<div class="row">
 			<div class="large-6 form-group text-center" style="padding-left: 9px;">
-				<button class="button expanded btn btn-primary button-small-active"[disabled]="userDetailsForm.invalid">SAVE</button>
+				<button class="button expanded btn btn-primary button-small-active"[disabled]="userDetailsForm.invalid" (click)="onSave()">SAVE</button>
 			</div>
 		</div>
+	
 	</form>
 </div>

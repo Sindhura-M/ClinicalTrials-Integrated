@@ -1,0 +1,7 @@
+<h1 md-dialog-title class="title-card-sub">Hi User,</h1>
+<div md-dialog-content class="dailog-title">{{confirmMessage}}</div>
+<p class="title">We recommend updating this regularly to match to appropriate trials. </p>
+<div md-dialog-actions>
+  <button md-button class="button-small-active" (click)="dialogRef.close(false)">NO</button>
+  <button md-button class="button-small-active" (click)="dialogRef.close(true)">YES</button>
+</div>  

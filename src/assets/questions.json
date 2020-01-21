@@ -54,14 +54,14 @@
   },
   {
     "ID": 7, 
-    "question": "Has the breast cancer metastasised (spread) from the breast to any of the following areas? Please select all that apply.", 
+    "question": "Has the breast cancer metastasised (spread) from the breast to any of the following areas?Please select all that apply.", 
     "optionType": "checkbox",
     "anslistobj": ["Breast cancer has not spread ", "Lymph nodes near the tumour", "Tissue adjacent to primary tumor (locally advanced)", "Distant lymph nodes", "Other breast", "Abdomen", "Bone (including vertebrae)", "Brain", "Fluid around the lungs (malignant pleural effusion)", "Liver", "Lung", "Skin", "Other", "Not sure"],
     "characteristic": "breastCancerSpreadToOtherParts"
   },
   {
     "ID": 8, 
-    "question": "What is the hormone receptor status of the cancer (ER and/or PR and/or HER2 test results)? Please select all that apply.", 
+    "question": "What is the hormone receptor status of the cancer (ER and/or PR and/or HER2 test results)?Please select all that apply.", 
     "optionType": "multipleRadio",
     "anslistobj": [
       {"question": "Estrogen Receptor (ER)",  "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}], "subcharacteristic": "ER"},
@@ -94,7 +94,7 @@
   },
   {
     "ID": 11, 
-    "question": "Please select all forms of treatment the patient has received for early stage breast cancer. <br/> <a>Find out more about types of treatments here</a>", 
+    "question": "Please select all forms of treatment the patient has received for early stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
     "optionType": ["selectbox-earlyStage"],
     "anslistobj": [{"selectbox" : [
                       {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "date"},
@@ -111,7 +111,7 @@
   },
   {
     "ID": 12, 
-    "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer. <br/> <a>Find out more about types of treatments here</a>", 
+    "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
     "optionType": ["selectbox-advanced"],
     "anslistobj": [{"selectbox" : [
                       {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
@@ -128,14 +128,14 @@
   },
   {
     "ID": 13, 
-    "question": "Would the patient be interested in a study that may help with the following breast cancer symptoms or treatment-related side effects. Please select all that apply.", 
+    "question": "Would the patient be interested in a study that may help with the following breast cancer symptoms or treatment-related side effects.Please select all that apply.", 
     "optionType": "checkbox",
     "anslistobj": ["Not experiencing any side effects", "Bone loss / fractures", "Cognitive dysfunction (memory problems)", "End of life care", "Fatigue", "Hand-foot syndrome (Palmar-Plantar erythrodysesthesia)", "Hot flashes", "Insomnia", "Loss of appetite", "Lymphoedema", "Nausea or vomiting", "Peripheral neuropathy (numbness / pain / tingling)", "Pain", "Physical activity / rehabilitation", "Quality of life", "Weight loss (Cachexia)", "Other side effects not listed", "All of the above"],
     "characteristic": "Symptoms"
   },
   {
     "ID": 14, 
-    "question": "What biomarkers or genetic mutations were discovered through diagnostic tests (molecular profiling) for this tumour? Please select all that apply.", 
+    "question": "What biomarkers or genetic mutations were discovered through diagnostic tests (molecular profiling) for this tumour?Please select all that apply.", 
     "optionType": "checkbox",
     "anslistobj": ["Not yet tested", "No known mutations", "ATM", "BARDI", "BRCA1", "BRIPI", "CHEK2", "CHH1", "dMMR", "EPCAM", "FANCN", "MLH1", "MSH1", "MSH6", "MUTYH", "NBN", "NF1", "PALB2", "PMS2", "PD-L1", "PIK3CA", "PIK3CB", "PTEN", "RADS1", "STK11", "TP53 (17P Deletion)", "Tumour Mutation Burden", "Other (mutation not listed)", "Not sure"],
     "characteristic": "brcaMutation"
@@ -147,3 +147,4 @@
     "anslistobj": ["completing questionnaires", "providing a blood sample", "providing a sample of the cancer from a biopsy", "I am not willing to answer questionnaires or provide any samples", "Not sure"],
     "characteristic": "Research interest"
   }]
+  

@@ -3,12 +3,13 @@ import { Quizmodel } from '.././quiz/quizmodel';
 import { Answermodel } from '.././quiz/quizmodel';
 import { Router }  from '@angular/router';
 import { AnswerKey } from '.././quiz/quizmodel';
-import questions from '../.././assets/questions.json';
+//import questions from '../.././assets/questions.json';
 import { MatDatepickerModule, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { dayKey, monthKey, yearKey } from '.././datemodel';
 import { map } from 'rxjs/operators';
 import { DataAccessService } from '../services/data-access.service';
 import { dataQAservice } from '../services/data-QA.service';
+import { HttpClient } from "@angular/common/http"; 
 
 // form '../services/data-QA.service'
 @Component({
@@ -19,16 +20,21 @@ import { dataQAservice } from '../services/data-QA.service';
 
 export class AnswerQuestionsComponent implements OnInit {
 
-	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService){}
+	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService,private httpClient: HttpClient){}
 
 	ngOnInit() {
-		this.question = this.quizlist[0].question;
-		this.option = this.quizlist[0].anslistobj;
-		this.i = 0;
-		this.quizlength = this.quizlist.length;
-		this.optionType = this.quizlist[0].optionType;
-		this.ID = this.quizlist[0].ID;
-		this.characteristic = this.quizlist[0].characteristic;
+		this.httpClient.get("assets/questions.json").subscribe(data =>{
+			console.log(data);
+			this.quizlist = data;
+			this.question = this.quizlist[0].question;
+			this.option = this.quizlist[0].anslistobj;
+			this.i = 0;
+			this.quizlength = this.quizlist.length;
+			this.optionType = this.quizlist[0].optionType;
+			this.ID = this.quizlist[0].ID;
+			this.characteristic = this.quizlist[0].characteristic;
+		})
+		
 
 		this.display = false;
 		this.display2 = false;
@@ -47,7 +53,7 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	newstr: String;
 
-	quizlist: Quizmodel[] = questions;
+	quizlist: any;//Quizmodel[] = questions;
 
 	quizlength: number;
 

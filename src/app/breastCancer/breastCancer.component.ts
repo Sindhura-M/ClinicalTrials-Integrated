@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import treatments from '../.././assets/BC-treatments.json';
+// import treatments from '../.././assets/BC-treatments.json';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-tabOne',
@@ -8,17 +9,23 @@ import treatments from '../.././assets/BC-treatments.json';
 })
 
 export class BreastCancerComponent implements OnInit {
+  dataSource:any=[]
+  constructor(private httpClient: HttpClient) { }
 
-  constructor() { }
-
-  ngOnInit() { }
-
-  displayedColumns: string[] = ["Chemotherapy", "Targeted therapy"];
-  dataSource: PeriodicElement[] = treatments;
-
+  ngOnInit() {
+    this.httpClient.get("assets/BC-treatments.json").subscribe(data =>{
+      console.log(data);
+      this.dataSource = data;
+      })
+    }
+  displayedColumnsOne: string[] = ["Chemotherapy", "Targeted therapy"];
+  displayedColumnsTwo: string[] = [ "Harmonaltherapy", "Immunotherapy", "Other"]; 
 }
 
 export interface PeriodicElement {
 	Chemotherapy: string[];
-	Targetedtherapy: string[];
+  Targetedtherapy: string[];
+  Harmonaltherapy: string[];
+  Immunotherapy: string[];
+  Other: string[];
 }

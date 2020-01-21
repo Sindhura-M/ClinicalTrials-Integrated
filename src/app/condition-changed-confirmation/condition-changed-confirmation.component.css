@@ -1,0 +1,45 @@
+.title-card-sub {
+    color: #4A4A4A;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+.button-small-active {
+    height: 50px;	
+    width: 115px;	
+    border-radius: 25px;	
+    background-color: #FCD8E2;	
+    box-shadow: 0 0.5px 0 0 #9B9B9B; 
+    margin-left:6.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.dailog-title{
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+.title{
+    color: #4A4A4A;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+/* Small only */
+@media screen and (max-width:39.9375em) {
+	.text-center {
+		text-align: center;
+	}
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 50px;
+	}
+}

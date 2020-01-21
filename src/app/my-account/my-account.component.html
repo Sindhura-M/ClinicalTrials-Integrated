@@ -1,5 +1,5 @@
 <div class="myAcc-container">
-	<mat-tab-group>
+	<mat-tab-group [(selectedIndex)]="tabIndex">
 		<mat-tab label="My account">
 			<div class="myAccount">
 			  	<div class="title">My account</div>
@@ -49,14 +49,14 @@
 			<div class="myAccount">
 				<div class="title">My condition 
 					<span class="floatRight"><i class="material-icons"> email </i>
-					<i class="material-icons"> print </i></span>
+					<i class="material-icons" (click)="printPage()"> print </i></span>
 				</div>
 				<hr>
 
 				<div *ngFor="let question of quizlist;let i = index;" class="question">
 				  	<div class="accordion" (click)="toggleAccordian($event, i)">
 				  		<span class="phase-bgColor"> {{question.ID}} </span>
-						<span class="large-11" [innerHTML]="question.question"></span> 
+						<span class="large-11" [innerHTML]="question.question"></span>
 					</div>
 				 	<div class="panel" *ngIf="question.optionType === 'radio'" hide="!item.isActive">
 					  	<div class="row" >
@@ -114,7 +114,7 @@
 						</ul>
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-earlyStage'" hide="!item.isActive">
+					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
 						<mat-radio-group aria-label="Select an option">
 							<ul *ngFor="let option of question.anslistobj" class="display-flex">
 								<li *ngFor="let opt of option.radio">
@@ -126,7 +126,7 @@
 						</mat-radio-group>
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-advanced'" hide="!item.isActive">
+					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-advanced'" hide="!item.isActive">
 						<mat-radio-group aria-label="Select an option">
 							<ul *ngFor="let option of question.anslistobj" class="display-flex">
 								<li *ngFor="let opt of option.radio">
@@ -138,7 +138,7 @@
 						</mat-radio-group>
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType === 'selectbox-earlyStage' && display" hide="!item.isActive">
+					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage' && display" hide="!item.isActive">
 						<div *ngFor="let option of question.anslistobj">
 							<ul  class="full-width" id={{option[i]}}>
 								<div class="row optionList-width" *ngFor="let opt of option.selectbox">
@@ -179,7 +179,7 @@
 						</div>
 					</div>
 
-					<div class="row display-flex optionType panel" *ngIf="question.optionType === 'selectbox-advanced' && display2" hide="!item.isActive">
+					<div class="row display-flex optionType panel" *ngIf="question.optionType == 'selectbox-advanced' && display2" hide="!item.isActive">
 						<a>{{link}}</a>
 						<div *ngFor="let option of question.anslistobj" class="optionList-width">
 							<ul  class="i" id={{option[i]}}>

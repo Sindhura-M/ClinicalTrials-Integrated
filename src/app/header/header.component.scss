@@ -21,7 +21,8 @@
     -ms-flex-pack: center;
     justify-content: center;
     color: #474679;
-    font-family: Karla; font-size: 21px;  font-weight: bold;
+    font-family: 'Open Sans', sans-serif; font-size: 21px;  font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .global-nav-title a {
@@ -37,7 +38,7 @@
     list-style: none;
 
     /deep/ .mat-menu-item a{
-      font-family: "Open Sans";
+      font-family: 'Open Sans', sans-serif;
       color : #000000c4;
     }
 }
@@ -61,7 +62,7 @@
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
 
-    color: #2A2A46; font-family: "Open Sans"; font-size: 17px;  line-height: 23px;
+    color: #2A2A46;font-family: 'Open Sans', sans-serif; font-size: 17px;  line-height: 23px;
 
 }
 .global-nav .menu a {
@@ -70,6 +71,7 @@
     line-height: 45px !important;
     padding-bottom: 0 !important;
     padding-top: 0 !important;
+    letter-spacing: 0.5px;
 }
 .menu > li > a {
     display: -ms-flexbox;
