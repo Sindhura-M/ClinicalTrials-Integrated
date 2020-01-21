@@ -4,6 +4,10 @@
 }
 /deep/ .BC-container {
 
+	.mat-expansion-panel-content {
+		font-family: 'Open Sans', sans-serif !important;
+		font-size: 11pt;
+	}
 	.mat-tab-header {
 		border-bottom: none;
 	}

@@ -8,6 +8,9 @@
 
 /deep/ .users {
 
+	.mat-tab-body-content {
+		font-family: 'Open Sans', 'Helvetica' !important
+	}
 	tr.mat-header-row {
 		height: 45px;
     	background: #47476d;
@@ -45,6 +48,13 @@
 
 	.mat-tab-body-content {
 		margin-top: 2%;
+	}
+
+	.mat-tab-body.mat-tab-body-active {
+		overflow-y: hidden;
+	}
+	.mat-tab-group, .mat-table {
+		font-family: 'Open Sans', 'Helvetica' !important;
 	}
 }
 

@@ -17,6 +17,9 @@ div {
     margin: auto;
 }
 /deep/ .myAcc-container {
+	.mat-tab-group {
+		font-family: 'Open Sans', 'Helvetica';
+	}
 
 	.mat-tab-label-container {
 		

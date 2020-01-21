@@ -9,6 +9,9 @@ html, body {
 	padding-left: 1%;
 }
 
+/deep/ .mat-stepper-horizontal {
+	font-family: 'Open Sans', 'Helvetica' !important;
+}
 /deep/ .stepper	.mat-step-icon {
 	border-color: #a168f2;
 	background-color: #FCD8E2;
