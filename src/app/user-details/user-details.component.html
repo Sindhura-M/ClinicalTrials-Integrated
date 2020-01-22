@@ -43,7 +43,7 @@
 			<div class="large-6"> 
 				 <!-- PASSWORD FIELDs  -->
 				 <div class="form-group">
-				  	<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Enter password" value="{{password}}"/>
+				  	<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Enter password"/>
 				  	<div *ngIf="f.password.invalid && f.password.touched" class="text-danger">
 						<small *ngIf="f.password.errors.required">Password is required.</small>
 						<small *ngIf="f.password.errors.minlength">Password must be at least 6 characters.</small>
