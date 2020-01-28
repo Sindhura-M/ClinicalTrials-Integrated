@@ -35,6 +35,10 @@ p {
 	color: rgba(0,0,0,0.87);
 	margin-left: 0;
 	background-color: #FCD8E2;
+	width: 100%;
+}
+.text-danger{
+	color: red;
 }
 
 .button.disabled, .button.disabled:focus, .button.disabled:hover, .button[disabled], .button[disabled]:focus, .button[disabled]:hover {

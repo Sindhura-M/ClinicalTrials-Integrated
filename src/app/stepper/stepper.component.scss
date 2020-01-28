@@ -88,6 +88,9 @@ input, input-group-field {
 	/deep/ .stepper	.mat-horizontal-stepper-header-container {
 			margin: 0 0 3rem 3rem;
 	}
+	.button { 
+		width: 100%;
+	}
 }
 
 /* Medium and up */

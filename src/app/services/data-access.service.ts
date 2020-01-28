@@ -24,6 +24,7 @@ export class DataAccessService {
   private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
   private _register: string = environment.apiUrl + '/register';
   private _login: string = environment.apiUrl + '/authenticate';
+  private _fetchUserDetails: string = environment.apiUrl + '/ctc/trials/matchingTrials';
 
   //private _authURL:  string = '';
   
@@ -65,6 +66,23 @@ export class DataAccessService {
         catchError(this.handleError)
       );
 
+  }
+
+  getUserDetails(): Observable <any>{
+    const httpOptions = {
+      headers: new HttpHeaders({ 
+        'Access-Control-Allow-Origin':'*',  
+        'Authorization':'Basic cm9vdDpyb290',
+        'Content-Type' : 'application/json',
+        'Accept': 'application/json'
+      })
+    };
+
+    return this.client.get<any>
+    (this._fetchUserDetails,httpOptions)
+    .pipe(
+      catchError(this.handleError)
+    );
   }
 
   saveTrial(trialID: number): Observable<any> {

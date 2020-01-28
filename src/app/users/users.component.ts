@@ -14,10 +14,9 @@ export class UsersComponent implements OnInit {
 
   constructor(private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
-  userDataForm: FormGroup;
-
+  // userDataForm: FormGroup;
   public dataSource: any = [];
-  public dataSource1: any = [];
+  // public dataSource1: any = [];
   ngOnInit() {
     // this._formValidate();
   	// this.dataSource = [	{id: "0", name:"Mary Alice", email: "mary.alice@xmail.com", role:"user", action:"[Edit, Delete]"},
@@ -28,10 +27,10 @@ export class UsersComponent implements OnInit {
       console.log(data);
       this.dataSource = data;
       })
-    this.httpClient.get("assets/hospitals.json").subscribe(data =>{
-        console.log(data);
-        this.dataSource1 = data;
-      })
+    // this.httpClient.get("assets/hospitals.json").subscribe(data =>{
+    //     console.log(data);
+    //     this.dataSource1 = data;
+    //   })
   }
 
 
@@ -46,12 +45,12 @@ export class UsersComponent implements OnInit {
   // }
 
   displayedColumns: String[] = ['Id', 'Name', 'Email', 'Role', 'Action'];
-  displayedColumns1: String[] = ['Key', 'Hospital', 'Post Code'];
+  // displayedColumns1: String[] = ['Key', 'Hospital', 'Post Code','Action'];
   // next(e) {
   // 	this.router.navigate(['/userdetails/:new']);
   // }
 
-  openConfirmationDialog() {
+  openConfirmationDialog(e) {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent,  
     {
       disableClose: false
@@ -64,10 +63,13 @@ export class UsersComponent implements OnInit {
       this.dialogRef = null;
     });
   }
-  exportAsXLSX():void {
+  exportAllUsers():void {
     this.excelService.exportExcel(this.dataSource, 'users');
   }
-  // downloadThisUser(){
-
+  // exportHospitalsAsXLSX():void {
+  //   this.excelService.exportExcel(this.dataSource1, 'hospitals');
+  // }
+  // addHospital(e) {
+  // 	this.router.navigate(['/hospitaldetails']);
   // }
 }

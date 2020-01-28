@@ -52,6 +52,7 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { ConditionChangedConfirmationComponent } from './condition-changed-confirmation/condition-changed-confirmation.component';
+// import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: LoginComponent},
@@ -65,7 +66,8 @@ const appRoutes: Routes = [
    { path: 'trials', component: TrialsComponent},
    { path: 'individualtrial/:id', component: IndividualTrialComponent},
    { path: 'users', component: UsersComponent},
-   { path: 'userdetails', component: UserDetailsComponent},
+   { path: 'userdetails/:id', component: UserDetailsComponent},
+  //  { path: 'hospitaldetails', component: HospitalDetailsComponent},
    { path: '', redirectTo: '/index', pathMatch: 'full'},
    { path: 'index', component: StepperComponent},
    { path: '**', component: StepperComponent}
@@ -121,7 +123,8 @@ const appRoutes: Routes = [
   UsersComponent,
   UserDetailsComponent,
   ConfirmationDialogComponent,
-  ConditionChangedConfirmationComponent
+  ConditionChangedConfirmationComponent,
+  // HospitalDetailsComponent
   ],
   exports: [
      MatStepperModule,

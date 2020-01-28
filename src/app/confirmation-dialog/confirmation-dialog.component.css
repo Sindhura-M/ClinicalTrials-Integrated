@@ -1,10 +1,14 @@
 .title-card-sub {
     color: #4A4A4A;
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     line-height: 57px;
+    text-align: center;
 }
 .button-small-active {
 	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; margin: 1rem;
+}
+.dailog-title{
+    text-align: center;
 }

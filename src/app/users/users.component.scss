@@ -1,12 +1,12 @@
-.users{
+.admin{
 	max-width: 1140px;
 	margin: auto;
 }
-.users h3 {
+.admin h3 {
 	margin: 4rem 0 0;
 }
 
-/deep/ .users {
+/deep/ .admin {
 
 	.mat-tab-body-content {
 		font-family: 'Open Sans', 'Helvetica' !important
@@ -69,13 +69,12 @@
 		}
 	}
 }
-
 .button-small-active {
-	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; margin: 0.5rem;
+	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; margin: 0.5rem; padding:0 1rem 0 1rem ;
 }
 
 .button-small{
-	height: 35px;	width: 75px;	border-radius: 25px; background-color: #FFFFFF; border: 3px solid #FCD8E2; box-shadow: none; margin: 0.5rem;
+	height: 35px;	width: 100px;	border-radius: 25px; background-color: #FFFFFF; border: 3px solid #FCD8E2; box-shadow: none; margin: 0.5rem;
 }
 .button-small:hover {
 	background-color: #FCD8E2;
