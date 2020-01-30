@@ -11,59 +11,44 @@ import { DataAccessService } from '../services/data-access.service';
 export class UserDetailsComponent implements OnInit {
 	
 
-  constructor(private dataAccess: DataAccessService,private fb: FormBuilder, private router: Router, private route:ActivatedRoute) { }
+  constructor(private http: DataAccessService ,private fb: FormBuilder, private router: Router, private route:ActivatedRoute) { }
  
-  userDetailsForm: FormGroup;
+//userDetailsForm: FormGroup;
 //   submitted = false;
   public dataSource: any = [];
   error: String[];
+  fullName: String;
+  userObj: any;
+  selectedUserObj: any = [];
 //   user: any;
 //   name: any;
 //   email: any;
 
   ngOnInit() {
-  	// this._formValidate();
-  	
-  	// this.dataSource = [	{id: "0", name:"Mary Alice", email: "mary.alice@xmail.com", role:"user", action:"[Edit, Delete]"},
-  	// 					{id: "1", name:"Brenda Cooper", email: "brendacooper@hmail.com", role:"admin", action:"[Edit, Delete]"},
-  	// 					{id: "2", name:"June Scavo", email: "junescavo@abc.com", role:"user", action:"[Edit, Delete]"}
-  	// 				  ];
-
-  	// let userId = this.route.snapshot.paramMap.get('id');
-  	// this.user = this.dataSource[userId];
-  	// this.name = this.user.name;
-  	// this.email = this.user.email;
-
-	  //console.log('username', this.user.name);
-	  this.dataAccess.getUserDetails().subscribe( data => {
+  	//this._formValidate();
+    let id = this.route.snapshot.paramMap.get('userId');
+	  this.http.getUserDetails().subscribe( data => {
 			this.dataSource = data;
+      this.userObj = this.dataSource.filter(function (tmp) {
+                       return tmp.id === id;
+                  });
+      console.log("userObj", JSON.stringify(this.userObj));
+      this.selectedUserObj = this.userObj[0];
+      this.fullName = this.userObj[0].firstName + ' ' + this.userObj[0].lastName;
 		},
 	      error => {
 	        this.error = error;
 		});
 	}
 
-//   get f() { return this.userDetailsForm.controls; }
+ //get f() { return this.userDetailsForm.controls; }
 
-//   _formValidate() {
-// 	this.userDetailsForm = this.fb.group(
-// 	  {
-// 		name: ['', Validators.required],
-// 		email: ['', Validators.compose([Validators.required, Validators.email])],
-// 		password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-// 		// role: ['', Validators.required]
-// 	  }
-// 	);
-//   }
+ /* _formValidate() {
+    this.userDetailsForm = this.fb.group();
+  }*/
 
-//   onSave() {
-// 	this.submitted = true;
-// 	// stop here if form is invalid
-// 	if (this.userDetailsForm.invalid) {
-// 		//return;
-// 	}
-
-// 	this.router.navigate(['/users']);
-//   }
+ goBack() {
+	 this.router.navigate(['/users']);
+  }
 
 }

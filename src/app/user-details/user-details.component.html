@@ -1,12 +1,12 @@
 <div class="container">
+	<div class="form-group"> 
+		<span (click)="goBack($event)">< Back</span>
+
+	</div>
 	<div class="title-card-sub">User Details</div>
-
-	<form [formGroup]="userDetailsForm" [routerLink]="['/users']">
-
-		
-		<div class="row">
+	<!-- <form [formGroup]="userDetailsForm"> -->
+		<!-- <div class="row">
 			<div class="large-6"> 
-				<!-- NAME FIELDs -->
 				<div class="form-group">
 					<input type="text" formControlName="name" class="form-control input-group-field" 
 					placeholder="User Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
@@ -16,20 +16,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- <div class="row">
-			<div class="large-6">
-				<div class="form-group">
-				  	<input type="text" formControlName="lastName" class="form-control input-group-field" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-					<div *ngIf="f.lastName.touched" class="text-danger">
-						<small *ngIf="f.lastName.value === '' ">Last name is required.</small>
-					</div>
-				</div>
-			</div>
 		</div> -->
-		<div class="row">
+		<!-- <div class="row">
 			<div class="large-6"> 
-				 <!-- EMAIL FIELDs -->
 				 <div class="form-group">
 					<input type="email" formControlName="email" class="form-control input-group-field" placeholder="Email address" value={{email}}/>
 					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
@@ -38,11 +27,11 @@
 					</div>
 				</div>
 			</div>
-		</div> 
-		 <div class="row">
-			<div class="large-6"> 
+		</div>  -->
+		 <!-- <div class="row">
+			<div class="large-6">  -->
 				 <!-- PASSWORD FIELDs  -->
-				 <div class="form-group">
+				 <!--<div class="form-group">
 				  	<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Enter password"/>
 				  	<div *ngIf="f.password.invalid && f.password.touched" class="text-danger">
 						<small *ngIf="f.password.errors.required">Password is required.</small>
@@ -50,8 +39,8 @@
 					</div>
 				</div>
 			</div>
-		</div> 
-		 <!-- <div class="row">
+		</div>  -->
+		<!-- <div class="row">
 			<div class="large-6">
 				<div class="form-group">
 	            	<select name="role" class="select form-control input-group-field" formControlName="role" 
@@ -63,14 +52,15 @@
 		        </div>
 	        </div>
 		</div>  -->
-		<!-- <div class="row users-data">
+		<div class="row users-data">
 			<div class="col-md-6">
-				<form [formGroup]="userDetailsForm">
+				<form>
 					<div class="form-group">
-						<label for="name">Name</label>
-						<input type="text" class="form-control input-group-field" placeholder="Name"/>
+						<label for="name">User Name</label>
+						<input type="text" class="form-control input-group-field" placeholder="Name"
+						value="{{fullName}}"/>
 					</div>
-					<div class="form-group">
+					<!--div class="form-group">
 						<label for="name">Stage</label>
 						<input type="text" class="form-control input-group-field" placeholder="Stage"/>
 					</div>
@@ -81,20 +71,20 @@
 					<div class="form-group">
 						<label for="name">Summary</label>
 						<input type="text" class="form-control input-group-field" placeholder="Summary"/>
-					</div>
+					</div-->
 					<div class="form-group">
 						<label for="name">Phase</label>
 						<input type="text" class="form-control input-group-field" placeholder="Phase"/>
 					</div>
-					<div class="form-group">
+					<!--div class="form-group">
 						<label for="name">Location</label>
 						<input type="text" class="form-control input-group-field" placeholder="Location"/>
-					</div>
+					</div-->
 					<div class="form-group">
 						<label for="name">Postcode</label>
-						<input type="text" class="form-control input-group-field" placeholder="Postcode"/>
+						<input type="text" class="form-control input-group-field" placeholder="Postcode" value="{{selectedUserObj.postCode}}"/>
 					</div>
-					<div class="form-group">
+					<!--div class="form-group">
 						<label for="name">ClinicalTrials.gov</label>
 						<input type="text" class="form-control input-group-field" placeholder="ClinicalTrials.gov"/>
 					</div>
@@ -105,14 +95,14 @@
 					<div class="form-group">
 						<label for="name">BCT</label>
 						<input type="text" class="form-control input-group-field" placeholder="BCT"/>
-					</div>
+					</div-->
 					<div class="form-group">
 						<label for="name">Age</label>
 						<input type="text" class="form-control input-group-field" placeholder="Age"/>
 					</div>
 					<div class="form-group">
 						<label for="name">Sex</label>
-						<input type="text" class="form-control input-group-field" placeholder="Sex"/>
+						<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.gender}}"/>
 					</div>
 					<div class="form-group">
 						<label for="name">PMP</label>
@@ -192,13 +182,15 @@
 						<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"/>
 					</div>
 					<div class="form-group"> 
-						<button (click)="saveItem(e)" class="button-small" style="width:auto; padding:0 1rem;">Save</button>
-					</div> -->
-		<div class="row">
+						<button (click)="goBack($event)" class="button-small-active">Back</button>
+			
+					</div>
+				</form>
+		<!-- <div class="row">
 			<div class="large-6 form-group text-center" style="padding-left: 9px;">
 				<button class="button expanded btn btn-primary button-small-active"[disabled]="userDetailsForm.invalid" (click)="onSave()">SAVE</button>
 			</div>
-		</div>
+		</div> -->
 	
-	</form>
+	
 </div>

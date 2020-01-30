@@ -131,31 +131,6 @@ export class AnswerQuestionsComponent implements OnInit {
 		let val = e.value;
 		console.log("Value is : ", val );		
 
-		/*switch(	this.characteristic) {
-			case 'diagnosis' : {
-				val = this.diagnosisDate;
-				selectedOpt = val;
-			}
-			case 'tumourSize' : {
-				val = selectedOpt;
-			}
-			case 'checkbox' : {
-				this.checkboxValues.push(selectedOpt);
-				val = this.checkboxValues;
-			}
-			case 'multipleRadio' : {
-				this.characteristic = e;
-				val = selectedOpt;
-			}
-			case 'selectbox-earlyStage' : {
-				this.characteristic = this.characteristic + '-' + e.currentTarget.name;
-				val = selectedOpt;
-			}
-			case 'selectbox-advanced' : {
-				this.characteristic = this.characteristic + '-' + e.currentTarget.name;
-				val = selectedOpt;
-			}
-		}*/
 		this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
 
 

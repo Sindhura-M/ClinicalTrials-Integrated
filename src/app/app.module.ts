@@ -66,7 +66,7 @@ const appRoutes: Routes = [
    { path: 'trials', component: TrialsComponent},
    { path: 'individualtrial/:id', component: IndividualTrialComponent},
    { path: 'users', component: UsersComponent},
-   { path: 'userdetails/:id', component: UserDetailsComponent},
+   { path: 'userdetails/:userId', component: UserDetailsComponent},
   //  { path: 'hospitaldetails', component: HospitalDetailsComponent},
    { path: '', redirectTo: '/index', pathMatch: 'full'},
    { path: 'index', component: StepperComponent},

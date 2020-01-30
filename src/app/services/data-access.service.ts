@@ -18,13 +18,13 @@ export class DataAccessService {
 
   constructor(private client: HttpClient, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile) {}
 
-  private _url: string = environment.apiUrl + '/ctc/myaccount/accountProfile';
+  private _url: string = environment.apiUrl + '/ctc/myaccount/createAccountProfile';
   private _trialsurl: string = environment.apiUrl + '/ctc/trials/matchingTrials';
   private _fetchTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/fetchRecord';
   private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
   private _register: string = environment.apiUrl + '/register';
   private _login: string = environment.apiUrl + '/authenticate';
-  private _fetchUserDetails: string = environment.apiUrl + '/ctc/trials/matchingTrials';
+  private _userDetails: string = environment.apiUrl + '/ctc/users';
 
   //private _authURL:  string = '';
   
@@ -78,8 +78,7 @@ export class DataAccessService {
       })
     };
 
-    return this.client.get<any>
-    (this._fetchUserDetails,httpOptions)
+    return this.client.get<any>(this._userDetails,httpOptions)
     .pipe(
       catchError(this.handleError)
     );
