@@ -6,7 +6,7 @@ import { Router, Params } from '@angular/router';
 import { dayKey, monthKey, yearKey } from '.././datemodel';
 import { DataAccessService } from '../services/data-access.service';
 import { AuthService } from '.././auth.service';
-import { AnswerKey } from '.././quiz/quizmodel';
+//import { AnswerKey } from '.././quiz/quizmodel';
 import { dataQAservice } from '../services/data-QA.service';
 import { dataAccountProfile } from '../services/dataAccountProfile.service';
 
@@ -88,13 +88,23 @@ export class WelcomeComponent implements OnInit {
 
 		this.dataAccess.getAccountProfile().subscribe( data => {
 			this.accountProfile=data[0];
-			this.auth.doSignIn( response.token );
-			this.answerkey.push(new AnswerKey('id', data.id));
+			//this.auth.doSignIn( response.token );
+			//this.answerkey.push(new AnswerKey('id', data.id));
 			this.result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 			this.dataQAservice.setData(this.result);
+			this.dataQAservice.setUserID(data.id);
 		},
 		error => {
 	        this.error = error;
 	    });
 	}
+}
+
+export class AnswerKey {
+  	code: String;
+ 	status: String[];
+ 	constructor(code: String, status: String[]) {
+		this.code = code;
+		this.status = status;
+ 	}
 }

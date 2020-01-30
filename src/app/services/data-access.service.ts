@@ -51,7 +51,10 @@ export class DataAccessService {
 
   getCancerTrials(): Observable<TrialsTable[]> {
 
-    const data = this.dataQAservice.getData();
+    const conditions = this.dataQAservice.getData();
+    const userID = this.dataQAservice.getUserID();
+    let data = [];
+    data.push(Object.assign({id: userID, conditions}
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  

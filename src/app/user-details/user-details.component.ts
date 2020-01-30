@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import { DataAccessService } from '../services/data-access.service';
+import { UsersListService } from '../services/users-list.service';
 
 @Component({
   selector: 'app-user-details',
@@ -11,11 +12,11 @@ import { DataAccessService } from '../services/data-access.service';
 export class UserDetailsComponent implements OnInit {
 	
 
-  constructor(private http: DataAccessService ,private fb: FormBuilder, private router: Router, private route:ActivatedRoute) { }
+  constructor(private http: DataAccessService, private usersList : UsersListService, private fb: FormBuilder, private router: Router, private route:ActivatedRoute) { }
  
 //userDetailsForm: FormGroup;
 //   submitted = false;
-  public dataSource: any = [];
+  public dataSource: any = this.usersList.getData();
   error: String[];
   fullName: String;
   userObj: any;
@@ -27,18 +28,18 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit() {
   	//this._formValidate();
     let id = this.route.snapshot.paramMap.get('userId');
-	  this.http.getUserDetails().subscribe( data => {
-			this.dataSource = data;
+	  //this.http.getUserDetails().subscribe( data => {
+			//this.dataSource = data;
       this.userObj = this.dataSource.filter(function (tmp) {
                        return tmp.id === id;
                   });
       console.log("userObj", JSON.stringify(this.userObj));
       this.selectedUserObj = this.userObj[0];
       this.fullName = this.userObj[0].firstName + ' ' + this.userObj[0].lastName;
-		},
+		/*},
 	      error => {
 	        this.error = error;
-		});
+		});*/
 	}
 
  //get f() { return this.userDetailsForm.controls; }
