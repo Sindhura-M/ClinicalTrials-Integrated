@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="form-group"> 
-		<span (click)="goBack($event)">< Back</span>
+		<span (click)="goBack($event)"> Back</span>
 
 	</div>
 	<div class="title-card-sub">User Details</div>
@@ -58,7 +58,7 @@
 					<div class="form-group">
 						<label for="name">User Name</label>
 						<input type="text" class="form-control input-group-field" placeholder="Name"
-						value="{{fullName}}"/>
+						value="{{fullName}}" readonly/>
 					</div>
 					<!--div class="form-group">
 						<label for="name">Stage</label>
@@ -74,7 +74,7 @@
 					</div-->
 					<div class="form-group">
 						<label for="name">Phase</label>
-						<input type="text" class="form-control input-group-field" placeholder="Phase"/>
+						<input type="text" class="form-control input-group-field" placeholder="Phase" readonly/>
 					</div>
 					<!--div class="form-group">
 						<label for="name">Location</label>
@@ -82,7 +82,7 @@
 					</div-->
 					<div class="form-group">
 						<label for="name">Postcode</label>
-						<input type="text" class="form-control input-group-field" placeholder="Postcode" value="{{selectedUserObj.postCode}}"/>
+						<input type="text" class="form-control input-group-field" placeholder="Postcode" value="{{selectedUserObj.postCode}}" readonly/>
 					</div>
 					<!--div class="form-group">
 						<label for="name">ClinicalTrials.gov</label>
@@ -98,88 +98,88 @@
 					</div-->
 					<div class="form-group">
 						<label for="name">Age</label>
-						<input type="text" class="form-control input-group-field" placeholder="Age"/>
+						<input type="text" class="form-control input-group-field" placeholder="Age" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Sex</label>
-						<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.gender}}"/>
+						<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.gender}}" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">PMP</label>
-						<input type="text" class="form-control input-group-field" placeholder="PMP"/>
+						<input type="text" class="form-control input-group-field" placeholder="PMP" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">ECOG</label>
-						<input type="text" class="form-control input-group-field" placeholder="ECOG"/>
+						<input type="text" class="form-control input-group-field" placeholder="ECOG" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">ER</label>
-						<input type="text" class="form-control input-group-field" placeholder="ER"/>
+						<input type="text" class="form-control input-group-field" placeholder="ER" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">PR</label>
-						<input type="text" class="form-control input-group-field" placeholder="PR"/>
+						<input type="text" class="form-control input-group-field" placeholder="PR" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">HER2</label>
-						<input type="text" class="form-control input-group-field" placeholder="HER2"/>
+						<input type="text" class="form-control input-group-field" placeholder="HER2" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Tumour Size</label>
-						<input type="text" class="form-control input-group-field" placeholder="Tumour Size"/>
+						<input type="text" class="form-control input-group-field" placeholder="Tumour Size" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Nodal Status</label>
-						<input type="text" class="form-control input-group-field" placeholder="Nodal Status"/>
+						<input type="text" class="form-control input-group-field" placeholder="Nodal Status" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Node Number</label>
-						<input type="text" class="form-control input-group-field" placeholder="Node Number"/>
+						<input type="text" class="form-control input-group-field" placeholder="Node Number" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Stage</label>
-						<input type="text" class="form-control input-group-field" placeholder="Stage"/>
+						<input type="text" class="form-control input-group-field" placeholder="Stage" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Has cancer spread to other parts?</label>
-						<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?"/>
+						<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">BRCA 1/2 Mutation</label>
-						<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation"/>
+						<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Surgery</label>
-						<input type="text" class="form-control input-group-field" placeholder="Surgery"/>
+						<input type="text" class="form-control input-group-field" placeholder="Surgery" readonly/>
 					</div>
 
 					<div class="form-group">
 						<label for="name">Chemotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Chemotherapy"/>
+						<input type="text" class="form-control input-group-field" placeholder="Chemotherapy" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Hormones</label>
-						<input type="text" class="form-control input-group-field" placeholder="Hormones"/>
+						<input type="text" class="form-control input-group-field" placeholder="Hormones" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Targeted Tx HER2 Therapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy"/>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Targeted Tx CDK 4/6 Inhibitor</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor"/>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Targeted Tx PARP 4/6 Inhibitor</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor"/>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Immunotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Immunotherapy"/>
+						<input type="text" class="form-control input-group-field" placeholder="Immunotherapy" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Radiotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"/>
+						<input type="text" class="form-control input-group-field" placeholder="Radiotherapy" readonly/>
 					</div>
 					<div class="form-group"> 
 						<button (click)="goBack($event)" class="button-small-active">Back</button>
