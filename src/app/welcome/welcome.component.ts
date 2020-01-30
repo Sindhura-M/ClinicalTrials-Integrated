@@ -92,7 +92,7 @@ export class WelcomeComponent implements OnInit {
 			//this.answerkey.push(new AnswerKey('id', data.id));
 			this.result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 			this.dataQAservice.setData(this.result);
-			this.dataQAservice.setUserID(data.id);
+			//this.dataQAservice.setUserID(data.id);
 		},
 		error => {
 	        this.error = error;
