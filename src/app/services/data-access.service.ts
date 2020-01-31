@@ -24,7 +24,7 @@ export class DataAccessService {
   private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
   private _register: string = environment.apiUrl + '/register';
   private _login: string = environment.apiUrl + '/authenticate';
-  private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
+  private _userDetails: string = environment.apiUrl + '/ctc/users';
 
   //private _authURL:  string = '';
   
@@ -51,10 +51,7 @@ export class DataAccessService {
 
   getCancerTrials(): Observable<TrialsTable[]> {
 
-    const conditions = this.dataQAservice.getData();
-    const userID = this.dataQAservice.getUserID();
-    let data = [];
-    data.push(Object.assign({id: userID, conditions}));
+    const data = this.dataQAservice.getData();
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
