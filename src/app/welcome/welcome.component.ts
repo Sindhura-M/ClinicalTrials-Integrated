@@ -89,10 +89,10 @@ export class WelcomeComponent implements OnInit {
 		this.dataAccess.getAccountProfile().subscribe( data => {
 			this.accountProfile=data[0];
 			//this.auth.doSignIn( response.token );
-			//this.answerkey.push(new AnswerKey('id', data.id));
+			this.answerkey.push(new AnswerKey('accountUserId', data.id));
 			this.result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 			this.dataQAservice.setData(this.result);
-			this.dataQAservice.setUserID(data.id);
+			//this.dataQAservice.setUserID(data.id);
 		},
 		error => {
 	        this.error = error;
