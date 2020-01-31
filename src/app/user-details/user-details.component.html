@@ -74,7 +74,8 @@
 					</div-->
 					<div class="form-group">
 						<label for="name">Phase</label>
-						<input type="text" class="form-control input-group-field" placeholder="Phase" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Phase" 
+						value="{{selectedUserObj.stage}}" readonly/>
 					</div>
 					<!--div class="form-group">
 						<label for="name">Location</label>
@@ -98,88 +99,104 @@
 					</div-->
 					<div class="form-group">
 						<label for="name">Age</label>
-						<input type="text" class="form-control input-group-field" placeholder="Age" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Age" 
+						value="{{selectedUserObj.account.age}}"readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Sex</label>
-						<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.gender}}" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.account.gender}}" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">PMP</label>
-						<input type="text" class="form-control input-group-field" placeholder="PMP" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="PMP" 
+						value="{{selectedUserObj.pmp}}"readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">ECOG</label>
-						<input type="text" class="form-control input-group-field" placeholder="ECOG" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="ECOG" 
+						value="{{selectedUserObj.ecog}}"readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">ER</label>
-						<input type="text" class="form-control input-group-field" placeholder="ER" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="ER" 
+						value="{{selectedUserObj.er}}"readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">PR</label>
-						<input type="text" class="form-control input-group-field" placeholder="PR" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="PR" 
+						value="{{selectedUserObj.pr}}"readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">HER2</label>
-						<input type="text" class="form-control input-group-field" placeholder="HER2" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="HER2" 
+						value="{{selectedUserObj.her2}}"readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Tumour Size</label>
-						<input type="text" class="form-control input-group-field" placeholder="Tumour Size" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Tumour Size" 
+						value="{{selectedUserObj.tumourSize}}"readonly/>
 					</div>
-					<div class="form-group">
+					<!--div class="form-group">
 						<label for="name">Nodal Status</label>
-						<input type="text" class="form-control input-group-field" placeholder="Nodal Status" readonly/>
-					</div>
+						<input type="text" class="form-control input-group-field" placeholder="Nodal Status" 
+						value="{{selectedUserObj.pmp}}"readonly/>
+					</div-->
 					<div class="form-group">
 						<label for="name">Node Number</label>
-						<input type="text" class="form-control input-group-field" placeholder="Node Number" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Node Number"
+						value="{{selectedUserObj.nodalStatus}}" readonly/>
 					</div>
-					<div class="form-group">
+					<!--div class="form-group">
 						<label for="name">Stage</label>
-						<input type="text" class="form-control input-group-field" placeholder="Stage" readonly/>
-					</div>
+						<input type="text" class="form-control input-group-field" placeholder="Stage" 
+						value="{{selectedUserObj.stage}}" readonly/>
+					</div-->
 					<div class="form-group">
 						<label for="name">Has cancer spread to other parts?</label>
-						<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?" value="{{selectedUserObj.spreadToOtherParts}}" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">BRCA 1/2 Mutation</label>
-						<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation" 
+						value="{{selectedUserObj.brcamutation}}" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Surgery</label>
-						<input type="text" class="form-control input-group-field" placeholder="Surgery" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Surgery" 
+						value="{{selectedUserObj.surgery}}" readonly/>
 					</div>
 
 					<div class="form-group">
 						<label for="name">Chemotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Chemotherapy" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Chemotherapy"
+						value="{{selectedUserObj.chemotherapy}}"  readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Hormones</label>
-						<input type="text" class="form-control input-group-field" placeholder="Hormones" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Hormones" 
+						value="{{selectedUserObj.hormones}}" readonly/>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="name">Targeted Tx HER2 Therapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy" value="{{selectedUserObj.pmp}}" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Targeted Tx CDK 4/6 Inhibitor</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor" value="{{selectedUserObj.pmp}}" readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Targeted Tx PARP 4/6 Inhibitor</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor" readonly/>
-					</div>
+						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor" value="{{selectedUserObj.pmp}}" readonly/>
+					</div> -->
 					<div class="form-group">
 						<label for="name">Immunotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Immunotherapy" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Immunotherapy"
+						value="{{selectedUserObj.immunotherapy}}"  readonly/>
 					</div>
 					<div class="form-group">
 						<label for="name">Radiotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Radiotherapy" readonly/>
+						<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"
+						value="{{selectedUserObj.radiotherapy}}"  readonly/>
 					</div>
 					<div class="form-group"> 
 						<button (click)="goBack($event)" class="button-small-active">Back</button>

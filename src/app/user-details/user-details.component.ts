@@ -21,34 +21,24 @@ export class UserDetailsComponent implements OnInit {
   fullName: String;
   userObj: any;
   selectedUserObj: any = [];
-//   user: any;
-//   name: any;
-//   email: any;
 
   ngOnInit() {
-  	//this._formValidate();
-    let id = this.route.snapshot.paramMap.get('userId');
-	  //this.http.getUserDetails().subscribe( data => {
-			//this.dataSource = data;
-      this.userObj = this.dataSource.filter(function (tmp) {
-                       return tmp.id === id;
-                  });
-      console.log("userObj", JSON.stringify(this.userObj));
-      this.selectedUserObj = this.userObj[0];
-      this.fullName = this.userObj[0].firstName + ' ' + this.userObj[0].lastName;
-		/*},
-	      error => {
-	        this.error = error;
-		});*/
-	}
+  	let id = parseInt(this.route.snapshot.paramMap.get('userId'));
+    //this.http.getUserDetails().subscribe( data => {
+    //this.dataSource = data;
 
- //get f() { return this.userDetailsForm.controls; }
+    console.log("dataSource", JSON.stringify(this.dataSource));
 
- /* _formValidate() {
-    this.userDetailsForm = this.fb.group();
-  }*/
+    this.userObj = this.dataSource.filter(function (tmp) {
+                     return tmp.quesId === id;
+                });
+    console.log("userObj", JSON.stringify(this.userObj));
+    this.selectedUserObj = this.userObj[0];
+    this.fullName = this.selectedUserObj.account.firstName + ' ' + this.selectedUserObj.account.lastName;
+  }
 
- goBack() {
+
+  goBack() {
 	 this.router.navigate(['/users']);
   }
 

@@ -43,6 +43,21 @@ export class UsersComponent implements OnInit {
     });
   }
   exportAllUsers():void {
-    this.excelService.exportExcel(this.dataSource, 'users');
+    //this.excelService.exportExcel(this.dataSource, 'users');
+
+    if (this.dataSource){
+      let exportData = [];
+        this.dataSource.forEach( tmp => {
+          let data1 = tmp.account;
+          let data = this.dataSource.filter(item => item !== tmp.account);
+          exportData = Object.assign(data1, data);
+          //this.excelService.exportExcel(exportData, 'users');
+        });
+
+        let data = tmp.filter(item => item !== tmp.account);
+        exportData = this.dataSource.filter(function (tmp) {
+             tmp.quesId === id;
+        });
+    }
   }
 }
