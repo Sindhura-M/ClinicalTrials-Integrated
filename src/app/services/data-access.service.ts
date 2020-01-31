@@ -24,7 +24,7 @@ export class DataAccessService {
   private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
   private _register: string = environment.apiUrl + '/register';
   private _login: string = environment.apiUrl + '/authenticate';
-  private _userDetails: string = environment.apiUrl + '/ctc/users';
+  private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
 
   //private _authURL:  string = '';
   
