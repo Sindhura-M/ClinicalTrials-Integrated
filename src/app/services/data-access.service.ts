@@ -28,7 +28,7 @@ export class DataAccessService {
 
   //private _authURL:  string = '';
   
-  	getAccountProfile(): Observable<AccountProfile[]> {
+  	getAccountProfile(): Observable<any> {
 
     		let data = this.dataAccountProfile.getData();
         data = data[0];
@@ -42,7 +42,7 @@ export class DataAccessService {
     		};
    
      		//return this.client.jsonp<AccountProfile[]>(this._url,'callback');
-     		return this.client.post<AccountProfile[]>(this._url,data,httpOptions)
+     		return this.client.post<any>(this._url,data,httpOptions)
         .pipe(
           catchError(this.handleError)
         );

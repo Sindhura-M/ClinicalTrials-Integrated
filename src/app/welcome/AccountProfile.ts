@@ -7,6 +7,8 @@ export interface AccountProfile{
    dob: string,
    emailAddress: string,
    postCode: number,
-   contactNumber: string
+   contactNumber: string,
+   id: number,
+   accountUserId: any
 }
 
