@@ -38,11 +38,11 @@ title = 'Angular6 Reactive forms custom validation';
 		lastName: ['', Validators.required],
 		emailAddress: ['', Validators.compose([Validators.required, Validators.email])],
 		cnfemail: ['', Validators.compose([Validators.required, Validators.email])],
-		pwd: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+		password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
 		cnfPwd: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
 	  },
 	  {
-		validator: MustMatch('emailAddress','cnfemail', 'pwd', 'cnfPwd')
+		validator: MustMatch('emailAddress','cnfemail', 'password', 'cnfPwd')
 	  }
 	);
 
