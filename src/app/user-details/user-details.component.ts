@@ -38,7 +38,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
 
-  goBack() {
+  goBack(event) {
 	 this.router.navigate(['/users']);
   }
 
