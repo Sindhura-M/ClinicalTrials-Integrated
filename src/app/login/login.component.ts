@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 	    let username = this.loginForm.get('emailAddress').value;
 	    let password = this.loginForm.get('pwd').value;
 
-	    if (username=='user') {
+	    /*if (username=='user') {
 	    	this.router.navigate(['/myaccount']);
 	    	return;
 		}
@@ -59,10 +59,10 @@ export class LoginComponent implements OnInit {
 		if (username=='admin@admin.com') {
 	    	this.router.navigate(['/users']);
 	    	return;
-	    }
+	    }*/
 	    
 		let loginDetails = [];
-		loginDetails.push(Object.assign({'username': username},{'password': password}));
+		loginDetails.push(Object.assign({'emailAddress': username},{'password': password}));
 		loginDetails = loginDetails[0];
 
 	    // Submit request to API
@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
 	        (error) => {
 	          this.isBusy = false;
 			  this.hasFailed = true;
-			  this.router.navigate(['/myaccount']);
+			  //this.router.navigate(['/myaccount']);
 	          return;
 	        }
 	    );
