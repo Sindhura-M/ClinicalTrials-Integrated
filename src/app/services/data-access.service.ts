@@ -23,7 +23,7 @@ export class DataAccessService {
   private _fetchTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/fetchRecord';
   private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
   //private _register: string = environment.apiUrl + '/register';
-  private _login: string = environment.apiUrl + '/authenticate';
+  private _login: string = environment.apiUrl + '/ctc/authenticate';
   private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
   private _removeUser: string = environment.apiUrl + '/ctc/trials/removeUser';
 
@@ -35,8 +35,7 @@ export class DataAccessService {
         data = data[0];
         const httpOptions = {
     			headers: new HttpHeaders({ 
-      			'Access-Control-Allow-Origin':'*',	
-      			'Authorization':'Basic cm9vdDpyb290',
+      			'Access-Control-Allow-Origin':'*',
       			'Content-Type' : 'application/json',
       			'Accept': 'application/json'
     			})
@@ -56,7 +55,6 @@ export class DataAccessService {
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
-          'Authorization':'Basic cm9vdDpyb290',
           'Content-Type' : 'application/json',
           'Accept': 'application/json'
         })
@@ -73,7 +71,6 @@ export class DataAccessService {
     const httpOptions = {
       headers: new HttpHeaders({ 
         'Access-Control-Allow-Origin':'*',  
-        'Authorization':'Basic cm9vdDpyb290',
         'Content-Type' : 'application/json',
         'Accept': 'application/json'
       })
@@ -90,7 +87,6 @@ export class DataAccessService {
     const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
-          'Authorization':'Basic cm9vdDpyb290',
           'Content-Type' : 'application/json',
           'Accept': 'application/json'
         })
@@ -108,7 +104,6 @@ export class DataAccessService {
     const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
-          'Authorization':'Basic cm9vdDpyb290',
           'Content-Type' : 'application/json',
           'Accept': 'application/json'
         })
@@ -124,7 +119,6 @@ export class DataAccessService {
     const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
-          'Authorization':'Basic cm9vdDpyb290',
           'Content-Type' : 'application/json',
           'Accept': 'application/json'
         })
@@ -151,8 +145,7 @@ export class DataAccessService {
       let data = credentials;
       const httpOptions = {
         headers: new HttpHeaders({ 
-          'Access-Control-Allow-Origin':'*',  
-          'Authorization':'Basic cm9vdDpyb290',
+          'Access-Control-Allow-Origin':'*',
           'Content-Type' : 'application/json',
           'Accept': 'application/json'
         })

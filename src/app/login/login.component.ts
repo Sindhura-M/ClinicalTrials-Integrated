@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 	    }*/
 	    
 		let loginDetails = [];
-		loginDetails.push(Object.assign({'emailAddress': username},{'password': password}));
+		loginDetails.push(Object.assign({'username': username},{'password': password}));
 		loginDetails = loginDetails[0];
 
 	    // Submit request to API
