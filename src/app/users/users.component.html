@@ -42,7 +42,10 @@
 				  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 				</table>
 			</div>
-			<span style="float: right;"><button (click)="exportAllUsers()" class="button-small-active">Export All Users</button></span>
+			<div>
+				<span><button (click)="exportAllUsers()" class="button-small-active">Export All Users</button></span>
+				<span><button (click)="openAddAdminUser()" class="button-small-active">Add Admin User</button></span>
+            </div>
 		</mat-tab>
 		<!-- <mat-tab label="Hospitals">
 			<span class="float-left"><button (click)="addHospital(e)" class="button-small-active">Add Hospital</button></span> -->

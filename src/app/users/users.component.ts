@@ -7,6 +7,7 @@ import { ExportToExcelService } from '../services/export-to-excel.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { DataAccessService } from '../services/data-access.service';
 import { UsersListService } from '../services/users-list.service';
+import { AddAdminComponent } from '../add-admin/add-admin.component';
 
 @Component({
   selector: 'app-users',
@@ -17,6 +18,7 @@ export class UsersComponent implements OnInit {
 
   constructor(private http: DataAccessService, private usersList : UsersListService, private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
+  dialogRef1: MatDialogRef<AddAdminComponent>;
   public dataSource: any = [];
   ngOnInit() {
 
@@ -68,8 +70,16 @@ export class UsersComponent implements OnInit {
     this.excelService.exportExcel(results, 'users')  
   }
 
-  deleteUser(userId:number)
-  {    
-    this.usersList.deleteUser(userId) 
-  }
+  openAddAdminUser(){
+    this.dialogRef1 = this.dialog.open(AddAdminComponent,  
+      {
+        disableClose: false
+      });
+      this.dialogRef.afterClosed().subscribe(result => {
+        if(result) {
+
+        }
+      });
+      this.dialogRef = null;
+    }
 }

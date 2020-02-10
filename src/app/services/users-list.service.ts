@@ -19,24 +19,6 @@ export class UsersListService {
 	getData():any{
 	    return this.usersList;
 	}
-
-	deleteUser(userID:number)
-	{
-		const data = userID;
-    	const httpOptions = {
-        headers: new HttpHeaders({ 
-          'Access-Control-Allow-Origin':'*',  
-          'Authorization':'Basic cm9vdDpyb290',
-          'Content-Type' : 'application/json',
-          'Accept': 'application/json'
-        })
-      };
-
-    return this.http.post<any>(this._deleteUrl,data,httpOptions)
-    .pipe(
-      catchError(this.handleError)
-    );
-	}
 	handleError(error) {
 		return throwError(error);
 	}

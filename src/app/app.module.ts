@@ -19,7 +19,7 @@ import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { MatTooltipModule } from '@angular/material/tooltip'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -52,6 +52,7 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { ConditionChangedConfirmationComponent } from './condition-changed-confirmation/condition-changed-confirmation.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 // import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
 
 const appRoutes: Routes = [
@@ -98,6 +99,7 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
+    MatTooltipModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
@@ -124,6 +126,7 @@ const appRoutes: Routes = [
   UserDetailsComponent,
   ConfirmationDialogComponent,
   ConditionChangedConfirmationComponent,
+  AddAdminComponent,
   // HospitalDetailsComponent
   ],
   exports: [
@@ -139,11 +142,12 @@ const appRoutes: Routes = [
      MatListModule,
      MatNativeDateModule,
      MatTableModule,
+     MatTooltipModule,
      ReactiveFormsModule,
      MatMenuModule
    ],
   providers: [ dataQAservice, dataAccountProfile, {provide: LocationStrategy, useClass: HashLocationStrategy}, AuthGuard, AuthService,ExportToExcelService ],
   bootstrap:    [ AppComponent ],
-  entryComponents: [ConfirmationDialogComponent,ConditionChangedConfirmationComponent]
+  entryComponents: [ConfirmationDialogComponent,ConditionChangedConfirmationComponent,AddAdminComponent]
 })
 export class AppModule { }

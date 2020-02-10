@@ -70,9 +70,8 @@
 	}
 }
 .button-small-active {
-	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; margin: 0.5rem; padding:0 1rem 0 1rem ;
+	height: 50px;	width: 165px;	border-radius: 25px;	background-color: #FCD8E2;	box-shadow: 0 0.5px 0 0 #9B9B9B; float:right; margin: 0.5rem;
 }
-
 .button-small{
 	height: 35px;	width: 100px;	border-radius: 25px; background-color: #FFFFFF; border: 3px solid #FCD8E2; box-shadow: none; margin: 0.5rem;
 }

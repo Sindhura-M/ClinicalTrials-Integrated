@@ -30,7 +30,7 @@
 		<button mat-button [matMenuTriggerFor]="menu"><i class="material-menu"> menu </i></button>
 		<mat-menu #menu="matMenu">
 			<form mat-menu-item id="logout">
-				<i class="material-icons"> power_settings_new </i>
+				<i  class="material-icons" matTooltip="Log-Out" #tooltip="matTooltip"> power_settings_new</i> 
 			</form>
 		  <button mat-menu-item><a [routerLink]="['/breastCancer']">Breast Cancer</a></button>
 		  <button mat-menu-item><a [routerLink]="['/about']">About</a></button>

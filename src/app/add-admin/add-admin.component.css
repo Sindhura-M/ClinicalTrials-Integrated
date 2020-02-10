@@ -1,0 +1,38 @@
+.title-card-sub {
+    color: #4A4A4A;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    
+}
+.button-small-active {
+    height: 50px;	
+    width: 115px;	
+    border-radius: 25px;	
+    background-color: #FCD8E2;	
+    box-shadow: 0 0.5px 0 0 #9B9B9B; 
+    margin-left:5.75rem;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.input-group-field {
+	height: 56px;
+	min-width: 50px;
+	border: 1px solid #767676;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	margin: 1rem 0;
+}
+/* Small only */
+@media screen and (max-width:39.9375em) {
+	.text-center {
+		text-align: center;
+	}
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+	.button { 
+		width: 50px;
+	}
+}
