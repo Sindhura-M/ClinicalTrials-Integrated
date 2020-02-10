@@ -10,13 +10,18 @@ import { TrialsTable } from '../trials/trialsTable';
 import { dataQAservice } from './data-QA.service';
 import { dataAccountProfile } from './dataAccountProfile.service';
 import { environment } from '../../environments/environment';
+import { SessionService } from './session.service';
 
 @Injectable({
   providedIn: 'root'
 })  
 export class DataAccessService {
 
-  constructor(private client: HttpClient, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile) {}
+  constructor(private client: HttpClient, 
+    private dataQAservice: dataQAservice, 
+    private dataAccountProfile: dataAccountProfile,
+    public session:SessionService
+    ) {}
 
   private _url: string = environment.apiUrl + '/ctc/myaccount/createAccountProfile';
   private _trialsurl: string = environment.apiUrl + '/ctc/trials/matchingTrials';
@@ -32,6 +37,7 @@ export class DataAccessService {
   	getAccountProfile(): Observable<any> {
 
     		let data = this.dataAccountProfile.getData();
+
         data = data[0];
         const httpOptions = {
     			headers: new HttpHeaders({ 
@@ -50,12 +56,14 @@ export class DataAccessService {
    	}
 
   getCancerTrials(): Observable<TrialsTable[]> {
+    let token = 'Bearer' + ' ' + this.session.accessToken;//this.dataAccountProfile.getUserToken();
 
     const data = this.dataQAservice.getData();
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
           'Content-Type' : 'application/json',
+          'Authorisation': token,
           'Accept': 'application/json'
         })
       };
@@ -131,15 +139,6 @@ export class DataAccessService {
     );
   }
 
-  /*signIn(username: string, password: string) {
-
-    return this.client.post(this._authURL + '/sign-in', {
-        username,
-        password
-      })
-      .map(response => response.json())
-      .catch(this.handleError(Error));
-  }*/
 
   signIn(credentials: any[]): Observable<any> {
       let data = credentials;
