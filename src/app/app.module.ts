@@ -62,18 +62,18 @@ const appRoutes: Routes = [
    { path: 'answerQuestions', component: AnswerQuestionsComponent},
    { path: 'home', component: HomeComponent},
    { path: 'breastCancer', component: BreastCancerComponent},
-   { path: 'myaccount', component: MyAccountComponent},
+   { path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuard]},
    { path: 'about', component: AboutCTCComponent},
-   { path: 'trials', component: TrialsComponent},
+   { path: 'trials', component: TrialsComponent, canActivate: [AuthGuard]},
    { path: 'individualtrial/:id', component: IndividualTrialComponent},
-   { path: 'users', component: UsersComponent},
-   { path: 'userdetails/:userId', component: UserDetailsComponent},
+   { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+   { path: 'userdetails/:userId', component: UserDetailsComponent, canActivate: [AuthGuard]},
   //  { path: 'hospitaldetails', component: HospitalDetailsComponent},
    { path: '', redirectTo: '/index', pathMatch: 'full'},
    { path: 'index', component: StepperComponent},
    { path: '**', component: StepperComponent}
 ];
-//, canActivate: [AuthGuard]
+
 @NgModule({
   imports:      [ 
   	BrowserModule, 

@@ -21,12 +21,19 @@ import { ConditionChangedConfirmationComponent } from '../condition-changed-conf
 })
 export class MyAccountComponent implements OnInit {
 
-  	constructor(private dataAccess: DataAccessService, private formBuilder: FormBuilder, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile, private httpClient: HttpClient, public dialog: MatDialog) { }
+  	constructor(private dataAccess: DataAccessService, 
+  		private formBuilder: FormBuilder, 
+  		private dataQAservice: dataQAservice, 
+  		private dataAccountProfile: dataAccountProfile,
+  		private httpClient: HttpClient, 
+  		public dialog: MatDialog ) { }
+  	
 	dialogRef: MatDialogRef<ConditionChangedConfirmationComponent>;
 	public tabIndex =2;
   	myAccForm: FormGroup;
 	public accountProfile: any = [];
 	error: String[];
+	myAccDetails: any;
 
 	Object = Object;
 	ngOnInit() {
@@ -40,8 +47,8 @@ export class MyAccountComponent implements OnInit {
 			console.log(data);
 			this.quizlist = data;
 			})
-		this.dataAccess.getCancerTrials().subscribe( data => {
-	    	this.dataSource=data;
+		this.dataAccess.getAccountDetails().subscribe( data => {
+	    	this.myAccDetails=data;
 	    },
 	      error => {
 	        this.error = error;

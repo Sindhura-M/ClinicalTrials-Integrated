@@ -31,6 +31,8 @@ export class DataAccessService {
   private _login: string = environment.apiUrl + '/ctc/authenticate';
   private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
   private _removeUser: string = environment.apiUrl + '/ctc/trials/removeUser';
+  private _myAcc: string = environment.apiUrl + '/ctc/getAccountDetails';
+
 
   //private _authURL:  string = '';
   
@@ -56,14 +58,14 @@ export class DataAccessService {
    	}
 
   getCancerTrials(): Observable<TrialsTable[]> {
-    let token = 'Bearer' + ' ' + this.session.accessToken;//this.dataAccountProfile.getUserToken();
+    let token = 'Bearer' + ' ' + this.session.accessToken;
 
     const data = this.dataQAservice.getData();
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
           'Content-Type' : 'application/json',
-          'Authorisation': token,
+          'Authorization': token,
           'Accept': 'application/json'
         })
       };
@@ -159,23 +161,25 @@ export class DataAccessService {
   }
 
 
- /* register(credentials: any[]): Observable<any> {
-      let data = credentials;
+ getAccountDetails(): Observable<any> {
+      let token = 'Bearer' + ' ' + this.session.accessToken;
+      let data = this.session.emailAddress;
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',
+          'Authorization': token,
           'Content-Type' : 'application/json',
           'Accept': 'application/json'
         })
       };
 
-      return this.client.post(this._register, data, httpOptions)
+      return this.client.post(this._myAcc, data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
       //.map((response: Response) => response.json())
       //.catch(this.handleError(Error));
-  }*/
+  }
   handleError(error) {
       return throwError(error);
   }

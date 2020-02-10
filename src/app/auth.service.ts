@@ -27,19 +27,6 @@ export class AuthService {
     })
   }
 
-  /*sendToken(token: string) {
-    localStorage.setItem("LoggedInUser", token)
-  }
-  getToken() {
-    return localStorage.getItem("LoggedInUser")
-  }
-  isLoggedIn() {
-    return this.getToken() !== null;
-  }
-  logout() {
-    localStorage.removeItem("LoggedInUser");
-    this.myRoute.navigate(["Login"]);
-  }*/
 
   public isSignedIn() {
     return !!this.session.accessToken;

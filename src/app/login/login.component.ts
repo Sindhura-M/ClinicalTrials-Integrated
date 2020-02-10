@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ControlContainer, FormControl } fro
 import { AuthService } from '.././auth.service';
 import { DataAccessService } from '../services/data-access.service';
 import { Router, Params } from '@angular/router';
+import { SessionService } from '../services/session.service';
 
 @Component({
 	selector: 'app-login',
@@ -11,7 +12,13 @@ import { Router, Params } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 	
-	constructor(private fb: FormBuilder, private controlContainer: ControlContainer, public auth: AuthService, private router: Router, private dataAccess: DataAccessService ) { }
+	constructor(private fb: FormBuilder, 
+		private controlContainer: ControlContainer, 
+		public auth: AuthService, 
+		private router: Router, 
+		private dataAccess: DataAccessService,
+		public session:SessionService
+		) { }
 
 	loginForm: FormGroup;
 	public isBusy = false;
@@ -49,6 +56,8 @@ export class LoginComponent implements OnInit {
 
 	    // Grab values from form
 	    let username = this.loginForm.get('emailAddress').value;
+    	this.session.emailAddress = username;
+
 	    let password = this.loginForm.get('pwd').value;
 
 	    /*if (username=='user') {
