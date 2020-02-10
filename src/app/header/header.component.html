@@ -20,7 +20,7 @@
 		<li class="menu-item">
 			<form id="demo-2">
 				<!--input type="search" placeholder="Search"-->
-				<i class="material-icons">search</i>
+					<i class="material-icons"> power_settings_new </i>
 			</form>
 		</li>
 	</ul>
@@ -29,9 +29,8 @@
 		<li class="menu-item">
 		<button mat-button [matMenuTriggerFor]="menu"><i class="material-menu"> menu </i></button>
 		<mat-menu #menu="matMenu">
-			<form mat-menu-item id="search">
-				<!--input type="search" placeholder="Search"-->
-				<i class="material-icons">search</i>
+			<form mat-menu-item id="logout">
+				<i class="material-icons"> power_settings_new </i>
 			</form>
 		  <button mat-menu-item><a [routerLink]="['/breastCancer']">Breast Cancer</a></button>
 		  <button mat-menu-item><a [routerLink]="['/about']">About</a></button>

@@ -161,7 +161,8 @@
 		<hr>
 		<div class="row" >
 			<span *ngIf="!showIncompleteQuestions" class="left-float">{{ID}}/{{quizlength}}</span>
-			<button (click)="next($event, ID-1)" class="button-small-active" [disabled]="showIncompleteQuestions"> NEXT </button>
+			<button (click)="next($event, ID-1)" class="button-small-active" *ngIf="ID!=15"> NEXT </button>
+			<button (click)="next($event, ID-1)" class="button-small-active" *ngIf="ID==15  && !showIncompleteQuestions"> See Incomplete Questions </button>
 			<button mat-button matStepperNext class="btn btn-info button-small" (click)="onSubmit()"> SAVE & EXIT </button>
 			<button (click)="previous($event, ID-1)" class="button-small"> BACK </button>	
 		</div>

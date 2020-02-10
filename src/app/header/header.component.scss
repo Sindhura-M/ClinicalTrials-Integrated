@@ -81,19 +81,22 @@
     padding: .7rem 2rem;
     text-decoration: none;
 }
+.material-icons {
+  cursor: pointer;
+}​
 
 
 /* Demo 2 */
-#demo-2 input[type=search] {
+#demo-2 input[type=logout] {
   width: 15px;
   padding-left: 10px;
   color: transparent;
   cursor: pointer;
 }
-#demo-2 input[type=search]:hover {
+#demo-2 input[type=logout]:hover {
   background-color: #fff;
 }
-#demo-2 input[type=search]:focus {
+#demo-2 input[type=logout]:focus {
   width: 130px;
   padding-left: 32px;
   color: #000;
@@ -123,7 +126,7 @@
   .show-for-small {
     display: block !important;
   }
-  #search {
+  #logout {
     line-height: 65px;
   }
 }

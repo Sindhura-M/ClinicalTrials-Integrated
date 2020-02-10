@@ -23,8 +23,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	years: any[]
 	currentYear = (new Date()).getFullYear();
-	range = [];		
-	isVisible:boolean			
+	range = [];				
 	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService,private httpClient: HttpClient)
 	{
 		for (let _k = 1950; _k < this.currentYear+1; _k++) 
@@ -90,7 +89,7 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	showIncompleteQuestions:boolean = false;
 
-	id:number = 15;
+	
 	events: string[] = [];
 	addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
 		this.events.push(`${type}: ${event.value}`);
