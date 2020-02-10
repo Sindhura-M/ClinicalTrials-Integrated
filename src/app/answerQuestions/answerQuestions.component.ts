@@ -20,8 +20,20 @@ import { HttpClient } from "@angular/common/http";
 
 export class AnswerQuestionsComponent implements OnInit {
 
-	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService,private httpClient: HttpClient){}
-
+	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	years: any[]
+	currentYear = (new Date()).getFullYear();
+	range = [];		
+	isVisible:boolean			
+	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService,private httpClient: HttpClient)
+	{
+		for (let _k = 1950; _k < this.currentYear+1; _k++) 
+		{
+				this.range.push(_k);
+		}
+		this.years = this.range;
+		console.log(this.years);
+	}
 	ngOnInit() {
 		this.httpClient.get("assets/questions.json").subscribe(data =>{
 			console.log(data);
@@ -43,9 +55,8 @@ export class AnswerQuestionsComponent implements OnInit {
         this.optionSelected = [];
 
 	}
-
 	public trialsData: any = [];
-	public array3 = [];
+	public array3 = []
 
 	myarray: String[] = [];
 
@@ -79,6 +90,7 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	showIncompleteQuestions:boolean = false;
 
+	id:number = 15;
 	events: string[] = [];
 	addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
 		this.events.push(`${type}: ${event.value}`);
@@ -97,10 +109,10 @@ export class AnswerQuestionsComponent implements OnInit {
 		} else { 
 			if (this.optionSelected.length < this.quizlist.length) {
 				this.showIncompleteQuestions = true;
-				this.i = this.quizlist.length;		
+				this.i = this.quizlist.length;	
 			}
 		}
-		this.checkboxValues = [];
+		this.checkboxValues = [];			
 	}
 	previous(e, i) {
 		this.i =  i-1 < 0 ? 0 : i-1;
@@ -187,10 +199,4 @@ export class AnswerQuestionsComponent implements OnInit {
 	onSubmit() {
 	  	this.dataQAservice.setData(this.array3[0]);
 	}
-
-	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-	year: String[] = [ "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999",
-						"2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009",
-						"2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019" ];
-
 }

@@ -48,9 +48,20 @@ select {
 .question {
 	margin-top: 4rem;
 }
+.button:disabled{
+	background-color: #9B9B9B;
+}
 
 .opList {
 	margin: 0 0 2rem;
+}
+.text-column{
+
+	border: 1px solid #767676;	
+	border-radius: 4px;	
+	width: 6rem;
+	float: left;
+	margin-left: 2rem;
 }
 
 .optionList {

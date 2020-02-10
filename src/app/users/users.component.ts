@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
   displayedColumns: String[] = ['Id', 'Name', 'Email','Action'];
 
 
-  openConfirmationDialog(e, userId:number) {
+  openConfirmationDialog($event, userId:number) {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent,  
     {
       disableClose: false
@@ -66,5 +66,10 @@ export class UsersComponent implements OnInit {
     }
     console.log('results',results);
     this.excelService.exportExcel(results, 'users')  
+  }
+
+  deleteUser(userId:number)
+  {    
+    this.usersList.deleteUser(userId) 
   }
 }
