@@ -29,7 +29,7 @@ export class UsersComponent implements OnInit {
   displayedColumns: String[] = ['Id', 'Name', 'Email','Action'];
 
 
-  openConfirmationDialog(e) {
+  openConfirmationDialog(e, userId:number) {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent,  
     {
       disableClose: false
@@ -37,13 +37,22 @@ export class UsersComponent implements OnInit {
     this.dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?"
     this.dialogRef.afterClosed().subscribe(result => {
       if(result) {
-        // do confirmation actions
+        //this.deleteUser(userId);
+        this.http.removeUser(userId).subscribe( response => {
+            if (response) {
+              /*window.location.reload();*/
+            }
+          });
       }
       this.dialogRef = null;
+      window.location.reload();
+      /*this.http.getUserDetails().subscribe( data => {
+        this.dataSource = data;
+        this.usersList.setData(data);
+      });*/
     });
   }
   exportAllUsers():void {
-    //this.excelService.exportExcel(this.dataSource, 'users');
 
     let data = [];
     this.dataSource.forEach( tmp => { 

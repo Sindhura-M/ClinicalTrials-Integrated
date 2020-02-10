@@ -1,213 +1,165 @@
 <div class="container">
 	<div class="form-group"> 
-		<span (click)="goBack($event)"> Back</span>
-
+		<span (click)="goBack($event)" class="form-back"> Back</span>
 	</div>
 	<div class="title-card-sub">User Details</div>
-	<!-- <form [formGroup]="userDetailsForm"> -->
-		<!-- <div class="row">
-			<div class="large-6"> 
+	<br/>
+	<div class="row users-data">
+		<div class="col-md-6">
+			<form>
 				<div class="form-group">
-					<input type="text" formControlName="name" class="form-control input-group-field" 
-					placeholder="User Name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
-					value="{{name}}"/>
-					<div *ngIf="f.name.touched" class="text-danger">
-						<small *ngIf="f.name.value === '' ">Name is required.</small>
-					</div>
+					<label for="name" class="group-label">User Name</label>
+					<input type="text" class="form-control input-group-field" placeholder="Name"
+					value="{{fullName}}" readonly/>
 				</div>
-			</div>
-		</div> -->
-		<!-- <div class="row">
-			<div class="large-6"> 
-				 <div class="form-group">
-					<input type="email" formControlName="email" class="form-control input-group-field" placeholder="Email address" value={{email}}/>
-					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
-						<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
-						<small *ngIf="f.emailAddress.errors.email">Email must be a valid email address.</small>
-					</div>
+				<!--div class="form-group">
+					<label for="name">Stage</label>
+					<input type="text" class="form-control input-group-field" placeholder="Stage"/>
 				</div>
-			</div>
-		</div>  -->
-		 <!-- <div class="row">
-			<div class="large-6">  -->
-				 <!-- PASSWORD FIELDs  -->
-				 <!--<div class="form-group">
-				  	<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Enter password"/>
-				  	<div *ngIf="f.password.invalid && f.password.touched" class="text-danger">
-						<small *ngIf="f.password.errors.required">Password is required.</small>
-						<small *ngIf="f.password.errors.minlength">Password must be at least 6 characters.</small>
-					</div>
-				</div>
-			</div>
-		</div>  -->
-		<!-- <div class="row">
-			<div class="large-6">
 				<div class="form-group">
-	            	<select name="role" class="select form-control input-group-field" formControlName="role" 
-	            	[ngModel]="roleSelect">
-		                <option>Role</option>
-		                <option value="user">User</option>
-		                <option value="admin">Admin</option>
-		            </select>
-		        </div>
-	        </div>
-		</div>  -->
-		<div class="row users-data">
-			<div class="col-md-6">
-				<form>
-					<div class="form-group">
-						<label for="name">User Name</label>
-						<input type="text" class="form-control input-group-field" placeholder="Name"
-						value="{{fullName}}" readonly/>
-					</div>
-					<!--div class="form-group">
-						<label for="name">Stage</label>
-						<input type="text" class="form-control input-group-field" placeholder="Stage"/>
-					</div>
-					<div class="form-group">
-						<label for="name">Subtype</label>
-						<input type="text" class="form-control input-group-field" placeholder="Subtype"/>
-					</div>
-					<div class="form-group">
-						<label for="name">Summary</label>
-						<input type="text" class="form-control input-group-field" placeholder="Summary"/>
-					</div-->
-					<div class="form-group">
-						<label for="name">Phase</label>
-						<input type="text" class="form-control input-group-field" placeholder="Phase" 
-						value="{{selectedUserObj.stage}}" readonly/>
-					</div>
-					<!--div class="form-group">
-						<label for="name">Location</label>
-						<input type="text" class="form-control input-group-field" placeholder="Location"/>
-					</div-->
-					<div class="form-group">
-						<label for="name">Postcode</label>
-						<input type="text" class="form-control input-group-field" placeholder="Postcode" value="{{selectedUserObj.postCode}}" readonly/>
-					</div>
-					<!--div class="form-group">
-						<label for="name">ClinicalTrials.gov</label>
-						<input type="text" class="form-control input-group-field" placeholder="ClinicalTrials.gov"/>
-					</div>
-					<div class="form-group">
-						<label for="name">ANZCTR</label>
-						<input type="text" class="form-control input-group-field" placeholder="ANZCTR"/>
-					</div>
-					<div class="form-group">
-						<label for="name">BCT</label>
-						<input type="text" class="form-control input-group-field" placeholder="BCT"/>
-					</div-->
-					<div class="form-group">
-						<label for="name">Age</label>
-						<input type="text" class="form-control input-group-field" placeholder="Age" 
-						value="{{selectedUserObj.account.age}}"readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">Sex</label>
-						<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.account.gender}}" readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">PMP</label>
-						<input type="text" class="form-control input-group-field" placeholder="PMP" 
-						value="{{selectedUserObj.pmp}}"readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">ECOG</label>
-						<input type="text" class="form-control input-group-field" placeholder="ECOG" 
-						value="{{selectedUserObj.ecog}}"readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">ER</label>
-						<input type="text" class="form-control input-group-field" placeholder="ER" 
-						value="{{selectedUserObj.er}}"readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">PR</label>
-						<input type="text" class="form-control input-group-field" placeholder="PR" 
-						value="{{selectedUserObj.pr}}"readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">HER2</label>
-						<input type="text" class="form-control input-group-field" placeholder="HER2" 
-						value="{{selectedUserObj.her2}}"readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">Tumour Size</label>
-						<input type="text" class="form-control input-group-field" placeholder="Tumour Size" 
-						value="{{selectedUserObj.tumourSize}}"readonly/>
-					</div>
-					<!--div class="form-group">
-						<label for="name">Nodal Status</label>
-						<input type="text" class="form-control input-group-field" placeholder="Nodal Status" 
-						value="{{selectedUserObj.pmp}}"readonly/>
-					</div-->
-					<div class="form-group">
-						<label for="name">Node Number</label>
-						<input type="text" class="form-control input-group-field" placeholder="Node Number"
-						value="{{selectedUserObj.nodalStatus}}" readonly/>
-					</div>
-					<!--div class="form-group">
-						<label for="name">Stage</label>
-						<input type="text" class="form-control input-group-field" placeholder="Stage" 
-						value="{{selectedUserObj.stage}}" readonly/>
-					</div-->
-					<div class="form-group">
-						<label for="name">Has cancer spread to other parts?</label>
-						<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?" value="{{selectedUserObj.spreadToOtherParts}}" readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">BRCA 1/2 Mutation</label>
-						<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation" 
-						value="{{selectedUserObj.brcamutation}}" readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">Surgery</label>
-						<input type="text" class="form-control input-group-field" placeholder="Surgery" 
-						value="{{selectedUserObj.surgery}}" readonly/>
-					</div>
+					<label for="name">Subtype</label>
+					<input type="text" class="form-control input-group-field" placeholder="Subtype"/>
+				</div>
+				<div class="form-group">
+					<label for="name">Summary</label>
+					<input type="text" class="form-control input-group-field" placeholder="Summary"/>
+				</div-->
+				<!--div class="form-group">
+					<label for="name">Location</label>
+					<input type="text" class="form-control input-group-field" placeholder="Location"/>
+				</div-->
+				<div class="form-group">
+					<label for="name" class="group-label">Postcode</label>
+					<input type="text" class="form-control input-group-field" placeholder="Postcode" value="{{selectedUserObj.postCode}}" readonly/>
+				</div>
+				<!--div class="form-group">
+					<label for="name">ClinicalTrials.gov</label>
+					<input type="text" class="form-control input-group-field" placeholder="ClinicalTrials.gov"/>
+				</div>
+				<div class="form-group">
+					<label for="name">ANZCTR</label>
+					<input type="text" class="form-control input-group-field" placeholder="ANZCTR"/>
+				</div>
+				<div class="form-group">
+					<label for="name">BCT</label>
+					<input type="text" class="form-control input-group-field" placeholder="BCT"/>
+				</div-->
+				<div class="form-group">
+					<label for="name" class="group-label">Age</label>
+					<input type="text" class="form-control input-group-field" placeholder="Age" 
+				value="{{selectedUserObj.account.age}}"readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">Sex</label>
+					<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.account.gender}}" readonly/>
+				</div>
 
-					<div class="form-group">
-						<label for="name">Chemotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Chemotherapy"
-						value="{{selectedUserObj.chemotherapy}}"  readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">Hormones</label>
-						<input type="text" class="form-control input-group-field" placeholder="Hormones" 
-						value="{{selectedUserObj.hormones}}" readonly/>
-					</div>
-					<!-- <div class="form-group">
-						<label for="name">Targeted Tx HER2 Therapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy" value="{{selectedUserObj.pmp}}" readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">Targeted Tx CDK 4/6 Inhibitor</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor" value="{{selectedUserObj.pmp}}" readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">Targeted Tx PARP 4/6 Inhibitor</label>
-						<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor" value="{{selectedUserObj.pmp}}" readonly/>
-					</div> -->
-					<div class="form-group">
-						<label for="name">Immunotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Immunotherapy"
-						value="{{selectedUserObj.immunotherapy}}"  readonly/>
-					</div>
-					<div class="form-group">
-						<label for="name">Radiotherapy</label>
-						<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"
-						value="{{selectedUserObj.radiotherapy}}"  readonly/>
-					</div>
-					<div class="form-group"> 
-						<button (click)="goBack($event)" class="button-small-active">Back</button>
-			
-					</div>
-				</form>
-		<!-- <div class="row">
-			<div class="large-6 form-group text-center" style="padding-left: 9px;">
-				<button class="button expanded btn btn-primary button-small-active"[disabled]="userDetailsForm.invalid" (click)="onSave()">SAVE</button>
-			</div>
-		</div> -->
-	
-	
+				<br/>
+				<br/>
+
+				<div class="title-card-sub">User Condition</div>
+				<br/>
+				<div class="form-group">
+					<label for="name" class="group-label">Phase</label>
+					<input type="text" class="form-control input-group-field" placeholder="Phase" 
+					value="{{selectedUserObj.stage}}" readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">PMP</label>
+					<input type="text" class="form-control input-group-field" placeholder="PMP" 
+					value="{{selectedUserObj.pmp}}"readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">ECOG</label>
+					<input type="text" class="form-control input-group-field" placeholder="ECOG" 
+					value="{{selectedUserObj.ecog}}"readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">ER</label>
+					<input type="text" class="form-control input-group-field" placeholder="ER" 
+					value="{{selectedUserObj.er}}"readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">PR</label>
+					<input type="text" class="form-control input-group-field" placeholder="PR" 
+					value="{{selectedUserObj.pr}}"readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">HER2</label>
+					<input type="text" class="form-control input-group-field" placeholder="HER2" 
+					value="{{selectedUserObj.her2}}"readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">Tumour Size</label>
+					<input type="text" class="form-control input-group-field" placeholder="Tumour Size" 
+					value="{{selectedUserObj.tumourSize}}"readonly/>
+				</div>
+				<!--div class="form-group">
+					<label for="name">Nodal Status</label>
+					<input type="text" class="form-control input-group-field" placeholder="Nodal Status" 
+					value="{{selectedUserObj.pmp}}"readonly/>
+				</div-->
+				<div class="form-group">
+					<label for="name" class="group-label">Node Number</label>
+					<input type="text" class="form-control input-group-field" placeholder="Node Number"
+					value="{{selectedUserObj.nodalStatus}}" readonly/>
+				</div>
+				<!--div class="form-group">
+					<label for="name">Stage</label>
+					<input type="text" class="form-control input-group-field" placeholder="Stage" 
+					value="{{selectedUserObj.stage}}" readonly/>
+				</div-->
+				<div class="form-group">
+					<label for="name" class="group-label">Has cancer spread to other parts?</label>
+					<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?" value="{{selectedUserObj.spreadToOtherParts}}" readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">BRCA 1/2 Mutation</label>
+					<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation" 
+					value="{{selectedUserObj.brcamutation}}" readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">Surgery</label>
+					<input type="text" class="form-control input-group-field" placeholder="Surgery" 
+					value="{{selectedUserObj.surgery}}" readonly/>
+				</div>
+
+				<div class="form-group">
+					<label for="name" class="group-label">Chemotherapy</label>
+					<input type="text" class="form-control input-group-field" placeholder="Chemotherapy"
+					value="{{selectedUserObj.chemotherapy}}"  readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name"class="group-label">Hormones</label>
+					<input type="text" class="form-control input-group-field" placeholder="Hormones" 
+				value="{{selectedUserObj.hormones}}" readonly/>
+				</div>
+				<!-- <div class="form-group">
+					<label for="name">Targeted Tx HER2 Therapy</label>
+					<input type="text" class="form-control input-group-field" placeholder="Targeted Tx HER2 Therapy" value="{{selectedUserObj.pmp}}" readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name">Targeted Tx CDK 4/6 Inhibitor</label>
+					<input type="text" class="form-control input-group-field" placeholder="Targeted Tx CDK 4/6 Inhibitor" value="{{selectedUserObj.pmp}}" readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name">Targeted Tx PARP 4/6 Inhibitor</label>
+					<input type="text" class="form-control input-group-field" placeholder="Targeted Tx PARP 4/6 Inhibitor" value="{{selectedUserObj.pmp}}" readonly/>
+				</div> -->
+				<div class="form-group">
+					<label for="name" class="group-label">Immunotherapy</label>
+					<input type="text" class="form-control input-group-field" placeholder="Immunotherapy"
+					value="{{selectedUserObj.immunotherapy}}"  readonly/>
+				</div>
+				<div class="form-group">
+					<label for="name" class="group-label">Radiotherapy</label>
+					<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"
+					value="{{selectedUserObj.radiotherapy}}"  readonly/>
+				</div>
+				<div class="form-group"> 
+					<button (click)="goBack($event)" class="button-small-active">Back</button>
+				</div>
+			</form>
+		</div>​
+	</div>
 </div>

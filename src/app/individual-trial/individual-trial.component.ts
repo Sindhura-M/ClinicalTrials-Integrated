@@ -4,6 +4,7 @@ import { dataQAservice } from '../services/data-QA.service';
 import { TrialsTable } from '../trials/trialsTable';
 //import { } from '@types/googlemaps';
 import {ActivatedRoute, Router} from '@angular/router';
+import { TrialsListService } from '../services/trials-list.service';
 
 @Component({
   selector: 'app-individual-trial',
@@ -12,8 +13,16 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class IndividualTrialComponent implements OnInit {
 
-	constructor(private dataAccess: DataAccessService, private dataQAservice: dataQAservice, private route:ActivatedRoute,private router:Router) { }
-	public dataSource: TrialsTable[] = [];
+	constructor(private dataAccess: DataAccessService, 
+		private dataQAservice: dataQAservice, 
+		private route:ActivatedRoute,
+		private router:Router,
+		private trialsList : TrialsListService ) { }
+
+	//public dataSource: TrialsTable[] = [];
+	public dataSource: TrialsTable[] = this.trialsList.getData();
+	selectedTrial: any;
+	trial: any;
 	error: String[];
 	phase: String[];
 
@@ -22,21 +31,20 @@ export class IndividualTrialComponent implements OnInit {
 
 	ngOnInit() {
 	    //const tempData = this.dataQAservice.getData();
-	    let trialId = this.route.snapshot.paramMap.get('id');
-	    this.dataAccess.fetchTrialsSummary(trialId).subscribe( data => {
+	    let trialId = parseInt(this.route.snapshot.paramMap.get('id'));
+	    /*this.dataAccess.fetchTrialsSummary(trialId).subscribe( data => {
 	    this.dataSource = data;
 	    },
 	    error => {
 	    	this.error = error;
-	    });
-
-	 	/* var mapProp = {
-	      center: new google.maps.LatLng(18.5793, 73.8143),
-	      zoom: 15,
-	      mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
-	    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);*/
+	    });*/
+	    this.selectedTrial = this.dataSource.filter(function (tmp) {
+	                     return tmp.id === trialId;
+	                });
+	    console.log("selectedTrial", JSON.stringify(this.selectedTrial));
+	    this.trial = this.selectedTrial[0];
 	}
+
 
 	//public TrialsTable: any = [];
 
