@@ -7,7 +7,6 @@ import { ExportToExcelService } from '../services/export-to-excel.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { DataAccessService } from '../services/data-access.service';
 import { UsersListService } from '../services/users-list.service';
-import { AddAdminComponent } from '../add-admin/add-admin.component';
 
 @Component({
   selector: 'app-users',
@@ -16,9 +15,12 @@ import { AddAdminComponent } from '../add-admin/add-admin.component';
 })
 export class UsersComponent implements OnInit {
 
+  addAdminForm: FormGroup;
+  submitted = false;
+
   constructor(private http: DataAccessService, private usersList : UsersListService, private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
-  dialogRef1: MatDialogRef<AddAdminComponent>;
+
   public dataSource: any = [];
   ngOnInit() {
 
@@ -26,10 +28,12 @@ export class UsersComponent implements OnInit {
       this.dataSource = data;
       this.usersList.setData(data);
     });
+
+    this._formValidate();
   }
 
   displayedColumns: String[] = ['Id', 'Name', 'Email','Action'];
-
+  addAdminDetails:any = [];
 
   openConfirmationDialog($event, userId:number) {
     this.dialogRef = this.dialog.open(ConfirmationDialogComponent,  
@@ -70,16 +74,36 @@ export class UsersComponent implements OnInit {
     this.excelService.exportExcel(results, 'users')  
   }
 
-  openAddAdminUser(){
-    this.dialogRef1 = this.dialog.open(AddAdminComponent,  
-      {
-        disableClose: false
-      });
-      this.dialogRef.afterClosed().subscribe(result => {
-        if(result) {
+ /* this.addAdminForm = new FormGroup({
+       username: new FormControl()
+    });*/
 
-        }
-      });
-      this.dialogRef = null;
+
+
+    get f() { return this.addAdminForm.controls; }
+
+  _formValidate() {
+    this.addAdminForm = this.fb.group(
+      {
+      username: ['', Validators.required],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+      }
+    );
+  }
+
+  addAdminUser($event){
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.addAdminForm.invalid) {
+      return;
     }
+    
+    let username = this.addAdminForm.get('username').value;
+    let password = this.addAdminForm.get('password').value;
+
+    this.addAdminDetails.push(Object.assign({'username': username},{'password': password}, {'role': 'admin'}));
+    this.addAdminDetails = this.addAdminDetails[0];
+
+  }
 }

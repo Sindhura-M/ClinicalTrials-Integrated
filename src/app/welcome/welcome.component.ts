@@ -20,8 +20,15 @@ export class WelcomeComponent implements OnInit {
 
 	  public accountProfile: any = [];
 	  error: String[];
+	  showSuccessMsg: boolean = false;
 
-	  constructor(public auth: AuthService, private controlContainer: ControlContainer, private route: ActivatedRoute, private dataAccess: DataAccessService, private dataQAservice: dataQAservice, private dataAccountProfile: dataAccountProfile) { }
+	  constructor(public auth: AuthService, 
+	  	private router: Router,
+	  	private controlContainer: ControlContainer, 
+	  	private route: ActivatedRoute, 
+	  	private dataAccess: DataAccessService, 
+	  	private dataQAservice: dataQAservice, 
+	  	private dataAccountProfile: dataAccountProfile) { }
 
 	  ngOnInit() {
 	  }
@@ -92,10 +99,13 @@ export class WelcomeComponent implements OnInit {
 			this.answerkey.push(new AnswerKey('accountUserId', data.id));
 			this.result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 			this.dataQAservice.setData(this.result);
+
+			this.showSuccessMsg = true;
 			//this.dataQAservice.setUserID(data.id);
 		},
 		error => {
 	        this.error = error;
+	        this.showSuccessMsg = true;
 	    });
 	}
 }

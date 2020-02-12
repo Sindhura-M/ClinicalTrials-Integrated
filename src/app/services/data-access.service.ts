@@ -32,6 +32,7 @@ export class DataAccessService {
   private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
   private _removeUser: string = environment.apiUrl + '/ctc/trials/removeUser';
   private _myAcc: string = environment.apiUrl + '/ctc/getAccountDetails';
+  private _addAdmin: string = environment.apiUrl + '/ctc/getAccountDetails';
 
 
   //private _authURL:  string = '';
@@ -182,6 +183,24 @@ export class DataAccessService {
   }
   handleError(error) {
       return throwError(error);
+  }
+
+  addAdminUser(credentials: any[]): Observable<any> {
+      let data = credentials;
+      const httpOptions = {
+        headers: new HttpHeaders({ 
+          'Access-Control-Allow-Origin':'*',
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json'
+        })
+      };
+
+      return this.client.post(this._addAdmin, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+      //.map((response: Response) => response.json())
+      //.catch(this.handleError(Error));
   }
  
 

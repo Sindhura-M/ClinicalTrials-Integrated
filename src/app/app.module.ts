@@ -52,8 +52,6 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { ConditionChangedConfirmationComponent } from './condition-changed-confirmation/condition-changed-confirmation.component';
-import { AddAdminComponent } from './add-admin/add-admin.component';
-// import { HospitalDetailsComponent } from './hospital-details/hospital-details.component';
 
 const appRoutes: Routes = [
    { path: 'login', component: LoginComponent},
@@ -66,11 +64,12 @@ const appRoutes: Routes = [
    { path: 'about', component: AboutCTCComponent},
    { path: 'trials', component: TrialsComponent, canActivate: [AuthGuard]},
    { path: 'individualtrial/:id', component: IndividualTrialComponent},
-   { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+   { path: 'users', component: UsersComponent},
    { path: 'userdetails/:userId', component: UserDetailsComponent, canActivate: [AuthGuard]},
   //  { path: 'hospitaldetails', component: HospitalDetailsComponent},
    { path: '', redirectTo: '/index', pathMatch: 'full'},
    { path: 'index', component: StepperComponent},
+   { path: 'stepper', component: StepperComponent},
    { path: '**', component: StepperComponent}
 ];
 
@@ -125,9 +124,7 @@ const appRoutes: Routes = [
   UsersComponent,
   UserDetailsComponent,
   ConfirmationDialogComponent,
-  ConditionChangedConfirmationComponent,
-  AddAdminComponent,
-  // HospitalDetailsComponent
+  ConditionChangedConfirmationComponent
   ],
   exports: [
      MatStepperModule,
@@ -148,6 +145,6 @@ const appRoutes: Routes = [
    ],
   providers: [ dataQAservice, dataAccountProfile, {provide: LocationStrategy, useClass: HashLocationStrategy}, AuthGuard, AuthService,ExportToExcelService ],
   bootstrap:    [ AppComponent ],
-  entryComponents: [ConfirmationDialogComponent,ConditionChangedConfirmationComponent,AddAdminComponent]
+  entryComponents: [ConfirmationDialogComponent,ConditionChangedConfirmationComponent]
 })
 export class AppModule { }

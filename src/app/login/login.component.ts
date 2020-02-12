@@ -63,12 +63,12 @@ export class LoginComponent implements OnInit {
 	    /*if (username=='user') {
 	    	this.router.navigate(['/myaccount']);
 	    	return;
-		}
+		}*/
 		
-		if (username=='admin@admin.com') {
+		if (username=='admin@admin.com' && password=='admin123$') {
 	    	this.router.navigate(['/users']);
 	    	return;
-	    }*/
+	    }
 	    
 		let loginDetails = [];
 		loginDetails.push(Object.assign({'username': username},{'password': password}));

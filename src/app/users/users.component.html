@@ -44,44 +44,39 @@
 			</div>
 			<div>
 				<span><button (click)="exportAllUsers()" class="button-small-active">Export All Users</button></span>
-				<span><button (click)="openAddAdminUser()" class="button-small-active">Add Admin User</button></span>
             </div>
 		</mat-tab>
-		<!-- <mat-tab label="Hospitals">
-			<span class="float-left"><button (click)="addHospital(e)" class="button-small-active">Add Hospital</button></span> -->
-			<!--div class="title-card-sub">List of Hospitals</div-->
-			<!-- <div class="hospital-table">
-				<table mat-table [dataSource]="dataSource1" class="mat-elevation-z8" >
 
-				  <ng-container matColumnDef="Key">
-				    <th mat-header-cell *matHeaderCellDef> Key</th>
-				    <td mat-cell *matCellDef="let element">{{element.key}}</td>
-				  </ng-container>
-
-				  <ng-container matColumnDef="Hospital">
-				    <th mat-header-cell *matHeaderCellDef> Hospital </th>
-				    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-				  </ng-container>
-
-				  <ng-container matColumnDef="Post Code">
-				    <th mat-header-cell *matHeaderCellDef> Post Code </th>
-				    <td mat-cell *matCellDef="let element"> <span class="">{{element.postcode}}</span> </td>
-				  </ng-container>
-
-				  <ng-container matColumnDef="Action">
-						<th mat-header-cell *matHeaderCellDef> Action </th>
-						<td mat-cell *matCellDef="let element" class="text-center"> 
-							<button [routerLink]="['/hospitaldetails']" class="button-small">Edit</button>
-							<button (click)="openConfirmationDialog()" class="button-small">Delete</button>
-							<button (click)="seeTrials()" class="button-small">See Trials</button>
-						</td>
-				  </ng-container>
-				  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
-				  <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
-				</table>
+		<mat-tab label="Add Admin User">
+			<div>
+				<form [formGroup]="addAdminForm" >
+					<div class="columns small-12">
+						<!--USERNAME FIELD -->
+						<div class="form-group">
+			        		<input type="text" formControlName="username" class="form-control input-group-field" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+			        		<div *ngIf="f.username.touched" class="text-danger">
+								<small class="text-danger" *ngIf="f.username.value === '' ">Username is required.</small>
+							</div>
+					  	</div>
+					</div>
+					
+					<div class="columns small-12">
+						<!-- PASSWORD FIELD -->
+						<div class="form-group">
+							<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+							<div *ngIf="f.password.invalid && f.password.touched" class="text-danger">
+								<small class="text-danger" *ngIf="f.password.errors.required">Password is required.</small>
+								<small class="text-danger" *ngIf="f.password.errors.minlength">Password must be at least 6 characters.</small>
+							</div>
+						</div>
+			    	</div>
+					<div class="row">
+				    	<button class="button active-button" (click)="addAdminUser($event)">Add</button>
+				    </div>
+				</form>
 			</div>
-			<span style="float: right;"><button (click)="exportHospitalsAsXLSX()" class="button-small-active">Download All Hospitals</button></span>
-		</mat-tab> -->
+		</mat-tab>
+		
 	</mat-tab-group>
 
 </div>
