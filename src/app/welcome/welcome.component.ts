@@ -21,6 +21,7 @@ export class WelcomeComponent implements OnInit {
 	  public accountProfile: any = [];
 	  error: String[];
 	  showSuccessMsg: boolean = false;
+	  showErrorMsg: boolean = false;
 
 	  constructor(public auth: AuthService, 
 	  	private router: Router,
@@ -100,12 +101,18 @@ export class WelcomeComponent implements OnInit {
 			this.result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 			this.dataQAservice.setData(this.result);
 
-			this.showSuccessMsg = true;
-			//this.dataQAservice.setUserID(data.id);
+			if (data.errorMessage == null) {
+				this.showSuccessMsg = true;
+				this.showErrorMsg = false;				
+			} else if (data.errorMessage != null && data.id == null){
+				this.showSuccessMsg = false;
+	        	this.showErrorMsg = true;
+			}
 		},
 		error => {
 	        this.error = error;
-	        this.showSuccessMsg = true;
+	        this.showSuccessMsg = false;
+	        this.showErrorMsg = true;
 	    });
 	}
 }

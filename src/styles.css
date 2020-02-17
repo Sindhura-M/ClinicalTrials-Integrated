@@ -5,3 +5,7 @@
 html, body { height: 100%; }
 html, body { margin: 0; font-family: 'Open Sans', 'Helvetica'; }
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', 'Helvetica' !important; }
+
+.text-danger {
+	color:red;
+}

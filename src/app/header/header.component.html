@@ -18,7 +18,7 @@
 		<li class="menu-item"><a [routerLink]="['/myaccount']">My Account</a></li>
 		<!--li class="menu-item"><a href="#/myaccount" *ngIf="auth.isLoggedIn()">My Account</a></li-->
 		<li class="menu-item">
-			<form id="demo-2">
+			<form id="demo-2" (click)="doSignOut();">
 				<!--input type="search" placeholder="Search"-->
 					<i class="material-icons"> power_settings_new </i>
 			</form>
@@ -29,7 +29,7 @@
 		<li class="menu-item">
 		<button mat-button [matMenuTriggerFor]="menu"><i class="material-menu"> menu </i></button>
 		<mat-menu #menu="matMenu">
-			<form mat-menu-item id="logout">
+			<form mat-menu-item id="logout" (click)="doSignOut();">
 				<i  class="material-icons" matTooltip="Log-Out" #tooltip="matTooltip"> power_settings_new</i> 
 			</form>
 		  <button mat-menu-item><a [routerLink]="['/breastCancer']">Breast Cancer</a></button>

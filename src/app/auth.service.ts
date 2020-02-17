@@ -34,7 +34,7 @@ export class AuthService {
 
   public doSignOut() {
     this.session.destroy();
-    this.route.navigate(["login"]);
+    this.route.navigate(['/index']);
   }
 
   public doSignIn(accessToken: string) {

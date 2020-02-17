@@ -13,4 +13,8 @@ export class HeaderComponent implements OnInit {
   constructor( public auth: AuthService ) { }
 
   ngOnInit() { }
+
+  doSignOut() : void {
+  	this.auth.doSignOut();
+  }
 }
