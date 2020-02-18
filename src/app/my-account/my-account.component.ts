@@ -38,7 +38,7 @@ export class MyAccountComponent implements OnInit {
 	Object = Object;
 	ngOnInit() {
 
-		/*this.dataAccess.getAccountProfile().subscribe( data => {
+		/*this.dataAccess.createAccountProfile().subscribe( data => {
 			this.accountProfile = data[0];
 			this.myAccForm.patchValue({firstName: this.accountProfile.firstName});
 		});*/

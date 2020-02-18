@@ -32,12 +32,12 @@ export class DataAccessService {
   private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
   private _removeUser: string = environment.apiUrl + '/ctc/trials/removeUser';
   private _myAcc: string = environment.apiUrl + '/ctc/getAccountDetails';
-  private _addAdmin: string = environment.apiUrl + '/ctc/getAccountDetails';
+  private _addAdmin: string = environment.apiUrl + '/ctc/addAdminUser'; 
 
 
   //private _authURL:  string = '';
   
-  	getAccountProfile(): Observable<any> {
+  	createAccountProfile(): Observable<any> {
 
     		let data = this.dataAccountProfile.getData();
 
@@ -79,10 +79,12 @@ export class DataAccessService {
   }
 
   getUserDetails(): Observable <any>{
+    let token = 'Bearer' + ' ' + this.session.accessToken;
     const httpOptions = {
       headers: new HttpHeaders({ 
         'Access-Control-Allow-Origin':'*',  
         'Content-Type' : 'application/json',
+          'Authorization': token,
         'Accept': 'application/json'
       })
     };
@@ -185,12 +187,17 @@ export class DataAccessService {
       return throwError(error);
   }
 
-  addAdminUser(credentials: any[]): Observable<any> {
-      let data = credentials;
+  addAdminUser(): Observable<any> {
+      //let data = credentials;
+
+      let data = this.dataAccountProfile.getData();
+
+      let token = 'Bearer' + ' ' + this.session.accessToken;
       const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',
           'Content-Type' : 'application/json',
+          'Authorization': token,
           'Accept': 'application/json'
         })
       };

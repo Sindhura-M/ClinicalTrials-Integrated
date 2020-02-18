@@ -94,7 +94,7 @@ export class WelcomeComponent implements OnInit {
 		accData.push(Object.assign({}, tempData[0], this.result));
 		this.dataAccountProfile.setData(accData);
 
-		this.dataAccess.getAccountProfile().subscribe( data => {
+		this.dataAccess.createAccountProfile().subscribe( data => {
 			this.accountProfile=data[0];
 			//this.auth.doSignIn( response.token );
 			this.answerkey.push(new AnswerKey('accountUserId', data.id));
@@ -111,8 +111,6 @@ export class WelcomeComponent implements OnInit {
 		},
 		error => {
 	        this.error = error;
-	        this.showSuccessMsg = false;
-	        this.showErrorMsg = true;
 	    });
 	}
 }

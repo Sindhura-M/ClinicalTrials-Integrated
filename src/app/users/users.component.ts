@@ -7,6 +7,7 @@ import { ExportToExcelService } from '../services/export-to-excel.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { DataAccessService } from '../services/data-access.service';
 import { UsersListService } from '../services/users-list.service';
+import { dataAccountProfile } from '../services/dataAccountProfile.service';
 
 @Component({
   selector: 'app-users',
@@ -17,10 +18,13 @@ export class UsersComponent implements OnInit {
 
   addAdminForm: FormGroup;
   submitted = false;
+  username: string = '';
+  password: string = '';
 
-  constructor(private http: DataAccessService, private usersList : UsersListService, private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
+  constructor(private dataAccountProfile: dataAccountProfile, private http: DataAccessService, private usersList : UsersListService, private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
 
+   public roles: any = [];
   public dataSource: any = [];
   ngOnInit() {
 
@@ -91,6 +95,7 @@ export class UsersComponent implements OnInit {
     );
   }
 
+
   addAdminUser($event){
     this.submitted = true;
 
@@ -101,9 +106,17 @@ export class UsersComponent implements OnInit {
     
     let username = this.addAdminForm.get('username').value;
     let password = this.addAdminForm.get('password').value;
+    this.addAdminDetails.push(Object.assign({'emailAddress': username},{'password': password}, {'roles':[{"role": "ADMIN"}]}));
+    let tempData = this.addAdminDetails[0];
 
-    this.addAdminDetails.push(Object.assign({'username': username},{'password': password}, {'role': 'admin'}));
-    this.addAdminDetails = this.addAdminDetails[0];
-
+    this.dataAccountProfile.setData(tempData);
+    
+    this.http.addAdminUser().subscribe( data => {
+      alert(data);
+      if (data == 'Admin User added successfully') {
+          this.username = '';
+          this.password = '';
+      }
+    })
   }
 }

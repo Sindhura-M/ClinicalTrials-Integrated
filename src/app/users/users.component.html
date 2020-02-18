@@ -53,7 +53,7 @@
 					<div class="columns small-12">
 						<!--USERNAME FIELD -->
 						<div class="form-group">
-			        		<input type="text" formControlName="username" class="form-control input-group-field" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+			        		<input type="text" formControlName="username" class="form-control input-group-field" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" value="{{username}}"/>
 			        		<div *ngIf="f.username.touched" class="text-danger">
 								<small class="text-danger" *ngIf="f.username.value === '' ">Username is required.</small>
 							</div>
@@ -63,7 +63,8 @@
 					<div class="columns small-12">
 						<!-- PASSWORD FIELD -->
 						<div class="form-group">
-							<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+							<input type="password" formControlName="password" class="form-control input-group-field" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+							value="{{password}}"/>
 							<div *ngIf="f.password.invalid && f.password.touched" class="text-danger">
 								<small class="text-danger" *ngIf="f.password.errors.required">Password is required.</small>
 								<small class="text-danger" *ngIf="f.password.errors.minlength">Password must be at least 6 characters.</small>

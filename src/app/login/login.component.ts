@@ -83,7 +83,11 @@ export class LoginComponent implements OnInit {
 	            response.token
 	            //response.name
 	          );
-	          this.router.navigate(['/myaccount']);
+	          if(response.userDetails.user.roles[0].role == 'ADMIN'){
+	          	this.router.navigate(['/users']);
+	          }else if(response.userDetails.user.roles[0].role == 'user'){
+	          	this.router.navigate(['/myaccount']);
+	          }
 	        },
 	        (error) => {
 	          this.isBusy = false;
