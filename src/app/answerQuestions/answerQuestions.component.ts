@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 import { DataAccessService } from '../services/data-access.service';
 import { dataQAservice } from '../services/data-QA.service';
 import { HttpClient } from "@angular/common/http"; 
+import { SessionService } from '../services/session.service';
 
 // form '../services/data-QA.service'
 @Component({
@@ -24,7 +25,11 @@ export class AnswerQuestionsComponent implements OnInit {
 	years: any[]
 	currentYear = (new Date()).getFullYear();
 	range = [];				
-	constructor(private _router: Router, private dataQAservice: dataQAservice, private dataAccess: DataAccessService,private httpClient: HttpClient)
+	constructor(private _router: Router, 
+		private dataQAservice: dataQAservice, 
+		private dataAccess: DataAccessService,
+		private httpClient: HttpClient,
+		public session:SessionService)
 	{
 		for (let _k = 1950; _k < this.currentYear+1; _k++) 
 		{
@@ -165,6 +170,7 @@ export class AnswerQuestionsComponent implements OnInit {
 
 		this.optionSelected[this.i] = selectedOpt;
 		this.answerkey.push(new AnswerKey(this.characteristic, val));
+		this.answerkey.push(new AnswerKey('accountUserId', this.session.accountUserId));
 
 		let result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 

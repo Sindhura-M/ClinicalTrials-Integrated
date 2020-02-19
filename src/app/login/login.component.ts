@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
 	    .subscribe(
 	        (response) => {
 	          this.auth.doSignIn(
-	            response.token
+	            response.token, response.userDetails.user.id
 	            //response.name
 	          );
 	          if(response.userDetails.user.roles[0].role == 'ADMIN'){

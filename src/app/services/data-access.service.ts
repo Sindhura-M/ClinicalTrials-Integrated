@@ -97,10 +97,12 @@ export class DataAccessService {
 
   removeUser(userID: number): Observable<any> {
     const data = userID;
+    let token = 'Bearer' + ' ' + this.session.accessToken;
     const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
           'Content-Type' : 'application/json',
+          'Authorization': token,
           'Accept': 'application/json'
         })
       };
@@ -129,10 +131,12 @@ export class DataAccessService {
   }
 
   fetchTrialsSummary(trialID: string): Observable<any> {
+    let token = 'Bearer' + ' ' + this.session.accessToken;
     const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
           'Content-Type' : 'application/json',
+          'Authorization': token,
           'Accept': 'application/json'
         })
       };

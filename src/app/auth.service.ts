@@ -37,11 +37,12 @@ export class AuthService {
     this.route.navigate(['/index']);
   }
 
-  public doSignIn(accessToken: string) {
+  public doSignIn(accessToken: string, accountUserId: any) {
     if (!accessToken) {
       return;
     }
     this.session.accessToken = accessToken;
+    this.session.accountUserId = accountUserId;
   }
 
   /*public doSignIn(accessToken: string, name: string) {

@@ -9,6 +9,7 @@ export class SessionService {
 	public accessToken: string;
   	public name: string;
   	public emailAddress: string;
+  	public accountUserId: any;
 
   	constructor() { }
 
@@ -16,5 +17,6 @@ export class SessionService {
 	    this.accessToken = null;
 	    this.name = null;
 	    this.emailAddress = null;
+	    this.accountUserId = null;
 	}
 }
