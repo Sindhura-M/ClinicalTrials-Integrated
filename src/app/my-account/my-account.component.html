@@ -52,7 +52,9 @@
 		<mat-tab label="My condition" #mycondition>
 			<div class="myAccount">
 				<div class="title">My condition 
-					<span class="floatRight"><i class="material-icons"> email </i>
+					<span class="floatRight">
+					<a [routerLink]="['/stepper','3'] "><i class="material-icons"> edit </i></a> 
+					<i class="material-icons"> email </i>
 					<i class="material-icons" (click)="printPage()"> print </i></span>
 				</div>
 				<hr>
@@ -297,7 +299,7 @@
 					</table>
 				</div>
 
-				<hr>
+<!-- 				<hr>
 				<h6>Trials that no longer match my condition</h6>
 				<p>We recommend that you remove these from your saved list</p>
 				<div class="mytrials-table invalid-trials">
@@ -341,7 +343,7 @@
 						  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 						  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 					</table>
-				</div>
+				</div> -->
 			</div>
 		</mat-tab>
 	</mat-tab-group>

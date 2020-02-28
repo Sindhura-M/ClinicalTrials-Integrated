@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ControlContainer, FormControl } from '@angular/forms';
 import { AuthService } from '.././auth.service';
 import { DataAccessService } from '../services/data-access.service';
@@ -10,7 +10,7 @@ import { SessionService } from '../services/session.service';
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
 	
 	constructor(private fb: FormBuilder, 
 		private controlContainer: ControlContainer, 
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
 		);
 	}
 
-	doSignIn() : void {
+	doSignIn() {
 		if (this.loginForm.invalid) {
 	      this.showInputErrors = true;
 	      return;
@@ -86,9 +86,24 @@ export class LoginComponent implements OnInit {
 	          if(response.userDetails.user.roles[0].role == 'ADMIN'){
 	          	this.router.navigate(['/users']);
 	          }else if(response.userDetails.user.roles[0].role == 'user'){
+	          	//stepper.next();
 	          	this.router.navigate(['/myaccount']);
+	          	/*this.dataAccess.getMyAccTrials().subscribe( data => {
+		      		if(data == '' ) { 
+		      			//this.session.trials = false;
+		      			stepper.next();
+		      		} else if ( data != '' ) {
+		      			this.router.navigate(['/myaccount']);
+		      		}
+		  		});*/
+
+	          	//let step = this.ngAfterViewInit();
+	          	//this.stepper.selectedIndex = 2;
+
 	          }
-	        },
+
+
+		    },
 	        (error) => {
 	          this.isBusy = false;
 			  this.hasFailed = true;
@@ -97,4 +112,5 @@ export class LoginComponent implements OnInit {
 	        }
 	    );
 	}
+
 }

@@ -36,11 +36,9 @@ export class AnswerQuestionsComponent implements OnInit {
 				this.range.push(_k);
 		}
 		this.years = this.range;
-		console.log(this.years);
 	}
 	ngOnInit() {
 		this.httpClient.get("assets/questions.json").subscribe(data =>{
-			console.log(data);
 			this.quizlist = data;
 			this.question = this.quizlist[0].question;
 			this.option = this.quizlist[0].anslistobj;
@@ -98,7 +96,6 @@ export class AnswerQuestionsComponent implements OnInit {
 	events: string[] = [];
 	addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
 		this.events.push(`${type}: ${event.value}`);
-		console.log("this.events" + this.events);
 	}
 
 	next(e, i) {
@@ -130,12 +127,10 @@ export class AnswerQuestionsComponent implements OnInit {
 	}
 
 	onMonthSelect(event, MM) {
-		console.log(event.value);
 		this.selectedMonth = MM;
 	}
 
 	onYearSelect(event, YY, code) {
-		console.log(event.value);
 		this.selectedYear = YY;
 		this.onCheck(event, code);
 	}
@@ -144,8 +139,7 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	onCheck(e,selectedOpt) {
 
-		let val = e.value;
-		console.log("Value is : ", val );		
+		let val = e.value;		
 
 		this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
 
@@ -174,13 +168,10 @@ export class AnswerQuestionsComponent implements OnInit {
 
 		let result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 
-		console.log("result" + JSON.stringify(result));
 		let resultQA = this.dataQAservice.getData();
 
 		this.array3 = [];
 		this.array3.push(Object.assign({}, resultQA, result));
-
-		console.log(this.array3);
 	}
 
 	toggleTreatmentOPtions(e, value) {

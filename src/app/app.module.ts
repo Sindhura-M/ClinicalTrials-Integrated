@@ -70,6 +70,7 @@ const appRoutes: Routes = [
    { path: '', redirectTo: '/index', pathMatch: 'full'},
    { path: 'index', component: StepperComponent},
    { path: 'stepper', component: StepperComponent},
+   { path: 'stepper/:step', component: StepperComponent},
    { path: '**', component: StepperComponent}
 ];
 

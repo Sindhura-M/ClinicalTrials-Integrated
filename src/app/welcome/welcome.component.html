@@ -1,5 +1,5 @@
 <!--h4 *ngIf="!user">Welcome {{user}}</h4-->
-<div class="container welcome-container" *ngIf="!showSuccessMsg && !showErrorMsg"> 
+<div class="container welcome-container"> 
     <div *ngIf="true">
         <div class="large-12 small-12 cloumn">
             <mat-radio-group aria-label="Select an option">Who is this profile for?
@@ -56,19 +56,26 @@
                 <option value="M/F">Others</option>
             </select>
         </div>
+        <div *ngIf="showErrorMsg" class="text-center title-card-sub">
+            <p>User already exists. Please <a href="/">login</a> to continue</p>
+        </div>
+
         <hr>
 
         <div class="row">
             <span> All fields are mandatory</span>
-            <button mat-button class="button-small" (click)="onNext($event)">NEXT</button>
+            disableNext == {{disableNext}}
+            showErrorMsg == {{showErrorMsg}}
+            <button mat-button class="button-small" [disabled]="disableNext" matStepperNext>NEXT</button>
+            <button mat-button class="button-small" (click)="onNext($event)">SAVE</button>
         </div>
     </div>
 </div>
-
+<!-- 
 <div *ngIf="showSuccessMsg" class="text-center title-card-sub">
     <p>Account created successfully. Please <a href="/">login</a> to continue</p> 
 </div>
 <div *ngIf="showErrorMsg" class="text-center title-card-sub">
     <p>User already exists. Please <a href="/">login</a> to continue</p>
-</div>
+</div> -->
 

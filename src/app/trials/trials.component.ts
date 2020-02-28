@@ -31,7 +31,6 @@ export class TrialsComponent implements OnInit {
   displayedColumns: String[] = ['Study title', 'Interventions', 'Phase', 'Sponsor', 'Sex', 'Location', 'Save'];
   
   saveTrial(event, trialID: number) {
-    console.log('trialID'+ trialID);
 
     if (event.currentTarget.innerText === "star_border") {
       event.currentTarget.innerText = 'star';

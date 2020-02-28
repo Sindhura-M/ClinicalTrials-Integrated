@@ -27,12 +27,9 @@ export class UserDetailsComponent implements OnInit {
     //this.http.getUserDetails().subscribe( data => {
     //this.dataSource = data;
 
-    console.log("dataSource", JSON.stringify(this.dataSource));
-
     this.userObj = this.dataSource.filter(function (tmp) {
                      return tmp.quesId === id;
                 });
-    console.log("userObj", JSON.stringify(this.userObj));
     this.selectedUserObj = this.userObj[0];
     this.fullName = this.selectedUserObj.account.firstName + ' ' + this.selectedUserObj.account.lastName;
   }

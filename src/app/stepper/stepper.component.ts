@@ -1,10 +1,12 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '.././auth.service';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, Router, Params } from '@angular/router';
 import { MatStepper } from '@angular/material/stepper';
+import { SessionService } from '../services/session.service';
+import { dataAccountProfile } from '../services/dataAccountProfile.service';
 
 @Component({
 	selector: 'app-stepper',
@@ -13,7 +15,14 @@ import { MatStepper } from '@angular/material/stepper';
 })
 
 @Injectable()
-export class StepperComponent implements CanActivate{
+export class StepperComponent implements CanActivate {
+
+	constructor(private _formBuilder: FormBuilder, 
+	public authService: AuthService, 
+	public session:SessionService,
+	private dataAccountProfile: dataAccountProfile,
+	private router: Router) {}
+
 	title = 'clinical-trials-connect-angular';
 	isLinear = false;
 	firstFormGroup: FormGroup;
@@ -21,8 +30,7 @@ export class StepperComponent implements CanActivate{
 	user: any;
 	loggedIn:boolean = false;
 	showGoogleLogin:boolean = true;
-
-	constructor(private _formBuilder: FormBuilder, public authService: AuthService, private router: Router) {}
+	stepperIndex: any = 0;
 
 	canActivate(_route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 			if (this.loggedIn) {
@@ -39,6 +47,7 @@ export class StepperComponent implements CanActivate{
 			window.location.reload();
 			return false;
 	}
+
 	ngOnInit() {
 		this.firstFormGroup = this._formBuilder.group({
 			email: ['', Validators.required],
@@ -49,6 +58,14 @@ export class StepperComponent implements CanActivate{
 			dob: ['', Validators.required],
 			gender: ['', Validators.required]
 		});
+
+		if (this.session.accessToken) {
+			this.loggedIn = true;
+		}
+
+		if (this.router.url.indexOf('/stepper/3') > -1) {
+			this.stepperIndex = 2;
+		}
 	}
 
 	onGoogleLogin(stepper: MatStepper){
@@ -58,8 +75,13 @@ export class StepperComponent implements CanActivate{
 				//this.router.navigate(['/login']);
 				this.user = res.user.displayName;
 				this.authService.doSignIn(
-		            res.token, ''
+		            res.credential.idToken, res.user.email
 	            );
+
+	            let temp = [];
+				temp.push(Object.assign({roles: [{"role": "user"}]}, {emailAddress: res.user.email}, {firstName: res.additionalUserInfo.profile.given_name}, {lastName: res.additionalUserInfo.profile.family_name}, {password: '***'}));
+				this.dataAccountProfile.setData(temp);
+
 	            this.loggedIn = true;
 			})
 	}

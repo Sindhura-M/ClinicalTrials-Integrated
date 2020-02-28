@@ -13,6 +13,8 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { dataAccountProfile } from '../services/dataAccountProfile.service';
 import { HttpClient } from "@angular/common/http";
 import { ConditionChangedConfirmationComponent } from '../condition-changed-confirmation/condition-changed-confirmation.component';
+import { SessionService } from '../services/session.service';
+import { Router, Params } from '@angular/router';
 
 @Component({
   selector: 'app-my-account',
@@ -26,7 +28,9 @@ export class MyAccountComponent implements OnInit {
   		private dataQAservice: dataQAservice, 
   		private dataAccountProfile: dataAccountProfile,
   		private httpClient: HttpClient, 
-  		public dialog: MatDialog ) { }
+  		public dialog: MatDialog,
+  		public session:SessionService,
+  		private router: Router ) { }
   	
 	dialogRef: MatDialogRef<ConditionChangedConfirmationComponent>;
 	public tabIndex =2;
@@ -44,19 +48,16 @@ export class MyAccountComponent implements OnInit {
 		});*/
 		//const tempData = this.dataQAservice.getData();
 		this.httpClient.get("assets/questions.json").subscribe(data =>{
-			console.log(data);
 			this.quizlist = data;
 			})
 		this.dataAccess.getAccountDetails().subscribe( data => {
 	    	this.myAccDetails=data;
 	    },
-	      error => {
+	      	error => {
 	        this.error = error;
 	    });
 
 	    let profile = this.dataAccountProfile.getData();
-		console.log('dataAccountProfile' + profile);
-
 		
 		this.dialogRef = this.dialog.open(ConditionChangedConfirmationComponent,  
 			{
@@ -65,7 +66,8 @@ export class MyAccountComponent implements OnInit {
 			this.dialogRef.componentInstance.confirmMessage = "Has your condition changed since you last logged in?"
 			this.dialogRef.afterClosed().subscribe(result => {
 			  if(result) {
-				this.tabIndex=1;
+				//this.tabIndex=1;
+				this.router.navigate(['/stepper/3']);
 			  }
 			  this.dialogRef = null;
 			});

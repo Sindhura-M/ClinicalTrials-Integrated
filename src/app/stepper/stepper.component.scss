@@ -12,6 +12,11 @@ html, body {
 /deep/ .mat-stepper-horizontal {
 	font-family: 'Open Sans', 'Helvetica' !important;
 }
+
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}
+
 /deep/ .stepper	.mat-step-icon {
 	border-color: #a168f2;
 	background-color: #FCD8E2;

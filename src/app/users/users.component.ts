@@ -74,7 +74,7 @@ export class UsersComponent implements OnInit {
       //results = [ ...this.dataSource[i], ...data[i]];
       results.push(Object.assign({}, data[i], this.dataSource[i]));
     }
-    console.log('results',results);
+
     this.excelService.exportExcel(results, 'users')  
   }
 

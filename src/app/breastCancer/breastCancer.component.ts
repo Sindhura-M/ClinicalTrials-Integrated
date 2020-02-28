@@ -14,7 +14,6 @@ export class BreastCancerComponent implements OnInit {
 
   ngOnInit() {
     this.httpClient.get("assets/BC-treatments.json").subscribe(data =>{
-      console.log(data);
       this.dataSource = data;
       })
     }

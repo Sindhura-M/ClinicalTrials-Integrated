@@ -9,6 +9,7 @@ import { AuthService } from '.././auth.service';
 //import { AnswerKey } from '.././quiz/quizmodel';
 import { dataQAservice } from '../services/data-QA.service';
 import { dataAccountProfile } from '../services/dataAccountProfile.service';
+import { SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-welcome',
@@ -20,7 +21,8 @@ export class WelcomeComponent implements OnInit {
 
 	  public accountProfile: any = [];
 	  error: String[];
-	  showSuccessMsg: boolean = false;
+	  disableNext: boolean = true;
+	  //showSuccessMsg: boolean = false;
 	  showErrorMsg: boolean = false;
 
 	  constructor(public auth: AuthService, 
@@ -29,7 +31,8 @@ export class WelcomeComponent implements OnInit {
 	  	private route: ActivatedRoute, 
 	  	private dataAccess: DataAccessService, 
 	  	private dataQAservice: dataQAservice, 
-	  	private dataAccountProfile: dataAccountProfile) { }
+	  	private dataAccountProfile: dataAccountProfile,
+	  	public session:SessionService) { }
 
 	  ngOnInit() {
 	  }
@@ -52,16 +55,13 @@ export class WelcomeComponent implements OnInit {
 	firstName: String;
 
 	onDaySelect(event, DD) {
-		    console.log(event.value);
 	    this.selectedDay = DD;
 	}
 	onMonthSelect(event, MM) {
-		    console.log(event.value);
 	    this.selectedMonth = MM;
 	}
 
 	onYearSelect(event, YY, code) {
-	    console.log(event.value);
 	    this.selectedYear = YY;
 	    this.check(event,this.selectedYear, code);
 	}
@@ -72,8 +72,6 @@ export class WelcomeComponent implements OnInit {
 	  //value: string[] = [];
 	  check(e, val, character) {
 
-	  	console.log(" Value is : ", val );
-
 	  	this.birthDate = this.selectedYear + '-' + this.selectedMonth + '-' + this.selectedDay;
 	  	if (character === 'dob'){
 	  		val = this.birthDate;
@@ -82,8 +80,6 @@ export class WelcomeComponent implements OnInit {
 	  	this.answerkey.push(new AnswerKey(character, val));
 
 	  	this.result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
-	  	//console.log("result" + JSON.stringify(result));
-
 	  	this.dataQAservice.setData(this.result);
 
 	}
@@ -102,11 +98,34 @@ export class WelcomeComponent implements OnInit {
 			this.dataQAservice.setData(this.result);
 
 			if (data.errorMessage == null) {
-				this.showSuccessMsg = true;
+				//this.showSuccessMsg = true;
 				this.showErrorMsg = false;				
 			} else if (data.errorMessage != null && data.id == null){
-				this.showSuccessMsg = false;
+				//this.showSuccessMsg = false;
 	        	this.showErrorMsg = true;
+			}
+
+			if (!this.session.accessToken){
+				let loginDetails = [];
+				loginDetails.push(Object.assign({'username': tempData[0].emailAddress},{'password': tempData[0].password}));
+				loginDetails = loginDetails[0];
+				this.session.emailAddress = tempData[0].emailAddress;
+
+			    this.dataAccess
+			    .signIn(loginDetails)
+			    .subscribe(
+			        (response) => {
+			          this.auth.doSignIn(
+			            response.token, response.userDetails.user.id
+			            //response.name
+			          );
+			         this.disableNext = false;
+				    },
+			        (error) => {
+					  //this.router.navigate(['/myaccount']);
+			          return;
+			        }
+			    );
 			}
 		},
 		error => {
