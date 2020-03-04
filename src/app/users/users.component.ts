@@ -20,17 +20,20 @@ export class UsersComponent implements OnInit {
   submitted = false;
   username: string = '';
   password: string = '';
+  role: any;
 
   constructor(private dataAccountProfile: dataAccountProfile, private http: DataAccessService, private usersList : UsersListService, private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
 
    public roles: any = [];
+
   public dataSource: any = [];
   ngOnInit() {
 
     this.http.getUserDetails().subscribe( data => {
       this.dataSource = data;
       this.usersList.setData(data);
+      this.role = this.dataSource[0].roles[0].role;
     });
 
     this._formValidate();
@@ -55,13 +58,19 @@ export class UsersComponent implements OnInit {
           });
       }
       this.dialogRef = null;
-      window.location.reload();
-      /*this.http.getUserDetails().subscribe( data => {
+      //window.location.reload();
+      this.http.getUserDetails().subscribe( data => {
         this.dataSource = data;
         this.usersList.setData(data);
-      });*/
+      });
     });
   }
+
+  /*remove(item){
+    this. dataSource = this. dataSource.filter(item => item.id !== id);
+    this.dataSource.push();
+  }*/
+
   exportAllUsers():void {
 
     let data = [];

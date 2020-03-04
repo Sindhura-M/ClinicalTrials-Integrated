@@ -28,10 +28,12 @@ export class UserDetailsComponent implements OnInit {
     //this.dataSource = data;
 
     this.userObj = this.dataSource.filter(function (tmp) {
-                     return tmp.quesId === id;
+                    if(tmp.id === id) {
+                     return tmp;
+                    }
                 });
     this.selectedUserObj = this.userObj[0];
-    this.fullName = this.selectedUserObj.account.firstName + ' ' + this.selectedUserObj.account.lastName;
+    this.fullName = this.selectedUserObj.firstName + ' ' + this.selectedUserObj.lastName;
   }
 
 

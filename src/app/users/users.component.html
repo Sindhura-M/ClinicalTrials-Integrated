@@ -1,27 +1,28 @@
 <div class="admin">
 	<mat-tab-group>
 		<mat-tab label="Users">
+
 			<!-- <span class="float-left"><button (click)="next(e)" class="button-small-active">Create new user</button></span>
 			<br/>  -->
 			<!--div class="title-card-sub">List of Users</div-->
+
 			<div class="users-table">
 				<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 2rem;">
-
-				  <ng-container matColumnDef="Id">
+				  <ng-container matColumnDef="Id" >
 				    <th mat-header-cell *matHeaderCellDef> Id</th>
 				    <td mat-cell *matCellDef="let element">
-				   {{element.account.id}}</td>
+				   {{element.id}}</td>
 				  </ng-container>
 				  <!-- href="#/individualtrial/{{element.id}} -->
 
 				  <ng-container matColumnDef="Name">
 				    <th mat-header-cell *matHeaderCellDef> Name </th>
-				    <td mat-cell *matCellDef="let element">{{element.account.firstName}} {{element.account.lastName}}</td>
+				    <td mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</td>
 				  </ng-container>
 
 				  <ng-container matColumnDef="Email">
 				    <th mat-header-cell *matHeaderCellDef> Email </th>
-				    <td mat-cell *matCellDef="let element"> <span class="">{{element.account.emailAddress}}</span> </td>
+				    <td mat-cell *matCellDef="let element"> <span class="">{{element.emailAddress}}</span></td>
 				  </ng-container>
 
 				  <!--ng-container matColumnDef="Role">
@@ -32,8 +33,8 @@
 				  <ng-container matColumnDef="Action">
 				    <th mat-header-cell *matHeaderCellDef> Action </th>
 				    <td mat-cell *matCellDef="let element" class="text-center"> 
-				    	<button [routerLink]="['/userdetails',element.quesId]" class="button-small">View Details</button>
-						<button (click)="openConfirmationDialog($event, element.quesId)" class="button-small">Delete</button>
+				    	<button [routerLink]="['/userdetails',element.id]" class="button-small">View Details</button>
+						<button (click)="openConfirmationDialog($event, element.id)" class="button-small">Delete</button>
 						<!-- <button (click)="downloadThisUser()" class="button-small">Download</button> -->
 				    </td>
 				  </ng-container>

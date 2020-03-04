@@ -125,6 +125,7 @@ export class MyAccountComponent implements OnInit {
          
 		this.dataAccess.getMyAccTrials(this.userId).subscribe( data => {
 	    	this.myAccDetails=data;
+	    	this.dataSource = data.summaries;
 	    },
 	      	error => {
 	        this.error = error;

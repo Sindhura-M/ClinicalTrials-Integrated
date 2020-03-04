@@ -7,6 +7,7 @@
 	<div class="row users-data">
 		<div class="col-md-6">
 			<form>
+			
 				<div class="form-group">
 					<label for="name" class="group-label">User Name</label>
 					<input type="text" class="form-control input-group-field" placeholder="Name"
@@ -30,7 +31,7 @@
 				</div-->
 				<div class="form-group">
 					<label for="name" class="group-label">Postcode</label>
-					<input type="text" class="form-control input-group-field" placeholder="Postcode" value="{{selectedUserObj.account.postCode}}" readonly/>
+					<input type="text" class="form-control input-group-field" placeholder="Postcode" value="{{selectedUserObj.postCode}}" readonly/>
 				</div>
 				<!--div class="form-group">
 					<label for="name">ClinicalTrials.gov</label>
@@ -47,11 +48,11 @@
 				<div class="form-group">
 					<label for="name" class="group-label">Age</label>
 					<input type="text" class="form-control input-group-field" placeholder="Age" 
-				value="{{selectedUserObj.account.age}}"readonly/>
+				value="{{selectedUserObj.age}}"readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">Sex</label>
-					<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.account.gender}}" readonly/>
+					<input type="text" class="form-control input-group-field" placeholder="Sex" value="{{selectedUserObj.gender}}" readonly/>
 				</div>
 
 				<br/>
@@ -62,37 +63,37 @@
 				<div class="form-group">
 					<label for="name" class="group-label">Phase</label>
 					<input type="text" class="form-control input-group-field" placeholder="Phase" 
-					value="{{selectedUserObj.stage}}" readonly/>
+					value="{{selectedUserObj.condition.stage}}" readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">PMP</label>
 					<input type="text" class="form-control input-group-field" placeholder="PMP" 
-					value="{{selectedUserObj.pmp}}"readonly/>
+					value="{{selectedUserObj.condition.pmp}}"readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">ECOG</label>
 					<input type="text" class="form-control input-group-field" placeholder="ECOG" 
-					value="{{selectedUserObj.ecog}}"readonly/>
+					value="{{selectedUserObj.condition.ecog}}"readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">ER</label>
 					<input type="text" class="form-control input-group-field" placeholder="ER" 
-					value="{{selectedUserObj.er}}"readonly/>
+					value="{{selectedUserObj.condition.er}}"readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">PR</label>
 					<input type="text" class="form-control input-group-field" placeholder="PR" 
-					value="{{selectedUserObj.pr}}"readonly/>
+					value="{{selectedUserObj.condition.pr}}"readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">HER2</label>
 					<input type="text" class="form-control input-group-field" placeholder="HER2" 
-					value="{{selectedUserObj.her2}}"readonly/>
+					value="{{selectedUserObj.condition.her2}}"readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">Tumour Size</label>
 					<input type="text" class="form-control input-group-field" placeholder="Tumour Size" 
-					value="{{selectedUserObj.tumourSize}}"readonly/>
+					value="{{selectedUserObj.condition.tumourSize}}"readonly/>
 				</div>
 				<!--div class="form-group">
 					<label for="name">Nodal Status</label>
@@ -102,7 +103,7 @@
 				<div class="form-group">
 					<label for="name" class="group-label">Node Number</label>
 					<input type="text" class="form-control input-group-field" placeholder="Node Number"
-					value="{{selectedUserObj.nodalStatus}}" readonly/>
+					value="{{selectedUserObj.condition.nodalStatus}}" readonly/>
 				</div>
 				<!--div class="form-group">
 					<label for="name">Stage</label>
@@ -111,28 +112,28 @@
 				</div-->
 				<div class="form-group">
 					<label for="name" class="group-label">Has cancer spread to other parts?</label>
-					<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?" value="{{selectedUserObj.spreadToOtherParts}}" readonly/>
+					<input type="text" class="form-control input-group-field" placeholder="Has cancer spread to other parts?" value="{{selectedUserObj.condition.spreadToOtherParts}}" readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">BRCA 1/2 Mutation</label>
 					<input type="text" class="form-control input-group-field" placeholder="BRCA 1/2 Mutation" 
-					value="{{selectedUserObj.brcamutation}}" readonly/>
+					value="{{selectedUserObj.condition.brcamutation}}" readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">Surgery</label>
 					<input type="text" class="form-control input-group-field" placeholder="Surgery" 
-					value="{{selectedUserObj.surgery}}" readonly/>
+					value="{{selectedUserObj.condition.surgery}}" readonly/>
 				</div>
 
 				<div class="form-group">
 					<label for="name" class="group-label">Chemotherapy</label>
 					<input type="text" class="form-control input-group-field" placeholder="Chemotherapy"
-					value="{{selectedUserObj.chemotherapy}}"  readonly/>
+					value="{{selectedUserObj.condition.chemotherapy}}"  readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name"class="group-label">Hormones</label>
 					<input type="text" class="form-control input-group-field" placeholder="Hormones" 
-				value="{{selectedUserObj.hormones}}" readonly/>
+				value="{{selectedUserObj.condition.hormones}}" readonly/>
 				</div>
 				<!-- <div class="form-group">
 					<label for="name">Targeted Tx HER2 Therapy</label>
@@ -149,12 +150,12 @@
 				<div class="form-group">
 					<label for="name" class="group-label">Immunotherapy</label>
 					<input type="text" class="form-control input-group-field" placeholder="Immunotherapy"
-					value="{{selectedUserObj.immunotherapy}}"  readonly/>
+					value="{{selectedUserObj.condition.immunotherapy}}"  readonly/>
 				</div>
 				<div class="form-group">
 					<label for="name" class="group-label">Radiotherapy</label>
 					<input type="text" class="form-control input-group-field" placeholder="Radiotherapy"
-					value="{{selectedUserObj.radiotherapy}}"  readonly/>
+					value="{{selectedUserObj.condition.radiotherapy}}"  readonly/>
 				</div>
 				<div class="form-group"> 
 					<button (click)="goBack($event)" class="button-small-active">Back</button>
