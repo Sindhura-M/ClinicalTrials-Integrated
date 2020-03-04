@@ -1,6 +1,6 @@
 {
 	"/api/*" : {
-		"target": "http://ec2-13-238-38-207.ap-southeast-2.compute.amazonaws.com",
+		"target": "http://ec2-13-238-38-207.ap-southeast-2.compute.amazonaws.com:9090",
 		"secure": false,
 		"loglevel":"debug",
 		"changeOrigin": true

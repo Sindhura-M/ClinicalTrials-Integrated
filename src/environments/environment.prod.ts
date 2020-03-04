@@ -12,6 +12,6 @@ export const environment = {
     storageBucket: "",
     messagingSenderId: "292032674391"
   },
-  apiUrl: 'http://ec2-13-238-38-207.ap-southeast-2.compute.amazonaws.com/api' 
+  apiUrl: 'http://ec2-13-238-38-207.ap-southeast-2.compute.amazonaws.com:9090/api' 
 };
 

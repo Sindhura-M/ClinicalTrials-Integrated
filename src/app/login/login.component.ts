@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ControlContainer, FormControl } from '@angular/forms';
 import { AuthService } from '.././auth.service';
 import { DataAccessService } from '../services/data-access.service';
@@ -10,7 +10,7 @@ import { SessionService } from '../services/session.service';
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, AfterViewInit {
+export class LoginComponent implements OnInit {
 	
 	constructor(private fb: FormBuilder, 
 		private controlContainer: ControlContainer, 
