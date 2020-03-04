@@ -33,7 +33,7 @@ export class DataAccessService {
   private _removeUser: string = environment.apiUrl + '/ctc/trials/removeUser';
   private _myAcc: string = environment.apiUrl + '/ctc/getAccountDetails';
   private _addAdmin: string = environment.apiUrl + '/ctc/addAdminUser'; 
-  //private _myTrial: string = environment.apiUrl + '/ctc/trials/trialsSummary';
+  private _myTrial: string = environment.apiUrl + '/ctc/trials/userSpecificTrials';
 
 
   //private _authURL:  string = '';
@@ -79,10 +79,10 @@ export class DataAccessService {
 
   }
 
-/*  getMyAccTrials(): Observable<any> {
-    let token = 'Bearer' + ' ' + this.session.accessToken;
-
-      const httpOptions = {
+  getMyAccTrials(userID :number): Observable<any> {
+   const data=userID;
+   let token = 'Bearer' + ' ' + this.session.accessToken;
+     const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
           'Content-Type' : 'application/json',
@@ -90,13 +90,13 @@ export class DataAccessService {
           'Accept': 'application/json'
         })
       };
- 
-      return this.client.get<any>(this._myTrial,httpOptions)
+      let _url = this._myTrial + '/' + userID;
+      return this.client.post<any>(_url,data,httpOptions)
       .pipe(
         catchError(this.handleError)
       );
 
-  }*/
+  }
 
   getUserDetails(): Observable <any>{
     let token = 'Bearer' + ' ' + this.session.accessToken;

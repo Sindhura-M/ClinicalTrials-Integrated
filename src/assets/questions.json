@@ -2,10 +2,10 @@
     "ID": 1, 
     "question": "What is the patient's menopausal status?", 
     "optionType": "radio",
-    "anslistobj": [{"code":"Postmenopausal", "status":"Y"},
-      {"code":"Premenopausal","status":"N"},
-      {"code":"Not sure","status":"Y/N"},
-      {"code":"Not applicable (male)","status":"N"}
+    "anslistobj": [{"code":"Postmenopausal", "status":"Y" ,"value":"false"},
+      {"code":"Premenopausal","status":"N","value":"false"},
+      {"code":"Not sure","status":"Y/N","value":"false"},
+      {"code":"Not applicable (male)","status":"N","value":"false"}
     ],
     "characteristic": "pmp"
   },
@@ -14,49 +14,65 @@
     "question": "Date of initial diagnosis?", 
     "optionType": "date",
     "anslistobj": [],
+    "value":"",
     "characteristic": "diagnosis"
   },
   {
     "ID": 3, 
     "question": "What type of breast cancer(tumor type) does the patient have?", 
     "optionType": "radio",
-    "anslistobj": [{"code":"Ductal Carcinoma In Situ(DCIS)","status":"DCIS"},
-      {"code":"Lobular Carcinoma In Situ(LCIS)","status":"LCIS"},
-      {"code":"Other","status":"Other"},
-      {"code":"Not sure","status":"Y/N"}],
+    "anslistobj": [{"code":"Ductal Carcinoma In Situ(DCIS)","status":"DCIS","value":"false"},
+      {"code":"Lobular Carcinoma In Situ(LCIS)","status":"LCIS","value":"false"},
+      {"code":"Other","status":"Other","value":"false"},
+      {"code":"Not sure","status":"Y/N","value":"false"}],
     "characteristic": "tumorType"
   },
   {
     "ID": 4, 
     "question": "What is the size of the primary tumour? <br/><small>Refer to the size of the invasive carcinoma only, this does not include ductal carcinoma in situ (DCIS) or lobular carcinoma in situ (LCIS).<br/></small>", 
     "optionType": "text",
-    "anslistobj": [{"code":"Not sure", "status":"0"}],
+    "anslistobj": [{"code":"Not sure", "status":"0","value":""}],
     "characteristic": "tumourSize"
   },
   {
     "ID": 5, 
     "question": "How many axillary (armpit) lymph nodes were involved with cancer?", 
     "optionType": "radio",
-    "anslistobj": [{"code":"0","status":"0"},
-      {"code":"1-3","status":"1-3"},
-      {"code":"4-9","status":"4-9"},
-      {"code":"≥10","status":"≥10"}],
+    "anslistobj": [{"code":"0","status":"0","value":"false"},
+      {"code":"1-3","status":"1-3","value":"false"},
+      {"code":"4-9","status":"4-9","value":"false"},
+      {"code":"≥10","status":"≥10","value":"false"}],
     "characteristic": "nodeNumber"
   },
   {
     "ID": 6, 
     "question": "Has the cancer spread to other parts of the body?", 
     "optionType": "radio",
-    "anslistobj": [{"code":"Yes", "status":"Y"},
-      {"code":"No", "status":"N"},
-      {"code":"Not sure", "status":"Y/N"}],
+    "anslistobj": [{"code":"Yes", "status":"Y","value":"false"},
+      {"code":"No", "status":"N","value":"false"},
+      {"code":"Not sure", "status":"Y/N","value":"false"}],
     "characteristic": "spreadToOtherParts"
   },
   {
     "ID": 7, 
     "question": "Has the breast cancer metastasised (spread) from the breast to any of the following areas?Please select all that apply.", 
     "optionType": "checkbox",
-    "anslistobj": ["Breast cancer has not spread ", "Lymph nodes near the tumour", "Tissue adjacent to primary tumor (locally advanced)", "Distant lymph nodes", "Other breast", "Abdomen", "Bone (including vertebrae)", "Brain", "Fluid around the lungs (malignant pleural effusion)", "Liver", "Lung", "Skin", "Other", "Not sure"],
+    "anslistobj": [{"name":"Breast cancer has not spread", "checked":false},
+      {"name":"Lymph nodes near the tumour","checked":false},
+      {"name":"Tissue adjacent to primary tumor (locally advanced)","checked":false},
+      {"name":"Distant lymph nodes","checked":false },
+      {"name":"Other breast","checked":false },
+      {"name":"Abdomen","checked":false},
+      {"name":"Bone (including vertebrae)","checked":false},
+      {"name":"Brain","checked":false},
+      {"name":"Fluid around the lungs (malignant pleural effusion)","checked":false},
+      {"name":"Liver","checked":false},
+      {"name":"Lung","checked":false},
+      {"name":"Skin","checked":false},
+      {"name":"Other","checked":false},
+      {"name":"Not Sure","checked":false}
+           
+        ],
     "characteristic": "breastCancerSpreadToOtherParts"
   },
   {
@@ -64,9 +80,9 @@
     "question": "What is the hormone receptor status of the cancer (ER and/or PR and/or HER2 test results)?Please select all that apply.", 
     "optionType": "multipleRadio",
     "anslistobj": [
-      {"question": "Estrogen Receptor (ER)",  "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}], "subcharacteristic": "ER"},
-      {"question": "Progesterone Receptor (PR)", "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}], "subcharacteristic": "PR"},
-      {"question": "HER Receptor (HER2)", "anslistobj": [{"code":"Positive","status":"P"}, {"code":"Negative","status":"N"}, {"code":"Not sure","status":"Y/N"}, {"code":" Has not yet been tested","status":"Y/N"}], "subcharacteristic": "HER2"}
+      {"question": "Estrogen Receptor (ER)",  "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}], "subcharacteristic": "ER"},
+      {"question": "Progesterone Receptor (PR)", "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}], "subcharacteristic": "PR"},
+      {"question": "HER Receptor (HER2)", "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}, {"code":" Has not yet been tested","status":"Y/N","value":"false"}], "subcharacteristic": "HER2"}
     ],
     "characteristic": ""
   },
@@ -84,27 +100,27 @@
     "ID": 10, 
     "question": "Select the best description of the patient's daily activity level.", 
     "optionType": "radio",
-    "anslistobj": [{"code":"Fully active","status":"0"},
-      {"code":"Restricted in physically strenuous activity but able to walk around","status":"1"},
-      {"code":"Confined to a bed or chair for less than half the day","status":"2"},
-      {"code":"Confined to a bed or chair for more than half the day","status":"3"},
-      {"code":"Completely disabled; totally confined to a bed or chair ","status":"4"},
-      {"code":"Not sure","status":"5"}],
-    "characteristic": "ECOG 0-1/Fitness"
+    "anslistobj": [{"code":"Fully active","status":"0","value":"false"},
+      {"code":"Restricted in physically strenuous activity but able to walk around","status":"1","value":"false"},
+      {"code":"Confined to a bed or chair for less than half the day","status":"2","value":"false"},
+      {"code":"Confined to a bed or chair for more than half the day","status":"3","value":"false"},
+      {"code":"Completely disabled; totally confined to a bed or chair ","status":"4","value":"false"},
+      {"code":"Not sure","status":"5","value":"false"}],
+    "characteristic": "ecog"
   },
   {
     "ID": 11, 
     "question": "Please select all forms of treatment the patient has received for early stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
-    "optionType": ["selectbox-earlyStage"],
+    "optionType": "selectbox-earlyStage",
     "anslistobj": [{"selectbox" : [
-                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "date"},
-                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "date"},
-                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "No. of months"},
-                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}], "duration": "No. of months"},
-                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]}
+                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date"},
+                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date"},
+                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months"},
+                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months"},
+                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
     "characteristic": "Early stage treatment"
@@ -112,16 +128,16 @@
   {
     "ID": 12, 
     "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
-    "optionType": ["selectbox-advanced"],
+    "optionType": "selectbox-advanced",
     "anslistobj": [{"selectbox" : [
-                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]},
-                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y"},{"code":"No", "status":"N"},{"code":"Not sure", "status":"Y/N"}]}
+                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
     "characteristic": "Advanced stage treatment"
@@ -130,21 +146,75 @@
     "ID": 13, 
     "question": "Would the patient be interested in a study that may help with the following breast cancer symptoms or treatment-related side effects.Please select all that apply.", 
     "optionType": "checkbox",
-    "anslistobj": ["Not experiencing any side effects", "Bone loss / fractures", "Cognitive dysfunction (memory problems)", "End of life care", "Fatigue", "Hand-foot syndrome (Palmar-Plantar erythrodysesthesia)", "Hot flashes", "Insomnia", "Loss of appetite", "Lymphoedema", "Nausea or vomiting", "Peripheral neuropathy (numbness / pain / tingling)", "Pain", "Physical activity / rehabilitation", "Quality of life", "Weight loss (Cachexia)", "Other side effects not listed", "All of the above"],
+    "anslistobj":[{"name":"Not experiencing any side effects", "checked":false},
+    {"name":"Bone loss / fractures","checked":false},
+    {"name":" dysfunction (memory problems)","checked":false},
+    {"name":"End of life care","checked":false },
+    {"name":"Fatigue","checked":false },
+    {"name":"Hand-foot syndrome (Palmar-Plantar erythrodysesthesia)","checked":false},
+    {"name":"Hot flashes","checked":false},
+    {"name":"Insomnia","checked":false},
+    {"name":"Loss of appetite","checked":false},
+    {"name":"Lymphoedema","checked":false},
+    {"name":"Nausea or vomiting","checked":false},
+    {"name":"Peripheral neuropathy (numbness / pain / tingling)","checked":false},
+    {"name":"Pain","checked":false},
+    {"name":"Physical activity / rehabilitation","checked":false},
+    {"name":"Quality of life","checked":false},
+    {"name":"Weight loss (Cachexia)","checked":false},
+    {"name":"Other side effects not listed","checked":false},
+    {"name":"All of the above","checked":false}
+      
+      ],
     "characteristic": "Symptoms"
   },
   {
     "ID": 14, 
     "question": "What biomarkers or genetic mutations were discovered through diagnostic tests (molecular profiling) for this tumour?Please select all that apply.", 
     "optionType": "checkbox",
-    "anslistobj": ["Not yet tested", "No known mutations", "ATM", "BARDI", "BRCA1", "BRIPI", "CHEK2", "CHH1", "dMMR", "EPCAM", "FANCN", "MLH1", "MSH1", "MSH6", "MUTYH", "NBN", "NF1", "PALB2", "PMS2", "PD-L1", "PIK3CA", "PIK3CB", "PTEN", "RADS1", "STK11", "TP53 (17P Deletion)", "Tumour Mutation Burden", "Other (mutation not listed)", "Not sure"],
-    "characteristic": "brcaMutation"
+    "anslistobj": [{"name":"Not yet tested", "checked":false},
+      {"name":"No known mutations","checked":false},
+      {"name":"ATM","checked":false},
+      {"name":"BARDI","checked":false },
+      {"name":"BARCAI","checked":false },
+      {"name":"BRIPI","checked":false},
+      {"name":"CHEK2","checked":false},
+      {"name":"CHH1","checked":false},
+      {"name":"dmmr","checked":false},
+      {"name":"EPCAM","checked":false},
+      {"name":"FANCN","checked":false},
+      {"name":"MLH1","checked":false},
+      {"name":"MSH1","checked":false},
+      {"name":"MSH6","checked":false},
+      {"name":"MUTYH","checked":false},
+      {"name":"NBN","checked":false},
+      {"name":"NF1","checked":false},
+      {"name":"PALB2","checked":false},
+      {"name":"PMS2","checked":false},
+      {"name":"PD-L1","checked":false},
+      {"name":"PIK3CA","checked":false},
+      {"name":"PIK3CB","checked":false},
+      {"name":"RADS1","checked":false},
+      {"name":"STK11","checked":false},
+      {"name":"TP53 (17P Deletion)","checked":false},
+      {"name":"Tumour Mutation Burden","checked":false},
+      {"name":"Other (mutation not listed)","checked":false},
+      {"name":"Others","checked":false}
+        
+        ],
+    "characteristic": "BRCAMutation"
   },
   {
     "ID": 15, 
     "question": "Would the patient be willing to partner with us in breast cancer research, by: <br/><small>(There are no additional costs associated with these tests, nor will you be paid. Tests preformed for research will be provided to you free of charge)</small>", 
     "optionType": "checkbox",
-    "anslistobj": ["completing questionnaires", "providing a blood sample", "providing a sample of the cancer from a biopsy", "I am not willing to answer questionnaires or provide any samples", "Not sure"],
+    "anslistobj":
+    [{"name":"completing questionnaires", "checked":false},
+          {"name":"providing a blood sample","checked":false},
+          {"name":"providing a sample of the cancer from a biopsy","checked":false},
+          {"name":"I am not willing to answer questionnaires or provide any samples","checked":false },
+          {"name":"Not sure","checked":false }
+            ],
     "characteristic": "Research interest"
   }]
   

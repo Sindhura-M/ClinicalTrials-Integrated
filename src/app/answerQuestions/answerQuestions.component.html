@@ -11,7 +11,7 @@
 						<div class="large-12 column optionList">
 
 						  <mat-radio-button
-							value="{{option.status}}" name="{{option.code}}" [checked]="selectedOpt===option.code"
+							value="{{option.status}}" name="{{option.code}}" [checked]="option.value"
 					        [ngModel]="optionSelected" ngDefaultControl value="{{option.status}}"
 					        (change)="onCheck($event,option.code)">
 					        {{option.code}}
@@ -24,9 +24,9 @@
 
 			<div class="row" *ngIf="optionType === 'checkbox'">
 				<ul *ngFor="let option of option" >			
-					<input type="checkbox" (click)="onCheck($event,option)" checklist-model="user.roles" checklist-value="role" value="{{option}}"
+					<input type="checkbox" (click)="onCheck($event,option)" checklist-model="user.roles" checklist-value="role" [value]="option.value"
 					        [ngModel]="optionChecked"> 
-						<span class="">{{option}}</span>
+						<span class="">{{option.name}}</span>
 				</ul>
 			</div>
 
@@ -49,7 +49,7 @@
 			<div *ngIf="optionType === 'text'">
 				<div class="large-6 column">
 					<mat-form-field class="example-full-width optionList">
-						<input #tumorSize matInput (change)="onCheck($event,tumorSize.value)" type="number" min="0" name="tumorSize" class="border-line" value={{selectedOpt}}> 
+						<input #tumorSize matInput (change)="onCheck($event,tumorSize.value)" type="number" min="0" name="tumorSize" class="border-line"  [value]="option.value"> 
 					</mat-form-field>
 					<span>mm</span>
 
@@ -69,7 +69,7 @@
 								<div class="large-6 column ">{{option.question}}</div>
 								<div class="large-6 column optionList">
 									<ul *ngFor="let opt of option.anslistobj" class="optionList">
-									  <mat-radio-button (click)="onCheck(option.subcharacteristic, opt.status)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
+									  <mat-radio-button [checked]="opt.value" (click)="onCheck(option.subcharacteristic, opt.status)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
 									</ul>
 								</div>
 							</mat-radio-group>

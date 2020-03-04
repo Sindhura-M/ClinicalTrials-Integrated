@@ -24,7 +24,9 @@ export class AnswerQuestionsComponent implements OnInit {
 	month: String[] = [ "Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	years: any[]
 	currentYear = (new Date()).getFullYear();
-	range = [];				
+	range = [];	
+	error: String[];
+	myAccDetails: any;			
 	constructor(private _router: Router, 
 		private dataQAservice: dataQAservice, 
 		private dataAccess: DataAccessService,
@@ -38,8 +40,11 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.years = this.range;
 	}
 	ngOnInit() {
+
+
 		this.httpClient.get("assets/questions.json").subscribe(data =>{
 			this.quizlist = data;
+
 			this.question = this.quizlist[0].question;
 			this.option = this.quizlist[0].anslistobj;
 			this.i = 0;
@@ -48,6 +53,78 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.ID = this.quizlist[0].ID;
 			this.characteristic = this.quizlist[0].characteristic;
 		})
+
+
+		this.dataAccess.getAccountDetails().subscribe(data => {
+			this.myAccDetails=data;
+            if(this.myAccDetails!=null){
+
+			
+			//Code to map the data based on displaytypes//
+
+			this.quizlist.forEach(element => {
+				for (let key of Object.keys(this.myAccDetails.condition)) {
+				if(element.optionType=="radio")
+				{	
+				if(element.characteristic==key){
+					element.anslistobj.forEach(item => {
+						if(item.status==this.myAccDetails.condition[key]){
+						      item.value=true;
+						}
+					});
+				}
+			}else if(element.optionType=="checkbox"){
+				if(element.characteristic==key){
+					element.anslistobj.forEach(item => {
+						if(this.myAccDetails.condition[key]!=null){
+							if(item.name==this.myAccDetails.condition[key]){
+								item.checked=true;
+						  }
+						}
+						
+					});
+				}
+			}else if(element.optionType=="multipleRadio"){
+				element.anslistobj.forEach(item => {
+					if(item.subcharacteristic==key){
+					    item.anslistobj.forEach(element => {
+							if(element.status==this.myAccDetails.condition[key]){
+								element.value=true;
+						  }
+						});
+					}
+				});
+				
+			}else if(element.optionType=="text"){
+				if(element.characteristic==key){
+				element.anslistobj.forEach(item => {
+					if(item.status==this.myAccDetails.condition[key]){
+						item.value=this.myAccDetails.condition[key];
+						  }
+					
+					
+				});
+			}
+			}else if(element.optionType=="selectbox-earlyStage" || element.optionType=="selectbox-advanced"){
+				if(element.characteristic==key){
+				
+					element.anslistobj[0].selectbox.forEach(item => {
+						if(item.status==this.myAccDetails.condition[key]){
+							item.value=this.myAccDetails.condition[key];
+							  }
+						
+						
+					});
+				
+				}
+			}
+			}});
+		}
+	
+	    },
+	      	error => {
+	        this.error = error;
+		});
 		
 
 		this.display = false;
@@ -98,7 +175,12 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.events.push(`${type}: ${event.value}`);
 	}
 
+
+	
+	
+
 	next(e, i) {
+		
 		this.i = i + 1;
 		if (this.i<this.quizlist.length) {
 			this.question = this.quizlist[this.i].question;

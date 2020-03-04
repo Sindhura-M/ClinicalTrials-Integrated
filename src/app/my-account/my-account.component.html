@@ -69,7 +69,8 @@
 							<mat-radio-group aria-label="Select an option" disabled>
 								<ul *ngFor="let option of question.anslistobj">
 									<div class="large-12 column optionList">
-									  <mat-radio-button (click)="check($event,option.status,characteristic)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+									  <mat-radio-button (click)="check($event,option.status,characteristic)"  [checked]="option.value"
+									  value="{{option.status}}">{{option.code}}</mat-radio-button>
 									</div>
 								</ul>
 							</mat-radio-group>
@@ -77,9 +78,10 @@
 					</div>
 
 					<div class="panel row" *ngIf="question.optionType === 'checkbox'" hide="!item.isActive">
-						<ul *ngFor="let option of question.anslistobj" >			
-							<input type="checkbox" (click)="check($event,option, characteristic)" checklist-model="user.roles" checklist-value="role" value="{{option}}" disabled readonly> 
-								<span class="">{{option}}</span>
+						<ul *ngFor="let option of question.anslistobj" >
+								
+							<input type="checkbox" (click)="check($event,option, characteristic)" [checked]="option.checked" checklist-model="user.roles" checklist-value="role" [value]="option.checked" disabled readonly> 
+								<span class="">{{option.name}}</span>
 						</ul>
 					</div>
 
@@ -87,7 +89,7 @@
 						<div>
 							<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)" disabled>
 				                <option>Month</option>
-				                <option *ngFor="let month of month" [value]="month">{{month}}</option>
+				                <option *ngFor="let month of month" [value]="question.value">{{question.value}}</option>
 				            </select>
 				            <select name="Year" class="select date-select" #YY (change)="onYearSelect($event, YY.value, characteristic)" disabled>
 				                <option>Year</option>
@@ -99,11 +101,11 @@
 					<div class="panel" *ngIf="question.optionType === 'text'" hide="!item.isActive"> 
 						<div *ngFor="let option of question.anslistobj">
 							<mat-form-field class="optionList">
-								<input #todo matInput (change)="check($event,todo.value, characteristic)" type="text" name="todo" class="border-line" readonly> 
+								<input #todo matInput (change)="check($event,todo.value, characteristic)" [value]="option.value" type="text" name="todo" class="border-line" readonly> 
 							</mat-form-field>
 							<span class="example-full-width">mm</span>
 
-							<mat-radio-button (click)="check($event,option.status, characteristic)" value="{{option.status}}" disabled>{{option.code}}</mat-radio-button>
+							<mat-radio-button (click)="check($event,option.status, characteristic)" value="{{option.status}}" [checked]="option.value" disabled>{{option.code}}</mat-radio-button>
 						</div>
 					</div>
 
@@ -113,7 +115,7 @@
 								<div class="large-6 column ">{{option.question}}</div>
 								<div class="large-6 column optionList">
 									<ul *ngFor="let opt of option.anslistobj" class="optionList">
-									  <mat-radio-button (click)="check($event, opt.status, option.subcharacteristic)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
+									  <mat-radio-button (click)="check($event, opt.status, option.subcharacteristic)" [checked]="opt.value" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
 									 </ul>
 								</div>
 							</mat-radio-group>

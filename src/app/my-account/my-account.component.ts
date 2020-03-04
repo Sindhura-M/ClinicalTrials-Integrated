@@ -38,19 +38,92 @@ export class MyAccountComponent implements OnInit {
 	public accountProfile: any = [];
 	error: String[];
 	myAccDetails: any;
-
+	userId:any;
 	Object = Object;
+	quizlist: any = [];
 	ngOnInit() {
-
+		 this.userId=this.session.accountUserId;
 		/*this.dataAccess.createAccountProfile().subscribe( data => {
 			this.accountProfile = data[0];
 			this.myAccForm.patchValue({firstName: this.accountProfile.firstName});
 		});*/
 		//const tempData = this.dataQAservice.getData();
-		this.httpClient.get("assets/questions.json").subscribe(data =>{
+		  this.httpClient.get("assets/questions.json").subscribe(data =>{
 			this.quizlist = data;
 			})
-		this.dataAccess.getAccountDetails().subscribe( data => {
+		  this.dataAccess.getAccountDetails().subscribe(data => {
+			this.myAccDetails=data;
+            
+			//Code to map the data based on displaytypes//
+
+			this.quizlist.forEach(element => {
+				for (let key of Object.keys(this.myAccDetails.condition)) {
+				if(element.optionType=="radio")
+				{	
+				if(element.characteristic==key){
+					element.anslistobj.forEach(item => {
+						if(item.status==this.myAccDetails.condition[key]){
+						      item.value=true;
+						}
+					});
+				}
+			}else if(element.optionType=="checkbox"){
+				if(element.characteristic==key){
+					element.anslistobj.forEach(item => {
+						if(this.myAccDetails.condition[key]!=null){
+							if(item.name==this.myAccDetails.condition[key]){
+								item.checked=true;
+						  }
+						}
+						
+					});
+				}
+			}else if(element.optionType=="multipleRadio"){
+				element.anslistobj.forEach(item => {
+					if(item.subcharacteristic==key){
+					    item.anslistobj.forEach(element => {
+							if(element.status==this.myAccDetails.condition[key]){
+								element.value=true;
+						  }
+						});
+					}
+				});
+				
+			}else if(element.optionType=="text"){
+				if(element.characteristic==key){
+				element.anslistobj.forEach(item => {
+					if(item.status==this.myAccDetails.condition[key]){
+						item.value=this.myAccDetails.condition[key];
+						  }
+					
+					
+				});
+			}
+			}else if(element.optionType=="selectbox-earlyStage" || element.optionType=="selectbox-advanced"){
+				if(element.characteristic==key){
+				
+					element.anslistobj[0].selectbox.forEach(item => {
+						if(item.status==this.myAccDetails.condition[key]){
+							item.value=this.myAccDetails.condition[key];
+							  }
+						
+						
+					});
+				
+				}
+			}
+			}});
+				
+	
+	    },
+	      	error => {
+	        this.error = error;
+		});
+		
+	
+ 
+         
+		this.dataAccess.getMyAccTrials(this.userId).subscribe( data => {
 	    	this.myAccDetails=data;
 	    },
 	      	error => {
@@ -81,7 +154,7 @@ export class MyAccountComponent implements OnInit {
 
     displayedColumns: String[] = ['Study title', 'Interventions', 'Phase', 'Sponsor', 'Sex', 'Location', 'Save'];
 
-  	quizlist: any = [];
+  
 
   	toggleAccordian(event, index) {
 	    var element = event.target;
