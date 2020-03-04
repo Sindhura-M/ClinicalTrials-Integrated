@@ -31,8 +31,8 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
 
     this.http.getUserDetails().subscribe( data => {
-      this.dataSource = data;
-      this.usersList.setData(data);
+      this.dataSource = data.filter(item=>item.roles[0].role=="user");
+      this.usersList.setData(this.dataSource );
       this.role = this.dataSource[0].roles[0].role;
     });
 
