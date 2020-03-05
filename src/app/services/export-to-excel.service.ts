@@ -15,6 +15,14 @@ export class ExportToExcelService {
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(jsonData);
     const wb: XLSX.WorkBook = { Sheets: { 'data': ws }, SheetNames: ['data'] };
+    for (var key in ws) {
+      if (ws[key].v=="condition") {
+     
+          delete ws[key];
+      }
+     }
+    // ws["AD1"] = { hidden: true };
+    
     const excelBuffer: any = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
     this.saveExcelFile(excelBuffer, fileName);
   }
