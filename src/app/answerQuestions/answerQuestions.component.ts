@@ -27,6 +27,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	range = [];	
 	error: String[];
 	myAccDetails: any;			
+	selectboxCharacteristic: any;
 	constructor(private _router: Router, 
 		private dataQAservice: dataQAservice, 
 		private dataAccess: DataAccessService,
@@ -205,7 +206,41 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.ID = this.quizlist[this.i].ID;
 		this.characteristic = this.quizlist[this.i].characteristic;
 		this.selectedOpt = this.optionSelected[this.i];
+        switch (this.optionType)
+		 {
+        case "radio" :
+		this.selectedOpt = this.optionSelected[this.i];
+		this.option.forEach(element => {
+		if(element.code==this.selectedOpt){
+		element.value="true";
+		}else {
+			element.value="false";
+		}
+		});
+		break
+		case "checkbox":
+			this.optionSelected.forEach(element => {
+				this.selectedOpt = element[0].name;
+				this.option.forEach(element => {
+					if(element.name==this.selectedOpt){
+					element.checked="true";
+					}
+					});
+
+			});
+			break
+			case "text" :
+				this.selectedOpt = this.optionSelected[this.i];
+				this.option.forEach(element => {
+				if(element.status==this.selectedOpt){
+				element.value="true";
+				}
+				});
+				break
+			
+	 }
 		this.showIncompleteQuestions = false;
+	
 	}
 
 	onMonthSelect(event, MM) {
@@ -234,19 +269,25 @@ export class AnswerQuestionsComponent implements OnInit {
 		}else if (this.optionType === 'checkbox') {
 			this.checkboxValues.push(selectedOpt);
 			val = selectedOpt = this.checkboxValues;
+			val=val[0].name;
 
 		}else if (this.optionType === 'multipleRadio') {
 			this.characteristic = e;
 			val = selectedOpt;
 			selectedOpt = e + '-' + selectedOpt;
 		} else if (this.optionType == 'selectbox-earlyStage' || this.optionType == 'selectbox-advanced') {
-			this.characteristic = this.characteristic + '-' + e.currentTarget.name;
+		    this.selectboxCharacteristic = this.quizlist[this.i].characteristic;
+			
+			this.characteristic = this.selectboxCharacteristic + '-' + e.currentTarget.name;
 			val = selectedOpt;
 		}
 
 		this.optionSelected[this.i] = selectedOpt;
 		this.answerkey.push(new AnswerKey(this.characteristic, val));
 		this.answerkey.push(new AnswerKey('accountUserId', this.session.accountUserId));
+		this.answerkey.push(new AnswerKey('quesId', this.session.questionId));
+		
+		
 
 		let result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 

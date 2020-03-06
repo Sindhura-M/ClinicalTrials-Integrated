@@ -9,8 +9,7 @@
 				<mat-radio-group aria-label="Select an option">
 					<ul *ngFor="let option of option">
 						<div class="large-12 column optionList">
-
-						  <mat-radio-button
+                	  <mat-radio-button
 							value="{{option.status}}" name="{{option.code}}" [checked]="option.value"
 					        [ngModel]="optionSelected" ngDefaultControl value="{{option.status}}"
 					        (change)="onCheck($event,option.code)">
@@ -24,7 +23,7 @@
 
 			<div class="row" *ngIf="optionType === 'checkbox'">
 				<ul *ngFor="let option of option" >			
-					<input type="checkbox" (click)="onCheck($event,option)" checklist-model="user.roles" checklist-value="role" [value]="option.value"
+					<input type="checkbox" (click)="onCheck($event,option)" [checked]="option.checked" checklist-model="user.roles" [(ngModel)]="option.checked" checklist-value="role" [value]="option.checked"
 					        [ngModel]="optionChecked"> 
 						<span class="">{{option.name}}</span>
 				</ul>
@@ -55,7 +54,13 @@
 
 				</div>
 				<div class="large-6 column" *ngFor="let option of option">
-						<mat-radio-button (click)="onCheck($event,option.status)" value="{{option.status}}">{{option.code}}</mat-radio-button>
+					<mat-radio-button
+					name="{{option.code}}" [checked]="option.value"
+					[ngModel]="option.value"  value="{{option.status}}"
+					(change)="onCheck($event,option.status)">
+					{{option.code}}
+				  </mat-radio-button>
+						<!-- <mat-radio-button (click)="onCheck($event,option.status)" value="{{option.value}}" >{{option.code}}</mat-radio-button> -->
 				</div>
 
 			<br/>

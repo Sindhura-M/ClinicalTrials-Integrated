@@ -40,6 +40,7 @@ export class MyAccountComponent implements OnInit {
 	myAccDetails: any;
 	userId:any;
 	Object = Object;
+	
 	quizlist: any = [];
 	ngOnInit() {
 		 this.userId=this.session.accountUserId;
@@ -53,6 +54,7 @@ export class MyAccountComponent implements OnInit {
 			})
 		  this.dataAccess.getAccountDetails().subscribe(data => {
 			this.myAccDetails=data;
+			this.session.questionId=this.myAccDetails.condition.quesId;
             
 			//Code to map the data based on displaytypes//
 
@@ -63,7 +65,8 @@ export class MyAccountComponent implements OnInit {
 				if(element.characteristic==key){
 					element.anslistobj.forEach(item => {
 						if(item.status==this.myAccDetails.condition[key]){
-						      item.value=true;
+							  item.value=true;
+							  element.answer=item.code;
 						}
 					});
 				}
@@ -73,6 +76,7 @@ export class MyAccountComponent implements OnInit {
 						if(this.myAccDetails.condition[key]!=null){
 							if(item.name==this.myAccDetails.condition[key]){
 								item.checked=true;
+								element.answer=item.code;
 						  }
 						}
 						
@@ -84,6 +88,7 @@ export class MyAccountComponent implements OnInit {
 					    item.anslistobj.forEach(element => {
 							if(element.status==this.myAccDetails.condition[key]){
 								element.value=true;
+								element.answer=item.code;
 						  }
 						});
 					}
@@ -92,8 +97,9 @@ export class MyAccountComponent implements OnInit {
 			}else if(element.optionType=="text"){
 				if(element.characteristic==key){
 				element.anslistobj.forEach(item => {
-					if(item.status==this.myAccDetails.condition[key]){
+					if(item.status==this.myAccDetails.condition[key]||this.myAccDetails.condition[key]=="Any"){
 						item.value=this.myAccDetails.condition[key];
+						element.answer=item.code;
 						  }
 					
 					
@@ -156,6 +162,7 @@ export class MyAccountComponent implements OnInit {
     displayedColumns: String[] = ['Study title', 'Interventions', 'Phase', 'Sponsor', 'Sex', 'Location', 'Save'];
 
   
+	
 
   	toggleAccordian(event, index) {
 	    var element = event.target;

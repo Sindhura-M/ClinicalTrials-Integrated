@@ -7,7 +7,8 @@
       {"code":"Not sure","status":"Y/N","value":"false"},
       {"code":"Not applicable (male)","status":"N","value":"false"}
     ],
-    "characteristic": "pmp"
+    "characteristic": "pmp",
+    "answer":""
   },
   {
     "ID": 2, 
@@ -15,7 +16,8 @@
     "optionType": "date",
     "anslistobj": [],
     "value":"",
-    "characteristic": "diagnosis"
+    "characteristic": "diagnosis",
+    "answer":""
   },
   {
     "ID": 3, 
@@ -25,14 +27,16 @@
       {"code":"Lobular Carcinoma In Situ(LCIS)","status":"LCIS","value":"false"},
       {"code":"Other","status":"Other","value":"false"},
       {"code":"Not sure","status":"Y/N","value":"false"}],
-    "characteristic": "tumorType"
+    "characteristic": "tumorType",
+    "answer":""
   },
   {
     "ID": 4, 
     "question": "What is the size of the primary tumour? <br/><small>Refer to the size of the invasive carcinoma only, this does not include ductal carcinoma in situ (DCIS) or lobular carcinoma in situ (LCIS).<br/></small>", 
     "optionType": "text",
     "anslistobj": [{"code":"Not sure", "status":"0","value":""}],
-    "characteristic": "tumourSize"
+    "characteristic": "tumourSize",
+    "answer":""
   },
   {
     "ID": 5, 
@@ -42,7 +46,8 @@
       {"code":"1-3","status":"1-3","value":"false"},
       {"code":"4-9","status":"4-9","value":"false"},
       {"code":"≥10","status":"≥10","value":"false"}],
-    "characteristic": "nodeNumber"
+    "characteristic": "nodeNumber",
+    "answer":""
   },
   {
     "ID": 6, 
@@ -51,7 +56,8 @@
     "anslistobj": [{"code":"Yes", "status":"Y","value":"false"},
       {"code":"No", "status":"N","value":"false"},
       {"code":"Not sure", "status":"Y/N","value":"false"}],
-    "characteristic": "spreadToOtherParts"
+    "characteristic": "spreadToOtherParts",
+    "answer":""
   },
   {
     "ID": 7, 
@@ -73,7 +79,8 @@
       {"name":"Not Sure","checked":false}
            
         ],
-    "characteristic": "breastCancerSpreadToOtherParts"
+    "characteristic": "breastCancerSpreadToOtherParts",
+    "answer":""
   },
   {
     "ID": 8, 
@@ -84,7 +91,8 @@
       {"question": "Progesterone Receptor (PR)", "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}], "subcharacteristic": "PR"},
       {"question": "HER Receptor (HER2)", "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}, {"code":" Has not yet been tested","status":"Y/N","value":"false"}], "subcharacteristic": "HER2"}
     ],
-    "characteristic": ""
+    "characteristic": "",
+    "answer":""
   },
   {
     "ID": 9, 
@@ -94,7 +102,8 @@
       {"code":"Stage 2","status":"2"},
       {"code":"Stage 3","status":"3"},
       {"code":"Stage 4","status":"4"}],
-    "characteristic": "stage"
+    "characteristic": "stage",
+    "answer":""
   },
   {
     "ID": 10, 
@@ -106,7 +115,8 @@
       {"code":"Confined to a bed or chair for more than half the day","status":"3","value":"false"},
       {"code":"Completely disabled; totally confined to a bed or chair ","status":"4","value":"false"},
       {"code":"Not sure","status":"5","value":"false"}],
-    "characteristic": "ecog"
+    "characteristic": "ecog",
+    "answer":""
   },
   {
     "ID": 11, 
@@ -123,7 +133,8 @@
                       {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
-    "characteristic": "Early stage treatment"
+    "characteristic": "Early stage treatment",
+    "answer":""
   },
   {
     "ID": 12, 
@@ -140,7 +151,8 @@
                       {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
-    "characteristic": "Advanced stage treatment"
+    "characteristic": "Advanced stage treatment",
+    "answer":""
   },
   {
     "ID": 13, 
@@ -166,7 +178,8 @@
     {"name":"All of the above","checked":false}
       
       ],
-    "characteristic": "Symptoms"
+    "characteristic": "Symptoms",
+    "answer":""
   },
   {
     "ID": 14, 
@@ -202,7 +215,8 @@
       {"name":"Others","checked":false}
         
         ],
-    "characteristic": "BRCAMutation"
+    "characteristic": "BRCAMutation",
+    "answer":""
   },
   {
     "ID": 15, 
@@ -215,6 +229,7 @@
           {"name":"I am not willing to answer questionnaires or provide any samples","checked":false },
           {"name":"Not sure","checked":false }
             ],
-    "characteristic": "Research interest"
+    "characteristic": "Research interest",
+    "answer":""
   }]
   
