@@ -2,7 +2,6 @@
 <div class="row stepper">
 	<div class="cloumns large-12 small-12">
 		<mat-horizontal-stepper [linear]="isLinear" #stepper [selectedIndex]="stepperIndex">
-			loggedIn -- {{loggedIn}}
 			<mat-step [stepControl]="firstFormGroup" [ngClass]="{'noEvent': loggedIn == false}">
 			<ng-template matStepLabel>loggedIn -- {{loggedIn}} LOG IN</ng-template>
 				<form [formGroup]="firstFormGroup">

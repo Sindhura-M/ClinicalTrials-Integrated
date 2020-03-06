@@ -9,7 +9,7 @@
 			<div class="large-6 columns">
 				<!-- NAME FIELDs -->
 				<div class="form-group">
-					<input type="text" formControlName="firstName" class="form-control input-group-field" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+					<input type="text" (keypress)="omit_special_char($event)" formControlName="firstName" class="form-control input-group-field" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
 					<div *ngIf="f.firstName.touched" class="text-danger">
 						<small *ngIf="f.firstName.value === '' ">First name is required.</small>
 					</div>
@@ -17,7 +17,7 @@
 			</div>
 			<div class="large-6 columns">
 				<div class="form-group">
-				  	<input type="text" formControlName="lastName" class="form-control input-group-field" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+				  	<input type="text" (keypress)="omit_special_char($event)" formControlName="lastName" class="form-control input-group-field" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
 					<div *ngIf="f.lastName.touched" class="text-danger">
 						<small *ngIf="f.lastName.value === '' ">Last name is required.</small>
 					</div>
@@ -29,10 +29,10 @@
 			<div class="large-6 columns"> 
 				<!-- EMAIL FIELDs -->
 				<div class="form-group">
-					<input type="email" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address"/>
+					<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address"/>
 					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
 						<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
-						<small *ngIf="f.emailAddress.errors.email">Email must be a valid email address.</small>
+						<small *ngIf="!f.emailAddress.errors.required && f.emailAddress.errors">Email must be a valid email address.</small>
 					</div>
 				</div>
 			</div>

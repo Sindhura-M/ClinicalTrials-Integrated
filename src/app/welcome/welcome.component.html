@@ -60,12 +60,14 @@
             <p>User already exists. Please <a href="/">login</a> to continue</p>
         </div>
 
+        <div *ngIf="showSuccessMsg" class="text-center title-card-sub">
+            <p>Account created successfully. Please click on Next to continue</p> 
+        </div>
+
         <hr>
 
         <div class="row">
             <span> All fields are mandatory</span>
-            disableNext == {{disableNext}}
-            showErrorMsg == {{showErrorMsg}}
             <button mat-button class="button-small" [disabled]="disableNext" matStepperNext>NEXT</button>
             <button mat-button class="button-small" (click)="onNext($event)">SAVE</button>
         </div>

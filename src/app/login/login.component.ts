@@ -10,7 +10,7 @@ import { SessionService } from '../services/session.service';
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, AfterViewInit {
+export class LoginComponent implements OnInit {
 	
 	constructor(private fb: FormBuilder, 
 		private controlContainer: ControlContainer, 

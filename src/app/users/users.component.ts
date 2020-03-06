@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
 
   addAdminForm: FormGroup;
   submitted = false;
-  username: string = '';
+  emailAddress: string = '';
   password: string = '';
 
   constructor(private dataAccountProfile: dataAccountProfile, private http: DataAccessService, private usersList : UsersListService, private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
@@ -89,7 +89,7 @@ export class UsersComponent implements OnInit {
   _formValidate() {
     this.addAdminForm = this.fb.group(
       {
-      username: ['', Validators.required],
+      emailAddress: ['', Validators.required],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
       }
     );
@@ -104,9 +104,9 @@ export class UsersComponent implements OnInit {
       return;
     }
     
-    let username = this.addAdminForm.get('username').value;
+    let emailAddress = this.addAdminForm.get('emailAddress').value;
     let password = this.addAdminForm.get('password').value;
-    this.addAdminDetails.push(Object.assign({'emailAddress': username},{'password': password}, {'roles':[{"role": "ADMIN"}]}));
+    this.addAdminDetails.push(Object.assign({'emailAddress': emailAddress},{'password': password}, {'roles':[{"role": "ADMIN"}]}));
     let tempData = this.addAdminDetails[0];
 
     this.dataAccountProfile.setData(tempData);
@@ -114,7 +114,7 @@ export class UsersComponent implements OnInit {
     this.http.addAdminUser().subscribe( data => {
       alert(data);
       if (data == 'Admin User added successfully') {
-          this.username = '';
+          this.emailAddress = '';
           this.password = '';
       }
     })

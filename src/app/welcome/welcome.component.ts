@@ -22,7 +22,7 @@ export class WelcomeComponent implements OnInit {
 	  public accountProfile: any = [];
 	  error: String[];
 	  disableNext: boolean = true;
-	  //showSuccessMsg: boolean = false;
+	  showSuccessMsg: boolean = false;
 	  showErrorMsg: boolean = false;
 
 	  constructor(public auth: AuthService, 
@@ -92,18 +92,28 @@ export class WelcomeComponent implements OnInit {
 
 		this.dataAccess.createAccountProfile().subscribe( data => {
 			this.accountProfile=data[0];
+			if (data.errorMessage != null && data.id == null){
+				//this.showSuccessMsg = false;
+	        	this.showErrorMsg = true;
+	        	this.disableNext = true;
+	        	return;
+			}
 			//this.auth.doSignIn( response.token );
 			this.answerkey.push(new AnswerKey('accountUserId', data.id));
 			this.result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
 			this.dataQAservice.setData(this.result);
 
 			if (data.errorMessage == null) {
+				this.showSuccessMsg = true;
+			}
+
+			/*if (data.errorMessage == null) {
 				//this.showSuccessMsg = true;
 				this.showErrorMsg = false;				
 			} else if (data.errorMessage != null && data.id == null){
 				//this.showSuccessMsg = false;
 	        	this.showErrorMsg = true;
-			}
+			}*/
 
 			if (!this.session.accessToken){
 				let loginDetails = [];
