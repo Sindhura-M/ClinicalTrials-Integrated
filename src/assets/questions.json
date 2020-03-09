@@ -151,7 +151,7 @@
                       {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
-    "characteristic": "adv",
+    "characteristic": "advanced",
     "answer":""
   },
   {
