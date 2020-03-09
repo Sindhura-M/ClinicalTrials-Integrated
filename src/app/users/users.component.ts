@@ -105,8 +105,8 @@ export class UsersComponent implements OnInit {
   }
 
 
-  addAdminUser($event){
-    this.submitted = true;
+  addAdminUser($event): void{
+    this.addAdminForm.reset();
 
     // stop here if form is invalid
     if (this.addAdminForm.invalid) {
@@ -123,6 +123,7 @@ export class UsersComponent implements OnInit {
     this.http.addAdminUser().subscribe( data => {
       alert(data);
       if (data == 'Admin User added successfully') {
+          this.addAdminForm.resetForm();
           this.emailAddress = '';
           this.password = '';
       }
