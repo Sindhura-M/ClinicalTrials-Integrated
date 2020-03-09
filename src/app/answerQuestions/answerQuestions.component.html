@@ -152,7 +152,7 @@
 					<ul  class="i" id={{option[i]}}>
 						<div class="row" *ngFor="let opt of option.selectbox">
 							<div class="large-8 small-8 column">
-							<select #advtherapy name="adv-{{opt.therapyName}}" (change)="onCheck($event,advtherapy.value)">
+							<select #advtherapy name="{{opt.therapyName}}" (change)="onCheck($event,advtherapy.value)">
 								<option>{{opt.therapyName}}</option>
 								<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
 								{{subOpt.code}}</option>

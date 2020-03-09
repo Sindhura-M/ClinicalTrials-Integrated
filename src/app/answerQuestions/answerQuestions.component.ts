@@ -276,9 +276,9 @@ export class AnswerQuestionsComponent implements OnInit {
 			val = selectedOpt;
 			selectedOpt = e + '-' + selectedOpt;
 		} else if (this.optionType == 'selectbox-earlyStage' || this.optionType == 'selectbox-advanced') {
-		    this.selectboxCharacteristic = this.quizlist[this.i].characteristic;
-			
-			this.characteristic = this.selectboxCharacteristic + '-' + e.currentTarget.name;
+			this.selectboxCharacteristic = this.quizlist[this.i].characteristic;
+			e.currentTarget.name=e.currentTarget.name.split(" ").join("");
+			this.characteristic = this.selectboxCharacteristic+e.currentTarget.name;
 			val = selectedOpt;
 		}
 
@@ -298,7 +298,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	}
 
 	toggleTreatmentOPtions(e, value) {
-		if ( this.characteristic === "Early stage treatment" ) {
+		if ( this.characteristic === "early" ) {
 			if (value === 'Yes') {
 				this.display = true;
 			} else if (value !== 'Yes') {
@@ -306,7 +306,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			}
 		}
 
-		if ( this.characteristic === "Advanced stage treatment" ) {
+		if ( this.characteristic === "adv" ) {
 			if (value === 'Yes') {
 				this.display2 = true;
 			} else if (value !== 'Yes') {

@@ -72,15 +72,16 @@ export class MyAccountComponent implements OnInit {
 				}
 			}else if(element.optionType=="checkbox"){
 				if(element.characteristic==key){
-					element.anslistobj.forEach(item => {
-						if(this.myAccDetails.condition[key]!=null){
-							if(item.name==this.myAccDetails.condition[key]){
-								item.checked=true;
-								element.answer=item.code;
-						  }
-						}
+					element.answer=this.myAccDetails.condition[key];
+					// element.anslistobj.forEach(item => {
+					// 	if(this.myAccDetails.condition[key]!=null){
+					// 		if(item.name==this.myAccDetails.condition[key]){
+					// 			item.checked=true;
+					// 			element.answer=item.code;
+					// 	  }
+					// 	}
 						
-					});
+					// });
 				}
 			}else if(element.optionType=="multipleRadio"){
 				element.anslistobj.forEach(item => {
