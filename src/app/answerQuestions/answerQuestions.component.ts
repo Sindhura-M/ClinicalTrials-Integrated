@@ -267,9 +267,13 @@ export class AnswerQuestionsComponent implements OnInit {
 		}else if (this.characteristic === 'tumourSize') {
 			val = selectedOpt;
 		}else if (this.optionType === 'checkbox') {
-			this.checkboxValues.push(selectedOpt);
+			if(selectedOpt.checked==true){
+					this.checkboxValues.push(selectedOpt.name);
+				}
+		
+			
 			val = selectedOpt = this.checkboxValues;
-			val=val[0].name;
+			//val=val[0].name;
 
 		}else if (this.optionType === 'multipleRadio') {
 			this.characteristic = e;

@@ -23,8 +23,8 @@
 
 			<div class="row" *ngIf="optionType === 'checkbox'">
 				<ul *ngFor="let option of option" >			
-					<input type="checkbox" (click)="onCheck($event,option)" [checked]="option.checked" checklist-model="user.roles" [(ngModel)]="option.checked" checklist-value="role" [value]="option.checked"
-					        [ngModel]="optionChecked"> 
+					<input type="checkbox" (change)="onCheck($event,option)" [checked]="option.checked" checklist-model="user.roles" [(ngModel)]="option.checked" checklist-value="role" [value]="option.checked"
+					       > 
 						<span class="">{{option.name}}</span>
 				</ul>
 			</div>
