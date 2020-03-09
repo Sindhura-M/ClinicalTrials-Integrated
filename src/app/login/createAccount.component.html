@@ -32,7 +32,7 @@
 					<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address"/>
 					<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
 						<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
-						<small *ngIf="!f.emailAddress.errors.required && f.emailAddress.errors.email">Email must be a valid email address.</small>
+						<small *ngIf="!f.emailAddress.errors.required && f.emailAddress.errors">Email must be a valid email address.</small>
 					</div>
 				</div>
 			</div>
