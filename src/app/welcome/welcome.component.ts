@@ -95,7 +95,7 @@ export class WelcomeComponent implements OnInit {
 			//this.auth.doSignIn( response.token );
 			if (data.errorMessage != null && data.id == null){
 	        	this.showErrorMsg = true;
-	     		this.disableNext = false;
+	     		this.disableNext = true;
 	     		return;
 			}
 			this.answerkey.push(new AnswerKey('accountUserId', data.id));
