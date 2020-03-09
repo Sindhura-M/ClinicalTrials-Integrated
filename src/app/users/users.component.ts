@@ -123,7 +123,6 @@ export class UsersComponent implements OnInit {
     this.http.addAdminUser().subscribe( data => {
       alert(data);
       if (data == 'Admin User added successfully') {
-          this.addAdminForm.resetForm();
           this.emailAddress = '';
           this.password = '';
       }
