@@ -161,7 +161,11 @@ export class MyAccountComponent implements OnInit {
 
     displayedColumns: String[] = ['Study title', 'Interventions', 'Phase', 'Sponsor', 'Sex', 'Location', 'Save'];
 
-  
+  	omit_special_char(event) {   
+		var k;  
+		k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+		return((k > 64 && k < 91) || (k > 96 && k < 123));
+	}
 	
 
   	toggleAccordian(event, index) {

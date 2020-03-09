@@ -49,6 +49,12 @@ title = 'Angular6 Reactive forms custom validation';
 	//matchEmail(this.createAccForm.get('emailAddress').value, this.createAccForm.get('cnfemail').value);
   }
 
+  	omit_special_char(event) {   
+		var k;  
+		k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+		return((k > 64 && k < 91) || (k > 96 && k < 123));
+	}
+
   	onSubmit() {
 		this.submitted = true;
 
@@ -59,7 +65,7 @@ title = 'Angular6 Reactive forms custom validation';
 
 		let temp = [];
 		//temp.push(Object.assign({role: 'user'},this.createAccForm.value));
-		temp.push(Object.assign({roles: [{"role": "ADMIN"}]},this.createAccForm.value));
+		temp.push(Object.assign({roles: [{"role": "user"}]},this.createAccForm.value));
 		this.dataAccountProfile.setData(temp);
 
 
