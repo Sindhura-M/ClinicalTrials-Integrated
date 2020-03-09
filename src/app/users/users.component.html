@@ -58,7 +58,7 @@
 			        		<div *ngIf="f.username.touched" class="text-danger">
 								<small class="text-danger" *ngIf="f.username.value === '' ">Username is required.</small>
 							</div> -->
-							<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$" formControlName="emailAddress" class="form-control input-group-field" placeholder="emailAddress" (keyup.enter)="onTaskAdd($event)" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" value="{{emailAddress}}"/>
+							<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{1,6}$" formControlName="emailAddress" class="form-control input-group-field" placeholder="emailAddress" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" value="{{emailAddress}}"/>
 								<div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
 									<small *ngIf="f.emailAddress.errors.required">Email address is required.</small>
 									<small *ngIf="!f.emailAddress.errors.required && f.emailAddress.errors">Email must be a valid email address.</small>
