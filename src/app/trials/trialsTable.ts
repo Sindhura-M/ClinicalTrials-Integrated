@@ -9,7 +9,7 @@ export interface TrialsTable{
    bct: string,
    location: string,
    postCode: string,
-   gender: string,
+   Sex: string,
    pmp: string
    age: number
    tumorSize: number,
