@@ -310,7 +310,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			}
 		}
 
-		if ( this.characteristic === "adv" ) {
+		if ( this.characteristic === "advanced" ) {
 			if (value === 'Yes') {
 				this.display2 = true;
 			} else if (value !== 'Yes') {

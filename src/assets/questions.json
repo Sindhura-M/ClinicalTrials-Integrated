@@ -128,8 +128,8 @@
                       {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months"},
                       {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months"},
                       {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx HER Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx CDK Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
                       {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
@@ -146,8 +146,8 @@
                       {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
                       {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
                       {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx HER2 Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx CDK 4/6 Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx HER Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
+                      {"therapyName": "Targeted Tx CDK Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
                       {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
                     ]},
                     {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
@@ -229,7 +229,7 @@
           {"name":"I am not willing to answer questionnaires or provide any samples","checked":false },
           {"name":"Not sure","checked":false }
             ],
-    "characteristic": "Research interest",
+    "characteristic": "researchInterest",
     "answer":""
   }]
   
