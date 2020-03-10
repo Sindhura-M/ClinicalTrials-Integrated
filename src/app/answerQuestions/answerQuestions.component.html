@@ -88,7 +88,7 @@
 					<ul *ngFor="let option of option" class="display-flex">
 						<li *ngFor="let opt of option.radio">
 							<div class="large-12 column optionList">
-							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt)" value="ES-{{opt}}">{{opt}}</mat-radio-button>
+							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt.code)" value="ES-{{opt.code}}" >{{opt.code}}</mat-radio-button>
 							</div>
 						</li>
 					</ul>
@@ -100,7 +100,7 @@
 					<ul *ngFor="let option of option" class="display-flex">
 						<li *ngFor="let opt of option.radio">
 							<div class="large-12 column optionList">
-							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt)" value="AS-{{opt}}">{{opt}}</mat-radio-button>
+							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt.code)" value="AS-{{opt.code}}">{{opt.code}}</mat-radio-button>
 							</div>
 						</li>
 					</ul>
@@ -112,11 +112,19 @@
 					<ul  class="full-width" id={{option[i]}}>
 						<div class="row optionList-width" *ngFor="let opt of option.selectbox">
 							<div class="large-5 small-8 column">
-								<select #therapy name="{{opt.therapyName}}" (change)="onCheck($event,therapy.value)">
-									<option>{{opt.therapyName}}</option>
+								<select #therapy name="{{opt.therapyName}}"  [value]="opt.answer" 	(change)="onCheck($event,therapy.value)">
+									<!-- <option>{{opt.therapyName}}</option>
 									<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
-									{{subOpt.code}}</option>
+									{{subOpt.code}}</option> -->
+									<optgroup>
+                                    
+										<!-- <option  [value]="opt.answer">{{opt.answer}}</option> -->
+										<option *ngFor="let subOpt of opt.options">
+											
+										{{subOpt.code}}</option>
+										</optgroup>
 								</select>
+								
 							</div>
 							<div class="large-7 small-8 column" *ngIf="opt.duration === 'date'">
 								<div class="large-2 column">
@@ -152,11 +160,19 @@
 					<ul  class="i" id={{option[i]}}>
 						<div class="row" *ngFor="let opt of option.selectbox">
 							<div class="large-8 small-8 column">
-							<select #advtherapy name="{{opt.therapyName}}" (change)="onCheck($event,advtherapy.value)">
-								<option>{{opt.therapyName}}</option>
-								<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
-								{{subOpt.code}}</option>
-							</select>
+								<select #advtherapy name="{{opt.therapyName}}"  [value]="opt.answer" 	(change)="onCheck($event,advtherapy.value)">
+									<!-- <option>{{opt.therapyName}}</option>
+									<option *ngFor="let subOpt of opt.options" value="{{subOpt.status}}">
+									{{subOpt.code}}</option> -->
+									<optgroup>
+                                    
+										<!-- <option  [value]="opt.answer">{{opt.answer}}</option> -->
+										<option *ngFor="let subOpt of opt.options">
+											
+										{{subOpt.code}}</option>
+										</optgroup>
+								</select>
+
 							</div>
 						</div>
 					</ul>

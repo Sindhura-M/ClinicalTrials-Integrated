@@ -246,20 +246,23 @@ export class AnswerQuestionsComponent implements OnInit {
 		    this.option.forEach(element => {
 				this.selectedOptArray.forEach(function(item){
 					 optionIs=item.split('-');
-					 if(optionIs[0]==element.subcharacteristic){
-						element.anslistobj.forEach(element => {
-							if(element.status==optionIs[1]){
+					
+						
+							if(element.status==this.selectedOpt){
 								element.value=true;
 							}else {
 								element.value=false;
 							}
-						});
-					}
+						
+					
 				});
 				
 				
 				
 			});
+			
+
+				
 			
 	 }
 		this.showIncompleteQuestions = false;
@@ -277,6 +280,7 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	answerkey: AnswerKey[] = [];
 	selectedOptArray=[];
+	selectedOptionValue;
 	onCheck(e,selectedOpt) {
 
 		let val = e.value;		
@@ -305,9 +309,16 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.selectedOptArray.push(selectedOpt);
 		} else if (this.optionType == 'selectbox-earlyStage' || this.optionType == 'selectbox-advanced') {
 			this.selectboxCharacteristic = this.quizlist[this.i].characteristic;
+			var targetIS=e.currentTarget.name;
 			e.currentTarget.name=e.currentTarget.name.split(" ").join("");
 			this.characteristic = this.selectboxCharacteristic+e.currentTarget.name;
 			val = selectedOpt;
+			this.option[0].selectbox.forEach(element => {
+				
+					if(element.therapyName==targetIS){
+						element.answer=val;
+					}
+			});
 		}
 
 		this.optionSelected[this.i] = selectedOpt;

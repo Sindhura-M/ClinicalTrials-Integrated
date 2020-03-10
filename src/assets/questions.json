@@ -123,16 +123,16 @@
     "question": "Please select all forms of treatment the patient has received for early stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
     "optionType": "selectbox-earlyStage",
     "anslistobj": [{"selectbox" : [
-                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date"},
-                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date"},
-                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months"},
-                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months"},
-                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx HER Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx CDK Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
+                      {"therapyName": "Surgery", "options": [{"code":"Surgery", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"Yes"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "answer":"Surgery","duration": "date"},
+                      {"therapyName": "Radiotherapy", "options": [{"code":"Radiotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date","answer":"Radiotherapy"},
+                      {"therapyName": "Chemotherapy", "options": [{"code":"Chemotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Chemotherapy"},
+                      {"therapyName": "Hormonal therapy", "options": [{"code":"Hormonal therapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Hormonal therapy"},
+                      {"therapyName": "Immunotherapy", "options": [{"code":"Immunotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Immunotherapy"},
+                      {"therapyName": "Targeted Tx HER Therapy", "options": [{"code":"Targeted Tx HER Therapy", "status":"Y","value":"Yes"},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Targeted Tx HER Therapy"},
+                      {"therapyName": "Targeted Tx CDK Inhibitor", "options": [{"code":"Targeted Tx CDK Inhibitor", "status":"Y","value":"Yes"},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Targeted Tx CDK Inhibitor"},
+                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Targeted Tx PARP Inhibitor", "status":"Y","value":"Yes"},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Targeted Tx PARP Inhibitor"}
                     ]},
-                    {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
+                    {"radio" : [{"code":"Yes","status":"0","value":"false"},{"code":"Have not received any treatment","status":"0","value":"false"},{"code":"Not Sure","status":"0","value":"false"}]}],
     "characteristic": "early",
     "answer":""
   },
@@ -141,16 +141,16 @@
     "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
     "optionType": "selectbox-advanced",
     "anslistobj": [{"selectbox" : [
-                      {"therapyName": "Surgery", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Radiotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Chemotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Hormonal therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Immunotherapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx HER Therapy", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx CDK Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]},
-                      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}]}
-                    ]},
-                    {"radio" : ["Yes", "Have not received any treatment", "Not sure"] }],
+      {"therapyName": "Surgery", "options": [{"code":"Surgery", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"Yes"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "answer":"Surgery","duration": "date"},
+      {"therapyName": "Radiotherapy", "options": [{"code":"Radiotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date","answer":"Radiotherapy"},
+      {"therapyName": "Chemotherapy", "options": [{"code":"Chemotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Chemotherapy"},
+      {"therapyName": "Hormonal therapy", "options": [{"code":"Hormonal therapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Hormonal therapy"},
+      {"therapyName": "Immunotherapy", "options": [{"code":"Immunotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Immunotherapy"},
+      {"therapyName": "Targeted Tx HER Therapy", "options": [{"code":"Targeted Tx HER Therapy", "status":"Y","value":"Yes"},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Targeted Tx HER Therapy"},
+      {"therapyName": "Targeted Tx CDK Inhibitor", "options": [{"code":"Targeted Tx CDK Inhibitor", "status":"Y","value":"Yes"},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Targeted Tx CDK Inhibitor"},
+      {"therapyName": "Targeted Tx PARP Inhibitor", "options": [{"code":"Targeted Tx PARP Inhibitor", "status":"Y","value":"Yes"},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}],"answer":"Targeted Tx PARP Inhibitor"}
+    ]},
+                    {"radio" : [{"code":"Yes","status":"0","value":"false"},{"code":"Have not received any treatment","status":"0","value":"false"},{"code":"Not Sure","status":"0","value":"false"}]}],
     "characteristic": "advanced",
     "answer":""
   },
