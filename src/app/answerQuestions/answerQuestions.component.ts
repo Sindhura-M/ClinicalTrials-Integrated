@@ -78,9 +78,12 @@ export class AnswerQuestionsComponent implements OnInit {
 				if(element.characteristic==key){
 					element.anslistobj.forEach(item => {
 						if(this.myAccDetails.condition[key]!=null){
-							if(item.name==this.myAccDetails.condition[key]){
+							this.myAccDetails.condition[key].forEach(function(value){
+								if(item.name==value){
 								item.checked=true;
 						  }
+							})
+							
 						}
 						
 					});
@@ -219,14 +222,12 @@ export class AnswerQuestionsComponent implements OnInit {
 		});
 		break
 		case "checkbox":
-			this.optionSelected.forEach(element => {
-				this.selectedOpt = element[0].name;
+			this.selectedOpt.forEach(item => {
+				
 				this.option.forEach(element => {
-					if(element.name==this.selectedOpt){
+					if(element.name==item){
 					element.checked=true;
-					}else {
-						element.checked=false;
-			}
+					}
 					});
 
 			});
@@ -247,12 +248,14 @@ export class AnswerQuestionsComponent implements OnInit {
 				this.selectedOptArray.forEach(function(item){
 					 optionIs=item.split('-');
 					
-						
-							if(element.status==this.selectedOpt){
+						element.anslistobj.forEach(function(elementIs){
+						if(elementIs.status==this.selectedOpt){
 								element.value=true;
 							}else {
 								element.value=false;
 							}
+						})
+							
 						
 					
 				});

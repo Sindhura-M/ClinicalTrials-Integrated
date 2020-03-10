@@ -31,8 +31,9 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
 
     this.http.getUserDetails().subscribe( data => {
-      this.dataSource = data.filter(item=>item.roles[0].role=="user");
-      this.usersList.setData(this.dataSource );
+      this.dataSource = data.filter(item=>item.status!="Inactive");
+        this.dataSource = this.dataSource.filter(item=>item.roles[0].role=="user");
+        this.usersList.setData(this.dataSource);
     });
 
     this._formValidate();
@@ -59,8 +60,9 @@ export class UsersComponent implements OnInit {
       this.dialogRef = null;
       //window.location.reload();
       this.http.getUserDetails().subscribe( data => {
-        this.dataSource = data;
-        this.usersList.setData(data);
+        this.dataSource = data.filter(item=>item.status!="Inactive");
+        this.dataSource = this.dataSource.filter(item=>item.roles[0].role=="user");
+        this.usersList.setData(this.dataSource);
       });
     });
   }
