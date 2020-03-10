@@ -40,7 +40,8 @@ export class MyAccountComponent implements OnInit {
 	myAccDetails: any;
 	userId:any;
 	Object = Object;
-	
+	selectedOptionArray=[];
+	selectedAdvOptionArray=[];
 	quizlist: any = [];
 	ngOnInit() {
 		 this.userId=this.session.accountUserId;
@@ -106,16 +107,23 @@ export class MyAccountComponent implements OnInit {
 					
 				});
 			}
-			}else if(element.optionType=="selectbox-earlyStage" || element.optionType=="selectbox-advanced"){
-				if(element.characteristic==key){
+			}else if(element.optionType=="selectbox-earlyStage"){
+				if(key.includes("early")){
+				    if(this.myAccDetails.condition[key]!=null){
+						this.selectedOptionArray.push({"name":key,"value":this.myAccDetails.condition[key]})
+						
+					}
+				    
 				
-					element.anslistobj[0].selectbox.forEach(item => {
-						if(item.status==this.myAccDetails.condition[key]){
-							item.value=this.myAccDetails.condition[key];
-							  }
+				}
+			}
+			else if(element.optionType=="selectbox-advanced"){
+				if(key.includes("advanced")){
+				    if(this.myAccDetails.condition[key]!=null){
+						this.selectedAdvOptionArray.push({"name":key,"value":this.myAccDetails.condition[key]})
 						
-						
-					});
+					}
+				    
 				
 				}
 			}

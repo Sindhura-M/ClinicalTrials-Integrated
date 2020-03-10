@@ -124,7 +124,7 @@
 						<!-- </ul> -->
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
+					<div class="panel" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
 						<span style="padding: 50px;">{{question.answer}}</span>
 						<!-- <mat-radio-group aria-label="Select an option" disabled>
 							<ul *ngFor="let option of question.anslistobj" class="display-flex">
@@ -135,19 +135,25 @@
 								</li>
 							</ul>
 						</mat-radio-group> -->
+
+						<ul *ngFor="let option of selectedOptionArray">
+								
+							<li >
+								<span>{{(option.name).replace("early",'')}} </span> : {{option.value}}
+							</li>
+						</ul>
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-advanced'" hide="!item.isActive">
-						<span style="padding: 50px;">{{question.answer}}</span>
-						<!-- <mat-radio-group aria-label="Select an option" disabled>
-							<ul *ngFor="let option of question.anslistobj" class="display-flex">
-								<li *ngFor="let opt of option.radio">
-									<div class="large-12 column optionList">
-									  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="AS-{{opt}}">{{opt}}</mat-radio-button>
-									</div>
+					<div class="panel" *ngIf="question.optionType == 'selectbox-advanced'" hide="!item.isActive">
+					
+								
+							<ul *ngFor="let option of selectedAdvOptionArray">
+								
+								<li >
+									<span>{{(option.name).replace("advanced",'')}} </span> : {{option.value}}
 								</li>
 							</ul>
-						</mat-radio-group> -->
+						
 					</div>
 
 					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage' && display" hide="!item.isActive">
