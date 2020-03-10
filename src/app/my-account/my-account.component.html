@@ -99,15 +99,9 @@
 					</div>
 
 					<div class="panel" *ngIf="question.optionType === 'text'" hide="!item.isActive"> 
-						<!-- <div *ngFor="let option of question.anslistobj"> -->
+						
 							<span style="padding: 50px;">{{question.answer}}</span>
-							<!-- <mat-form-field class="optionList">
-								<input #todo matInput (change)="check($event,todo.value, characteristic)" [value]="option.value" type="text" name="todo" class="border-line" readonly> 
-							</mat-form-field>
-							<span class="example-full-width">mm</span>
-
-							<mat-radio-button (click)="check($event,option.status, characteristic)" value="{{option.status}}" [checked]="option.value" disabled>{{option.code}}</mat-radio-button> -->
-						<!-- </div> -->
+							
 					</div>
 
 					<div class="row panel" *ngIf="question.optionType === 'multipleRadio'" hide="!item.isActive">

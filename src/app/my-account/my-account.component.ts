@@ -107,7 +107,13 @@ export class MyAccountComponent implements OnInit {
 					
 				});
 			}
-			}else if(element.optionType=="selectbox-earlyStage"){
+			}else if(element.optionType=="date"){
+				if(element.characteristic==key){
+					element.answer=this.myAccDetails.condition[key];
+				}		
+			}
+			
+			else if(element.optionType=="selectbox-earlyStage"){
 				if(key.includes("early")){
 				    if(this.myAccDetails.condition[key]!=null){
 						this.selectedOptionArray.push({"name":key,"value":this.myAccDetails.condition[key]})
