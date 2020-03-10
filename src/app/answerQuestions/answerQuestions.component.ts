@@ -212,9 +212,9 @@ export class AnswerQuestionsComponent implements OnInit {
 		this.selectedOpt = this.optionSelected[this.i];
 		this.option.forEach(element => {
 		if(element.code==this.selectedOpt){
-		element.value="true";
+		element.value=true;
 		}else {
-			element.value="false";
+			element.value=false;
 		}
 		});
 		break
@@ -223,8 +223,10 @@ export class AnswerQuestionsComponent implements OnInit {
 				this.selectedOpt = element[0].name;
 				this.option.forEach(element => {
 					if(element.name==this.selectedOpt){
-					element.checked="true";
-					}
+					element.checked=true;
+					}else {
+						element.checked=false;
+			}
 					});
 
 			});
@@ -233,10 +235,31 @@ export class AnswerQuestionsComponent implements OnInit {
 				this.selectedOpt = this.optionSelected[this.i];
 				this.option.forEach(element => {
 				if(element.status==this.selectedOpt){
-				element.value="true";
+				element.value=true;
+				}else {
+					element.value=false;
 				}
 				});
 				break
+		   case "multipleRadio":
+			let optionIs="";
+		    this.option.forEach(element => {
+				this.selectedOptArray.forEach(function(item){
+					 optionIs=item.split('-');
+					 if(optionIs[0]==element.subcharacteristic){
+						element.anslistobj.forEach(element => {
+							if(element.status==optionIs[1]){
+								element.value=true;
+							}else {
+								element.value=false;
+							}
+						});
+					}
+				});
+				
+				
+				
+			});
 			
 	 }
 		this.showIncompleteQuestions = false;
@@ -253,7 +276,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	}
 
 	answerkey: AnswerKey[] = [];
-
+	selectedOptArray=[];
 	onCheck(e,selectedOpt) {
 
 		let val = e.value;		
@@ -279,6 +302,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			this.characteristic = e;
 			val = selectedOpt;
 			selectedOpt = e + '-' + selectedOpt;
+			this.selectedOptArray.push(selectedOpt);
 		} else if (this.optionType == 'selectbox-earlyStage' || this.optionType == 'selectbox-advanced') {
 			this.selectboxCharacteristic = this.quizlist[this.i].characteristic;
 			e.currentTarget.name=e.currentTarget.name.split(" ").join("");
