@@ -33,7 +33,6 @@ export class UsersComponent implements OnInit {
     this.http.getUserDetails().subscribe( data => {
       this.dataSource = data.filter(item=>item.roles[0].role=="user");
       this.usersList.setData(this.dataSource );
-      this.role = this.dataSource[0].roles[0].role;
     });
 
     this._formValidate();
@@ -120,8 +119,12 @@ export class UsersComponent implements OnInit {
     this.dataAccountProfile.setData(tempData);
     
     this.http.addAdminUser().subscribe( data => {
-      alert(data);
-      if (data == 'Admin User added successfully') {
+      if (data.errorMessage == null) {
+          alert('Admin User added successfully');
+          this.emailAddress = '';
+          this.password = '';
+      } else if (data.errorMessage != null && data.id == null) {
+          alert('Admin already exists');
           this.emailAddress = '';
           this.password = '';
       }
