@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 	public isBusy = false;
   	public hasFailed = false;
  	showInputErrors = true;
+ 	showErrorMsg: true;
 
 	ngOnInit() {
 		this._formValidate();
@@ -85,7 +86,7 @@ export class LoginComponent implements OnInit {
 	          );
 	          if(response.userDetails.user.roles[0].role == 'ADMIN'){
 	          	this.router.navigate(['/users']);
-	          }else if(response.userDetails.user.roles[0].role == 'user'){
+	          } else if(response.userDetails.user.roles[0].role == 'user' && response.userDetails.user.status == null){
 	          	//stepper.next();
 	          	this.router.navigate(['/myaccount']);
 	          	/*this.dataAccess.getMyAccTrials().subscribe( data => {
@@ -100,8 +101,10 @@ export class LoginComponent implements OnInit {
 	          	//let step = this.ngAfterViewInit();
 	          	//this.stepper.selectedIndex = 2;
 
+	          } else if (response.userDetails.user.status == 'Inactive') {
+	          		this.showErrorMsg = true;
+	          	 	return;
 	          }
-
 
 		    },
 	        (error) => {

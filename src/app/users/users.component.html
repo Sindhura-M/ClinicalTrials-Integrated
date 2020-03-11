@@ -5,7 +5,7 @@
 			<!-- <span class="float-left"><button (click)="next(e)" class="button-small-active">Create new user</button></span>
 			<br/>  -->
 			<!--div class="title-card-sub">List of Users</div-->
-
+			
 			<div class="users-table">
 				<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 2rem;">
 				  <ng-container matColumnDef="Id" >
@@ -46,6 +46,10 @@
 			<div>
 				<span><button (click)="exportAllUsers()" class="button-small-active">Export All Users</button></span>
             </div>
+
+            <div class="row">
+		        <p><strong>Note:</strong> Admin users list in not shown in the General users Administration Screen</p>
+		    </div>
 		</mat-tab>
 
 		<mat-tab label="Add Admin User">

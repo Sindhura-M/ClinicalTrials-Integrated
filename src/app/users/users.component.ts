@@ -79,12 +79,22 @@ export class UsersComponent implements OnInit {
         data.push(tmp.condition);
     })
 
+    let temp = [];
+    this.dataSource.forEach( tmp => { 
+        temp.push(tmp.roles);
+    })
+
     let results = [];
-    for (var i = 0; i<data.length; i++) {
+    for (var i = 0; i<temp.length; i++) {
       //results = [ ...this.dataSource[i], ...data[i]];
-      results.push(Object.assign({}, data[i], this.dataSource[i]));
+      results.push(Object.assign({}, this.dataSource[i], data[i], temp[i][i]));
     }
 
+    /*for (var i = 0; i<data.length; i++) {
+      //results = [ ...this.dataSource[i], ...data[i]];
+      results.push(Object.assign({}, data[i], results[i]));
+    }
+*/
     this.excelService.exportExcel(results, 'users')  
   }
 

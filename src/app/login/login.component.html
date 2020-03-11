@@ -21,6 +21,11 @@
 				</div>
 			</div>
 		</div>
+
+		<div *ngIf="showErrorMsg" class="text-center title-card-sub">
+            <p>User does not exist, please create an account</p>
+        </div>
+        
 		<div class="sign-in-error" *ngIf="hasFailed">
 	      Invalid username or password.
 	    </div>
@@ -31,5 +36,7 @@
 			<ng-template *ngIf="!isBusy">LOG IN</ng-template>
       		<ng-template *ngIf="isBusy">Signing in, please wait...</ng-template></button>
 		</div>
+
+
 	</form>
 </div>
