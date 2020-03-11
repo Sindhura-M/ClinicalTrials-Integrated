@@ -29,12 +29,24 @@ export class UsersComponent implements OnInit {
 
   public dataSource: any = [];
   ngOnInit() {
+     var userTableData=localStorage.getItem("userTableData");
+    if(userTableData==""){
 
-    this.http.getUserDetails().subscribe( data => {
-      this.dataSource = data.filter(item=>item.status!="Inactive");
+      this.http.getUserDetails().subscribe( data => {
+        localStorage.setItem('userTableData',JSON.stringify(data));
+        this.dataSource=JSON.parse(localStorage.getItem('userTableData'));
+        this.dataSource = data.filter(item=>item.status!="Inactive");
         this.dataSource = this.dataSource.filter(item=>item.roles[0].role=="user");
         this.usersList.setData(this.dataSource);
-    });
+      });
+      
+    }else {
+      this.dataSource=JSON.parse(localStorage.getItem('userTableData'));
+      this.dataSource =  this.dataSource.filter(item=>item.status!="Inactive");
+      this.dataSource = this.dataSource.filter(item=>item.roles[0].role=="user");
+      this.usersList.setData(this.dataSource);
+    }
+   
 
     this._formValidate();
   }
