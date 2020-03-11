@@ -42,7 +42,9 @@ export class AnswerQuestionsComponent implements OnInit {
 	}
 	ngOnInit() {
 
-
+    /*window.onbeforeunload = function(e) {
+      return 'Dialog text here.';
+    };*/
 		this.httpClient.get("assets/questions.json").subscribe(data =>{
 			this.quizlist = data;
 

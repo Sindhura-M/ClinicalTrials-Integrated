@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
   public dataSource: any = [];
   ngOnInit() {
      var userTableData=localStorage.getItem("userTableData");
-    if(userTableData==""){
+    if(userTableData=="" || userTableData==null){
 
       this.http.getUserDetails().subscribe( data => {
         localStorage.setItem('userTableData',JSON.stringify(data));
