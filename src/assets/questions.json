@@ -34,7 +34,7 @@
     "ID": 4, 
     "question": "What is the size of the primary tumour? <br/><small>Refer to the size of the invasive carcinoma only, this does not include ductal carcinoma in situ (DCIS) or lobular carcinoma in situ (LCIS).<br/></small>", 
     "optionType": "text",
-    "anslistobj": [{"code":"Not sure", "status":"0","value":""}],
+    "anslistobj": [{"code":"Not sure", "status":"0","value":"false"}],
     "characteristic": "tumourSize",
     "answer":""
   },
@@ -98,10 +98,10 @@
     "ID": 9, 
     "question": "What is the grade of the cancer?", 
     "optionType": "radio",
-    "anslistobj": [{"code":"Stage 1","status":"1"},
-      {"code":"Stage 2","status":"2"},
-      {"code":"Stage 3","status":"3"},
-      {"code":"Stage 4","status":"4"}],
+    "anslistobj": [{"code":"Stage 1","status":"1","value":"false"},
+      {"code":"Stage 2","status":"2","value":"false"},
+      {"code":"Stage 3","status":"3","value":"false"},
+      {"code":"Stage 4","status":"4","value":"false"}],
     "characteristic": "stage",
     "answer":""
   },

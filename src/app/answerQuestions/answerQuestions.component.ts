@@ -235,7 +235,7 @@ export class AnswerQuestionsComponent implements OnInit {
 			case "text" :
 				this.selectedOpt = this.optionSelected[this.i];
 				this.option.forEach(element => {
-				if(element.status==this.selectedOpt){
+				if(element.code==this.selectedOpt){
 				element.value=true;
 				}else {
 					element.value=false;
@@ -245,16 +245,17 @@ export class AnswerQuestionsComponent implements OnInit {
 		   case "multipleRadio":
 			let optionIs="";
 		    this.option.forEach(element => {
-				this.selectedOptArray.forEach(function(item){
-					 optionIs=item.split('-');
+				this.selectedOptArray.forEach(function(itemIs){
+					 optionIs=itemIs.split('-');
 					
-						element.anslistobj.forEach(function(elementIs){
-						if(elementIs.status==this.selectedOpt){
-								element.value=true;
-							}else {
-								element.value=false;
-							}
-						})
+					 element.anslistobj.forEach(item => {
+						if(item.status==optionIs[1]){
+							item.value=true;
+						}else {
+							item.value=false;
+						}
+					
+					});
 							
 						
 					
@@ -296,6 +297,15 @@ export class AnswerQuestionsComponent implements OnInit {
 			selectedOpt = val;
 		}else if (this.characteristic === 'tumourSize') {
 			val = selectedOpt;
+			this.option.forEach(element => {
+				var matches = val.match(/\d+/g);
+             	if(matches!=null){
+					element.value=false;
+				}else {
+					element.value=true;
+
+				}
+			});
 		}else if (this.optionType === 'checkbox') {
 			if(selectedOpt.checked==true){
 					this.checkboxValues.push(selectedOpt.name);
@@ -310,6 +320,19 @@ export class AnswerQuestionsComponent implements OnInit {
 			val = selectedOpt;
 			selectedOpt = e + '-' + selectedOpt;
 			this.selectedOptArray.push(selectedOpt);
+			this.option.forEach(element => {
+				if(element.subcharacteristic==this.characteristic){
+                    element.anslistobj.forEach(item => {
+						if(item.status==val){
+							item.value=true;
+						}else {
+							item.value=false;
+						}
+					
+					});
+				}
+				
+			});
 		} else if (this.optionType == 'selectbox-earlyStage' || this.optionType == 'selectbox-advanced') {
 			this.selectboxCharacteristic = this.quizlist[this.i].characteristic;
 			var targetIS=e.currentTarget.name;
@@ -343,16 +366,49 @@ export class AnswerQuestionsComponent implements OnInit {
 		if ( this.characteristic === "early" ) {
 			if (value === 'Yes') {
 				this.display = true;
+				this.option[1].radio.forEach(element => {
+				
+					if(element.code==value){
+						element.value=true;
+					}else {
+						element.value=false;
+					}
+			});
+
 			} else if (value !== 'Yes') {
 				this.display = false;
+				this.option[1].radio.forEach(element => {
+				
+					if(element.code==value){
+						element.value=true;
+					}else {
+						element.value=false;
+					}
+			});
 			}
 		}
 
 		if ( this.characteristic === "advanced" ) {
 			if (value === 'Yes') {
 				this.display2 = true;
+				this.option[1].radio.forEach(element => {
+				
+					if(element.code==value){
+						element.value=true;
+					}else {
+						element.value=false;
+					}
+			});
 			} else if (value !== 'Yes') {
 				this.display2 = false;
+				this.option[1].radio.forEach(element => {
+				
+					if(element.code==value){
+						element.value=true;
+					}else {
+						element.value=false;
+					}
+			});
 			}
 		}
 	}

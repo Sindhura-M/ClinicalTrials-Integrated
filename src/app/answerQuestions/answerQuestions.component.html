@@ -48,16 +48,15 @@
 			<div *ngIf="optionType === 'text'">
 				<div class="large-6 column">
 					<mat-form-field class="example-full-width optionList">
-						<input #tumorSize matInput (change)="onCheck($event,tumorSize.value)" type="number" min="0" name="tumorSize" class="border-line"  [value]="option.value"> 
+						<input #tumorSize matInput (change)="onCheck($event,tumorSize.value)" type="number" min="0" name="tumorSize" class="border-line"  > 
 					</mat-form-field>
 					<span>mm</span>
 
 				</div>
 				<div class="large-6 column" *ngFor="let option of option">
 					<mat-radio-button
-					name="{{option.code}}" [checked]="option.value"
-					[ngModel]="option.value"  value="{{option.status}}"
-					(change)="onCheck($event,option.status)">
+					name="{{option.code}}" name="{{option.code}}"  [checked]="option.value"
+					(change)="onCheck($event,option.code)">
 					{{option.code}}
 				  </mat-radio-button>
 						<!-- <mat-radio-button (click)="onCheck($event,option.status)" value="{{option.value}}" >{{option.code}}</mat-radio-button> -->
@@ -74,7 +73,7 @@
 								<div class="large-6 column ">{{option.question}}</div>
 								<div class="large-6 column optionList">
 									<ul *ngFor="let opt of option.anslistobj" class="optionList">
-									  <mat-radio-button [checked]="opt.value" (click)="onCheck(option.subcharacteristic, opt.status)" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
+									  <mat-radio-button  name="{{opt.code}}"    (change)="onCheck(option.subcharacteristic, opt.status)"  [checked]="opt.value" [value]="opt.code">{{opt.code}}</mat-radio-button>
 									</ul>
 								</div>
 							</mat-radio-group>
@@ -88,7 +87,7 @@
 					<ul *ngFor="let option of option" class="display-flex">
 						<li *ngFor="let opt of option.radio">
 							<div class="large-12 column optionList">
-							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt.code)" value="ES-{{opt.code}}" >{{opt.code}}</mat-radio-button>
+							  <mat-radio-button (change)="toggleTreatmentOPtions($event,opt.code)" [checked]="opt.value" [value]="opt.code" >{{opt.code}}</mat-radio-button>
 							</div>
 						</li>
 					</ul>
@@ -100,7 +99,7 @@
 					<ul *ngFor="let option of option" class="display-flex">
 						<li *ngFor="let opt of option.radio">
 							<div class="large-12 column optionList">
-							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt.code)" value="AS-{{opt.code}}">{{opt.code}}</mat-radio-button>
+							  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt.code)" [checked]="opt.value" [value]="opt.code" >{{opt.code}}</mat-radio-button>
 							</div>
 						</li>
 					</ul>
