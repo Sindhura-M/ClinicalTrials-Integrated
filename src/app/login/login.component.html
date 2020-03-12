@@ -26,7 +26,7 @@
             <p>User does not exist, please create an account</p>
         </div>
         
-		<div class="sign-in-error" *ngIf="hasFailed || f.pwd.errors.minlength || f.emailAddress.errors.email">
+		<div class="sign-in-error" *ngIf="hasFailed">
 	      Invalid username or password.
 	    </div>
 	    <br/>

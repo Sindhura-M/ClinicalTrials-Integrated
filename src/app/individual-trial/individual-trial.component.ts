@@ -4,6 +4,7 @@ import { dataQAservice } from '../services/data-QA.service';
 import { TrialsTable } from '../trials/trialsTable';
 //import { } from '@types/googlemaps';
 import {ActivatedRoute, Router} from '@angular/router';
+import { SessionService } from '../services/session.service';
 import { TrialsListService } from '../services/trials-list.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class IndividualTrialComponent implements OnInit {
 		private dataQAservice: dataQAservice, 
 		private route:ActivatedRoute,
 		private router:Router,
+		public session:SessionService,
 		private trialsList : TrialsListService ) { }
 
 	//public dataSource: TrialsTable[] = [];
@@ -25,21 +27,24 @@ export class IndividualTrialComponent implements OnInit {
 	trial: any;
 	error: String[];
 	phase: String[];
+	userId:any ;
 
  /* @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;*/
 
 	ngOnInit() {
 	    //const tempData = this.dataQAservice.getData();
-	    let trialId = parseInt(this.route.snapshot.paramMap.get('id'));
-	    /*this.dataAccess.fetchTrialsSummary(trialId).subscribe( data => {
-	    this.dataSource = data;
+	    this.userId=this.session.accountUserId;
+	    let trialID = parseInt(this.route.snapshot.paramMap.get('id'));
+		this.dataAccess.fetchTrialsSummary(trialID,this.userId).subscribe( data => {
+	    	this.dataSource = data;
+
 	    },
 	    error => {
 	    	this.error = error;
-	    });*/
+	    });
 	    this.selectedTrial = this.dataSource.filter(function (tmp) {
-	                     return tmp.id === trialId;
+	                     return tmp.id === trialID;
 	                });
 	    console.log("selectedTrial", JSON.stringify(this.selectedTrial));
 	    this.trial = this.selectedTrial[0];

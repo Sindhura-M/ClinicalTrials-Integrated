@@ -150,7 +150,7 @@ export class DataAccessService {
     );
   }
 
-  fetchTrialsSummary(trialID: string): Observable<any> {
+  fetchTrialsSummary(trialID: number,userID:number ): Observable<any> {
     let token = 'Bearer' + ' ' + this.session.accessToken;
     const httpOptions = {
         headers: new HttpHeaders({ 
