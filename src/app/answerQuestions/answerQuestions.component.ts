@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Quizmodel } from '.././quiz/quizmodel';
 import { Answermodel } from '.././quiz/quizmodel';
 import { Router }  from '@angular/router';
@@ -287,6 +287,7 @@ export class AnswerQuestionsComponent implements OnInit {
 	answerkey: AnswerKey[] = [];
 	selectedOptArray=[];
 	selectedOptionValue;
+	
 	onCheck(e,selectedOpt) {
 
 		let val = e.value;		
@@ -296,15 +297,17 @@ export class AnswerQuestionsComponent implements OnInit {
 
 		if (this.characteristic === 'diagnosis'){
 			val = this.diagnosisDate;
-			selectedOpt = val;
+			
 		}else if (this.characteristic === 'tumourSize') {
 			val = selectedOpt;
 			this.option.forEach(element => {
 				var matches = val.match(/\d+/g);
              	if(matches!=null){
+					val = parseInt(val);
 					element.value=false;
 				}else {
 					element.value=true;
+					
 
 				}
 			});

@@ -48,7 +48,7 @@
 			<div *ngIf="optionType === 'text'">
 				<div class="large-6 column">
 					<mat-form-field class="example-full-width optionList">
-						<input #tumorSize matInput (change)="onCheck($event,tumorSize.value)" type="number" min="0" name="tumorSize" class="border-line"  > 
+						<input #tumorSize matInput #searchInput (change)="onCheck($event,tumorSize.value)" type="number" min="0" name="tumorSize" class="border-line"  > 
 					</mat-form-field>
 					<span>mm</span>
 

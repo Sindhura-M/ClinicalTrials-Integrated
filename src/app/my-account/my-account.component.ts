@@ -99,9 +99,11 @@ export class MyAccountComponent implements OnInit {
 			}else if(element.optionType=="text"){
 				if(element.characteristic==key){
 				element.anslistobj.forEach(item => {
-					if(item.status==this.myAccDetails.condition[key]||this.myAccDetails.condition[key]=="Any"){
+					if(item.code==this.myAccDetails.condition[key]||this.myAccDetails.condition[key]=="Any"){
 						item.value=this.myAccDetails.condition[key];
 						element.answer=item.code;
+						  }else {
+							element.answer=this.myAccDetails.condition[key];
 						  }
 					
 					
