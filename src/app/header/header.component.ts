@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() { }
 
   doSignOut() : void {
+  	 localStorage.setItem('userTableData',"");
   	this.auth.doSignOut();
   }
 }

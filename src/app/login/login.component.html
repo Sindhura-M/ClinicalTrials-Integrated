@@ -7,8 +7,8 @@
 			  <input type="email" formControlName="emailAddress" class="form-control input-group-field" placeholder="Email address" />
 			  <div *ngIf="f.emailAddress.invalid && f.emailAddress.touched" class="text-danger">
 				<small *ngIf="f.emailAddress.errors.required">Username is required.</small>
-				<small *ngIf="f.emailAddress.errors.email">Username is invalid</small>
-			  </div>
+<!-- 				<small *ngIf="f.emailAddress.errors.email">Username is invalid</small>
+ -->			  </div>
 			</div>
 		</div>
 		<div class="cloumns large-12 small-12">
@@ -17,8 +17,8 @@
 				<input type="password" formControlName="pwd" class="form-control input-group-field" placeholder="Enter password" />
 				<div *ngIf="f.pwd.invalid && f.pwd.touched" class="text-danger">
 					<small *ngIf="f.pwd.errors.required">Password is required.</small>
-					<small *ngIf="f.pwd.errors.minlength">Password is invalid.</small>
-				</div>
+<!-- 					<small *ngIf="f.pwd.errors.minlength">Password is invalid.</small>
+ -->				</div>
 			</div>
 		</div>
 
@@ -26,7 +26,7 @@
             <p>User does not exist, please create an account</p>
         </div>
         
-		<div class="sign-in-error" *ngIf="hasFailed">
+		<div class="sign-in-error" *ngIf="hasFailed || f.pwd.errors.minlength || f.emailAddress.errors.email">
 	      Invalid username or password.
 	    </div>
 	    <br/>
