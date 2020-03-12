@@ -217,13 +217,16 @@ export class AnswerQuestionsComponent implements OnInit {
 		 {
         case "radio" :
 		this.selectedOpt = this.optionSelected[this.i];
-		this.option.forEach(element => {
-		if(element.code==this.selectedOpt){
-		element.value=true;
-		}else {
-			element.value=false;
+		if(this.selectedOpt!=undefined){
+			this.option.forEach(element => {
+				if(element.code==this.selectedOpt){
+				element.value=true;
+				}else {
+					element.value=false;
+				}
+				});
 		}
-		});
+	
 		break
 		case "checkbox":
 			this.selectedOpt.forEach(item => {
@@ -315,9 +318,13 @@ export class AnswerQuestionsComponent implements OnInit {
 				var matches = val.match(/\d+/g);
              	if(matches!=null){
 					val = parseInt(val);
+					
 					element.value=false;
+					
 				}else {
 					element.value=true;
+					val="Any"
+					
 					
 
 				}

@@ -87,9 +87,9 @@
     "question": "What is the hormone receptor status of the cancer (ER and/or PR and/or HER2 test results)?Please select all that apply.", 
     "optionType": "multipleRadio",
     "anslistobj": [
-      {"question": "Estrogen Receptor (ER)",  "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}], "subcharacteristic": "ER"},
-      {"question": "Progesterone Receptor (PR)", "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}], "subcharacteristic": "PR"},
-      {"question": "HER Receptor (HER2)", "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}, {"code":" Has not yet been tested","status":"Y/N","value":"false"}], "subcharacteristic": "HER2"}
+      {"question": "Estrogen Receptor (ER)","answer":"", "anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}], "subcharacteristic": "ER"},
+      {"question": "Progesterone Receptor (PR)", "answer":"","anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}], "subcharacteristic": "PR"},
+      {"question": "HER Receptor (HER2)", "answer":"","anslistobj": [{"code":"Positive","status":"P","value":"false"}, {"code":"Negative","status":"N","value":"false"}, {"code":"Not sure","status":"Y/N","value":"false"}, {"code":" Has not yet been tested","status":"Y/N","value":"false"}], "subcharacteristic": "HER2"}
     ],
     "characteristic": "",
     "answer":""

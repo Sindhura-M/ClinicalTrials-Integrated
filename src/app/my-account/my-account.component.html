@@ -105,31 +105,16 @@
 					</div>
 
 					<div class="row panel" *ngIf="question.optionType === 'multipleRadio'" hide="!item.isActive">
-						<!-- <ul *ngFor="let option of question.anslistobj" class="option-subTitle"> -->
-							<span style="padding: 50px;">{{question.answer}}</span>
-							<!-- <mat-radio-group aria-label="Select an option" disabled>
-								<div class="large-6 column ">{{option.question}}</div>
-								<div class="large-6 column optionList">
-									<ul *ngFor="let opt of option.anslistobj" class="optionList">
-									  <mat-radio-button (click)="check($event, opt.status, option.subcharacteristic)" [checked]="opt.value" value="{{opt.status}}">{{opt.code}}</mat-radio-button>
-									 </ul>
-								</div>
-							</mat-radio-group> -->
-						<!-- </ul> -->
+						 <ul *ngFor="let option of question.anslistobj">
+							
+							<li >
+								<span>{{option.subcharacteristic}}</span> : {{option.answer}}
+							</li>
+						</ul>
 					</div>
 
 					<div class="panel" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
 						<span style="padding: 50px;">{{question.answer}}</span>
-						<!-- <mat-radio-group aria-label="Select an option" disabled>
-							<ul *ngFor="let option of question.anslistobj" class="display-flex">
-								<li *ngFor="let opt of option.radio">
-									<div class="large-12 column optionList">
-									  <mat-radio-button (click)="toggleTreatmentOPtions($event,opt,characteristic)" value="ES-{{opt}}">{{opt}}</mat-radio-button>
-									</div>
-								</li>
-							</ul>
-						</mat-radio-group> -->
-
 						<ul *ngFor="let option of selectedOptionArray">
 								
 							<li >

@@ -90,7 +90,7 @@ export class MyAccountComponent implements OnInit {
 					    item.anslistobj.forEach(element => {
 							if(element.status==this.myAccDetails.condition[key]){
 								element.value=true;
-								element.answer=item.code;
+								item.answer=element.code;
 						  }
 						});
 					}
@@ -104,6 +104,10 @@ export class MyAccountComponent implements OnInit {
 						element.answer=item.code;
 						  }else {
 							element.answer=this.myAccDetails.condition[key];
+							if(element.answer=="Not sure"){
+								element.answer="Any";
+							}
+							
 						  }
 					
 					
