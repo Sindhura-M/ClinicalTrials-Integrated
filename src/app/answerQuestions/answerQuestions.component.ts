@@ -168,6 +168,8 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	selectedMonth: String;
 	selectedYear: number;
+	treatmentMonth: String;
+	treatmentYear: number;
 	diagnosisDate: String;
 
 	display: boolean;
@@ -281,6 +283,15 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	onYearSelect(event, YY, code) {
 		this.selectedYear = YY;
+		this.onCheck(event, code);
+	}
+
+	onMonth(event, MM) {
+		this.treatmentMonth = MM;
+	}
+
+	onYear(event, YY, code) {
+		this.treatmentYear =  YY;
 		this.onCheck(event, code);
 	}
 

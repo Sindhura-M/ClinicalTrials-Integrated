@@ -72,6 +72,8 @@ export class UsersComponent implements OnInit {
       this.dialogRef = null;
       //window.location.reload();
       this.http.getUserDetails().subscribe( data => {
+        localStorage.setItem('userTableData',JSON.stringify(data));
+        this.dataSource=JSON.parse(localStorage.getItem('userTableData'));
         this.dataSource = data.filter(item=>item.status!="Inactive");
         this.dataSource = this.dataSource.filter(item=>item.roles[0].role=="user");
         this.usersList.setData(this.dataSource);
