@@ -11,7 +11,7 @@
 					  <ng-container matColumnDef="Study title">
 					    <th mat-header-cell *matHeaderCellDef> Study title </th>
 					    <td mat-cell *matCellDef="let element"> 
-					    <a [routerLink]="['/individualtrial',element.id] ">{{element.summary}}</a> </td>
+					    <a [routerLink]="['/individualtrial',element.id_trials_summary] ">{{element.summary}}</a> </td>
 					  </ng-container>
 					  <!-- href="#/individualtrial/{{element.id}} -->
 
@@ -43,7 +43,7 @@
 					  <ng-container matColumnDef="Save">
 					    <th mat-header-cell *matHeaderCellDef> Save </th>
 					    <td mat-cell *matCellDef="let element"> <i class="material-icons" id="{{element.id}}"
-					    	(click)="saveTrial($event, element.id)"> star_border </i></td>
+					    	(click)="saveTrial($event, element.id_trials_summary)"> star_border </i></td>
 					  </ng-container>
 
 					  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

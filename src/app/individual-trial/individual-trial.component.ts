@@ -27,16 +27,14 @@ export class IndividualTrialComponent implements OnInit {
 	trial: any;
 	error: String[];
 	phase: String[];
-	userId:any ;
 
  /* @ViewChild('gmap') gmapElement: any;
   map: google.maps.Map;*/
 
 	ngOnInit() {
 	    //const tempData = this.dataQAservice.getData();
-	    this.userId=this.session.accountUserId;
 	    let trialID = parseInt(this.route.snapshot.paramMap.get('id'));
-		this.dataAccess.fetchTrialsSummary(trialID,this.userId).subscribe( data => {
+		this.dataAccess.fetchTrialsSummary(trialID).subscribe( data => {
 	    	this.dataSource = data;
 
 	    },

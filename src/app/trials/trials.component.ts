@@ -19,7 +19,8 @@ export class TrialsComponent implements OnInit {
   userId:any ;
 
   ngOnInit() {
-      //const tempData = this.dataQAservice.getData();
+      //this.userId=this.session.accountUserId;
+      const tempData = this.dataQAservice.getData();
       this.dataAccess.getCancerTrials().subscribe( data => {
       this.dataSource=data;
       this.showTrials=true;
@@ -35,9 +36,13 @@ export class TrialsComponent implements OnInit {
   
   saveTrial(event, trialId: number) {
     this.userId=this.session.accountUserId;
+
+    let trialDetails = [];
+    trialDetails.push(Object.assign({'trialId': trialId},{'userId': this.userId}));
+    trialDetails = trialDetails[0];
     if (event.currentTarget.innerText === "star_border") {
       event.currentTarget.innerText = 'star';
-      this.dataAccess.userFavouriteTrials(trialId, this.userId).subscribe();
+      this.dataAccess.userFavouriteTrials(trialDetails).subscribe();
     }else {
       event.currentTarget.innerText = 'star_border';
       //this.dataAccess.unSaveTrial(trialID).subscribe();

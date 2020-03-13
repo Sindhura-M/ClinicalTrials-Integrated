@@ -135,8 +135,8 @@ export class DataAccessService {
     );
   }
 
-  userFavouriteTrials(trialID: number, userID:number): Observable<any> {
-    const data = trialID;
+  userFavouriteTrials(trialDetails: any[]): Observable<any> {
+    const data = trialDetails;
     let token = 'Bearer' + ' ' + this.session.accessToken;
     const httpOptions = {
         headers: new HttpHeaders({ 
@@ -153,7 +153,7 @@ export class DataAccessService {
     );
   }
 
-  fetchTrialsSummary(trialID: number,userID:number ): Observable<any> {
+  fetchTrialsSummary(trialID: number): Observable<any> {
     let token = 'Bearer' + ' ' + this.session.accessToken;
     const httpOptions = {
         headers: new HttpHeaders({ 
