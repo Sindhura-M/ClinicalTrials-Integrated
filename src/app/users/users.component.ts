@@ -74,7 +74,7 @@ export class UsersComponent implements OnInit {
       this.http.getUserDetails().subscribe( data => {
         localStorage.setItem('userTableData',JSON.stringify(data));
         this.dataSource=JSON.parse(localStorage.getItem('userTableData'));
-        this.dataSource = data.filter(item=>item.status!="Inactive");
+        this.dataSource = data.filter(item=>item.status == null);
         this.dataSource = this.dataSource.filter(item=>item.roles[0].role=="user");
         this.usersList.setData(this.dataSource);
       });
