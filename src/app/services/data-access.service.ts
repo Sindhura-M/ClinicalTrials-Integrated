@@ -137,10 +137,12 @@ export class DataAccessService {
 
   userFavouriteTrials(trialID: number, userID:number): Observable<any> {
     const data = trialID;
+    let token = 'Bearer' + ' ' + this.session.accessToken;
     const httpOptions = {
         headers: new HttpHeaders({ 
           'Access-Control-Allow-Origin':'*',  
           'Content-Type' : 'application/json',
+          'Authorization': token,
           'Accept': 'application/json'
         })
       };
