@@ -203,7 +203,53 @@
 				<hr>
 
 				<h6>New trials</h6>
-				<p>These are new trials that have recently been uploaded that match your condition</p>
+				<!-- <p>These are new trials that have recently been uploaded that match your condition</p> -->
+				<!-- <div class="mytrials-table">
+			  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+						  <ng-container matColumnDef="Study title">
+						    <th mat-header-cell *matHeaderCellDef> Study title </th>
+						    <td mat-cell *matCellDef="let element"> {{element.summary}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Interventions">
+						    <th mat-header-cell *matHeaderCellDef> Interventions </th>
+						    <td mat-cell *matCellDef="let element"> {{element.interventions}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Phase">
+						    <th mat-header-cell *matHeaderCellDef> Phase </th>
+						    <td mat-cell *matCellDef="let element"> <span class="phase-bgColor">{{element.phase}}</span> </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sponsor">
+						    <th mat-header-cell *matHeaderCellDef> Sponsor </th>
+						    <td mat-cell *matCellDef="let element"> {{element.sponsor}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Sex">
+						    <th mat-header-cell *matHeaderCellDef> Sex </th>
+						    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Location">
+						    <th mat-header-cell *matHeaderCellDef> Location </th>
+						    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+						  </ng-container>
+
+						  <ng-container matColumnDef="Save">
+						    <th mat-header-cell *matHeaderCellDef> Save </th>
+						    <td mat-cell *matCellDef="let element"> <i class="material-icons"> star_border </i> </td>
+						  </ng-container>
+
+						  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+					</table>
+				</div> -->
+
+				<hr>
+				<h6>Saved trials</h6>
+
 				<div class="mytrials-table">
 			  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -246,9 +292,6 @@
 						  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 					</table>
 				</div>
-
-				<hr>
-				<h6>Saved trials</h6>
 				<!-- div class="mytrials-table">
 			  		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
