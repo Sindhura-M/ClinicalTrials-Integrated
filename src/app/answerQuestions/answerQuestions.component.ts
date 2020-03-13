@@ -26,7 +26,9 @@ export class AnswerQuestionsComponent implements OnInit {
 	currentYear = (new Date()).getFullYear();
 	range = [];	
 	error: String[];
-	myAccDetails: any;			
+	myAccDetails: any;	
+	display: boolean;		
+	display2: boolean;
 	selectboxCharacteristic: any;
 	constructor(private _router: Router, 
 		private dataQAservice: dataQAservice, 
@@ -111,18 +113,52 @@ export class AnswerQuestionsComponent implements OnInit {
 					
 				});
 			}
-			}else if(element.optionType=="selectbox-earlyStage" || element.optionType=="selectbox-advanced"){
-				if(element.characteristic==key){
-				
-					element.anslistobj[0].selectbox.forEach(item => {
-						if(item.status==this.myAccDetails.condition[key]){
-							item.value=this.myAccDetails.condition[key];
-							  }
-						
-						
+			}else if(element.optionType=="selectbox-earlyStage"){
+				if(key.includes("early")){
+                    element.anslistobj[1].radio.forEach(radioElm => {
+						if(radioElm.code==this.myAccDetails.condition[key]){
+						radioElm.value=true;
+					} 
+     				});
+					element.anslistobj[0].selectbox.forEach(selectElm => {
+						var ret =key.replace('early','');
+						if(selectElm.therapyName==ret){
+							if(this.myAccDetails.condition[key]!=null){
+								this.display=true;
+								selectElm.answer=this.myAccDetails.condition[key];
+							}
+							
+
+						}
+
 					});
-				
 				}
+					
+				
+				}else if(element.optionType=="selectbox-advanced"){
+				 if(key.includes("advanced")){
+					element.anslistobj[1].radio.forEach(radioElm => {
+						if(radioElm.code==this.myAccDetails.condition[key]){
+							if(radioElm.code=="Yes"){
+								this.display2=true;
+							}
+						radioElm.value=true;
+					} 
+     				});
+					element.anslistobj[0].selectbox.forEach(selectElm => {
+						var ret =key.replace('advanced','');
+						if(selectElm.therapyName==ret){
+							if(this.myAccDetails.condition[key]!=null){
+								
+								selectElm.answer=this.myAccDetails.condition[key];
+							}
+							
+
+						}
+
+					});
+				 }
+				
 			}
 			}});
 		}
@@ -172,8 +208,8 @@ export class AnswerQuestionsComponent implements OnInit {
 	treatmentYear: number;
 	diagnosisDate: String;
 
-	display: boolean;
-	display2: boolean;
+	
+	
 
 	showIncompleteQuestions:boolean = false;
 
@@ -301,10 +337,11 @@ export class AnswerQuestionsComponent implements OnInit {
 	answerkey: AnswerKey[] = [];
 	selectedOptArray=[];
 	selectedOptionValue;
-	
+	sizeValue;
 	onCheck(e,selectedOpt) {
 
-		let val = e.value;		
+		let val = e.value;	
+		
 
 		this.diagnosisDate = this.selectedMonth + ' ' + this.selectedYear;
 
@@ -324,6 +361,7 @@ export class AnswerQuestionsComponent implements OnInit {
 				}else {
 					element.value=true;
 					val="Any"
+					this.sizeValue="";
 					
 					
 

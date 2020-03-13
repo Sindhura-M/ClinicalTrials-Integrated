@@ -14,6 +14,8 @@
     "ID": 2, 
     "question": "Date of initial diagnosis?", 
     "optionType": "date",
+    "month":"",
+    "date":"",
     "anslistobj": [],
     "value":"",
     "characteristic": "diagnosis",
@@ -123,7 +125,7 @@
     "question": "Please select all forms of treatment the patient has received for early stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
     "optionType": "selectbox-earlyStage",
     "anslistobj": [{"selectbox" : [
-                      {"therapyName": "Surgery", "options": [{"code":"Surgery", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"Yes"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "answer":"Surgery","duration": "date"},
+                      {"therapyName": "Surgery", "options": [{"code":"Surgery", "status":"null","value":""},{"code":"Yes", "status":"Y","value":"Yes"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "answer":"Surgery","duration": "date"},
                       {"therapyName": "Radiotherapy", "options": [{"code":"Radiotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date","answer":"Radiotherapy"},
                       {"therapyName": "Chemotherapy", "options": [{"code":"Chemotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Chemotherapy"},
                       {"therapyName": "Hormonal therapy", "options": [{"code":"Hormonal therapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Hormonal therapy"},
@@ -141,7 +143,7 @@
     "question": "Please select all forms of treatment the patient has received for advanced stage breast cancer.<br><a>Find out more about types of treatments here</a>", 
     "optionType": "selectbox-advanced",
     "anslistobj": [{"selectbox" : [
-      {"therapyName": "Surgery", "options": [{"code":"Surgery", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"Yes"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "answer":"Surgery","duration": "date"},
+      {"therapyName": "Surgery", "options": [{"code":"Surgery", "status":"null","value":""},{"code":"Yes", "status":"Y","value":"Yes"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "answer":"Surgery","duration": "date"},
       {"therapyName": "Radiotherapy", "options": [{"code":"Radiotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "date","answer":"Radiotherapy"},
       {"therapyName": "Chemotherapy", "options": [{"code":"Chemotherapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Chemotherapy"},
       {"therapyName": "Hormonal therapy", "options": [{"code":"Hormonal therapy", "status":"Y","value":""},{"code":"Yes", "status":"Y","value":"false"},{"code":"No", "status":"N","value":"false"},{"code":"Not sure", "status":"Y/N","value":"false"}], "duration": "No. of months","answer":"Hormonal therapy"},
