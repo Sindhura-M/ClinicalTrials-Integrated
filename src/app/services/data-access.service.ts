@@ -26,7 +26,8 @@ export class DataAccessService {
   private _url: string = environment.apiUrl + '/ctc/myaccount/createAccountProfile';
   private _trialsurl: string = environment.apiUrl + '/ctc/trials/matchingTrials';
   private _fetchTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/fetchRecord';
-  private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
+  //private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
+  private _userFavouriteTrials: string = environment.apiUrl + '/ctc/trials/userFavouriteTrials';
   //private _register: string = environment.apiUrl + '/register';
   private _login: string = environment.apiUrl + '/ctc/authenticate';
   private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
@@ -134,7 +135,7 @@ export class DataAccessService {
     );
   }
 
-  saveTrial(trialID: number): Observable<any> {
+  userFavouriteTrials(trialID: number, userID:number): Observable<any> {
     const data = trialID;
     const httpOptions = {
         headers: new HttpHeaders({ 
@@ -144,7 +145,7 @@ export class DataAccessService {
         })
       };
 
-    return this.client.post<any>(this._saveTrial,data,httpOptions)
+    return this.client.post<any>(this._userFavouriteTrials,data,httpOptions)
     .pipe(
       catchError(this.handleError)
     );
