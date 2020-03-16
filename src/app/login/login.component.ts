@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
 	          );
 	          if(response.userDetails.user.roles[0].role == 'ADMIN'){
 	          	this.router.navigate(['/users']);
-	          } else if(response.userDetails.user.roles[0].role == 'user' && response.userDetails.user.status == null){
+	          } else if(response.userDetails.user.roles[0].role == 'user' && response.userDetails.user.status == 'Active'){
 	          	//stepper.next();
 	          	this.router.navigate(['/myaccount']);
 	          	/*this.dataAccess.getMyAccTrials().subscribe( data => {
