@@ -106,13 +106,26 @@ export class AnswerQuestionsComponent implements OnInit {
 			}else if(element.optionType=="text"){
 				if(element.characteristic==key){
 				element.anslistobj.forEach(item => {
-					if(item.status==this.myAccDetails.condition[key]){
+					if(item.status==this.myAccDetails.condition[key]&&this.myAccDetails.condition[key]!=null){
 						item.value=this.myAccDetails.condition[key];
+						
+						  }else {
+							this.sizeValue=this.myAccDetails.condition[key];
 						  }
 					
 					
 				});
 			}
+			}else if(element.optionType=="date"){
+                  if(element.characteristic==key){
+					  if(this.myAccDetails.condition[key]!=null){
+      				var num = this.myAccDetails.condition[key].match(/\d+/g);
+					this.treatmentYear=num[0];
+                  // num[0] will be 21
+	    		   var letr=  this.myAccDetails.condition[key].match(/[a-zA-Z]+/g);
+				   this.treatmentMonth=letr[0];
+				}
+				  }
 			}else if(element.optionType=="selectbox-earlyStage"){
 				if(key.includes("early")){
                     element.anslistobj[1].radio.forEach(radioElm => {

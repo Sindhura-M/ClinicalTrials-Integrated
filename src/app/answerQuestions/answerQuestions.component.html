@@ -31,13 +31,13 @@
 
 			<div *ngIf="optionType === 'date'">
 				<div>
-					<select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)"
+					<select name="Month" class="select date-select" #MM [value]="treatmentMonth"   (change)="onMonthSelect($event, MM.value)"
 					>
 		                <option>Month</option>
 		                <option *ngFor="let month of month" [value]="month" [selected]="month==selectedMonth"
 		                >{{month}}</option>
 		            </select>
-		            <select name="Year" class="select date-select" #YY (change)="onYearSelect($event, YY.value, characteristic)">
+		            <select name="Year" class="select date-select" #YY [value]="treatmentYear"  (change)="onYearSelect($event, YY.value, characteristic)">
 		                <option>Year</option>
 		                <option *ngFor="let year of years" [value]="year" [selected]="year==selectedYear">{{year}}</option>
 		            </select>
@@ -132,15 +132,15 @@
 									<span>Date </span>
 								</div>
 								<div class="large-6 small-8 column">
-									<select name="Month">
+									<select name="Month" [value]="treatmentMonth">
 										<option>Month</option>
-										<option *ngFor="let month of month" [value]="opt.month" [selected]="month==treatmentMonth">{{month}}</option>
+										<option *ngFor="let month of month"  [selected]="month==treatmentMonth">{{month}}</option>
 									</select>
 								</div>
 								<div class="large-4 small-8 column">
 									<select name="Year">
 										<option>Year</option>
-										<option *ngFor="let year of years" [value]="opt.year" [selected]="year==treatmentYear">{{year}}</option>
+										<option *ngFor="let year of years" [value]="year" [selected]="year==treatmentYear">{{year}}</option>
 									</select>
 								</div>
 							</div>
