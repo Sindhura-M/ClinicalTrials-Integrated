@@ -10,7 +10,7 @@
 					<ul *ngFor="let option of option">
 						<div class="large-12 column optionList">
                 	  <mat-radio-button
-							value="{{option.status}}" name="{{option.code}}" [checked]="option.value"
+							value="{{option.status}}" name="{{option.code}}" [checked]="option.value==true"
 					        [ngModel]="optionSelected" ngDefaultControl [value]="option.value"
 					        (change)="onCheck($event,option.code)">
 					        {{option.code}}
