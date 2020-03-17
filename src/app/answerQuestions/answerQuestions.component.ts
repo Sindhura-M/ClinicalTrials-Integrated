@@ -120,10 +120,10 @@ export class AnswerQuestionsComponent implements OnInit {
                   if(element.characteristic==key){
 					  if(this.myAccDetails.condition[key]!=null){
       				var num = this.myAccDetails.condition[key].match(/\d+/g);
-					this.treatmentYear=num[0];
+					this.selectedYear=num[0];
                   // num[0] will be 21
 	    		   var letr=  this.myAccDetails.condition[key].match(/[a-zA-Z]+/g);
-				   this.treatmentMonth=letr[0];
+				   this.selectedMonth=letr[0];
 				}
 				  }
 			}else if(element.optionType=="selectbox-earlyStage"){
@@ -331,15 +331,18 @@ export class AnswerQuestionsComponent implements OnInit {
 
 	onMonthSelect(event, MM) {
 		this.selectedMonth = MM;
+		this.selectedMonth=event.currentTarget.value;
 	}
 
 	onYearSelect(event, YY, code) {
 		this.selectedYear = YY;
+		this.selectedYear=event.currentTarget.value;
 		this.onCheck(event, code);
 	}
 
 	onMonth(event, MM) {
 		this.treatmentMonth = MM;
+		
 	}
 
 	onYear(event, YY, code) {

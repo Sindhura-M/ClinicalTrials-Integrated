@@ -31,14 +31,17 @@
 
 			<div *ngIf="optionType === 'date'">
 				<div>
-					<select name="Month" class="select date-select" #MM [value]="treatmentMonth"   (change)="onMonthSelect($event, MM.value)"
+				
+					<select name="Month" class="select date-select" #MM [value]="selectedMonth"   (change)="onMonthSelect($event, treatmentMonth)"
 					>
-		                <option>Month</option>
+		               
 		                <option *ngFor="let month of month" [value]="month" [selected]="month==selectedMonth"
 		                >{{month}}</option>
-		            </select>
-		            <select name="Year" class="select date-select" #YY [value]="treatmentYear"  (change)="onYearSelect($event, YY.value, characteristic)">
-		                <option>Year</option>
+					</select>
+				
+					
+		            <select name="Year" class="select date-select" #YY [value]="selectedYear"  (change)="onYearSelect($event, YY.value, characteristic)">
+		               
 		                <option *ngFor="let year of years" [value]="year" [selected]="year==selectedYear">{{year}}</option>
 		            </select>
 		        </div>
