@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 		this.loginForm = this.fb.group(
 		  {
 			emailAddress: ['', Validators.compose([Validators.required, Validators.email])],
-			pwd: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+			pwd: ['', Validators.compose([Validators.required])]
 		  },
 		  {
 			//validator: MustMatch('pwd', 'cnfPwd')
