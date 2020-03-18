@@ -60,12 +60,12 @@
 				<hr>
 
 				<div *ngFor="let question of quizlist;let i = index;" class="question">
-				  	<div class="accordion" (click)="toggleAccordian($event, i)">
+				  	<div (click)="toggleAccordian($event, i)">
 				  		<span class="phase-bgColor"> {{question.ID}} </span>
 						<span class="large-11" [innerHTML]="question.question"></span>
 					</div>
-				 	<div class="panel" *ngIf="question.optionType === 'radio'" hide="!item.isActive">
-					  	<div class="row" >
+				 	<div class="" *ngIf="question.optionType === 'radio'" hide="!item.isActive">
+					  	<div class="row accRow" >
 							            <span style="padding: 50px;">{{question.answer}}</span>
 								<!-- <ul *ngFor="let option of question.anslistobj">
 									<div class="large-12 column optionList">
@@ -76,7 +76,7 @@
 						</div>
 					</div>
 
-					<div class="panel row" *ngIf="question.optionType === 'checkbox'" hide="!item.isActive">
+					<div class=" row accRow" *ngIf="question.optionType === 'checkbox'" hide="!item.isActive">
 						<!-- <ul *ngFor="let option of question.anslistobj" > -->
 							<span style="padding: 50px;">{{question.answer}}</span>
 							<!-- <input type="checkbox" (click)="check($event,option, characteristic)" [checked]="option.checked" checklist-model="user.roles" checklist-value="role" [value]="option.checked" disabled readonly> 
@@ -84,7 +84,7 @@
 						<!-- </ul> -->
 					</div>
 
-					<div class="panel" *ngIf="question.optionType === 'date'" hide="!item.isActive">
+					<div class="accRow" *ngIf="question.optionType === 'date'" hide="!item.isActive">
 						<div>
 							<span style="padding: 50px;">{{question.answer}}</span>
 							<!-- <select name="Month" class="select date-select" #MM (change)="onMonthSelect($event, MM.value)" disabled>
@@ -98,13 +98,13 @@
 				        </div>
 					</div>
 
-					<div class="panel" *ngIf="question.optionType === 'text'" hide="!item.isActive"> 
+					<div class="accRow" *ngIf="question.optionType === 'text'" hide="!item.isActive"> 
 						
 							<span style="padding: 50px;">{{question.answer}}</span>
 							
 					</div>
 
-					<div class="row panel" *ngIf="question.optionType === 'multipleRadio'" hide="!item.isActive">
+					<div class="row accRow" *ngIf="question.optionType === 'multipleRadio'" hide="!item.isActive">
 						 <ul *ngFor="let option of question.anslistobj">
 							
 							<li >
@@ -113,7 +113,7 @@
 						</ul>
 					</div>
 
-					<div class="panel" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
+					<div class="accRow" *ngIf="question.optionType == 'selectbox-earlyStage'" hide="!item.isActive">
 						<span style="padding: 50px;">{{question.answer}}</span>
 						<ul *ngFor="let option of selectedOptionArray">
 								
@@ -123,7 +123,7 @@
 						</ul>
 					</div>
 
-					<div class="panel" *ngIf="question.optionType == 'selectbox-advanced'" hide="!item.isActive">
+					<div class="accRow" *ngIf="question.optionType == 'selectbox-advanced'" hide="!item.isActive">
 					
 								
 							<ul *ngFor="let option of selectedAdvOptionArray">
@@ -135,7 +135,7 @@
 						
 					</div>
 
-					<div class="row display-flex panel" *ngIf="question.optionType == 'selectbox-earlyStage' && display" hide="!item.isActive">
+					<div class="row display-flex accRow" *ngIf="question.optionType == 'selectbox-earlyStage' && display" hide="!item.isActive">
 						<span style="padding: 50px;">{{question.answer}}</span>
 						<!-- <div *ngFor="let option of question.anslistobj">
 							<ul  class="full-width" id={{option[i]}}>
@@ -177,7 +177,7 @@
 						</div> -->
 					</div>
 
-					<div class="row display-flex optionType panel" *ngIf="question.optionType == 'selectbox-advanced' && display2" hide="!item.isActive">
+					<div class="row display-flex optionType accRow" *ngIf="question.optionType == 'selectbox-advanced' && display2" hide="!item.isActive">
 						<a>{{link}}</a>
 						<span style="padding: 50px;">{{question.answer}}</span>
 						<!-- <div *ngFor="let option of question.anslistobj" class="optionList-width"> -->
