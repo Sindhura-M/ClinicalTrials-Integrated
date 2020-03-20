@@ -278,6 +278,9 @@ export class AnswerQuestionsComponent implements OnInit {
 	
 		break
 		case "checkbox":
+			if(this.selectedOpt!=undefined){
+
+			
 			this.selectedOpt.forEach(item => {
 				
 				this.option.forEach(element => {
@@ -287,6 +290,7 @@ export class AnswerQuestionsComponent implements OnInit {
 					});
 
 			});
+		}
 			break
 			case "text" :
 				this.selectedOpt = this.optionSelected[this.i];
@@ -422,6 +426,8 @@ export class AnswerQuestionsComponent implements OnInit {
 						element.answer=val;
 					}
 			});
+		}else if(this.optionType=="radio"){
+			val=selectedOpt.status;
 		}
 
 		this.optionSelected[this.i] = selectedOpt;
@@ -488,6 +494,19 @@ export class AnswerQuestionsComponent implements OnInit {
 			});
 			}
 		}
+
+		this.answerkey.push(new AnswerKey(this.characteristic, value));
+		this.answerkey.push(new AnswerKey('accountUserId', this.session.accountUserId));
+		this.answerkey.push(new AnswerKey('quesId', this.session.questionId));
+		
+		
+
+		let result = Object.assign({},...this.answerkey.map((a:any) => ({ [a.code]: a.status })));
+
+		let resultQA = this.dataQAservice.getData();
+
+		this.array3 = [];
+		this.array3.push(Object.assign({}, resultQA, result));
 	}
 
 	onSubmit() {
