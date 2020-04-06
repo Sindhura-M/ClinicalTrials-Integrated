@@ -21,6 +21,8 @@ export class UsersComponent implements OnInit {
   emailAddress: string = '';
   password: string = '';
   role: any;
+  fileToUpload: any;
+  name: any;
 
   constructor(private dataAccountProfile: dataAccountProfile, private http: DataAccessService, private usersList : UsersListService, private router:Router, private fb: FormBuilder, public dialog: MatDialog, private httpClient: HttpClient, private excelService:ExportToExcelService) {}
   dialogRef: MatDialogRef<ConfirmationDialogComponent>;
@@ -85,6 +87,25 @@ export class UsersComponent implements OnInit {
     this. dataSource = this. dataSource.filter(item => item.id !== id);
     this.dataSource.push();
   }*/
+    uploadCsv($event): void {
+
+      let data = [];
+      this.dataSource.forEach( tmp => { 
+      data.push(tmp.summaries);
+    })
+
+      let SummaryResult = [];
+      for (var i = 0; i<data.length; i++) {
+      //results = [ ...this.dataSource[i], ...data[i]];
+      SummaryResult.push(Object.assign({}, data[i]));
+    }
+      this.fileToUpload = SummaryResult;
+      let formData = new FormData();
+      formData.append('file.csv', JSON.stringify(this.fileToUpload));
+      this.http.post(formData).subscribe(response => {
+      console.log(response);
+    });
+  }
 
   exportAllUsers():void {
 

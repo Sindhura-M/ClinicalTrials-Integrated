@@ -28,6 +28,7 @@ export class DataAccessService {
   private _fetchTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/fetchRecord';
   //private _saveTrial: string = environment.apiUrl + '/ctc/trials/trialssummary/userTrialsSummary';
   private _userFavouriteTrials: string = environment.apiUrl + '/ctc/trials/userFavouriteTrials';
+  private _post: string = environment.apiUrl + '/ctc/users/post';
   //private _register: string = environment.apiUrl + '/register';
   private _login: string = environment.apiUrl + '/ctc/authenticate';
   private _userDetails: string = environment.apiUrl + '/ctc/trials/userList';
@@ -74,6 +75,25 @@ export class DataAccessService {
       };
  
       return this.client.post<TrialsTable[]>(this._trialsurl,data,httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+
+  }
+
+  post(formData: any): Observable<any> {
+   const data=formData;
+   let token = 'Bearer' + ' ' + this.session.accessToken;
+     const httpOptions = {
+        headers: new HttpHeaders({ 
+          'Access-Control-Allow-Origin':'*',  
+          'Content-Type' : 'application/json',
+          'Authorization': token,
+          'Accept': 'application/json'
+        })
+      };
+      let _url = this._post;
+      return this.client.post<any>(this._post,data,httpOptions)
       .pipe(
         catchError(this.handleError)
       );
