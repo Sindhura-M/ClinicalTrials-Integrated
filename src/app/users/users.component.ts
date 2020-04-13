@@ -102,7 +102,7 @@ export class UsersComponent implements OnInit {
       this.fileToUpload = SummaryResult;
       let formData = new FormData();
       formData.append('file.csv', JSON.stringify(this.fileToUpload));
-      this.http.post(formData).subscribe(response => {
+      this.http.updateTrialSummary(formData).subscribe(response => {
       console.log(response);
     });
   }
